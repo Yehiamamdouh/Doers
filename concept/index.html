@@ -196,11 +196,9 @@ section{padding-block:clamp(72px,10vw,140px)}
 .clients{padding-block:72px;border-bottom:1px solid var(--line)}
 .clients h4{text-align:center;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:30px}
 .logos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
-.wm{font:800 clamp(15px,1.5vw,21px)/1.05 var(--display);color:#8d8b86;text-align:center;letter-spacing:-.01em;transition:color .3s,transform .4s var(--ease)}
-.logos div:hover .wm{color:var(--ink);transform:scale(1.08)}
 .logos div{background:#fff;display:grid;place-items:center;height:clamp(92px,9.5vw,136px)}
-.logos img{height:58%;width:auto;max-width:64%;object-fit:contain;filter:grayscale(1);opacity:.7;mix-blend-mode:multiply;transition:filter .3s,opacity .3s,transform .4s var(--ease)}
-.logos div:hover img{filter:none;opacity:1;transform:scale(1.08)}
+.logos img{width:calc(var(--w) * 1px);max-width:74%;height:auto;opacity:.9;transition:filter .35s,opacity .35s,transform .45s var(--ease)}
+.logos div:hover img{filter:brightness(.18);opacity:1;transform:scale(1.07)}
 
 /* why */
 .why{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
@@ -348,6 +346,7 @@ footer a:hover{color:var(--orange)}
   .res:nth-child(n){border-inline-start:0;padding-inline-start:0}
   .res:nth-child(even){border-inline-start:1px solid var(--line-d);padding-inline-start:20px}
   .logos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .logos img{width:calc(var(--w) * .66px)}
   .fgrid{grid-template-columns:1fr 1fr}
   .fgrid>div:first-child{grid-column:1/-1}
   .peek{display:none}
@@ -511,21 +510,21 @@ footer a:hover{color:var(--orange)}
 <div class="clients wrap" id="clients">
   <h4 data-t="clh">Trusted by multinationals, UN agencies and ambitious brands</h4>
   <div class="logos rv">
-    <div><img src="img/clients/8.png" alt="United Nations" loading="lazy"></div>
-    <div><img src="img/clients/7.png" alt="UNHCR" loading="lazy"></div>
-    <div><img src="img/clients/ibm.png" alt="IBM" loading="lazy"></div>
-    <div><img src="img/clients/dell.png" alt="Dell" loading="lazy"></div>
-    <div><img src="img/clients/6.png" alt="Nestlé" loading="lazy"></div>
-    <div><img src="img/clients/4.png" alt="AXA" loading="lazy"></div>
-    <div><img src="img/clients/12.png" alt="GSK" loading="lazy"></div>
-    <div><img src="img/clients/lenovo.png" alt="Lenovo" loading="lazy"></div>
-    <div><img src="img/clients/5.png" alt="Asus" loading="lazy"></div>
-    <div><span class="wm" role="img" aria-label="Technip Energies">Technip<br>Energies</span></div>
-    <div><span class="wm" role="img" aria-label="Knauf" style="letter-spacing:.08em">KNAUF</span></div>
-    <div><img src="img/clients/3.png" alt="Timberland" loading="lazy"></div>
-    <div><img src="img/clients/13.png" alt="RB" loading="lazy"></div>
-    <div><img src="img/clients/11.png" alt="FAO" loading="lazy"></div>
-    <div><img src="img/clients/2.png" alt="EMS Revolution" loading="lazy"></div>
+    <div><img src="img/clients/n-un.png" alt="United Nations" style="--w:70" loading="lazy"></div>
+    <div><img src="img/clients/n-unhcr.png" alt="UNHCR" style="--w:64" loading="lazy"></div>
+    <div><img src="img/clients/n-ibm.png" alt="IBM" style="--w:112" loading="lazy"></div>
+    <div><img src="img/clients/n-dell.png" alt="Dell" style="--w:70" loading="lazy"></div>
+    <div><img src="img/clients/n-nestle.png" alt="Nestlé" style="--w:66" loading="lazy"></div>
+    <div><img src="img/clients/n-axa.png" alt="AXA" style="--w:58" loading="lazy"></div>
+    <div><img src="img/clients/n-gsk.png" alt="GSK" style="--w:72" loading="lazy"></div>
+    <div><img src="img/clients/n-lenovo.png" alt="Lenovo" style="--w:124" loading="lazy"></div>
+    <div><img src="img/clients/n-asus.png" alt="ASUS" style="--w:58" loading="lazy"></div>
+    <div><img src="img/clients/n-technip.png" alt="Technip Energies" style="--w:104" loading="lazy"></div>
+    <div><img src="img/clients/n-knauf.png" alt="Knauf" style="--w:112" loading="lazy"></div>
+    <div><img src="img/clients/n-timberland.png" alt="Timberland" style="--w:62" loading="lazy"></div>
+    <div><img src="img/clients/n-rb.png" alt="RB" style="--w:70" loading="lazy"></div>
+    <div><img src="img/clients/n-fao.png" alt="FAO" style="--w:68" loading="lazy"></div>
+    <div><img src="img/clients/n-ems.png" alt="EMS Revolution" style="--w:100" loading="lazy"></div>
   </div>
 </div>
 
