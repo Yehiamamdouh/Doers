@@ -520,21 +520,7 @@ footer a:hover{color:var(--orange)}
   </div>
 </section>
 
-<section class="wrap" id="index">
-  <div class="head" style="margin-bottom:0">
-    <h2 class="rv" data-t="ih" data-html>Project <em>index.</em></h2>
-    <div class="chips rv" role="group" aria-label="Filter projects">
-      <button class="chip on" data-f="all" data-t="fa">All</button>
-      <button class="chip" data-f="ex" data-t="fe">Exhibitions</button>
-      <button class="chip" data-f="ev" data-t="fv">Events &amp; launches</button>
-      <button class="chip" data-f="br" data-t="fb">Branding &amp; signage</button>
-    </div>
-  </div>
-  <div class="idx-scroll"><table class="idx">
-    <thead><tr><th data-t="c_y">Year</th><th data-t="c_c">Client</th><th data-t="c_p">Project</th><th data-t="c_l">Where</th><th data-t="c_s">Scope</th></tr></thead>
-    <tbody id="idx"></tbody>
-  </table></div>
-</section>
+
 
 <section class="results">
   <div class="wrap">
@@ -578,7 +564,7 @@ footer a:hover{color:var(--orange)}
 <section id="why">
   <div class="wrap why">
     <figure class="why-img rv">
-      <img class="px" src="img/signage/serenity-alpha-beach.jpg" alt="Serenity Alpha Beach resort entrance sign by Doers" width="1400" height="1400" loading="lazy">
+      <img class="px" src="img/sketches.jpg" alt="Hand-drawn concept sketches and plans on the Doers design desk" width="900" height="1125" loading="lazy">
       <figcaption data-t="figc" data-html>Veteran creatives.<br><em>Explosive art room.</em></figcaption>
     </figure>
     <div>
@@ -652,32 +638,7 @@ const SVC=[
  {n:"Radio Advertising",a:"إعلانات الراديو",eg:"/radio-advertising-egypt/",ksa:"/ksa/radio-advertising-agencies-in-jeddah/",d:"Radio spots that reach audiences on the move.",da:"إعلانات راديو بتوصل لجمهورك وهو في الطريق."},
  {n:"Reputation Management",a:"إدارة السمعة",eg:"/listening-and-reputation-management/",ksa:"/ksa/listening-and-reputation-management-in-jeddah/",d:"Social listening and reputation management that protects your brand.",da:"رصد ومتابعة وإدارة سمعة البراند أونلاين."}
 ];
-const PROJ=[
- ["2026","iSYS","AI Expo 2026 stand","Cairo","3D concept · production · AV","ex"],
- ["2024","GSK","Stand at DUPHAT 2024","Dubai World Trade Centre","3D concept · production · AV · lighting","ex"],
- ["2024","Juhayna","Stand at Gulfood 2024","Dubai World Trade Centre","Production · AV","ex"],
- ["2024","Galaxy","Egy Beauty Africa 2024","Cairo","3D concept · production · AV","ex"],
- ["2024","RAI Group","Plastex 2024","Cairo","3D concept · production · AV","ex"],
- ["2024","Technip Energies","EGYPES 2024","Cairo","Creative 3D · production · AV","ex"],
- ["2024","Sanofi","Rare Disease Day, Hilton Yas Island","Abu Dhabi","Production · AV","ev"],
- ["2024","Shingrix","Launch event","Kuwait","Production · AV · lighting · 360 photo booth","ev"],
- ["2024","Sanofi","Office branding","Jeddah · Riyadh · Dubai","Internal branding","br"],
- ["2024","MSD","Dubai office branding","Dubai","Internal branding","br"],
- ["2023","Asfour Crystal","Exhibition stand","Dubai","Creative 3D · production · AV · lighting","ex"],
- ["2023","Novartis","Scemblix event, Sofitel Downtown","Dubai","Creative 3D · production · AV · lighting","ev"],
- ["2023","iSYS","Cairo ICT 2023","Cairo","3D concept · production · AV","ex"],
- ["—","Serenity Group","Stand at ITB Berlin","Berlin, Germany","3D concept · production","ex"],
- ["—","iSYS","Tech Heritage, Grand Egyptian Museum","Cairo","3D concept · production · AV","ex"],
- ["2022","Egypt Energy Show","Main concept & production for Lucy Eclectic","Cairo","Concept · production · event management","ex"],
- ["2022","Jeddah Defense Show","Hilton Jeddah","Jeddah","Production · AV","ex"],
- ["Expo 2020","AstraZeneca","Breast Cancer Patient Forum, Swedish Pavilion","Dubai","Theme · characters · video · event management","ev"],
- ["—","Dell Technologies","CX Day, JW Marriott New Cairo","Cairo","Theme · production · LED & sound · coverage","ev"],
- ["—","Dell","University road show: GUC, AUC, BUE, Helwan","Cairo","3D design · car production · activation","ev"],
- ["—","Aston Martin · DS 7","Launches at Capital Business Park","Cairo","3D design · booth production · giveaways","ev"],
- ["—","AXA","Head office branding","New Cairo","Design · print · production · installation","br"],
- ["—","Arab Bank · Bosch · Nestlé","Signage & internal branding","Egypt","Design · production · installation","br"],
- ["—","Marriott · Sheraton · Serenity","Hotel & resort signage","Egypt","Signage · installation","br"]
-];
+
 const CITIES=[["Cairo","القاهرة"],["Jeddah","جدة"],["Riyadh","الرياض"],["Dubai","دبي"],["Abu Dhabi","أبوظبي"],["Kuwait","الكويت"],["Berlin","برلين"],["London","لندن"]];
 const AR={
  nw:"أعمالنا",nav1:"الخدمات",nav2:"السعودية",nav3:"المدونة",nav4:"تواصل",mcai:"القاهرة",mjed:"جدة",navcta:"ابدأ مشروعك",
@@ -700,7 +661,7 @@ const AR={
 };
 const U=p=>p.startsWith("*")?p.slice(1):"https://doersadv.com"+p, EN={};
 document.querySelectorAll("[data-t]").forEach(el=>{EN[el.dataset.t]??=el.innerHTML});
-let ar=false, filt="all";
+let ar=false;
 
 function render(){
   const nm=s=>ar?s.a:s.n, city=c=>ar?(c?"القاهرة":"جدة"):(c?"Cairo":"Jeddah");
@@ -711,12 +672,8 @@ function render(){
   const items=SVC.map(s=>`<span>${nm(s)}</span>`).join("");
   document.getElementById("track").innerHTML=items+items;
   document.getElementById("citylist").innerHTML=CITIES.map(c=>`<span>${ar?c[1]:c[0]}</span>`).join("<i>·</i>");
-  renderIdx(); bindPeek();
+  bindPeek();
 }
-function renderIdx(){
-  document.getElementById("idx").innerHTML=PROJ.filter(r=>filt==="all"||r[5]===filt).map((r,i)=>`<tr style="animation-delay:${i*25}ms"><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("");
-}
-document.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{filt=b.dataset.f;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===b));renderIdx();}));
 document.getElementById("lang").addEventListener("click",e=>{
   if(location.hostname==="doersadv.com")return; // on the live site /ar/ is its own page
   e.preventDefault(); ar=!ar;
