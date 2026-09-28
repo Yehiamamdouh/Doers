@@ -195,12 +195,11 @@ section{padding-block:clamp(72px,10vw,140px)}
 /* clients */
 .clients{padding-block:72px;border-bottom:1px solid var(--line)}
 .clients h4{text-align:center;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:30px}
-.logos{display:flex;flex-wrap:wrap;justify-content:center;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
-.logos>div{flex:0 0 calc((100% - 6px)/7)}
+.logos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
 .wm{font:800 clamp(15px,1.5vw,21px)/1.05 var(--display);color:#8d8b86;text-align:center;letter-spacing:-.01em;transition:color .3s,transform .4s var(--ease)}
 .logos div:hover .wm{color:var(--ink);transform:scale(1.08)}
-.logos div{background:#fff;display:grid;place-items:center;aspect-ratio:3/2}
-.logos img{height:66%;width:auto;max-width:78%;object-fit:contain;filter:grayscale(1);opacity:.7;mix-blend-mode:multiply;transition:filter .3s,opacity .3s,transform .4s var(--ease)}
+.logos div{background:#fff;display:grid;place-items:center;height:clamp(92px,9.5vw,136px)}
+.logos img{height:58%;width:auto;max-width:64%;object-fit:contain;filter:grayscale(1);opacity:.7;mix-blend-mode:multiply;transition:filter .3s,opacity .3s,transform .4s var(--ease)}
 .logos div:hover img{filter:none;opacity:1;transform:scale(1.08)}
 
 /* why */
@@ -221,7 +220,7 @@ section{padding-block:clamp(72px,10vw,140px)}
 .where{padding-block:56px;border-top:1px solid var(--line)}
 .where .eyebrow{margin-bottom:10px}
 .cities-big{font:800 clamp(30px,4.6vw,66px)/1.1 var(--display);letter-spacing:-.035em}
-.cities-big span{transition:color .25s}
+.cities-big span{transition:color .25s;white-space:nowrap}
 .cities-big span:hover{color:var(--orange)}
 .cities-big i{font-style:normal;color:var(--orange);padding-inline:.18em}
 
@@ -348,7 +347,7 @@ footer a:hover{color:var(--orange)}
   .res-grid{grid-template-columns:1fr 1fr}
   .res:nth-child(n){border-inline-start:0;padding-inline-start:0}
   .res:nth-child(even){border-inline-start:1px solid var(--line-d);padding-inline-start:20px}
-  .logos>div{flex-basis:calc((100% - 2px)/3)}
+  .logos{grid-template-columns:repeat(3,minmax(0,1fr))}
   .fgrid{grid-template-columns:1fr 1fr}
   .fgrid>div:first-child{grid-column:1/-1}
   .peek{display:none}
@@ -415,7 +414,7 @@ footer a:hover{color:var(--orange)}
 <div class="wrap">
   <div class="stats">
     <div class="stat rv"><b><span class="count" data-to="15">15</span><i>+</i></b><span data-t="s1">Years of marketing experience</span></div>
-    <div class="stat rv"><b><span class="count" data-to="7">7</span></b><span data-t="s2">Countries we've built in</span></div>
+    <div class="stat rv"><b><span class="count" data-to="6">6</span></b><span data-t="s2">Countries we've built in</span></div>
     <div class="stat rv"><b><span class="count" data-to="12">12</span></b><span data-t="s3">Integrated services</span></div>
     <div class="stat rv"><b><span class="count" data-to="80">80</span><i>+</i></b><span data-t="s4">Web & app projects delivered</span></div>
   </div>
@@ -424,7 +423,7 @@ footer a:hover{color:var(--orange)}
 <section class="wrap" id="work">
   <div class="head">
     <h2 class="rv" data-t="wh" data-html>Selected <em>work.</em></h2>
-    <p class="rv" data-t="wp">Stands, launches and brand spaces we designed and built in Cairo, Dubai, Abu Dhabi, Jeddah, Riyadh, Kuwait and Berlin.</p>
+    <p class="rv" data-t="wp">Stands, launches and brand spaces we designed and built in Cairo, Dubai, Abu Dhabi, Jeddah, Riyadh, Kuwait, Berlin and London.</p>
   </div>
   <div class="work">
     <a class="w a" href="https://doersadv.com/booth-production-egypt/" data-cursor="View"><div class="frame"><img src="img/work/asfour-crystal.jpg" alt="Asfour Crystal exhibition stand with a crystal leopard, Dubai 2023" width="1600" height="856"><span class="tag" data-t="built">Built</span></div><figcaption><h3>Asfour Crystal</h3><span data-t="t0">Dubai 2023 · creative 3D, production, lighting</span></figcaption></a>
@@ -514,17 +513,19 @@ footer a:hover{color:var(--orange)}
   <div class="logos rv">
     <div><img src="img/clients/8.png" alt="United Nations" loading="lazy"></div>
     <div><img src="img/clients/7.png" alt="UNHCR" loading="lazy"></div>
+    <div><img src="img/clients/ibm.png" alt="IBM" loading="lazy"></div>
+    <div><img src="img/clients/dell.png" alt="Dell" loading="lazy"></div>
     <div><img src="img/clients/6.png" alt="Nestlé" loading="lazy"></div>
     <div><img src="img/clients/4.png" alt="AXA" loading="lazy"></div>
     <div><img src="img/clients/12.png" alt="GSK" loading="lazy"></div>
+    <div><img src="img/clients/lenovo.png" alt="Lenovo" loading="lazy"></div>
     <div><img src="img/clients/5.png" alt="Asus" loading="lazy"></div>
+    <div><span class="wm" role="img" aria-label="Technip Energies">Technip<br>Energies</span></div>
+    <div><span class="wm" role="img" aria-label="Knauf" style="letter-spacing:.08em">KNAUF</span></div>
     <div><img src="img/clients/3.png" alt="Timberland" loading="lazy"></div>
     <div><img src="img/clients/13.png" alt="RB" loading="lazy"></div>
     <div><img src="img/clients/11.png" alt="FAO" loading="lazy"></div>
     <div><img src="img/clients/2.png" alt="EMS Revolution" loading="lazy"></div>
-    <div><img src="img/clients/ibm.png" alt="IBM" loading="lazy"></div>
-    <div><span class="wm" role="img" aria-label="Technip Energies">Technip<br>Energies</span></div>
-    <div><span class="wm" role="img" aria-label="Knauf" style="letter-spacing:.08em">KNAUF</span></div>
   </div>
 </div>
 
@@ -631,7 +632,7 @@ const PROJ=[
  ["—","Arab Bank · Bosch · Nestlé","Signage & internal branding","Egypt","Design · production · installation","br"],
  ["—","Marriott · Sheraton · Serenity","Hotel & resort signage","Egypt","Signage · installation","br"]
 ];
-const CITIES=[["Cairo","القاهرة"],["Jeddah","جدة"],["Riyadh","الرياض"],["Dubai","دبي"],["Abu Dhabi","أبوظبي"],["Kuwait","الكويت"],["Berlin","برلين"]];
+const CITIES=[["Cairo","القاهرة"],["Jeddah","جدة"],["Riyadh","الرياض"],["Dubai","دبي"],["Abu Dhabi","أبوظبي"],["Kuwait","الكويت"],["Berlin","برلين"],["London","لندن"]];
 const AR={
  nw:"أعمالنا",nav1:"الخدمات",nav2:"السعودية",nav3:"المدونة",nav4:"تواصل",mcai:"القاهرة",mjed:"جدة",navcta:"ابدأ مشروعك",
  eyebrow:"دورز وكالة إعلانات في القاهرة مصر وجدة السعودية",
@@ -639,7 +640,7 @@ const AR={
  lead:"وكالة إعلانات متكاملة وحاصلة على جوايز، بنبني براندات ناجحة في مصر والسعودية والخليج، من الاستراتيجية والهوية لحد المعارض والفعاليات واللافتات والديجيتال.",
  cta1:"يلا نتكلم",cta2:"شوف أعمالنا",accr:"معتمدين من",
  s1:"سنة خبرة في التسويق",s2:"دول اشتغلنا فيها",s3:"خدمة متكاملة",s4:"مشروع مواقع وتطبيقات",
- wh:"من <em>أعمالنا.</em>",wp:"بوثات وإطلاقات ومساحات براند صممناها ونفذناها في القاهرة ودبي وأبوظبي وجدة والرياض والكويت وبرلين.",built:"اتنفذ",
+ wh:"من <em>أعمالنا.</em>",wp:"بوثات وإطلاقات ومساحات براند صممناها ونفذناها في القاهرة ودبي وأبوظبي وجدة والرياض والكويت وبرلين ولندن.",built:"اتنفذ",
  t0:"دبي 2023 · تصميم وتنفيذ وإضاءة",t1:"معرض AI Expo · القاهرة",t2:"لافتات الواجهة",t3:"معرض Cairo ICT",t4:"هوية المقر الرئيسي · القاهرة",
  svch:"كل اللي البراند بتاعك محتاجه. <em>في مكان واحد.</em>",svcp:"12 خدمة، وكل خطوة مربوطة بأهداف ومؤشرات أداء. اختار المدينة وشوف الفريق المحلي.",
  ih:"فهرس <em>المشاريع.</em>",fa:"الكل",fe:"معارض",fv:"فعاليات وإطلاقات",fb:"هوية ولافتات",c_y:"السنة",c_c:"العميل",c_p:"المشروع",c_l:"المكان",c_s:"نطاق العمل",
