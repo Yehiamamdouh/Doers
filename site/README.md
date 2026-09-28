@@ -56,3 +56,10 @@ ffmpeg -ss 00:00:27 -t 9 -i source.mp4 -an -vf "scale=1280:-2,fps=30" -c:v libvp
 
 Repeat with `scale=640:-2` for the `-sm` files, and save one frame as the `.jpg` poster. Keep each desktop file under ~2.5 MB.
 Full-length films belong on Vimeo, not on the hosting.
+
+## Full films on Vimeo
+
+`src/data/films.json` lists the full-length films (Drive file id, size, Vimeo title and description).
+`python3 scripts/vimeo_upload.py` sends each one to Vimeo straight from Drive and writes the Vimeo id back into the file;
+the matching video band then shows a "Watch the full film" button. It needs a Vimeo personal access token with the
+upload, edit and private scopes in the `VIMEO_TOKEN` environment variable, and network access to `api.vimeo.com`.

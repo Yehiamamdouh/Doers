@@ -5,10 +5,13 @@
  * reduced-motion visitors keep the poster. Clips live in public/video/ (see scripts/README).
  */
 import bands from '../data/video-bands.json';
+import films from '../data/films.json';
 const { id, lang = 'en' } = Astro.props;
 const b = bands[id];
 const ar = lang === 'ar';
 const t = ar ? b.ar : b.en;
+// Full film on Vimeo, once scripts/vimeo_upload.py has uploaded it.
+const film = films.find((f) => f.key === id && f.vimeo);
 ---
 <section class="vband" aria-label={t.title}>
   <video class="vband-v" muted playsinline loop preload="none" poster={`/video/${id}.jpg`}
@@ -17,6 +20,7 @@ const t = ar ? b.ar : b.en;
     <span class="vband-l">{t.label}</span>
     <p class="vband-h">{t.title}</p>
     {t.sub && <p class="vband-s">{t.sub}</p>}
+    {film && <button class="vband-play" type="button" data-vimeo={film.vimeo}><span aria-hidden="true">▶</span> {ar ? 'شاهد الفيلم كاملًا' : 'Watch the full film'}</button>}
   </div>
 </section>
 <style is:global>
@@ -27,9 +31,21 @@ const t = ar ? b.ar : b.en;
 .vband-l{display:inline-block;font:600 12px/1.4 "Bricolage Grotesque","Alexandria",system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#F7A21B;margin-bottom:14px}
 .vband-h{font:800 clamp(40px,7vw,112px)/.95 "Bricolage Grotesque","Alexandria",system-ui,sans-serif;letter-spacing:-.045em;max-width:14ch;text-wrap:balance}
 .vband-s{margin-top:16px;font:400 17px/1.5 "Bricolage Grotesque","Alexandria",system-ui,sans-serif;color:rgba(255,255,255,.82);max-width:52ch}
+.vband-play{margin-top:24px;display:inline-flex;align-items:center;gap:10px;border:0;border-radius:99px;padding:14px 22px;background:#F7A21B;color:#141414;font:700 15px "Bricolage Grotesque","Alexandria",system-ui,sans-serif;cursor:pointer;transition:transform .3s}
+.vband-play:hover{transform:translateY(-2px)}
+.vband-dlg{border:0;padding:0;background:#000;width:min(1200px,94vw);aspect-ratio:16/9;max-height:90vh}
+.vband-dlg::backdrop{background:rgba(10,10,10,.9)}
+.vband-dlg iframe{width:100%;height:100%;border:0;display:block}
+.vband-x{position:fixed;top:14px;inset-inline-end:18px;background:none;border:0;color:#fff;font-size:40px;line-height:1;cursor:pointer}
 [dir=rtl] .vband-l{letter-spacing:0;font-size:13px}
 [dir=rtl] .vband-h{font-family:"Alexandria",system-ui,sans-serif;letter-spacing:0;line-height:1.2;font-size:clamp(34px,5.4vw,84px)}
-[dir=rtl] .vband-s,[dir=rtl] .vband-l{font-family:"Alexandria",system-ui,sans-serif}
+[dir=rtl] .vband-s,.vband-play{margin-top:24px;display:inline-flex;align-items:center;gap:10px;border:0;border-radius:99px;padding:14px 22px;background:#F7A21B;color:#141414;font:700 15px "Bricolage Grotesque","Alexandria",system-ui,sans-serif;cursor:pointer;transition:transform .3s}
+.vband-play:hover{transform:translateY(-2px)}
+.vband-dlg{border:0;padding:0;background:#000;width:min(1200px,94vw);aspect-ratio:16/9;max-height:90vh}
+.vband-dlg::backdrop{background:rgba(10,10,10,.9)}
+.vband-dlg iframe{width:100%;height:100%;border:0;display:block}
+.vband-x{position:fixed;top:14px;inset-inline-end:18px;background:none;border:0;color:#fff;font-size:40px;line-height:1;cursor:pointer}
+[dir=rtl] .vband-l{font-family:"Alexandria",system-ui,sans-serif}
 </style>
 <script is:inline>
 (function(){
@@ -48,6 +64,15 @@ const t = ar ? b.ar : b.en;
       io.observe(v);
     });
   }
+  // Full film in a lightbox; the Vimeo player loads only when asked for.
+  document.addEventListener("click",function(e){
+    var b=e.target.closest(".vband-play"); if(!b)return;
+    var d=document.createElement("dialog"); d.className="vband-dlg";
+    d.innerHTML='<button class="vband-x" type="button" aria-label="Close">×</button><iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen src="https://player.vimeo.com/video/'+b.dataset.vimeo+'?autoplay=1&dnt=1"></iframe>';
+    document.body.appendChild(d); d.showModal();
+    d.addEventListener("close",function(){d.remove()});
+    d.addEventListener("click",function(ev){if(ev.target===d||ev.target.closest(".vband-x"))d.close()});
+  });
   if(document.readyState!=="loading")start(); else document.addEventListener("DOMContentLoaded",start);
 })();
 </script>
