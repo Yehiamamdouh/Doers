@@ -9,6 +9,7 @@ import SiteFooter from './SiteFooter.astro';
 import menu from '../data/services-menu.json';
 import LegacySection from './LegacySection.astro';
 import VideoBand from './VideoBand.astro';
+import FilmGallery from './FilmGallery.astro';
 import bands from '../data/video-bands.json';
 import { loc } from '../lib/links.js';
 const { p, alt } = Astro.props;
@@ -68,6 +69,7 @@ const schema = {
       </section>
     </div>
     {band && <VideoBand id={band} lang={p.lang} />}
+    {enPath === '/media-production-egypt/' && <div class="wrap"><FilmGallery lang={p.lang} /></div>}
     <div class="wrap">
       {sections.map((s) => s.kind ? <LegacySection s={s} /> : (
         <section class={`p-sec lg-sec${s.cards ? ' is-cards' : ''}`}>

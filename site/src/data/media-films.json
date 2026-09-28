@@ -1,0 +1,246 @@
+{
+ "note": "Films on /media-production-egypt/ (not event coverage). Vimeo IDs from vimeo.com/doersadvertising. Thumbnails: python3 scripts/vimeo_thumbs.py",
+ "films": [
+  {
+   "id": "485728474",
+   "dur": "1:00",
+   "en": [
+    "EMS Revolution",
+    "Ad with Karim Benzema"
+   ],
+   "ar": [
+    "EMS Revolution",
+    "إعلان مع كريم بنزيما"
+   ]
+  },
+  {
+   "id": "673930542",
+   "dur": "0:53",
+   "en": [
+    "Dubai Financial Market",
+    "Gen Z investor campaign"
+   ],
+   "ar": [
+    "سوق دبي المالي",
+    "حملة للمستثمرين من جيل Z"
+   ]
+  },
+  {
+   "id": "662448214",
+   "dur": "0:33",
+   "en": [
+    "The Power of Z",
+    "Campaign film"
+   ],
+   "ar": [
+    "The Power of Z",
+    "فيلم حملة"
+   ]
+  },
+  {
+   "id": "673929135",
+   "dur": "0:25",
+   "en": [
+    "Dubai Financial Market",
+    "Weekly market update, motion graphics"
+   ],
+   "ar": [
+    "سوق دبي المالي",
+    "تحديث البورصة الأسبوعي، موشن جرافيك"
+   ]
+  },
+  {
+   "id": "662442474",
+   "dur": "1:12",
+   "en": [
+    "Ministry of Petroleum",
+    "Corporate film"
+   ],
+   "ar": [
+    "وزارة البترول",
+    "فيلم مؤسسي"
+   ]
+  },
+  {
+   "id": "662447404",
+   "dur": "0:30",
+   "en": [
+    "Ministry of Petroleum",
+    "Natural gas campaign"
+   ],
+   "ar": [
+    "وزارة البترول",
+    "حملة الغاز الطبيعي"
+   ]
+  },
+  {
+   "id": "662437673",
+   "dur": "0:57",
+   "en": [
+    "Ministry of Petroleum",
+    "Gasoline tips"
+   ],
+   "ar": [
+    "وزارة البترول",
+    "نصائح البنزين"
+   ]
+  },
+  {
+   "id": "662446463",
+   "dur": "1:28",
+   "en": [
+    "Namaa Charity",
+    "Foundation story"
+   ],
+   "ar": [
+    "نماء الخيرية",
+    "قصة المؤسسة"
+   ]
+  },
+  {
+   "id": "486153888",
+   "dur": "1:35",
+   "en": [
+    "Xrose New York",
+    "Corporate film"
+   ],
+   "ar": [
+    "Xrose New York",
+    "فيلم مؤسسي"
+   ]
+  },
+  {
+   "id": "485723684",
+   "dur": "1:16",
+   "en": [
+    "Ecocare",
+    "Launch film, eco-friendly car wash"
+   ],
+   "ar": [
+    "Ecocare",
+    "فيلم إطلاق لغسيل سيارات صديق للبيئة"
+   ]
+  },
+  {
+   "id": "858592136",
+   "dur": "0:57",
+   "en": [
+    "IBM × iSYS",
+    "Cloud Pak for Data explainer"
+   ],
+   "ar": [
+    "IBM × iSYS",
+    "فيديو شرح Cloud Pak for Data"
+   ]
+  },
+  {
+   "id": "858582449",
+   "dur": "2:01",
+   "en": [
+    "IBM × iSYS",
+    "POWER10 explainer"
+   ],
+   "ar": [
+    "IBM × iSYS",
+    "فيديو شرح POWER10"
+   ]
+  },
+  {
+   "id": "858594120",
+   "dur": "1:07",
+   "en": [
+    "IBM × iSYS",
+    "Virtual Server on Cloud explainer"
+   ],
+   "ar": [
+    "IBM × iSYS",
+    "فيديو شرح Virtual Server on Cloud"
+   ]
+  },
+  {
+   "id": "858596217",
+   "dur": "1:26",
+   "en": [
+    "iSYS",
+    "Analytics and AI solutions explainer"
+   ],
+   "ar": [
+    "iSYS",
+    "فيديو شرح حلول التحليلات والذكاء الاصطناعي"
+   ]
+  },
+  {
+   "id": "662437329",
+   "dur": "0:24",
+   "en": [
+    "Bavaria",
+    "Van Guard fire safety product film"
+   ],
+   "ar": [
+    "Bavaria",
+    "فيلم منتج Van Guard للسلامة من الحريق"
+   ]
+  },
+  {
+   "id": "662436496",
+   "dur": "1:14",
+   "en": [
+    "Bavaria",
+    "Fire safety tips"
+   ],
+   "ar": [
+    "Bavaria",
+    "نصائح السلامة من الحريق"
+   ]
+  },
+  {
+   "id": "1075556504",
+   "dur": "0:07",
+   "en": [
+    "Retail VFX",
+    "Store simulation"
+   ],
+   "ar": [
+    "مؤثرات بصرية",
+    "محاكاة متجر"
+   ]
+  }
+ ],
+ "reels": [
+  {
+   "id": "1075555689",
+   "en": "3D fantasy · oriental juices",
+   "ar": "خيال ثلاثي الأبعاد · عصائر شرقية"
+  },
+  {
+   "id": "1065803522",
+   "en": "Safi · Swiss roll",
+   "ar": "صافي · سويس رول"
+  },
+  {
+   "id": "1075554730",
+   "en": "Ice cream production",
+   "ar": "إنتاج آيس كريم"
+  },
+  {
+   "id": "1075555297",
+   "en": "Kahk for Eid",
+   "ar": "كحك العيد"
+  },
+  {
+   "id": "1065229727",
+   "en": "Safi · strawberry tart",
+   "ar": "صافي · تارت الفراولة"
+  },
+  {
+   "id": "1075555043",
+   "en": "Eid biscuits",
+   "ar": "بسكويت العيد"
+  },
+  {
+   "id": "662447882",
+   "en": "Shift platform",
+   "ar": "منصة Shift"
+  }
+ ]
+}

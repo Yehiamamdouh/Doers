@@ -3,6 +3,7 @@ import template from '../content/home.html?raw';
 import ar from '../i18n/home.ar.json';
 import { hasArabic, loc } from './links.js';
 import data from '../data/home-services.json';
+import films from '../data/films.json';
 
 function localPath(href, lang) {
   let path = href.replace(/^https:\/\/doersadv\.com/, '');
@@ -40,6 +41,12 @@ export function renderHome(lang = 'en') {
   const items = S.map((s) => `<span>${nm(s)}</span>`).join('');
   $('#track').html(items + items);
   $('#citylist').html(data.cities.map((c) => `<span>${isAr ? c[1] : c[0]}</span>`).join('<i>·</i>'));
+  // The "Play reel" sticker plays the showreel once it's on Vimeo (src/data/films.json), the EMS ad until then.
+  const reel = films.find((f) => f.key === 'showreel' && f.vimeo);
+  if (reel) {
+    $('.sticker').attr({ 'data-vid': reel.vimeo, 'aria-label': isAr ? 'شغّل شوريل دورز' : 'Play the Doers showreel' });
+    $('.sticker .thumb img').attr('src', `/img/films/${reel.vimeo}.jpg`);
+  }
   const langLink = $('#lang');
   if (lang === 'ar') langLink.attr({ href: '/', hreflang: 'en', lang: 'en' }).text('English');
   else langLink.attr({ href: '/ar/', hreflang: 'ar', lang: 'ar' }).text('عربي');

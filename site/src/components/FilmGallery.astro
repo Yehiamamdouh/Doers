@@ -1,0 +1,71 @@
+---
+/**
+ * Films and vertical reels we produced (src/data/media-films.json), each opening in the Vimeo lightbox.
+ * The showreel leads the gallery once its Vimeo ID is set in src/data/films.json.
+ */
+import media from '../data/media-films.json';
+import films from '../data/films.json';
+import VimeoLightbox from './VimeoLightbox.astro';
+const { lang = 'en' } = Astro.props;
+const ar = lang === 'ar';
+const reel = films.find((f) => f.key === 'showreel' && f.vimeo);
+const L = ar
+  ? { h: 'أفلام <em>من إنتاجنا.</em>', p: 'إعلانات وأفلام مؤسسية وفيديوهات شرح وموشن جرافيك، كتبناها وصورناها وحركناها لعلامات من EMS إلى سوق دبي المالي.', reels: 'ريلز <em>للسوشيال.</em>', rp: 'ريلز رأسية لإنستجرام وتيك توك: أكل ومنتجات ومحتوى ثلاثي الأبعاد يوقف التمرير.', play: 'شغّل', showreel: 'شوريل دورز' }
+  : { h: 'Films we <em>produced.</em>', p: 'Ads, corporate films, explainers and motion graphics we scripted, shot and animated, for brands from EMS to the Dubai Financial Market.', reels: 'Reels for <em>social.</em>', rp: 'Vertical reels for Instagram and TikTok: food, product and 3D content that stops thumbs.', play: 'Play', showreel: 'Doers showreel' };
+---
+<section class="p-sec fg" id="films">
+  <h2 set:html={L.h} />
+  <p class="fg-p">{L.p}</p>
+  {reel && (
+    <button type="button" class="fg-film fg-reel" data-vimeo={reel.vimeo}>
+      <span class="fg-fr"><img src={`/img/films/${reel.vimeo}.jpg`} alt={L.showreel} loading="lazy"><span class="fg-pl" aria-hidden="true"></span></span>
+      <span class="fg-cap"><b>{L.showreel}</b></span>
+    </button>
+  )}
+  <div class="fg-grid">
+    {media.films.map((f) => {
+      const [t, s] = ar ? f.ar : f.en;
+      return (
+        <button type="button" class="fg-film" data-vimeo={f.id} aria-label={`${L.play}: ${t}, ${s}`}>
+          <span class="fg-fr"><img src={`/img/films/${f.id}.jpg`} alt="" loading="lazy"><span class="fg-dur">{f.dur}</span><span class="fg-pl" aria-hidden="true"></span></span>
+          <span class="fg-cap"><b>{t}</b><span>{s}</span></span>
+        </button>
+      );
+    })}
+  </div>
+  <h2 class="fg-h2" set:html={L.reels} />
+  <p class="fg-p">{L.rp}</p>
+  <div class="fg-reels">
+    {media.reels.map((r) => (
+      <button type="button" class="fg-film" data-vimeo={r.id} data-tall="1" aria-label={`${L.play}: ${ar ? r.ar : r.en}`}>
+        <span class="fg-fr tall"><img src={`/img/films/${r.id}.jpg`} alt="" loading="lazy"><span class="fg-pl" aria-hidden="true"></span></span>
+        <span class="fg-cap"><span>{ar ? r.ar : r.en}</span></span>
+      </button>
+    ))}
+  </div>
+</section>
+<VimeoLightbox />
+<style is:global>
+.fg-p{max-width:60ch;color:var(--smoke);margin:-8px 0 32px}
+.fg-h2{margin-top:72px}
+.fg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 22px}
+.fg-reels{display:grid;grid-template-columns:repeat(7,1fr);gap:16px}
+.fg-film{all:unset;cursor:pointer;display:block;min-width:0}
+.fg-film:focus-visible{outline:2px solid var(--orange);outline-offset:4px;border-radius:14px}
+.fg-fr{position:relative;display:block;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#1a1a1a}
+.fg-fr.tall{aspect-ratio:9/16}
+.fg-fr img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.fg-film:hover .fg-fr img{transform:scale(1.05)}
+.fg-pl{position:absolute;inset:0;margin:auto;width:54px;height:54px;border-radius:50%;background:rgba(247,162,27,.95);transition:transform .3s}
+.fg-pl::after{content:"";position:absolute;inset:0;margin:auto;width:0;height:0;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #141414;transform:translateX(2px)}
+.fg-film:hover .fg-pl{transform:scale(1.12)}
+.fg-dur{position:absolute;bottom:10px;inset-inline-end:10px;background:rgba(0,0,0,.7);color:#fff;font-size:12px;font-weight:600;padding:3px 8px;border-radius:99px;direction:ltr}
+.fg-cap{display:block;margin-top:12px}
+.fg-cap b{display:block;font:800 17px/1.3 var(--display)}
+.fg-cap span{color:var(--smoke);font-size:14px}
+.fg-reel{margin-bottom:40px}
+.fg-reel .fg-fr{aspect-ratio:21/9}
+.fg-reel .fg-pl{width:84px;height:84px}
+@media (max-width:980px){.fg-grid{grid-template-columns:repeat(2,1fr)}.fg-reels{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:560px){.fg-grid{grid-template-columns:1fr}.fg-reels{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-16px;padding-inline:16px}.fg-reels .fg-film{flex:0 0 42%;scroll-snap-align:start}}
+</style>

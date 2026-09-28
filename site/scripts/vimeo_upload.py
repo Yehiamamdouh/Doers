@@ -38,7 +38,7 @@ def main():
     quota = call('GET', '/me?fields=upload_quota')['upload_quota']
     print('Vimeo space left:', round(quota['space']['free'] / 1e9, 1), 'GB')
     for f in films:
-        if f['vimeo']:
+        if f['vimeo'] or not f['drive']:  # already uploaded, or uploaded by hand (showreel)
             continue
         if f['size'] > quota['space']['free']:
             print('skip (not enough Vimeo space):', f['key']); continue

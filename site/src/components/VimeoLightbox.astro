@@ -1,0 +1,24 @@
+---
+// Opens any element with data-vimeo="ID" as a full-screen Vimeo player (data-tall for vertical reels).
+// The player loads only when someone asks for it.
+---
+<style is:global>
+.vband-dlg{border:0;padding:0;background:#000;width:min(1200px,94vw);aspect-ratio:16/9;max-height:90vh}
+.vband-dlg.tall{width:auto;height:min(90vh,1100px);aspect-ratio:9/16;max-width:94vw}
+.vband-dlg::backdrop{background:rgba(10,10,10,.9)}
+.vband-dlg iframe{width:100%;height:100%;border:0;display:block}
+.vband-x{position:fixed;top:14px;inset-inline-end:18px;background:none;border:0;color:#fff;font-size:40px;line-height:1;cursor:pointer}
+</style>
+<script is:inline>
+(function(){
+  if(window.__vlb)return; window.__vlb=1;
+  document.addEventListener("click",function(e){
+    var b=e.target.closest("[data-vimeo]"); if(!b)return;
+    var d=document.createElement("dialog"); d.className="vband-dlg"+(b.dataset.tall?" tall":"");
+    d.innerHTML='<button class="vband-x" type="button" aria-label="Close">\u00d7</button><iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Video" src="https://player.vimeo.com/video/'+b.dataset.vimeo+'?autoplay=1&dnt=1"></iframe>';
+    document.body.appendChild(d); d.showModal();
+    d.addEventListener("close",function(){d.remove()});
+    d.addEventListener("click",function(ev){if(ev.target===d||ev.target.closest(".vband-x"))d.close()});
+  });
+})();
+</script>
