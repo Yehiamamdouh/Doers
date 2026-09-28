@@ -195,7 +195,10 @@ section{padding-block:clamp(72px,10vw,140px)}
 /* clients */
 .clients{padding-block:72px;border-bottom:1px solid var(--line)}
 .clients h4{text-align:center;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:30px}
-.logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.logos{display:flex;flex-wrap:wrap;justify-content:center;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.logos>div{flex:0 0 calc((100% - 6px)/7)}
+.wm{font:800 clamp(15px,1.5vw,21px)/1.05 var(--display);color:#8d8b86;text-align:center;letter-spacing:-.01em;transition:color .3s,transform .4s var(--ease)}
+.logos div:hover .wm{color:var(--ink);transform:scale(1.08)}
 .logos div{background:#fff;display:grid;place-items:center;aspect-ratio:3/2}
 .logos img{height:66%;width:auto;max-width:78%;object-fit:contain;filter:grayscale(1);opacity:.7;mix-blend-mode:multiply;transition:filter .3s,opacity .3s,transform .4s var(--ease)}
 .logos div:hover img{filter:none;opacity:1;transform:scale(1.08)}
@@ -260,6 +263,68 @@ footer a:hover{color:var(--orange)}
 .cur.big .d{opacity:0}
 @media (hover:hover) and (pointer:fine){.cur{display:block}}
 
+/* play-reel sticker */
+.hero{position:relative}
+.sticker{position:absolute;inset-inline-end:var(--pad);top:clamp(120px,14vw,190px);width:172px;height:172px;border:0;background:none;cursor:pointer;display:grid;place-items:center;z-index:2}
+.sticker svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 14s linear infinite}
+.sticker text{font:700 11.5px var(--body);letter-spacing:.32em;text-transform:uppercase;fill:var(--ink)}
+.sticker .thumb{width:104px;height:104px;border-radius:50%;overflow:hidden;position:relative;transition:transform .5s var(--ease)}
+.sticker .thumb img{width:100%;height:100%;object-fit:cover;scale:1.25}
+.sticker .thumb::after{content:"";position:absolute;inset:0;background:rgba(20,20,20,.25)}
+.sticker .pl{position:absolute;z-index:1;width:0;height:0;border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #fff;margin-inline-start:5px}
+.sticker:hover .thumb{transform:scale(1.12)}
+.sticker:hover svg{animation-duration:4s}
+@keyframes spin{to{rotate:360deg}}
+/* films */
+.films{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 18px}
+.film{position:relative;display:block;border:0;background:none;padding:0;text-align:start;cursor:pointer;color:inherit}
+.film.big{grid-column:1/-1}
+.film .fr{display:block;position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/9;background:#222}
+.film.big .fr{aspect-ratio:21/9}
+.film.big .cap b{font-size:clamp(24px,2.6vw,34px)}
+.film.big .play{width:72px;height:72px;inset-inline-start:24px;bottom:24px}
+.film img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .5s}
+.film:hover img{transform:scale(1.06)}
+.film .fr::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.45),transparent 50%);transition:opacity .4s}
+.play{position:absolute;z-index:1;inset-inline-start:16px;bottom:16px;width:52px;height:52px;border-radius:50%;background:var(--orange);display:grid;place-items:center;transition:transform .5s var(--ease),width .5s var(--ease)}
+.play::before{content:"";width:0;height:0;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent var(--ink);margin-inline-start:3px}
+.film:hover .play{transform:scale(1.15)}
+.film .dur{position:absolute;z-index:1;top:14px;inset-inline-end:14px;background:rgba(20,20,20,.7);color:#fff;font:600 12px var(--body);padding:5px 10px;border-radius:99px}
+.film .cap{display:flex;justify-content:space-between;gap:10px;padding-top:12px;align-items:baseline}
+.film .cap b{font:800 20px/1.1 var(--display);letter-spacing:-.02em}
+.film .cap span{color:var(--gray);font-size:14px;text-align:end}
+/* reels */
+.reels{padding-block:clamp(60px,8vw,110px);background:var(--paper-2);overflow:hidden}
+.reel-track{display:flex;gap:18px;width:max-content;padding-inline:var(--pad);will-change:transform}
+.reel{flex:none;width:clamp(170px,17vw,230px);border:0;background:none;padding:0;cursor:pointer;text-align:start}
+.reel .ph{display:block;position:relative;aspect-ratio:9/16;border-radius:26px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.14);border:6px solid var(--ink);transition:transform .5s var(--ease),rotate .5s var(--ease)}
+.reel img{width:100%;height:100%;object-fit:cover;animation:kb 9s ease-in-out infinite alternate}
+.reel:nth-child(even) img{animation-delay:-4s}
+@keyframes kb{from{transform:scale(1.02) translateY(0)}to{transform:scale(1.14) translateY(-3%)}}
+.reel:hover .ph{transform:translateY(-10px);rotate:-2deg}
+.reel .play{inset-inline-start:auto;inset-inline-end:12px;bottom:12px;width:42px;height:42px}
+.reel{display:block}
+.reel p{font-weight:600;font-size:14px;margin-top:10px}
+/* lightbox */
+.vlb{border:0;padding:0;background:transparent;width:min(1100px,94vw);max-width:none;margin:auto;overflow:visible}
+.vlb::backdrop{background:rgba(10,10,10,.9);backdrop-filter:blur(4px)}
+.vlb .box{position:relative;aspect-ratio:16/9;background:#000;border-radius:16px;overflow:hidden}
+.vlb.tall{width:min(420px,90vw)}
+.vlb.tall .box{aspect-ratio:9/16}
+.vlb iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vlb .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#eee;padding-top:12px;font-size:14px}
+.vlb .bar a{color:var(--orange);font-weight:600}
+.vlb .x{position:fixed;top:14px;inset-inline-end:20px;background:none;border:0;color:#fff;font-size:42px;line-height:1;cursor:pointer}
+.vlb[open]{animation:pop .45s var(--ease)}
+@keyframes pop{from{opacity:0;transform:scale(.94)}}
+@media (max-width:1000px){
+  .sticker{position:relative;inset:auto;margin-top:6px;width:132px;height:132px}
+  .sticker .thumb{width:78px;height:78px}
+  .films{grid-template-columns:1fr 1fr}
+  .film.big .fr{aspect-ratio:16/9}
+}
+@media (max-width:560px){.films{grid-template-columns:1fr}}
+
 /* reveal */
 .js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .js .rv.in{opacity:1;transform:none}
@@ -283,7 +348,7 @@ footer a:hover{color:var(--orange)}
   .res-grid{grid-template-columns:1fr 1fr}
   .res:nth-child(n){border-inline-start:0;padding-inline-start:0}
   .res:nth-child(even){border-inline-start:1px solid var(--line-d);padding-inline-start:20px}
-  .logos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .logos>div{flex-basis:calc((100% - 2px)/3)}
   .fgrid{grid-template-columns:1fr 1fr}
   .fgrid>div:first-child{grid-column:1/-1}
   .peek{display:none}
@@ -324,6 +389,10 @@ footer a:hover{color:var(--orange)}
 
 <main>
 <div class="wrap hero">
+  <button class="sticker" type="button" data-vid="485728474" data-cursor="Play" aria-label="Play the EMS ad with Karim Benzema">
+    <svg viewBox="0 0 172 172" aria-hidden="true"><defs><path id="circ" d="M86 86 m-72 0 a72 72 0 1 1 144 0 a72 72 0 1 1 -144 0"/></defs><text><textPath href="#circ" id="sticktext">Play reel · Doers · Play reel · Doers ·</textPath></text></svg>
+    <span class="thumb"><img src="img/films/485728474.jpg" alt="" width="1280" height="720"></span><span class="pl"></span>
+  </button>
   <h1 class="eyebrow"><span class="dot"></span><span data-t="eyebrow">Doers Advertising Agency in Cairo Egypt, Jeddah KSA</span></h1>
   <p class="slogan" data-t="h1" data-html><span class="line"><span>We don't just</span></span><span class="line"><span>advertise. <em>We&nbsp;<span class="ring">do.<svg viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M52 3 C 20 1, 2 12, 3 26 C 4 42, 30 48, 55 47 C 82 46, 98 36, 97 22 C 96 8, 72 2, 44 4"/></svg></span></em></span></span></p>
   <div class="hero-row rv">
@@ -365,6 +434,23 @@ footer a:hover{color:var(--orange)}
     <a class="w" href="signage-internal-branding-egypt/" data-cursor="View"><div class="frame"><img src="img/signage/axa-world-map.jpg" alt="AXA head office wall graphics" width="1280" height="944" loading="lazy"><span class="tag" data-t="built">Built</span></div><figcaption><h3>AXA</h3><span data-t="t4">Head office branding · Cairo</span></figcaption></a>
   </div>
 </section>
+
+
+<section class="wrap" id="films" style="padding-top:0">
+  <div class="head">
+    <h2 class="rv" data-t="fh" data-html>Films that <em>move people.</em></h2>
+    <p class="rv" data-t="fp">Ads, corporate films and explainers we scripted, shot and animated, for brands from EMS to the Dubai Financial Market.</p>
+  </div>
+  <div class="films"><button type="button" class="film rv big" data-vid="485728474" data-cursor="Play"><span class="fr"><img src="img/films/485728474.jpg" alt="EMS Revolution: Ad with Karim Benzema" width="1280" height="720" loading="lazy"><span class="dur">1:00</span><span class="play" aria-hidden="true"></span></span><span class="cap"><b>EMS Revolution</b><span>Ad with Karim Benzema</span></span></button><button type="button" class="film rv" data-vid="673930542" data-cursor="Play"><span class="fr"><img src="img/films/673930542.jpg" alt="Dubai Financial Market: Gen Z investor campaign" width="1280" height="720" loading="lazy"><span class="dur">0:53</span><span class="play" aria-hidden="true"></span></span><span class="cap"><b>Dubai Financial Market</b><span>Gen Z investor campaign</span></span></button><button type="button" class="film rv" data-vid="662442474" data-cursor="Play"><span class="fr"><img src="img/films/662442474.jpg" alt="Ministry of Petroleum: Corporate film" width="1280" height="720" loading="lazy"><span class="dur">1:12</span><span class="play" aria-hidden="true"></span></span><span class="cap"><b>Ministry of Petroleum</b><span>Corporate film</span></span></button><button type="button" class="film rv" data-vid="990652434" data-cursor="Play"><span class="fr"><img src="img/films/990652434.jpg" alt="iSYS: Company highlights" width="1280" height="720" loading="lazy"><span class="dur">0:56</span><span class="play" aria-hidden="true"></span></span><span class="cap"><b>iSYS</b><span>Company highlights</span></span></button><button type="button" class="film rv" data-vid="858592136" data-cursor="Play"><span class="fr"><img src="img/films/858592136.jpg" alt="IBM × iSYS: Cloud Pak for Data explainer" width="1280" height="720" loading="lazy"><span class="dur">0:57</span><span class="play" aria-hidden="true"></span></span><span class="cap"><b>IBM × iSYS</b><span>Cloud Pak for Data explainer</span></span></button><button type="button" class="film rv" data-vid="662446463" data-cursor="Play"><span class="fr"><img src="img/films/662446463.jpg" alt="Namaa Charity: Foundation story" width="1280" height="720" loading="lazy"><span class="dur">1:28</span><span class="play" aria-hidden="true"></span></span><span class="cap"><b>Namaa Charity</b><span>Foundation story</span></span></button><button type="button" class="film rv" data-vid="662437329" data-cursor="Play"><span class="fr"><img src="img/films/662437329.jpg" alt="Bavaria: Fire safety product film" width="1280" height="720" loading="lazy"><span class="dur">0:24</span><span class="play" aria-hidden="true"></span></span><span class="cap"><b>Bavaria</b><span>Fire safety product film</span></span></button></div>
+</section>
+
+<div class="reels" aria-label="Social reels">
+  <div class="wrap head" style="margin-bottom:34px">
+    <h2 class="rv" data-t="rlh" data-html>Made for <em>the scroll.</em></h2>
+    <p class="rv" data-t="rlp">Vertical reels for Instagram and TikTok: food, product and 3D content that stops thumbs.</p>
+  </div>
+  <div class="reel-track" id="reeltrack"><button type="button" class="reel" data-vid="1075555689" data-tall="1" data-cursor="Play"><span class="ph"><img src="img/films/1075555689.jpg" alt="3D fantasy · oriental juices" width="640" height="1138" loading="lazy"><span class="play" aria-hidden="true"></span></span><p>3D fantasy · oriental juices</p></button><button type="button" class="reel" data-vid="1065803522" data-tall="1" data-cursor="Play"><span class="ph"><img src="img/films/1065803522.jpg" alt="Safi · Swiss roll" width="640" height="1138" loading="lazy"><span class="play" aria-hidden="true"></span></span><p>Safi · Swiss roll</p></button><button type="button" class="reel" data-vid="1075554730" data-tall="1" data-cursor="Play"><span class="ph"><img src="img/films/1075554730.jpg" alt="Ice cream production" width="640" height="1138" loading="lazy"><span class="play" aria-hidden="true"></span></span><p>Ice cream production</p></button><button type="button" class="reel" data-vid="1075555297" data-tall="1" data-cursor="Play"><span class="ph"><img src="img/films/1075555297.jpg" alt="Kahk for Eid" width="640" height="1138" loading="lazy"><span class="play" aria-hidden="true"></span></span><p>Kahk for Eid</p></button><button type="button" class="reel" data-vid="1065229727" data-tall="1" data-cursor="Play"><span class="ph"><img src="img/films/1065229727.jpg" alt="Safi · strawberry tart" width="640" height="1138" loading="lazy"><span class="play" aria-hidden="true"></span></span><p>Safi · strawberry tart</p></button><button type="button" class="reel" data-vid="1075555043" data-tall="1" data-cursor="Play"><span class="ph"><img src="img/films/1075555043.jpg" alt="Eid biscuits" width="640" height="1138" loading="lazy"><span class="play" aria-hidden="true"></span></span><p>Eid biscuits</p></button><button type="button" class="reel" data-vid="662447882" data-tall="1" data-cursor="Play"><span class="ph"><img src="img/films/662447882.jpg" alt="Shift platform" width="640" height="1138" loading="lazy"><span class="play" aria-hidden="true"></span></span><p>Shift platform</p></button><button type="button" class="reel" aria-hidden="true" tabindex="-1" data-vid="1075555689" data-tall="1" data-cursor="Play"><span class="ph"><img src="img/films/1075555689.jpg" alt="3D fantasy · oriental juices" width="640" height="1138" loading="lazy"><span class="play" aria-hidden="true"></span></span><p>3D fantasy · oriental juices</p></button><button type="button" class="reel" aria-hidden="true" tabindex="-1" data-vid="1065803522" data-tall="1" data-cursor="Play"><span class="ph"><img src="img/films/1065803522.jpg" alt="Safi · Swiss roll" width="640" height="1138" loading="lazy"><span class="play" aria-hidden="true"></span></span><p>Safi · Swiss roll</p></button><button type="button" class="reel" aria-hidden="true" tabindex="-1" data-vid="1075554730" data-tall="1" data-cursor="Play"><span class="ph"><img src="img/films/1075554730.jpg" alt="Ice cream production" width="640" height="1138" loading="lazy"><span class="play" aria-hidden="true"></span></span><p>Ice cream production</p></button><button type="button" class="reel" aria-hidden="true" tabindex="-1" data-vid="1075555297" data-tall="1" data-cursor="Play"><span class="ph"><img src="img/films/1075555297.jpg" alt="Kahk for Eid" width="640" height="1138" loading="lazy"><span class="play" aria-hidden="true"></span></span><p>Kahk for Eid</p></button><button type="button" class="reel" aria-hidden="true" tabindex="-1" data-vid="1065229727" data-tall="1" data-cursor="Play"><span class="ph"><img src="img/films/1065229727.jpg" alt="Safi · strawberry tart" width="640" height="1138" loading="lazy"><span class="play" aria-hidden="true"></span></span><p>Safi · strawberry tart</p></button><button type="button" class="reel" aria-hidden="true" tabindex="-1" data-vid="1075555043" data-tall="1" data-cursor="Play"><span class="ph"><img src="img/films/1075555043.jpg" alt="Eid biscuits" width="640" height="1138" loading="lazy"><span class="play" aria-hidden="true"></span></span><p>Eid biscuits</p></button><button type="button" class="reel" aria-hidden="true" tabindex="-1" data-vid="662447882" data-tall="1" data-cursor="Play"><span class="ph"><img src="img/films/662447882.jpg" alt="Shift platform" width="640" height="1138" loading="lazy"><span class="play" aria-hidden="true"></span></span><p>Shift platform</p></button></div>
+</div>
 
 <section class="intro" id="about">
   <div class="wrap intro-grid">
@@ -429,7 +515,6 @@ footer a:hover{color:var(--orange)}
     <div><img src="img/clients/8.png" alt="United Nations" loading="lazy"></div>
     <div><img src="img/clients/7.png" alt="UNHCR" loading="lazy"></div>
     <div><img src="img/clients/6.png" alt="Nestlé" loading="lazy"></div>
-    <div><img src="img/clients/9.png" alt="Etisalat" loading="lazy"></div>
     <div><img src="img/clients/4.png" alt="AXA" loading="lazy"></div>
     <div><img src="img/clients/12.png" alt="GSK" loading="lazy"></div>
     <div><img src="img/clients/5.png" alt="Asus" loading="lazy"></div>
@@ -437,7 +522,9 @@ footer a:hover{color:var(--orange)}
     <div><img src="img/clients/13.png" alt="RB" loading="lazy"></div>
     <div><img src="img/clients/11.png" alt="FAO" loading="lazy"></div>
     <div><img src="img/clients/2.png" alt="EMS Revolution" loading="lazy"></div>
-    <div><img src="img/clients/1.png" alt="Gento" loading="lazy"></div>
+    <div><img src="img/clients/ibm.png" alt="IBM" loading="lazy"></div>
+    <div><span class="wm" role="img" aria-label="Technip Energies">Technip<br>Energies</span></div>
+    <div><span class="wm" role="img" aria-label="Knauf" style="letter-spacing:.08em">KNAUF</span></div>
   </div>
 </div>
 
@@ -494,6 +581,8 @@ footer a:hover{color:var(--orange)}
     <div class="fbot"><span>© Doers Advertising LTD</span><span data-t="hrs">Sun–Thu · 10:00–18:00</span></div>
   </div>
 </footer>
+
+<dialog class="vlb" id="vlb"><button class="x" type="button" aria-label="Close">×</button><div class="box"></div><div class="bar"><span id="vtitle"></span><a id="vlink" href="#" target="_blank" rel="noopener">Watch on Vimeo ↗</a></div></dialog>
 
 <a class="wa" href="https://wa.me/201101000255" aria-label="WhatsApp">
   <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>
@@ -559,7 +648,7 @@ const AR={
  clh:"بيثق فينا شركات عالمية ومنظمات الأمم المتحدة وبراندات طموحة",
  figc:"فريق إبداعي محترف.<br><em>وأفكار بتفرقع.</em>",whye:"ليه دورز",whyh:"تحليل دقيق. <em>ونتايج سحرية.</em>",
  w1:"خبرة حقيقية",w1p:"أكتر من 15 سنة حملات لشركات محلية وعالمية ومنظمات دولية.",w2:"ذكاء اصطناعي وبيانات",w2p:"حملات مفصلة على ميزانيتك وأهدافك وبتتقاس بأرقام حقيقية.",w3:"فريق واحد من التصميم للتركيب",w3p:"الفكرة والتنفيذ والتركيب تحت سقف واحد، من القاهرة لجدة.",
- wl:"اشتغلنا فين",say:"<span>يلا</span><span>نتكلم</span>",ctah:"عندك إطلاق أو بوث أو براند <em>عايز تبنيه؟</em>",ctap:"احكيلنا بتخطط لإيه، وهنرد عليك خلال يوم عمل.",ctab:"ابدأ مشروعك",ctaw:"كلمنا واتساب",
+ wl:"اشتغلنا فين",fh:"أفلام <em>بتحرك الناس.</em>",fp:"إعلانات وأفلام مؤسسية وفيديوهات شرح كتبناها وصورناها وعملناها أنيميشن، لبراندات من EMS لسوق دبي المالي.",rlh:"معمولة <em>للسكرول.</em>",rlp:"ريلز رأسية لإنستجرام وتيك توك: أكل ومنتجات ومحتوى 3D بيوقف الصباع.",say:"<span>يلا</span><span>نتكلم</span>",ctah:"عندك إطلاق أو بوث أو براند <em>عايز تبنيه؟</em>",ctap:"احكيلنا بتخطط لإيه، وهنرد عليك خلال يوم عمل.",ctab:"ابدأ مشروعك",ctaw:"كلمنا واتساب",
  fbig:"دورز <em>بتعمل</em> كل حاجة.",fk:"وكالة إعلانات في السعودية",fj:"وكالة إعلانات في جدة",fbl:"المدونة",fc:"تواصل معنا",fs:"الخدمات",f1:"القاهرة",f1a:"شارع رسلان، مدينة نصر، المنطقة التاسعة، بلوك 23، برج 3",f2:"جدة",f2a:"مركز زهران، برج B، الدور 12",f3:"تابعنا",hrs:"الأحد–الخميس · 10:00–18:00"
 };
 const U=p=>p.startsWith("*")?p.slice(1):"https://doersadv.com"+p, EN={};
@@ -618,7 +707,7 @@ let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,px=mx,py=my;
 if(fine&&!RM){
   addEventListener("pointermove",e=>{mx=e.clientX;my=e.clientY;dotEl.style.transform=`translate(${mx}px,${my}px)`;});
   (function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.transform=`translate(${rx}px,${ry}px)`;px+=(mx-px)*.12;py+=(my-py)*.12;peek.style.transform=`translate(${px+24}px,${py-120}px)`;requestAnimationFrame(loop)})();
-  document.addEventListener("pointerover",e=>{const t=e.target.closest("[data-cursor]");cur.classList.toggle("big",!!t);if(t)label.textContent=ar?({View:"شوف",Talk:"كلمنا",Boom:"بوم"}[t.dataset.cursor]||t.dataset.cursor):t.dataset.cursor;});
+  document.addEventListener("pointerover",e=>{const t=e.target.closest("[data-cursor]");cur.classList.toggle("big",!!t);if(t)label.textContent=ar?({View:"شوف",Talk:"كلمنا",Boom:"بوم",Play:"شغّل"}[t.dataset.cursor]||t.dataset.cursor):t.dataset.cursor;});
   document.querySelectorAll(".mag").forEach(b=>{b.addEventListener("pointermove",e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`});b.addEventListener("pointerleave",()=>{b.style.transform="";b.style.transition="transform .5s cubic-bezier(.2,.8,.2,1)";setTimeout(()=>b.style.transition="",500)})});
 }
 function bindPeek(){
@@ -646,6 +735,21 @@ const stage=document.getElementById("stage");
 new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){burst();o.disconnect()}}),{threshold:.5}).observe(stage);
 let lastB=0;stage.addEventListener("pointerenter",()=>{if(performance.now()-lastB>1200){lastB=performance.now();burst()}});
 stage.addEventListener("click",()=>{burst();setTimeout(()=>location.href="https://doersadv.com/contact-us/",650)});
+
+/* video lightbox (Vimeo) */
+const vlb=document.getElementById("vlb"),vbox=vlb.querySelector(".box");
+document.addEventListener("click",e=>{const b=e.target.closest("[data-vid]");if(!b)return;const id=b.dataset.vid;
+  vlb.classList.toggle("tall",!!b.dataset.tall);
+  vbox.innerHTML=`<iframe src="https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0&color=F7A21B" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Doers film"></iframe>`;
+  document.getElementById("vtitle").textContent=(b.querySelector("img")||{}).alt||"";
+  document.getElementById("vlink").href="https://vimeo.com/"+id; vlb.showModal();});
+function closeV(){vlb.close()}
+vlb.addEventListener("close",()=>{vbox.innerHTML=""});
+vlb.addEventListener("click",e=>{if(e.target===vlb||e.target.classList.contains("x"))closeV()});
+/* reels auto-scroll, pauses on hover, reacts to scroll speed */
+const rt=document.getElementById("reeltrack");let reelX=0,rpause=false;
+rt.addEventListener("pointerenter",()=>rpause=true);rt.addEventListener("pointerleave",()=>rpause=false);
+(function rl(){if(!RM&&!rpause){reelX-=(0.5+vel*.15)*(ar?-1:1);const half=rt.scrollWidth/2;if(ar){if(reelX>0)reelX-=half}else if(-reelX>half)reelX+=half;rt.style.transform=`translate3d(${reelX}px,0,0)`}requestAnimationFrame(rl)})();
 
 render();
 </script>
