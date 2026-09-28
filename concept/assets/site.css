@@ -332,3 +332,4 @@ footer a:hover{color:var(--orange)}
   .mosaic .m0{grid-column:1/-1;grid-row:1}
   .mosaic .m1{grid-row:2/4}
 }
+@media (max-width:560px){.big{font-size:clamp(52px,15vw,72px)}.big .o{white-space:normal;padding-inline-start:.12em}}
