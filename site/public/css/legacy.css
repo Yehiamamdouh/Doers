@@ -101,3 +101,6 @@
 .legal p+p{margin-top:12px}
 .legal ul{padding-inline-start:22px;display:grid;gap:6px;margin-top:10px}
 .legal a{color:var(--orange-d);text-decoration:underline}
+.lg-sec>.eyebrow{display:block;grid-column:1/-1;color:var(--orange-d);margin-bottom:14px}
+[dir=rtl] .lg-sec>.eyebrow{letter-spacing:0}
+.lg-bq{margin:0 0 28px;font:500 clamp(20px,2.2vw,26px)/1.5 var(--body);border-inline-start:3px solid var(--orange);padding-inline-start:22px}

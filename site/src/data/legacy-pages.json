@@ -630,57 +630,12 @@
     "cards": false
    },
    {
-    "h2": "What to Expect",
-    "nodes": [
-     {
-      "t": "p",
-      "html": "We have been delivering large scale events to our partners since our launch in 2013 we take a great pride to distinguish ourselves as a market leader while keeping our nose to grind to excel more and keep delighting our partners, I look forward to collaborating with you soon.."
-     },
-     {
-      "t": "p",
-      "html": "Best"
-     },
-     {
-      "t": "h3",
-      "html": "Anas Dessouki"
-     },
-     {
-      "t": "p",
-      "html": "Head of Events"
-     },
-     {
-      "t": "h3",
-      "html": "Product Launch"
-     },
-     {
-      "t": "h3",
-      "html": "Virtual Events"
-     },
-     {
-      "t": "h3",
-      "html": "Conferences"
-     },
-     {
-      "t": "h3",
-      "html": "Sports Events"
-     },
-     {
-      "t": "h3",
-      "html": "Exhibitions"
-     },
-     {
-      "t": "h3",
-      "html": "Team building"
-     }
-    ],
-    "img": {
-     "t": "img",
-     "alt": "",
-     "src": "/img/legacy/2020-03-anas.jpg",
-     "w": 166,
-     "h": 230
-    },
-    "cards": true
+    "kind": "quote",
+    "h2": "What to expect",
+    "text": "We have been delivering large-scale events to our partners since our launch in 2013. We take great pride in standing out as a market leader, and we keep working to excel and to keep delighting our partners. I look forward to working with you soon.",
+    "name": "Anas Dessouki",
+    "role": "Head of Events",
+    "img": "/img/legacy/2020-03-anas.jpg"
    },
    {
     "h2": "— Project",
@@ -4610,14 +4565,14 @@
  {
   "path": "/ar/event-management-cairo-egypt/",
   "lang": "ar",
-  "title": "Event Management Agency in Cairo, Egypt | دورز",
-  "description": "Doers is an event management agency in Cairo, Egypt, delivering corporate events, product launches, conferences, and brand activations. From 3D design and…",
+  "title": "شركة إدارة فعاليات في القاهرة، مصر | دورز",
+  "description": "دورز شركة إدارة فعاليات في القاهرة، مصر: إطلاق منتجات، ومؤتمرات، وتفعيلات، وفعاليات شركات لعملاء منهم Dell وNovartis وISYS.",
   "og": "/img/legacy/2019-02-btl-featered-high.jpg",
   "published": "2019-02-22T22:48:30+00:00",
   "modified": "2026-08-31T23:18:31+00:00",
   "eyebrow": "إدارة الفعاليات",
-  "h1": "Event Management Agency in Cairo, Egypt",
-  "lead": "<strong>Doers is an event management agency in Cairo, Egypt</strong>, delivering <strong>corporate events, product launches, conferences, and brand activations</strong>. From <strong>3D design and production to logistics and on-site management</strong>, we handle every detail from concept to execution.",
+  "h1": "شركة إدارة فعاليات في القاهرة، مصر",
+  "lead": "<strong>دورز شركة إدارة فعاليات في القاهرة، مصر</strong>، ننظم <strong>فعاليات الشركات، وإطلاق المنتجات، والمؤتمرات، والتفعيلات التسويقية للعلامات</strong>. من <strong>التصميم ثلاثي الأبعاد والإنتاج إلى اللوجستيات والإدارة في موقع الحدث</strong>، نتولى كل التفاصيل من الفكرة حتى التنفيذ.",
   "hero": {
    "t": "img",
    "alt": "",
@@ -4645,60 +4600,15 @@
     "cards": false
    },
    {
+    "kind": "quote",
     "h2": "ماذا تتوقع",
-    "nodes": [
-     {
-      "t": "p",
-      "html": "We have been delivering large scale events to our partners since our launch in 2013 we take a great pride to distinguish ourselves as a market leader while keeping our nose to grind to excel more and keep delighting our partners, I look forward to collaborating with you soon.."
-     },
-     {
-      "t": "p",
-      "html": "Best"
-     },
-     {
-      "t": "h3",
-      "html": "أنس دسوقي"
-     },
-     {
-      "t": "p",
-      "html": "رئيس قسم الفعاليات"
-     },
-     {
-      "t": "h3",
-      "html": "إطلاق المنتج"
-     },
-     {
-      "t": "h3",
-      "html": "الفعاليات الافتراضية"
-     },
-     {
-      "t": "h3",
-      "html": "المؤتمرات"
-     },
-     {
-      "t": "h3",
-      "html": "الفاعليات الرياضية"
-     },
-     {
-      "t": "h3",
-      "html": "المعارض"
-     },
-     {
-      "t": "h3",
-      "html": "بناء الفريق"
-     }
-    ],
-    "img": {
-     "t": "img",
-     "alt": "",
-     "src": "/img/legacy/2020-03-anas.jpg",
-     "w": 166,
-     "h": 230
-    },
-    "cards": true
+    "text": "ننظم فعاليات كبيرة لشركائنا منذ انطلاقنا في 2013، ونفخر بأننا نميز أنفسنا كرواد في السوق، مع حرصنا الدائم على التطور والتفوق لنواصل إسعاد شركائنا. أتطلع للتعاون معكم قريبًا.",
+    "name": "أنس دسوقي",
+    "role": "رئيس قسم الفعاليات",
+    "img": "/img/legacy/2020-03-anas.jpg"
    },
    {
-    "h2": "— مميزاً",
+    "h2": "— مشروعات",
     "nodes": [],
     "cards": false
    },
@@ -4884,12 +4794,12 @@
     "cards": false
    },
    {
-    "h2": "— Roadshows",
+    "h2": "— الجولات الترويجية",
     "nodes": [],
     "cards": false
    },
    {
-    "h2": "Roadshows",
+    "h2": "الجولات الترويجية",
     "nodes": [
      {
       "t": "p",
@@ -5901,7 +5811,7 @@
     "cards": true
    },
    {
-    "h2": "Get In Touch Now!",
+    "h2": "تواصل معنا الآن!",
     "nodes": [
      {
       "t": "p",
@@ -7230,13 +7140,13 @@
  {
   "path": "/ar/media-production-egypt/",
   "lang": "ar",
-  "title": "Media Production Agency, Animation, Motion Graphics, food",
-  "description": "We provide full fledged media solution, planning, booking, production of various types of content Shooting, Animation, Graphics.",
+  "title": "شركة إنتاج إعلامي في مصر: أنيميشن وموشن جرافيك وتصوير | دورز",
+  "description": "نقدم حلولًا إعلامية متكاملة: التخطيط والحجز وإنتاج كل أنواع المحتوى، من التصوير إلى الأنيميشن والجرافيك وإعلانات الراديو.",
   "og": "/img/legacy/2019-02-media.jpg",
   "published": "2019-02-23T13:37:57+00:00",
   "modified": "2025-12-11T18:45:29+00:00",
   "eyebrow": "",
-  "h1": "Media Production Agency, Animation, Motion Graphics, food",
+  "h1": "شركة إنتاج إعلامي في مصر: أنيميشن وموشن جرافيك وتصوير",
   "lead": "",
   "hero": null,
   "sections": [
@@ -7265,7 +7175,7 @@
     "cards": false
    },
    {
-    "h2": "— Animation",
+    "h2": "— الرسوم المتحركة",
     "nodes": [],
     "cards": false
    },
@@ -7301,7 +7211,7 @@
     "cards": false
    },
    {
-    "h2": "— Radio Production",
+    "h2": "— إنتاج الراديو",
     "nodes": [],
     "cards": false
    },
@@ -7877,7 +7787,7 @@
      },
      {
       "t": "p",
-      "html": "As a <a href=\"/ar/\"><strong>وكالة التسويق في مصر و السعودية</strong></a><strong>, </strong>لقد ساعدت Doers الشركات في مختلف القطاعات على توسيع وجودها على الإنترنت لسنوات عديدة من أجل زيادة المبيعات. بفضل خبرتنا المتخصصة، نحن قادرون على مساعدة الشركات بأي حجم ترغب في تحسين أو زيادة حركة الزوار عبر الإنترنت. نحن فريق متمرس من المحترفين وقادرون على التعامل مع أي مهمة بسهولة!"
+      "html": "بصفتها <a href=\"/ar/\"><strong>وكالة التسويق في مصر و السعودية</strong></a>، ساعدت Doers الشركات في مختلف القطاعات على توسيع وجودها على الإنترنت لسنوات عديدة من أجل زيادة المبيعات. بفضل خبرتنا المتخصصة، نحن قادرون على مساعدة الشركات بأي حجم ترغب في تحسين أو زيادة حركة الزوار عبر الإنترنت. نحن فريق متمرس من المحترفين وقادرون على التعامل مع أي مهمة بسهولة!"
      },
      {
       "t": "h3",

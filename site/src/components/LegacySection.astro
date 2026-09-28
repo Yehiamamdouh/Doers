@@ -37,7 +37,8 @@ const { s } = Astro.props;
   <section class="p-sec two lg-quote">
     <div>{s.h2 && <h2>{s.h2}</h2>}</div>
     <div>
-      <ul class="checks">{s.points.map((pt) => <li set:html={pt} />)}</ul>
+      {s.text && <blockquote class="lg-bq" set:html={s.text} />}
+      {s.points && <ul class="checks">{s.points.map((pt) => <li set:html={pt} />)}</ul>}
       {s.name && (
         <div class="lg-person">
           {s.img && <img src={s.img} alt={s.name} width="72" height="72" loading="lazy">}

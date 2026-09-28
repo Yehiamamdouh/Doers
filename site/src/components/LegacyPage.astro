@@ -25,6 +25,14 @@ const related = menu
   .map((s) => ({ href: loc(ksa ? s.ksa : s.eg, p.lang), name: ar ? s.ar : s.name }))
   .filter((r) => r.href !== p.path);
 const crumb = p.eyebrow || p.h1;
+// Divi divider headings ("— Roadshows") with nothing under them become a small label on the next section; other empty headings are dropped.
+const sections = [];
+let pending = null;
+for (const s of p.sections) {
+  if (!s.kind && !(s.nodes || []).length && !s.img) { if (s.h2?.startsWith('—')) pending = s.h2.replace(/^—\s*/, ''); continue; }
+  sections.push(pending ? { ...s, label: pending } : s);
+  pending = null;
+}
 const band = Object.keys(bands).find((k) => bands[k].pages.includes(enPath));
 const schema = {
   '@context': 'https://schema.org',
@@ -61,8 +69,9 @@ const schema = {
     </div>
     {band && <VideoBand id={band} lang={p.lang} />}
     <div class="wrap">
-      {p.sections.map((s) => s.kind ? <LegacySection s={s} /> : (
+      {sections.map((s) => s.kind ? <LegacySection s={s} /> : (
         <section class={`p-sec lg-sec${s.cards ? ' is-cards' : ''}`}>
+          {s.label && <span class="label eyebrow">{s.label}</span>}
           {s.h2 && (s.img && !s.cards
             ? <div class="lg-side"><h2>{s.h2}</h2><figure class="lg-fig"><img src={s.img.src} alt={s.img.alt} width={s.img.w} height={s.img.h} loading="lazy"></figure></div>
             : <h2>{s.h2}</h2>)}
