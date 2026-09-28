@@ -351,6 +351,35 @@ footer a:hover{color:var(--orange)}
 .pts p a{color:var(--orange-d);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 @media (max-width:700px){.award-in{grid-template-columns:1fr}.trophy{width:96px}}
 
+/* digital capabilities */
+.dg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d);border-radius:22px;overflow:hidden}
+.dg{background:var(--ink);padding:30px 26px 34px;transition:background .35s}
+.dg:hover{background:#1d1d1d}
+.dg-ic{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--orange);color:var(--ink);margin-bottom:22px;transition:transform .5s var(--ease)}
+.dg-ic svg{width:26px;height:26px}
+.dg:hover .dg-ic{transform:rotate(-10deg) scale(1.08)}
+.dg h3{font:800 24px/1.1 var(--display);letter-spacing:-.02em;margin-bottom:10px;color:#fff}
+.dg p{color:#B9B5AE;font-size:15px}
+.funnel{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px;counter-reset:f}
+.funnel div{position:relative;padding:22px 30px 22px 22px;background:#1e1e1e;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%,18px 50%);counter-increment:f}
+.funnel div:first-child{clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%);border-radius:14px 0 0 14px}
+.funnel div:nth-child(2){background:#262626}.funnel div:nth-child(3){background:#2f2f2f}
+.funnel div:last-child{background:var(--orange);color:var(--ink)}
+.funnel div+div{margin-inline-start:-10px;padding-inline-start:34px}
+.funnel b{display:block;font:800 22px var(--display);letter-spacing:-.02em;color:#fff}
+.funnel b::before{content:counter(f,decimal-leading-zero)" ";color:var(--orange);font-size:14px;vertical-align:middle}
+.funnel div:last-child b,.funnel div:last-child b::before{color:var(--ink)}
+.funnel span{font-size:14px;color:#B9B5AE}
+.funnel div:last-child span{color:#2b2b2b}
+[dir=rtl] .funnel div{clip-path:polygon(18px 0,100% 0,calc(100% - 18px) 50%,100% 100%,18px 100%,0 50%)}
+[dir=rtl] .funnel div:first-child{clip-path:polygon(18px 0,100% 0,100% 100%,18px 100%,0 50%);border-radius:0 14px 14px 0}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:40px}
+.tools .eyebrow{color:#A9A69F;margin-inline-end:8px}
+.tools span:not(.eyebrow){border:1px solid var(--line-d);border-radius:99px;padding:8px 14px;font-size:14px;font-weight:600;color:#E6E2DB;transition:all .25s}
+.tools span:not(.eyebrow):hover{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+@media (max-width:1000px){.dg-grid{grid-template-columns:1fr 1fr}.funnel{grid-template-columns:1fr 1fr;gap:10px}.funnel div,.funnel div:first-child,[dir=rtl] .funnel div,[dir=rtl] .funnel div:first-child{clip-path:none;border-radius:14px;margin:0;padding:20px}}
+@media (max-width:560px){.dg-grid,.funnel{grid-template-columns:1fr}}
+
 /* reveal */
 .js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .js .rv.in{opacity:1;transform:none}
@@ -522,21 +551,28 @@ footer a:hover{color:var(--orange)}
 
 
 
-<section class="results">
+<section class="results" id="digital">
   <div class="wrap">
     <div class="head">
       <h2 class="rv" data-t="rh" data-html>Digital that <em>performs.</em></h2>
-      <p class="rv" data-t="rp">Paid social for Safi on Meta and TikTok, on a $20K media budget.</p>
+      <p class="rv" data-t="rp">Strategy, data and media connected in one system, so every campaign is planned, tracked and optimised against your business goals.</p>
     </div>
-    <div class="res-grid">
-      <div class="res rv"><b><span class="count" data-to="6">6</span>M+</b><span data-t="r1">Unique users reached</span></div>
-      <div class="res rv"><b><span class="count" data-to="26">26</span>M</b><span data-t="r2">Impressions</span></div>
-      <div class="res rv"><b><span class="count" data-to="27">27</span>M</b><span data-t="r3">Video views</span></div>
-      <div class="res rv"><b><span class="count" data-to="500">500</span>K</b><span data-t="r4">Clicks</span></div>
-      <div class="res rv"><b><span class="count" data-to="11">11</span>K+</b><span data-t="r5">Messages</span></div>
-      <div class="res rv"><b>$7.5</b><span data-t="r6">Cost per lead, real estate campaign on Instagram &amp; TikTok</span></div>
+    <div class="dg-grid">
+      <div class="dg rv"><span class="dg-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3 data-t="d1">Strategy &amp; roadmaps</h3><p data-t="d1p">Annual digital roadmaps, digital asset audits, audience research and segmentation, and go-to-market plans built around measurable KPIs.</p></div>
+      <div class="dg rv"><span class="dg-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7H6a3 3 0 0 0 0 6h3M15 7h3a3 3 0 0 1 0 6h-3M8 10h8M12 13v6M9 19h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><h3 data-t="d2">Data integrations</h3><p data-t="d2p">First- and third-party data connected: GA4, Tag Manager, Meta and TikTok pixels, CRM and HubSpot, so audiences and conversions flow into one place.</p></div>
+      <div class="dg rv"><span class="dg-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 16v-3M11 16V9M15 16v-5M3 8h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><h3 data-t="d3">Live dashboards</h3><p data-t="d3p">Real-time dashboards for spend, leads, sales and sentiment, so you see performance every day, not in a report at month end.</p></div>
+      <div class="dg rv"><span class="dg-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><h3 data-t="d4">Media &amp; optimisation</h3><p data-t="d4p">Programmatic buying, paid social, search and e-commerce SEM, and publisher deals, optimised continuously with lookalikes and retargeting.</p></div>
     </div>
-    <p class="res-more rv" data-t="rm">Also: annual media strategy for Dubai Future Foundation · Gen Z investor program for Dubai Financial Market · corporate films for Egypt's Ministry of Petroleum</p>
+
+    <div class="funnel rv" aria-label="Our funnel model">
+      <div><b data-t="f_1">Broadcast</b><span data-t="f_1p">Grow the audience across paid, earned and owned media</span></div>
+      <div><b data-t="f_2">Engage</b><span data-t="f_2p">Build rapport and interaction with the right content</span></div>
+      <div><b data-t="f_3">Activate</b><span data-t="f_3p">Turn interest into leads, sign-ups and questions</span></div>
+      <div><b data-t="f_4">Monetize</b><span data-t="f_4p">Convert prospects into paying customers, then re-automate</span></div>
+    </div>
+
+    <div class="tools rv"><span class="eyebrow" data-t="tl">We work in</span><span>GA4</span><span>Google Tag Manager</span><span>Looker Studio</span><span>HubSpot</span><span>Meta Ads</span><span>TikTok Ads</span><span>Google Ads</span><span>Search Console</span><span>Programmatic DSPs</span><span>Social listening</span></div>
+    <p class="res-more rv" data-t="rm">Strategy partner to Dubai Future Foundation and Dubai Financial Market.</p>
   </div>
 </section>
 
@@ -651,8 +687,8 @@ const AR={
  t0:"دبي 2023 · تصميم وتنفيذ وإضاءة",t1:"معرض AI Expo · القاهرة",t2:"لافتات الواجهة",t3:"معرض Cairo ICT",t4:"هوية المقر الرئيسي · القاهرة",
  svch:"كل اللي البراند بتاعك محتاجه. <em>في مكان واحد.</em>",svcp:"12 خدمة، وكل خطوة مربوطة بأهداف ومؤشرات أداء. اختار المدينة وشوف الفريق المحلي.",
  ih:"فهرس <em>المشاريع.</em>",fa:"الكل",fe:"معارض",fv:"فعاليات وإطلاقات",fb:"هوية ولافتات",c_y:"السنة",c_c:"العميل",c_p:"المشروع",c_l:"المكان",c_s:"نطاق العمل",
- rh:"ديجيتال <em>بيجيب نتيجة.</em>",rp:"حملة سوشيال مدفوعة لصافي على ميتا وتيك توك، بميزانية 20 ألف دولار.",r1:"مستخدم فريد",r2:"مرة ظهور",r3:"مشاهدة فيديو",r4:"نقرة",r5:"رسالة",r6:"تكلفة العميل المحتمل في حملة عقارات",
- rm:"كمان: استراتيجية ميديا لمؤسسة دبي للمستقبل · برنامج جيل Z لسوق دبي المالي · أفلام مؤسسية لوزارة البترول",
+ rh:"ديجيتال <em>بيجيب نتيجة.</em>",rp:"استراتيجية وبيانات وميديا متوصلين في سيستم واحد، فكل حملة بتتخطط وبتتقاس وبتتحسن على أهداف البيزنس بتاعك.",d1:"استراتيجية وخطط سنوية",d1p:"خطط ديجيتال سنوية، وتقييم للأصول الرقمية، وأبحاث وتقسيم للجمهور، وخطط إطلاق مبنية على مؤشرات أداء واضحة.",d2:"ربط البيانات",d2p:"ربط بيانات الطرف الأول والتالت: GA4 وTag Manager وبكسل ميتا وتيك توك والـ CRM وHubSpot، علشان الجمهور والتحويلات يتجمعوا في مكان واحد.",d3:"داشبوردات لايف",d3p:"داشبوردات لحظية للصرف والعملاء المحتملين والمبيعات والانطباعات، تشوف الأداء كل يوم مش في تقرير آخر الشهر.",d4:"ميديا وتحسين مستمر",d4p:"شراء ميديا مبرمج، وسوشيال مدفوع، وإعلانات بحث وتجارة إلكترونية، واتفاقات مع ناشرين، مع تحسين مستمر وإعادة استهداف.",f_1:"انتشار",f_1p:"نكبّر الجمهور عبر الميديا المدفوعة والمكتسبة والمملوكة",f_2:"تفاعل",f_2p:"نبني علاقة وتفاعل بالمحتوى الصح",f_3:"تفعيل",f_3p:"نحوّل الاهتمام لعملاء محتملين وتسجيلات",f_4:"تحقيق عائد",f_4p:"نحوّل المهتمين لعملاء بيدفعوا، وبعدين نأتمت الدورة",tl:"بنشتغل على",
+ rm:"شريك استراتيجي لمؤسسة دبي للمستقبل وسوق دبي المالي.",
  clh:"بيثق فينا شركات عالمية ومنظمات الأمم المتحدة وبراندات طموحة",
  figc:"فريق إبداعي محترف.<br><em>وأفكار بتفرقع.</em>",whye:"ليه دورز",whyh:"تحليل دقيق. <em>ونتايج سحرية.</em>",
  w1:"خبرة حاصلة على جوايز",w1p:"أكتر من 15 سنة حملات لشركات عالمية ومنظمات دولية، وجايزة <a href=\"https://techbehemoths.com/awards-2022/egypt\" target=\"_blank\" rel=\"noopener\">TechBehemoths</a> للبراندنج في مصر.",w2:"ذكاء اصطناعي وبيانات",w2p:"حملات مفصلة على ميزانيتك وأهدافك وبتتقاس بأرقام حقيقية.",w3:"فريق واحد من التصميم للتركيب",w3p:"الفكرة والتنفيذ والتركيب تحت سقف واحد، من القاهرة لجدة.",
