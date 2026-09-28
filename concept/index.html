@@ -30,192 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=Alexandria:wght@400;500;700;800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --orange:#F7A21B;
-  --night:#F6F4EF; --night-2:#ECE9E2; --night-3:#E0DCD3; --ink:#161718;
-  --bone:#161718; --bone-2:#3A3935;
-  --smoke:#6B6964; --muted:#6F6D68;
-  --line:rgba(22,23,24,.13); --line-l:rgba(22,23,24,.12);
-  --display:"Barlow Condensed","Arial Narrow",sans-serif;
-  --body:"Manrope",system-ui,sans-serif;
-  --pad:clamp(16px,4.4vw,64px);
-  color-scheme:light;
-}
-[dir=rtl]{--display:"Alexandria",system-ui,sans-serif;--body:"Alexandria",system-ui,sans-serif}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-main{overflow-x:clip}
-body{background:var(--night);color:var(--bone);font:400 16px/1.65 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
-.wrap{max-width:1360px;margin:0 auto;padding-inline:var(--pad)}
-.label{font:600 12px/1.4 var(--body);letter-spacing:.16em;text-transform:uppercase}
-[dir=rtl] .label{letter-spacing:0;font-size:13px}
-.arrow{display:inline-block}
-[dir=rtl] .arrow{transform:scaleX(-1)}
-
-/* nav */
-.nav{position:sticky;top:0;z-index:50;background:rgba(246,244,239,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:100px;gap:24px}
-.nav .logo img{height:62px;width:auto}
-.menu{display:flex;gap:56px;list-style:none;font:500 15px var(--body)}
-.menu>li>a{padding:8px 0;transition:color .2s}
-.menu>li>a:hover{color:var(--orange)}
-.nav-r{display:flex;gap:14px;align-items:center}
-.lang{font:600 14px var(--body);color:var(--smoke);padding:8px 4px}
-.lang:hover{color:var(--bone)}
-.btn{display:inline-flex;align-items:center;gap:8px;border-radius:99px;padding:13px 22px;font:700 14px var(--body);transition:background .2s,color .2s,transform .2s}
-.btn-line{border:1.5px solid var(--bone)}
-.btn-line:hover{background:var(--ink);color:#fff}
-.btn-o{background:var(--orange);color:var(--ink);padding:17px 26px;font-size:15px}
-.btn-o:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
-.dd{position:relative}
-.mega{position:absolute;top:calc(100% + 30px);inset-inline-start:-40px;display:none;grid-template-columns:1fr 1fr;gap:40px;background:var(--night-2);border:1px solid var(--line);padding:28px 32px;min-width:540px;box-shadow:0 24px 50px rgba(22,23,24,.12)}
-.dd::after{content:"";position:absolute;inset-inline:0;top:100%;height:34px}
-.dd:hover .mega,.dd:focus-within .mega{display:grid}
-.mega .label{color:var(--orange);margin-bottom:12px}
-.mega a{display:block;padding:5px 0;color:var(--bone-2);font-size:15px}
-.mega a:hover{color:var(--orange)}
-
-/* hero */
-.hero{padding-block:48px 0}
-.hero-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.hero h1{display:flex;align-items:center;gap:12px;color:var(--bone)}
-.hero h1::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);flex:none}
-.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;padding-block:clamp(40px,6vw,80px)}
-.big{font:800 clamp(64px,8.6vw,150px)/.86 var(--display);text-transform:uppercase;letter-spacing:-.01em}
-.big span{display:block}
-.big .o{color:var(--orange);padding-inline-start:.22em;white-space:nowrap}
-[dir=rtl] .big{line-height:1.2;font-size:clamp(48px,6.4vw,104px)}
-.hero-copy{max-width:420px;margin:36px 0 36px .5em;color:var(--bone-2);font-size:17px}
-[dir=rtl] .hero-copy{margin-inline:.5em 0}
-.card{position:relative;transform:rotate(-2.2deg);margin:24px 20px 24px 0}
-.card::before{content:"";position:absolute;inset:-26px -22px 14px 48px;background:var(--orange);transform:rotate(4.5deg);z-index:0}
-.card figure{position:relative;z-index:1;background:#fff;box-shadow:0 30px 60px rgba(22,23,24,.18)}
-.card img{width:100%;height:auto;aspect-ratio:1.3;object-fit:cover;object-position:52% 40%}
-.card .tag{position:absolute;top:18px;inset-inline-end:18px;background:rgba(22,23,24,.82);color:#fff;padding:7px 12px}
-.card figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--ink);padding:18px 22px}
-.card figcaption b{display:block;font:700 13px var(--body);letter-spacing:.04em;text-transform:uppercase}
-.card figcaption span{font:600 11px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.card figcaption i{font-style:normal;font-size:26px}
-.hero-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:26px;border-top:1px solid var(--line);color:var(--smoke)}
-.hero-bot a{color:var(--orange)}
-
-/* clients */
-.clients{background:#fff;color:var(--ink);border-block:1px solid var(--line)}
-.clients .wrap{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:center;padding-block:40px}
-.clients .label{color:var(--muted);line-height:1.9}
-.logos{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.logos-track{display:flex;gap:72px;width:max-content;animation:slide 40s linear infinite}
-.logos-track img{height:56px;width:auto;filter:grayscale(1);opacity:.75;mix-blend-mode:multiply;transition:filter .3s,opacity .3s}
-.logos-track img:hover{filter:none;opacity:1}
-.logos:hover .logos-track{animation-play-state:paused}
-@keyframes slide{to{transform:translateX(-50%)}}
-[dir=rtl] .logos-track{animation-name:slide-r}
-@keyframes slide-r{to{transform:translateX(50%)}}
-
-/* section heads */
-.sec{padding-block:clamp(80px,10vw,140px)}
-.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px 48px;flex-wrap:wrap;margin-bottom:56px}
-.sec-head h2{font:800 clamp(52px,7.4vw,112px)/.88 var(--display);text-transform:uppercase}
-[dir=rtl] .sec-head h2{line-height:1.2;font-size:clamp(44px,5.6vw,84px)}
-.sec-head h2 em{font-style:normal;color:var(--orange)}
-.sec-head p{max-width:380px;color:var(--smoke)}
-.sec-head .label{color:var(--orange);display:block;margin-bottom:18px}
-
-/* work */
-.work{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
-.w{position:relative;overflow:hidden;background:var(--night-2)}
-.w img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
-.w:hover img{transform:scale(1.04)}
-.w::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(22,23,24,.85),transparent 55%)}
-.w .meta{color:#fff;position:absolute;inset-inline:22px;bottom:20px;z-index:1;display:flex;justify-content:space-between;align-items:end;gap:12px}
-.w h3{font:800 clamp(28px,2.8vw,40px)/.95 var(--display);text-transform:uppercase}
-.w .meta .label{color:rgba(255,255,255,.82);display:block;margin-top:6px;font-size:11px}
-.w .pill{position:absolute;top:16px;inset-inline-start:16px;z-index:1;background:var(--orange);color:var(--ink);padding:6px 10px}
-.w.a{grid-column:span 7;aspect-ratio:1.35}
-.w.b{grid-column:span 5}
-.w.c,.w.d,.w.e{grid-column:span 4;aspect-ratio:1.1}
-
-/* services */
-.svc-wrap{background:var(--night-2)}
-.svc{border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:1fr 1.1fr auto;gap:28px;align-items:center;padding-block:22px;border-bottom:1px solid var(--line);transition:background .25s}
-.row h3{font:800 clamp(34px,4.4vw,64px)/1 var(--display);text-transform:uppercase;transition:color .2s}
-[dir=rtl] .row h3{font-size:clamp(28px,3.4vw,48px);line-height:1.3}
-.row:hover h3{color:var(--orange)}
-.row p{color:var(--smoke);max-width:440px}
-.cities{display:flex;gap:8px}
-.cities a{border:1px solid var(--line);border-radius:99px;padding:8px 16px;font:600 13px var(--body);transition:all .2s}
-.cities a:hover{background:var(--orange);border-color:var(--orange);color:var(--ink)}
-
-/* who */
-.who{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(40px,6vw,96px)}
-.who h2{font:800 clamp(48px,6vw,92px)/.9 var(--display);text-transform:uppercase;position:sticky;top:130px;align-self:start}
-[dir=rtl] .who h2{line-height:1.25;font-size:clamp(40px,4.6vw,68px)}
-.who h2 em{font-style:normal;color:var(--orange)}
-.who-copy p{color:var(--bone-2);margin-bottom:18px;font-size:17px;max-width:62ch}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line);margin-top:40px}
-.stat{padding:26px 18px 26px 0}
-.stat+.stat{border-inline-start:1px solid var(--line);padding-inline-start:20px}
-.stat b{display:block;font:800 64px/1 var(--display);color:var(--orange);font-variant-numeric:tabular-nums}
-.stat span{color:var(--smoke);font-size:14px}
-.accr{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-top:32px;color:var(--smoke)}
-.accr img{height:40px;width:auto;background:#fff;padding:6px 10px}
-
-/* cta */
-.cta{background:var(--orange);color:var(--ink)}
-.cta .wrap{padding-block:clamp(80px,10vw,140px)}
-.cta h2{font:800 clamp(80px,14vw,220px)/.84 var(--display);text-transform:uppercase}
-[dir=rtl] .cta h2{line-height:1.2;font-size:clamp(60px,9vw,150px)}
-.cta .row2{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-top:44px}
-.cta p{max-width:420px;font-size:18px;font-weight:500}
-.cta .btn{background:var(--ink);color:#fff;padding:18px 28px;font-size:15px}
-.cta .btn:hover{background:#fff;color:var(--ink)}
-
-/* footer */
-footer{background:var(--night-2);padding-block:80px 32px;color:var(--smoke);font-size:15px}
-.fgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr;gap:40px}
-footer .label{color:var(--bone);margin-bottom:16px;display:block}
-footer ul{list-style:none;display:grid;gap:8px}
-footer a:hover{color:var(--orange)}
-.ftag{font:800 44px/.9 var(--display);text-transform:uppercase;color:var(--bone)}
-.ftag em{font-style:normal;color:var(--orange)}
-.fbot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:64px;padding-top:24px;border-top:1px solid var(--line);font-size:13px}
-
-.wa{position:fixed;bottom:20px;inset-inline-end:20px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.35)}
-
-@media (max-width:1000px){
-  .menu{display:none}
-  .nav .btn-line{display:none}
-  .nav .wrap{height:76px}
-  .nav .logo img{height:48px}
-  .hero-grid,.who{grid-template-columns:1fr}
-  .card{margin:24px 22px 12px 8px}
-  .clients .wrap{grid-template-columns:1fr;gap:20px}
-  .work{grid-template-columns:1fr 1fr}
-  .w.a{grid-column:1/-1}
-  .w.b{grid-column:1/-1;aspect-ratio:1.35}
-  .w.c,.w.d,.w.e{grid-column:span 1}
-  .w.e{grid-column:1/-1;aspect-ratio:1.35}
-  .row{grid-template-columns:1fr;gap:8px}
-  .row p{display:none}
-  .who h2{position:static}
-  .stats{grid-template-columns:1fr 1fr}
-  .stat:nth-child(3){border-inline-start:0;padding-inline-start:0}
-  .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .fgrid{grid-template-columns:1fr 1fr}
-  .fgrid>div:first-child{grid-column:1/-1}
-}
-@media (max-width:560px){
-  .work{grid-template-columns:1fr}
-  .w.c,.w.d{grid-column:1/-1;aspect-ratio:1.35}
-  .hero-bot .label:first-child{display:none}
-}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
@@ -256,7 +71,7 @@ footer a:hover{color:var(--orange)}
       <figure>
         <img src="img/work/asfour-crystal.jpg" alt="Asfour Crystal exhibition booth with crystal leopard and glass curtains, designed and built by Doers" width="1600" height="856" fetchpriority="high">
         <span class="tag label">Doers / In real life</span>
-        <figcaption><div><b>Asfour Crystal</b><span data-t="c1">Exhibition design &amp; production</span></div><i class="arrow">↗</i></figcaption>
+        <figcaption><div><b>Asfour Crystal · Dubai 2023</b><span data-t="c1">Creative 3D, production, AV &amp; lighting</span></div><i class="arrow">↗</i></figcaption>
       </figure>
     </a>
   </div>
@@ -276,22 +91,62 @@ footer a:hover{color:var(--orange)}
 <section class="sec wrap" id="work">
   <div class="sec-head">
     <h2 data-t="wh" data-html>Selected<br><em>work.</em></h2>
-    <p data-t="wp">Booths, exhibitions and brand experiences we designed and built for clients across Egypt and the Gulf.</p>
+    <p data-t="wp">Stands, launches and brand experiences we designed and built in Cairo, Dubai, Abu Dhabi, Jeddah, Riyadh, Kuwait and Berlin.</p>
   </div>
   <div class="work">
-    <a class="w a" href="https://doersadv.com/booth-production-egypt/"><img src="img/work/isys-arch.jpg" alt="iSYS Intelligent Systems circular arch booth at an AI exhibition in Cairo" loading="lazy"><span class="pill label" data-t="real">Built</span><div class="meta"><div><h3>iSYS Intelligent Systems</h3><span class="label" data-t="t1">Booth design &amp; production</span></div></div></a>
-    <a class="w b" href="https://doersadv.com/booth-production-egypt/"><img src="img/work/isys-booth.jpg" alt="iSYS blue and white exhibition stand with LED screens" loading="lazy"><span class="pill label" data-t="real">Built</span><div class="meta"><div><h3>iSYS Pavilion</h3><span class="label" data-t="t2">Exhibition stand</span></div></div></a>
-    <a class="w c" href="https://doersadv.com/booth-production-egypt/"><img src="img/work/serenity-booth.jpg" alt="Serenity Hospitality Group marble booth design" loading="lazy"><div class="meta"><div><h3>Serenity Hospitality</h3><span class="label" data-t="t3">Booth concept</span></div></div></a>
-    <a class="w d" href="https://doersadv.com/booth-production-egypt/"><img src="img/work/gd-netcetera.jpg" alt="Giesecke+Devrient and Netcetera booth with living green wall" loading="lazy"><div class="meta"><div><h3>G+D × Netcetera</h3><span class="label" data-t="t4">Booth concept</span></div></div></a>
-    <a class="w e" href="https://doersadv.com/ksa/booth-production-in-jeddah/"><img src="img/work/rai.jpg" alt="RAI Global Distribution two-storey exhibition booth" loading="lazy"><div class="meta"><div><h3>RAI Global Distribution</h3><span class="label" data-t="t5">Double-deck booth</span></div></div></a>
+    <a class="w a" href="https://doersadv.com/booth-production-egypt/"><img src="img/work/isys-arch.jpg" alt="iSYS Intelligent Systems circular arch booth at an AI exhibition in Cairo" loading="lazy"><span class="pill label" data-t="real">Built</span><div class="meta"><div><h3>iSYS Intelligent Systems</h3><span class="label" data-t="t1">AI Expo · Cairo · 3D concept, production, AV</span></div></div></a>
+    <a class="w b" href="https://doersadv.com/booth-production-egypt/"><img src="img/work/isys-booth.jpg" alt="iSYS blue and white exhibition stand with LED screens" loading="lazy"><span class="pill label" data-t="real">Built</span><div class="meta"><div><h3>iSYS Pavilion</h3><span class="label" data-t="t2">Cairo ICT · 3D concept, production, AV</span></div></div></a>
+    <a class="w c" href="https://doersadv.com/booth-production-egypt/"><img src="img/work/serenity-booth.jpg" alt="Serenity Hospitality Group marble booth design" loading="lazy"><div class="meta"><div><h3>Serenity Group</h3><span class="label" data-t="t3">ITB Berlin · Germany</span></div></div></a>
+    <a class="w d" href="https://doersadv.com/booth-production-egypt/"><img src="img/work/gd-netcetera.jpg" alt="Giesecke+Devrient and Netcetera booth with living green wall" loading="lazy"><div class="meta"><div><h3>Seamless × Netcetera</h3><span class="label" data-t="t4">Seamless · Dubai 2023</span></div></div></a>
+    <a class="w e" href="https://doersadv.com/ksa/booth-production-in-jeddah/"><img src="img/work/rai.jpg" alt="RAI Global Distribution two-storey exhibition booth" loading="lazy"><div class="meta"><div><h3>RAI Group</h3><span class="label" data-t="t5">Plastex 2024 · Cairo</span></div></div></a>
   </div>
+</section>
+
+
+<section class="wrap idx-sec" id="index" aria-labelledby="idx-h">
+  <div class="idx-head">
+    <h2 id="idx-h" data-t="ih">Project index</h2>
+    <div class="chips" role="group" aria-label="Filter projects">
+      <button class="chip on" data-f="all" data-t="fa">All</button>
+      <button class="chip" data-f="ex" data-t="fe">Exhibitions</button>
+      <button class="chip" data-f="ev" data-t="fv">Events &amp; launches</button>
+      <button class="chip" data-f="br" data-t="fb">Branding &amp; signage</button>
+    </div>
+  </div>
+  <div class="idx-scroll"><table class="idx">
+    <thead><tr><th data-t="c_y">Year</th><th data-t="c_c">Client</th><th data-t="c_p">Project</th><th data-t="c_l">Where</th><th data-t="c_s">Scope</th></tr></thead>
+    <tbody id="idx"></tbody>
+  </table></div>
+</section>
+
+<section class="results">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-t="rh" data-html>Digital that<br><em>performs.</em></h2>
+      <p data-t="rp">Paid social for Safi on Meta and TikTok. $20K of media, reported by the client dashboard.</p>
+    </div>
+    <div class="res-grid">
+      <div class="res"><b>6M+</b><span data-t="r1">Unique users reached</span></div>
+      <div class="res"><b>26M</b><span data-t="r2">Impressions</span></div>
+      <div class="res"><b>27M</b><span data-t="r3">Video views</span></div>
+      <div class="res"><b>500K</b><span data-t="r4">Clicks</span></div>
+      <div class="res"><b>11K+</b><span data-t="r5">Messages</span></div>
+      <div class="res"><b>$7.5</b><span data-t="r6">Cost per lead, real estate campaign on Instagram &amp; TikTok</span></div>
+    </div>
+    <p class="res-more label" data-t="rm">Also: annual media strategy for Dubai Future Foundation · Gen Z investor program for Dubai Financial Market · corporate films for Egypt's Ministry of Petroleum</p>
+  </div>
+</section>
+
+<section class="where wrap" aria-label="Where we work">
+  <span class="label" data-t="wl">Where we've built</span>
+  <p class="cities-big" data-t="wc">Cairo · Jeddah · Riyadh · Dubai · Abu Dhabi · Kuwait · Berlin</p>
 </section>
 
 <section class="sec svc-wrap" id="services">
   <div class="wrap">
     <div class="sec-head">
       <h2 data-t="sh" data-html>What<br>we <em>do.</em></h2>
-      <p data-t="sp">Eleven integrated services, every step tied to objectives and measurable KPIs. Choose the city to see the local team.</p>
+      <p data-t="sp">Twelve integrated services, every step tied to objectives and measurable KPIs. Choose the city to see the local team.</p>
     </div>
     <div class="svc" id="svc"></div>
   </div>
@@ -311,7 +166,7 @@ footer a:hover{color:var(--orange)}
       <div class="stats">
         <div class="stat"><b>15+</b><span data-t="s1">Years of experience</span></div>
         <div class="stat"><b>3</b><span data-t="s2">Offices</span></div>
-        <div class="stat"><b>11</b><span data-t="s3">Services</span></div>
+        <div class="stat"><b>12</b><span data-t="s3">Services</span></div>
         <div class="stat"><b>4.3</b><span data-t="s4">Trustpilot score</span></div>
       </div>
       <div class="accr"><span class="label" data-t="acc">Accredited by</span><img src="img/google-partner.png" alt="Google Partner"><img src="img/hubspot.png" alt="HubSpot Partner"><span class="label">TIA</span></div>
@@ -360,6 +215,7 @@ const SVC=[
  {n:"Branding",a:"الهوية والبراندنج",eg:"/branding-agency-egypt/",ksa:"/ksa/branding-agency-in-jeddah/",d:"Brand strategy, identity, persona and guidelines, built with your customers in the room.",da:"استراتيجية البراند والهوية البصرية ودليل الاستخدام."},
  {n:"Event Management",a:"تنظيم الفعاليات",eg:"/event-management-cairo-egypt/",ksa:"/ksa/event-management-agency-in-jeddah/",d:"Events and BTL activations that engage customers and generate leads.",da:"فعاليات وتفعيلات BTL تبني علاقة حقيقية مع جمهورك."},
  {n:"Booth Production",a:"تصميم وتنفيذ البوثات",eg:"/booth-production-egypt/",ksa:"/ksa/booth-production-in-jeddah/",d:"Exhibition booths designed, built and installed by our own team.",da:"بوثات معارض بنصممها وننفذها ونركبها بفريقنا."},
+ {n:"Signage & Internal Branding",a:"اللافتات والهوية الداخلية",eg:"*signage-internal-branding-egypt/",ksa:null,d:"Building signs, office branding and wayfinding, designed, made and installed by us.",da:"لافتات المباني وهوية المكاتب ولافتات الإرشاد، تصميم وتنفيذ وتركيب."},
  {n:"Digital Marketing",a:"التسويق الرقمي",eg:"/digital-marketing-egypt-cairo/",ksa:"/ksa/digital-marketing-agency-in-jeddah/",d:"Social, search, email and mobile campaigns driven by data and ROI.",da:"سوشيال وسيرش وإيميل وحملات مبنية على البيانات والعائد."},
  {n:"SEO",a:"تحسين محركات البحث",eg:"/seo/",ksa:"/ksa/seo-agency-in-jeddah/",d:"Rank higher, attract relevant traffic and convert it.",da:"ترتيب أعلى وزيارات مهتمة فعلاً بخدماتك."},
  {n:"Media Production",a:"الإنتاج الإعلامي",eg:"/media-production-egypt/",ksa:null,d:"Ads, motion graphics and animated videos that tell your story.",da:"إعلانات وموشن جرافيك وفيديوهات تحكي قصتك."},
@@ -367,8 +223,42 @@ const SVC=[
  {n:"TV Advertising",a:"إعلانات التلفزيون",eg:"/tv-advertising/",ksa:"/ksa/tv-advertising-in-jeddah/",d:"Broadcast TV campaigns across Egypt and KSA.",da:"حملات تلفزيون في مصر والسعودية."},
  {n:"Radio Advertising",a:"إعلانات الراديو",eg:"/radio-advertising-egypt/",ksa:"/ksa/radio-advertising-agencies-in-jeddah/",d:"Radio spots that reach audiences on the move.",da:"إعلانات راديو بتوصل لجمهورك وهو في الطريق."},
  {n:"Reputation Management",a:"إدارة السمعة",eg:"/listening-and-reputation-management/",ksa:"/ksa/listening-and-reputation-management-in-jeddah/",d:"Social listening and reputation management that protects your brand.",da:"رصد ومتابعة وإدارة سمعة البراند أونلاين."},
- {n:"Web Development",a:"تطوير المواقع",eg:null,ksa:"/ksa/website-development-company-in-jeddah/",d:"Fast, search-friendly websites built to convert.",da:"مواقع سريعة ومتوافقة مع جوجل ومصممة للتحويل."}
+ {n:"Web Development",a:"تطوير المواقع",eg:"*website-development-company-egypt/",ksa:"/ksa/website-development-company-in-jeddah/",d:"Fast, search-friendly websites built to convert.",da:"مواقع سريعة ومتوافقة مع جوجل ومصممة للتحويل."}
 ];
+const PROJ=[
+ ["2026","iSYS","AI Expo 2026 stand","Cairo","3D concept · production · AV","ex"],
+ ["2024","GSK","Stand at DUPHAT 2024","Dubai World Trade Centre","3D concept · production · AV · lighting","ex"],
+ ["2024","Juhayna","Stand at Gulfood 2024","Dubai World Trade Centre","Production · AV","ex"],
+ ["2024","Galaxy","Egy Beauty Africa 2024","Cairo","3D concept · production · AV","ex"],
+ ["2024","RAI Group","Plastex 2024","Cairo","3D concept · production · AV","ex"],
+ ["2024","Technip Energies","EGYPES 2024","Cairo","Creative 3D · production · AV","ex"],
+ ["2024","Sanofi","Rare Disease Day, Hilton Yas Island","Abu Dhabi","Production · AV","ev"],
+ ["2024","Shingrix","Launch event","Kuwait","Production · AV · lighting · 360 photo booth","ev"],
+ ["2024","Sanofi","Office branding","Jeddah · Riyadh · Dubai","Internal branding","br"],
+ ["2024","MSD","Dubai office branding","Dubai","Internal branding","br"],
+ ["2023","Asfour Crystal","Exhibition stand","Dubai","Creative 3D · production · AV · lighting","ex"],
+ ["2023","Novartis","Scemblix event, Sofitel Downtown","Dubai","Creative 3D · production · AV · lighting","ev"],
+ ["2023","iSYS","Cairo ICT 2023","Cairo","3D concept · production · AV","ex"],
+ ["—","Serenity Group","Stand at ITB Berlin","Berlin, Germany","3D concept · production","ex"],
+ ["—","iSYS","Tech Heritage, Grand Egyptian Museum","Cairo","3D concept · production · AV","ex"],
+ ["2022","Egypt Energy Show","Main concept & production for Lucy Eclectic","Cairo","Concept · production · event management","ex"],
+ ["2022","Jeddah Defense Show","Hilton Jeddah","Jeddah","Production · AV","ex"],
+ ["Expo 2020","AstraZeneca","Breast Cancer Patient Forum, Swedish Pavilion","Dubai","Theme · characters · video · event management","ev"],
+ ["—","Dell Technologies","CX Day, JW Marriott New Cairo","Cairo","Theme · production · LED & sound · coverage","ev"],
+ ["—","Dell","University road show: GUC, AUC, BUE, Helwan","Cairo","3D design · car production · activation","ev"],
+ ["—","Aston Martin · DS 7","Launches at Capital Business Park","Cairo","3D design · booth production · giveaways","ev"],
+ ["—","AXA","Head office branding","New Cairo","Design · print · production · installation","br"],
+ ["—","Bosch · Arab Bank · Nestlé","Signage & internal branding","Egypt","Design · production · installation","br"],
+ ["—","Marriott · Sheraton","Hotel signage","Egypt","Signage · installation","br"]
+];
+let filt="all";
+function renderIdx(){
+  document.getElementById("idx").innerHTML=PROJ.filter(r=>filt==="all"||r[5]===filt).map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("");
+}
+document.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{
+  filt=b.dataset.f; document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===b)); renderIdx();
+}));
+renderIdx();
 const LOGOS=[["8","United Nations"],["7","UNHCR"],["6","Nestlé"],["12","GSK"],["5","Asus"],["4","AXA"],["9","Etisalat"],["3","Timberland"],["13","RB"],["11","FAO"],["2","EMS Revolution"],["1","Gento"]];
 const AR={
  n1:"أعمالنا",n2:"خدماتنا",n3:"مين إحنا",n4:"المدونة",nc:"ابدأ مشروعك",cai:"القاهرة",jed:"جدة",
@@ -377,14 +267,14 @@ const AR={
  lead:"بنبني براندات، ونعمل تجارب، ونحوّل الأفكار الطموحة لحقيقة. من أول شرارة لآخر تفصيلة، في مصر والسعودية والشرق الأوسط.",
  explore:"شوف أعمالنا",c1:"تصميم وتنفيذ بوث معرض",conn:"استراتيجية. إبداع. تنفيذ. كله متوصل ببعضه.",disc:"اعرف دورز",
  good:"شركاء كبار.<br>وشغل أكبر.",wh:"من<br><em>أعمالنا.</em>",wp:"بوثات ومعارض وتجارب براند صممناها ونفذناها لعملاء في مصر والخليج.",
- real:"اتنفذ",t1:"تصميم وتنفيذ بوث",t2:"جناح معرض",t3:"تصميم بوث",t4:"تصميم بوث",t5:"بوث دورين",
- sh:"إحنا<br><em>بنعمل إيه.</em>",sp:"11 خدمة متكاملة، وكل خطوة مربوطة بأهداف ومؤشرات أداء. اختار المدينة وشوف الفريق المحلي.",
+ real:"اتنفذ",t1:"معرض AI Expo · القاهرة",t2:"معرض Cairo ICT · القاهرة",t3:"معرض ITB برلين · ألمانيا",t4:"معرض Seamless · دبي 2023",t5:"معرض Plastex 2024 · القاهرة",ih:"فهرس المشاريع",fa:"الكل",fe:"معارض",fv:"فعاليات وإطلاقات",fb:"هوية ولافتات",c_y:"السنة",c_c:"العميل",c_p:"المشروع",c_l:"المكان",c_s:"نطاق العمل",rh:"ديجيتال<br><em>بيجيب نتيجة.</em>",rp:"حملة سوشيال مدفوعة لصافي على ميتا وتيك توك، بميزانية 20 ألف دولار.",r1:"مستخدم فريد وصلناله",r2:"مرة ظهور",r3:"مشاهدة فيديو",r4:"نقرة",r5:"رسالة",r6:"تكلفة العميل المحتمل في حملة عقارات على إنستجرام وتيك توك",rm:"كمان: استراتيجية ميديا سنوية لمؤسسة دبي للمستقبل · برنامج جيل Z للاستثمار لسوق دبي المالي · أفلام مؤسسية لوزارة البترول المصرية",wl:"اشتغلنا فين",wc:"القاهرة · جدة · الرياض · دبي · أبوظبي · الكويت · برلين",
+ sh:"إحنا<br><em>بنعمل إيه.</em>",sp:"12 خدمة متكاملة، وكل خطوة مربوطة بأهداف ومؤشرات أداء. اختار المدينة وشوف الفريق المحلي.",
  whoh:"حلول تسويق معتمدة. <em>ومتكاملة.</em>",s1:"سنة خبرة",s2:"مكاتب",s3:"خدمة",s4:"تقييم Trustpilot",acc:"معتمدين من",
  ch:"يلا نخليها<br>حقيقة.",cp:"احكيلنا عن البراند أو الفعالية أو الإطلاق. هنرد عليك خلال يوم عمل.",cb:"ابدأ مشروعك",
  ft:"دورز<br><em>بتعمل كل حاجة.</em>",fk:"وكالة إعلانات في السعودية",fj:"وكالة إعلانات في جدة",fc:"تواصل معنا",
  fa1:"شارع رسلان، مدينة نصر، المنطقة التاسعة، بلوك 23، برج 3",fa2:"مركز زهران، برج B، الدور 12",fo:"تابعنا",hrs:"الأحد–الخميس · 10:00–18:00"
 };
-const U=p=>"https://doersadv.com"+p, EN={};
+const U=p=>p.startsWith("*")?p.slice(1):"https://doersadv.com"+p, EN={};
 document.querySelectorAll("[data-t]").forEach(el=>{EN[el.dataset.t]??=el.innerHTML});
 let ar=false;
 function render(){
