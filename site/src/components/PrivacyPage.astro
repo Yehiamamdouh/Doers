@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+const { lang = 'en' } = Astro.props;
+const ar = lang === 'ar';
+const updated = '2026-09-28';
+const T = ar ? {
+  title: 'سياسة الخصوصية | دورز للدعاية والإعلان',
+  desc: 'إزاي دورز بتجمع وتستخدم وتحمي بياناتك لما تزور موقعنا أو تتواصل معانا.',
+  h1: 'سياسة الخصوصية', upd: 'آخر تحديث: ٢٨ سبتمبر ٢٠٢٦', home: 'الرئيسية',
+  body: `
+<p>دورز للدعاية والإعلان ("دورز"، "إحنا") بتدير الموقع doersadv.com. الصفحة دي بتشرح البيانات اللي بنجمعها، وليه، وحقوقك فيها. بنلتزم بقانون حماية البيانات الشخصية المصري رقم 151 لسنة 2020 ونظام حماية البيانات الشخصية في المملكة العربية السعودية.</p>
+<h2>البيانات اللي بنجمعها</h2>
+<ul><li><b>نموذج التواصل:</b> الاسم، البريد الإلكتروني، رقم الموبايل، الشركة، الخدمة المطلوبة ورسالتك. بتوصلنا بالإيميل عشان نرد عليك.</li><li><b>بيانات الاستخدام:</b> لو وافقت على ملفات تعريف الارتباط، بنستخدم Google Tag Manager و Google Analytics لقياس زيارات الموقع، وأدوات إعلانية لقياس أداء حملاتنا.</li><li><b>واتساب والمكالمات:</b> لو كلمتنا على واتساب أو بالتليفون، بنحتفظ بالمحادثة عشان نكمل شغلنا معاك.</li></ul>
+<h2>بنستخدمها في إيه</h2>
+<ul><li>الرد على طلبك وتجهيز عرض سعر.</li><li>تحسين الموقع والإعلانات لو وافقت على ملفات تعريف الارتباط.</li><li>الالتزام بأي متطلبات قانونية.</li></ul>
+<p>مش بنبيع بياناتك، ومش بنشاركها غير مع مقدمي الخدمات اللي بنعتمد عليهم في تشغيل الموقع (الاستضافة، البريد، Google) وبس بالقدر اللازم.</p>
+<h2>ملفات تعريف الارتباط</h2>
+<p>أول ما تزور الموقع بنسألك. لو رفضت، مش هيتم تشغيل ملفات التحليلات أو الإعلانات. تقدر تغيّر اختيارك في أي وقت بمسح بيانات الموقع من المتصفح. الفيديوهات المعروضة من Vimeo ممكن تستخدم ملفاتها الخاصة لما تشغّلها.</p>
+<h2>مدة الاحتفاظ</h2>
+<p>بنحتفظ برسائل التواصل طول فترة التعامل ولمدة أقصاها ٣ سنين بعدها، إلا لو القانون طلب غير كده.</p>
+<h2>حقوقك</h2>
+<p>من حقك تطلب نسخة من بياناتك، أو تصحيحها، أو مسحها، أو تعترض على استخدامها. ابعتلنا على <a href="mailto:info@doersadv.com">info@doersadv.com</a> وهنرد خلال ٣٠ يوم.</p>
+<h2>تواصل معانا</h2>
+<p>دورز للدعاية والإعلان — شارع رسلان، مدينة نصر، القاهرة، مصر · مركز زهران، برج B، جدة، المملكة العربية السعودية · <a href="mailto:info@doersadv.com">info@doersadv.com</a></p>`,
+} : {
+  title: 'Privacy Policy - Doers Advertising Agency',
+  desc: 'How Doers Advertising collects, uses and protects your data when you visit our website or contact us.',
+  h1: 'Privacy policy', upd: 'Last updated: 28 September 2026', home: 'Home',
+  body: `
+<p>Doers Advertising LTD ("Doers", "we") runs doersadv.com. This page explains what data we collect, why, and your rights over it. We follow Egypt's Personal Data Protection Law (No. 151 of 2020) and Saudi Arabia's Personal Data Protection Law (PDPL).</p>
+<h2>What we collect</h2>
+<ul><li><b>Contact form:</b> your name, email, phone, company, the service you're interested in and your message. It reaches us by email so we can reply.</li><li><b>Usage data:</b> if you accept cookies, we use Google Tag Manager and Google Analytics to measure visits, and advertising tags to measure our campaigns.</li><li><b>WhatsApp and calls:</b> if you contact us on WhatsApp or by phone, we keep the conversation to continue working with you.</li></ul>
+<h2>How we use it</h2>
+<ul><li>To answer your enquiry and prepare a quote.</li><li>To improve the website and our ads, only if you accept cookies.</li><li>To meet legal obligations.</li></ul>
+<p>We don't sell your data. We share it only with the providers that run the site for us (hosting, email, Google), and only as much as they need.</p>
+<h2>Cookies</h2>
+<p>We ask on your first visit. If you decline, analytics and advertising cookies stay off. You can change your answer at any time by clearing this site's data in your browser. Videos played from Vimeo may set Vimeo's own cookies.</p>
+<h2>How long we keep it</h2>
+<p>We keep enquiries for as long as we work together and up to three years after, unless the law requires otherwise.</p>
+<h2>Your rights</h2>
+<p>You can ask for a copy of your data, or ask us to correct or delete it, or to stop using it. Email <a href="mailto:info@doersadv.com">info@doersadv.com</a> and we'll reply within 30 days.</p>
+<h2>Contact</h2>
+<p>Doers Advertising LTD — Raslan St, Nasr City, Cairo, Egypt · Zahran Building Center, Tower B, Jeddah, Saudi Arabia · <a href="mailto:info@doersadv.com">info@doersadv.com</a></p>`,
+};
+const path = ar ? '/ar/privacy-policy/' : '/privacy-policy/';
+---
+<Base title={T.title} description={T.desc} path={path} lang={lang} alternates={{ en: '/privacy-policy/', ar: '/ar/privacy-policy/' }} styles={['/css/site.css', '/css/legacy.css']}>
+  <SiteHeader lang={lang} altHref={ar ? '/privacy-policy/' : '/ar/privacy-policy/'} />
+  <main>
+    <div class="wrap">
+      <nav class="crumbs label" aria-label={ar ? 'مسار الصفحة' : 'Breadcrumb'}><a href={ar ? '/ar/' : '/'}>{T.home}</a><span>/</span><span>{T.h1}</span></nav>
+      <article class="legal">
+        <h1>{T.h1}</h1>
+        <p class="upd"><time datetime={updated}>{T.upd}</time></p>
+        <Fragment set:html={T.body} />
+      </article>
+    </div>
+  </main>
+  <SiteFooter lang={lang} />
+</Base>

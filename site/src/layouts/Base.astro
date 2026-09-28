@@ -1,4 +1,5 @@
 ---
+import CookieNotice from '../components/CookieNotice.astro';
 /**
  * Shared <head> for every page: title, description, canonical, hreflang,
  * Open Graph, JSON-LD and Google Tag Manager (live builds only).
@@ -13,8 +14,9 @@ interface Props {
   schema?: object;
   styles?: string[];
   ogType?: string;
+  noindex?: boolean;         // 404 and similar: not indexed, no canonical
 }
-const { title, description, path, lang = 'en', alternates = {}, ogImage = '/img/og-default.jpg', schema, styles = [], ogType = 'website' } = Astro.props;
+const { title, description, path, lang = 'en', alternates = {}, ogImage = '/img/og-default.jpg', schema, styles = [], ogType = 'website', noindex = false } = Astro.props;
 const site = 'https://doersadv.com';
 const canonical = site + path;
 const staging = import.meta.env.STAGING === '1' || process.env.STAGING === '1';
@@ -27,10 +29,10 @@ const gtm = process.env.GTM_ID || 'GTM-TH643JH';
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content={description}>
-{staging
+{staging || noindex
   ? <meta name="robots" content="noindex, nofollow">
   : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">}
-<link rel="canonical" href={canonical}>
+{!noindex && <link rel="canonical" href={canonical}>}
 {alternates.en && <link rel="alternate" hreflang="en" href={site + alternates.en}>}
 {alternates.ar && <link rel="alternate" hreflang="ar" href={site + alternates.ar}>}
 {alternates.en && <link rel="alternate" hreflang="x-default" href={site + alternates.en}>}
@@ -46,6 +48,9 @@ const gtm = process.env.GTM_ID || 'GTM-TH643JH';
 <link rel="apple-touch-icon" href="/img/favicon-32.jpg">
 {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 {!staging && (
+  <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var c=null;try{c=localStorage.getItem('doers-consent')}catch(e){}gtag('consent','default',{analytics_storage:c==='yes'?'granted':'denied',ad_storage:c==='yes'?'granted':'denied',ad_user_data:c==='yes'?'granted':'denied',ad_personalization:c==='yes'?'granted':'denied',wait_for_update:500});`} />
+)}
+{!staging && (
   <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtm}');`} />
 )}
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,5 +62,6 @@ const gtm = process.env.GTM_ID || 'GTM-TH643JH';
 <body>
 {!staging && <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtm}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>}
 <slot />
+<CookieNotice lang={lang} />
 </body>
 </html>

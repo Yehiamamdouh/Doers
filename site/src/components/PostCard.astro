@@ -1,0 +1,15 @@
+---
+import { postPath } from '../lib/posts.js';
+const { post, big = false } = Astro.props;
+const d = post.data;
+const ar = d.lang === 'ar';
+const fmt = (dt) => dt.toLocaleDateString(ar ? 'ar-EG' : 'en-GB', { month: 'short', year: 'numeric' });
+---
+<a class={`post-card${big ? ' big' : ''}`} href={postPath(post)}>
+  <div class="pc-img">{d.cover ? <img src={d.cover} alt="" loading={big ? 'eager' : 'lazy'}> : null}</div>
+  <div>
+    <span class="label">{d.category || fmt(d.date)}</span>
+    <h2>{d.h1 || d.title}</h2>
+    <p>{d.description}</p>
+  </div>
+</a>

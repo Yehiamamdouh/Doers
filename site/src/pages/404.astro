@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+<Base title="Page not found - Doers Advertising Agency" description="This page moved or no longer exists." path="/404.html" styles={['/css/site.css', '/css/legacy.css']} noindex>
+  <SiteHeader />
+  <main>
+    <div class="wrap nf">
+      <span class="label" style="color:var(--orange-d)">Error 404 · الصفحة غير موجودة</span>
+      <h1>Lost<em>?</em></h1>
+      <p>This page moved or no longer exists. Try the homepage, our services or the blog, or tell us what you were looking for.</p>
+      <div class="cta-row">
+        <a class="btn btn-o" href="/">Back to home <span class="arrow">↗</span></a>
+        <a class="btn btn-line" href="/blog/">Read the blog</a>
+        <a class="btn btn-line" href="/ar/" lang="ar">الصفحة الرئيسية</a>
+      </div>
+    </div>
+  </main>
+  <SiteFooter />
+</Base>

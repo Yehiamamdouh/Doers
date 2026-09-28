@@ -1,0 +1,110 @@
+---
+/**
+ * Service pages carried over from the old site. Same URL, title, description and H1;
+ * the copy comes from src/data/legacy-pages.json (built by scripts/build_legacy.py).
+ */
+import Base from '../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import menu from '../data/services-menu.json';
+import { loc } from '../lib/links.js';
+const { p, alt } = Astro.props;
+const ar = p.lang === 'ar';
+const site = 'https://doersadv.com';
+const enPath = ar ? p.path.slice(3) : p.path;
+const alternates = alt ? { en: enPath, ar: '/ar' + enPath } : ar ? { ar: p.path } : { en: p.path };
+const ksa = enPath.startsWith('/ksa/');
+const L = ar
+  ? { home: 'الرئيسية', ksa: 'السعودية', start: 'ابدأ مشروعك', wa: 'واتساب', more: ksa ? 'خدماتنا في جدة' : 'خدماتنا في القاهرة', ctaH: 'يلا <em>نشتغل.</em>', ctaP: 'احكيلنا عن مشروعك، وهنرد عليك خلال يوم عمل واحد بخطة وتكلفة واضحة.' }
+  : { home: 'Home', ksa: 'KSA', start: 'Start a project', wa: 'WhatsApp us', more: ksa ? 'More from our Jeddah team' : 'More from our Cairo team', ctaH: 'Let’s <em>talk.</em>', ctaP: 'Tell us about the project. We reply within one working day with a plan and a clear quote.' };
+const related = menu
+  .filter((s) => (ksa ? s.ksa : s.eg))
+  .map((s) => ({ href: loc(ksa ? s.ksa : s.eg, p.lang), name: ar ? s.ar : s.name }))
+  .filter((r) => r.href !== p.path);
+const crumb = p.eyebrow || p.h1;
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebPage', '@id': site + p.path, url: site + p.path, name: p.title, description: p.description, inLanguage: ar ? 'ar' : 'en-US', isPartOf: { '@id': `${site}/#website` }, breadcrumb: { '@id': site + p.path + '#breadcrumb' }, ...(p.published && { datePublished: p.published }), ...(p.modified && { dateModified: p.modified }), ...(p.og && { primaryImageOfPage: site + p.og }) },
+    { '@type': 'Service', name: crumb, serviceType: crumb, areaServed: ksa ? { '@type': 'Country', name: 'Saudi Arabia' } : { '@type': 'Country', name: 'Egypt' }, provider: { '@id': `${site}/#organization` }, url: site + p.path },
+    { '@type': 'BreadcrumbList', '@id': site + p.path + '#breadcrumb', itemListElement: [{ '@type': 'ListItem', position: 1, name: L.home, item: site + (ar ? '/ar/' : '/') }, ...(ksa && enPath !== '/ksa/' ? [{ '@type': 'ListItem', position: 2, name: L.ksa, item: site + loc('/ksa/', p.lang) }] : []), { '@type': 'ListItem', position: ksa && enPath !== '/ksa/' ? 3 : 2, name: crumb }] },
+    { '@type': 'Organization', '@id': `${site}/#organization`, name: 'Doers Advertising Agency', url: site + '/' },
+  ],
+};
+const imgs = p.sections.flatMap((s) => s.nodes.filter((n) => n.t === 'img'));
+---
+<Base title={p.title} description={p.description} path={p.path} lang={p.lang} alternates={alternates} ogImage={p.og || undefined} schema={schema} styles={['/css/site.css', '/css/legacy.css']} ogType="article">
+  <SiteHeader lang={p.lang} altHref={alt ? (ar ? enPath : '/ar' + enPath) : undefined} />
+  <main class="lg">
+    <div class="wrap">
+      <nav class="crumbs label" aria-label={ar ? 'مسار الصفحة' : 'Breadcrumb'}>
+        <a href={ar ? '/ar/' : '/'}>{L.home}</a>
+        {ksa && enPath !== '/ksa/' && <><span>/</span><a href={loc('/ksa/', p.lang)}>{L.ksa}</a></>}
+        <span>/</span><span>{crumb}</span>
+      </nav>
+      <section class={`p-hero lg-hero${p.hero ? ' has-img' : ''}`}>
+        <div>
+          {p.eyebrow && <span class="label eyebrow">{p.eyebrow}</span>}
+          <h1 class="disp">{p.h1}</h1>
+          {p.lead && <p class="lead" set:html={p.lead} />}
+          <div class="cta-row">
+            <a class="btn btn-o" href={loc('/contact-us/', p.lang)}>{L.start} <span class="arrow">↗</span></a>
+            <a class="btn btn-line" href="https://wa.me/201101000255">{L.wa}</a>
+          </div>
+        </div>
+        {p.hero && <figure class="lg-fig"><img src={p.hero.src} alt={p.hero.alt} width={p.hero.w} height={p.hero.h} fetchpriority="high"></figure>}
+      </section>
+    </div>
+    <div class="wrap">
+      {p.sections.map((s, si) => (
+        <section class={`p-sec lg-sec${s.cards ? ' is-cards' : ''}`}>
+          {s.h2 && <h2>{s.h2}</h2>}
+          {s.cards ? (
+            <>
+              {s.nodes.filter((n, i) => i < s.nodes.findIndex((x) => x.t === 'h3')).map((n) => n.t === 'p' ? <p class="lg-intro" set:html={n.html} /> : null)}
+              <div class="feat">
+                {(() => {
+                  const cards = [];
+                  let cur = null;
+                  for (const n of s.nodes.slice(s.nodes.findIndex((x) => x.t === 'h3'))) {
+                    if (n.t === 'h3') { cur = { h: n.html, body: [] }; cards.push(cur); }
+                    else if (cur && n.t !== 'img') cur.body.push(n);
+                  }
+                  return cards.map((c, i) => (
+                    <div>
+                      <span class="label">{String(i + 1).padStart(2, '0')}</span>
+                      <h3 set:html={c.h} />
+                      {c.body.map((n) => n.t === 'ul' ? <ul>{n.items.map((it) => <li set:html={it} />)}</ul> : <p set:html={n.html} />)}
+                    </div>
+                  ));
+                })()}
+              </div>
+            </>
+          ) : (
+            <div class="lg-body">
+              {s.nodes.map((n) =>
+                n.t === 'img' ? <figure class="lg-fig"><img src={n.src} alt={n.alt} width={n.w} height={n.h} loading="lazy"></figure>
+                : n.t === 'ul' ? <ul class="checks">{n.items.map((it) => <li set:html={it} />)}</ul>
+                : n.t === 'h3' ? <h3 set:html={n.html} />
+                : <p set:html={n.html} />
+              )}
+            </div>
+          )}
+        </section>
+      ))}
+      {related.length > 0 && (
+        <section class="p-sec">
+          <h2>{L.more}</h2>
+          <div class="folio">{related.map((r) => <a href={r.href}><b>{r.name}</b><span class="arrow">↗</span></a>)}</div>
+        </section>
+      )}
+    </div>
+    <section class="cta">
+      <div class="wrap">
+        <h2 set:html={L.ctaH} />
+        <div class="row2"><p>{L.ctaP}</p><a class="btn" href={loc('/contact-us/', p.lang)}>{L.start} <span class="arrow">↗</span></a></div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter lang={p.lang} />
+</Base>

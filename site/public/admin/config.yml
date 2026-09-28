@@ -23,14 +23,38 @@ collections:
     folder: site/src/content/blog
     create: true
     slug: '{{slug}}'
+    summary: '{{h1}}'
+    sortable_fields: [date, title]
     fields:
-      - { label: Title, name: title, widget: string }
+      - { label: SEO title, name: title, widget: string, hint: 'The title shown in Google and the browser tab.' }
+      - { label: Headline, name: h1, widget: string, required: false, hint: 'The big heading on the page. Leave empty to use the SEO title.' }
       - { label: SEO description, name: description, widget: text, hint: 'About 150 characters. Shown in Google results.' }
-      - { label: Language, name: lang, widget: select, options: [en, ar], default: en }
+      - { label: Language, name: lang, widget: hidden, default: en }
       - { label: Publish date, name: date, widget: datetime }
+      - { label: Last updated, name: updated, widget: datetime, required: false }
+      - { label: Category, name: category, widget: string, required: false }
       - { label: Cover image, name: cover, widget: image, required: false }
       - { label: Cover image description, name: coverAlt, widget: string, required: false }
-      - { label: Related service, name: service, widget: string, required: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: blog_ar
+    label: Blog posts (Arabic)
+    label_singular: Arabic blog post
+    folder: site/src/content/blog/ar
+    create: true
+    slug: '{{slug}}'
+    summary: '{{h1}}'
+    sortable_fields: [date, title]
+    fields:
+      - { label: SEO title, name: title, widget: string }
+      - { label: Headline, name: h1, widget: string, required: false }
+      - { label: SEO description, name: description, widget: text }
+      - { label: Language, name: lang, widget: hidden, default: ar }
+      - { label: Publish date, name: date, widget: datetime }
+      - { label: Last updated, name: updated, widget: datetime, required: false }
+      - { label: Category, name: category, widget: string, required: false }
+      - { label: Cover image, name: cover, widget: image, required: false }
+      - { label: Cover image description, name: coverAlt, widget: string, required: false }
       - { label: Body, name: body, widget: markdown }
 
   - name: projects

@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import PostCard from './PostCard.astro';
+import { postsIn, postPath } from '../lib/posts.js';
+const { lang = 'en' } = Astro.props;
+const ar = lang === 'ar';
+const posts = await postsIn(lang);
+const path = ar ? '/ar/blog/' : '/blog/';
+const site = 'https://doersadv.com';
+const title = ar ? 'المدونة | دورز للدعاية والإعلان' : 'Blog - Doers Advertising Agency';
+const description = ar
+  ? 'مقالات من فريق دورز عن التسويق الرقمي، الهوية، الفعاليات، الإعلانات الخارجية وتطوير المواقع في مصر والسعودية.'
+  : 'Ideas and guides from the Doers team on digital marketing, branding, events, outdoor advertising and web development in Egypt and Saudi Arabia.';
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'Blog', '@id': site + path, url: site + path, name: title, description, inLanguage: ar ? 'ar' : 'en-US', publisher: { '@id': `${site}/#organization` }, blogPost: posts.slice(0, 20).map((p) => ({ '@type': 'BlogPosting', headline: p.data.h1 || p.data.title, url: site + postPath(p), datePublished: p.data.date.toISOString() })) },
+    { '@type': 'Organization', '@id': `${site}/#organization`, name: 'Doers Advertising Agency', url: site + '/' },
+  ],
+};
+---
+<Base title={title} description={description} path={path} lang={lang} alternates={{ en: '/blog/', ar: '/ar/blog/' }} schema={schema} styles={['/css/site.css', '/css/legacy.css']}>
+  <SiteHeader lang={lang} altHref={ar ? '/blog/' : '/ar/blog/'} />
+  <main>
+    <div class="wrap">
+      <nav class="crumbs label" aria-label={ar ? 'مسار الصفحة' : 'Breadcrumb'}><a href={ar ? '/ar/' : '/'}>{ar ? 'الرئيسية' : 'Home'}</a><span>/</span><span>{ar ? 'المدونة' : 'Blog'}</span></nav>
+      <header class="blog-head">
+        <h1 set:html={ar ? 'المدونة<em>.</em>' : 'The blog<em>.</em>'} />
+        <p>{ar ? 'أفكار ودروس من شغلنا اليومي في التسويق والإعلان.' : 'Notes from the work: marketing, branding, events and the web.'}</p>
+      </header>
+      <div class="posts">
+        {posts.map((p, i) => <PostCard post={p} big={i === 0} />)}
+      </div>
+    </div>
+  </main>
+  <SiteFooter lang={lang} />
+</Base>

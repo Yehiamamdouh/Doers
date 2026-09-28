@@ -1,0 +1,20 @@
+---
+// Arabic pages carried over from the old site and Arabic blog posts, under /ar/.
+import LegacyPage from '../../components/LegacyPage.astro';
+import BlogPost from '../../components/BlogPost.astro';
+import legacy from '../../data/legacy-pages.json';
+import { postsIn, postSlug } from '../../lib/posts.js';
+
+export async function getStaticPaths() {
+  const enPaths = new Set(legacy.filter((l) => l.lang === 'en').map((l) => l.path));
+  const [en, ar] = await Promise.all([postsIn('en'), postsIn('ar')]);
+  const enSlugs = new Set(en.map(postSlug));
+  return [
+    ...legacy.filter((l) => l.lang === 'ar').map((l) => ({ params: { slug: l.path.slice(4, -1) }, props: { kind: 'legacy', p: l, alt: enPaths.has(l.path.slice(3)) } })),
+    ...ar.map((post, i) => ({ params: { slug: postSlug(post) }, props: { kind: 'post', post, alt: enSlugs.has(postSlug(post)), more: ar.filter((_, j) => j !== i).slice(Math.max(0, i - 1), Math.max(0, i - 1) + 3) } })),
+  ];
+}
+const { kind, p, post, alt, more } = Astro.props;
+---
+{kind === 'legacy' && <LegacyPage p={p} alt={alt} />}
+{kind === 'post' && <BlogPost post={post} alt={alt} more={more} />}

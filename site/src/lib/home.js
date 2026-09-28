@@ -1,14 +1,12 @@
 import * as cheerio from 'cheerio';
 import template from '../content/home.html?raw';
 import ar from '../i18n/home.ar.json';
-
-// Pages that exist in Arabic on the new site. Everything else links to English.
-const AR_PAGES = new Set(['/', '/contact-us/']);
+import { hasArabic } from './links.js';
 
 function localPath(href, lang) {
   let path = href.replace(/^https:\/\/doersadv\.com/, '');
   if (!path.startsWith('/')) path = '/' + path;
-  if (lang === 'ar' && AR_PAGES.has(path)) return '/ar' + path;
+  if (lang === 'ar' && hasArabic(path) && !path.startsWith('/ar/') && !/\.\w+$/.test(path)) return '/ar' + path;
   return path;
 }
 

@@ -1,9 +1,10 @@
 ---
 import menu from '../data/services-menu.json';
+import { loc } from '../lib/links.js';
 const { lang = 'en', altHref } = Astro.props;
 const ar = lang === 'ar';
 const home = ar ? '/ar/' : '/';
-const link = (p) => (p.startsWith('*') ? p.slice(1) : p);
+const link = (p) => loc(p, lang);
 const L = ar
   ? { work: 'أعمالنا', services: 'الخدمات', ksa: 'السعودية', blog: 'المدونة', contact: 'تواصل', cairo: 'القاهرة', jeddah: 'جدة', start: 'ابدأ مشروعك', other: 'English' }
   : { work: 'Work', services: 'Services', ksa: 'KSA', blog: 'Blog', contact: 'Contact', cairo: 'Cairo', jeddah: 'Jeddah', start: 'Start a project', other: 'عربي' };
@@ -20,13 +21,13 @@ const name = (s) => (ar ? s.ar : s.name);
           <div><div class="label">{L.jeddah}</div>{menu.filter((s) => s.ksa).map((s) => <a href={link(s.ksa)}>{name(s)}</a>)}</div>
         </div>
       </li>
-      <li><a href="/ksa/">{L.ksa}</a></li>
-      <li><a href="/blog/">{L.blog}</a></li>
-      <li><a href={ar ? '/ar/contact-us/' : '/contact-us/'}>{L.contact}</a></li>
+      <li><a href={link('/ksa/')}>{L.ksa}</a></li>
+      <li><a href={link('/blog/')}>{L.blog}</a></li>
+      <li><a href={link('/contact-us/')}>{L.contact}</a></li>
     </ul>
     <div class="nav-r">
       {altHref && <a class="lang" href={altHref} hreflang={ar ? 'en' : 'ar'} lang={ar ? 'en' : 'ar'}>{L.other}</a>}
-      <a class="btn btn-line" href={ar ? '/ar/contact-us/' : '/contact-us/'}>{L.start} <span class="arrow">↗</span></a>
+      <a class="btn btn-line" href={link('/contact-us/')}>{L.start} <span class="arrow">↗</span></a>
     </div>
   </div>
 </header>

@@ -1,0 +1,54 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import PostCard from './PostCard.astro';
+import { postPath } from '../lib/posts.js';
+const { post, alt, more = [] } = Astro.props;
+const d = post.data;
+const ar = d.lang === 'ar';
+const site = 'https://doersadv.com';
+const path = postPath(post);
+const enPath = ar ? path.slice(3) : path;
+const alternates = alt ? { en: enPath, ar: '/ar' + enPath } : ar ? { ar: path } : { en: path };
+const { Content } = await render(post);
+const fmt = (dt) => dt.toLocaleDateString(ar ? 'ar-EG' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const h1 = d.h1 || d.title;
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'BlogPosting', '@id': site + path + '#article', headline: h1, description: d.description, inLanguage: ar ? 'ar' : 'en-US', mainEntityOfPage: site + path, datePublished: d.date.toISOString(), dateModified: (d.updated || d.date).toISOString(), ...(d.cover && { image: site + d.cover }), ...(d.category && { articleSection: d.category }), author: { '@id': `${site}/#organization` }, publisher: { '@id': `${site}/#organization` } },
+    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: ar ? 'الرئيسية' : 'Home', item: site + (ar ? '/ar/' : '/') }, { '@type': 'ListItem', position: 2, name: ar ? 'المدونة' : 'Blog', item: site + (ar ? '/ar/blog/' : '/blog/') }, { '@type': 'ListItem', position: 3, name: h1 }] },
+    { '@type': 'Organization', '@id': `${site}/#organization`, name: 'Doers Advertising Agency', url: site + '/', logo: site + '/img/logo.png' },
+  ],
+};
+---
+<Base title={d.title} description={d.description} path={path} lang={d.lang} alternates={alternates} ogImage={d.cover} schema={schema} styles={['/css/site.css', '/css/legacy.css']} ogType="article">
+  <Fragment slot="head">
+    <meta property="article:published_time" content={d.date.toISOString()}>
+    {d.updated && <meta property="article:modified_time" content={d.updated.toISOString()}>}
+  </Fragment>
+  <SiteHeader lang={d.lang} altHref={alt ? (ar ? enPath : '/ar' + enPath) : undefined} />
+  <main>
+    <div class="wrap">
+      <nav class="crumbs label" aria-label={ar ? 'مسار الصفحة' : 'Breadcrumb'}><a href={ar ? '/ar/' : '/'}>{ar ? 'الرئيسية' : 'Home'}</a><span>/</span><a href={ar ? '/ar/blog/' : '/blog/'}>{ar ? 'المدونة' : 'Blog'}</a></nav>
+      <article class="post">
+        <div class="post-meta">{d.category && <span class="label">{d.category}</span>}<time datetime={d.date.toISOString()}>{fmt(d.date)}</time></div>
+        <h1>{h1}</h1>
+        {d.cover && <figure class="post-cover"><img src={d.cover} alt={d.coverAlt || h1} fetchpriority="high"></figure>}
+        <div class="post-body"><Content /></div>
+      </article>
+    </div>
+    {more.length > 0 && (
+      <section class="post-more"><div class="wrap"><div class="posts">{more.map((m) => <PostCard post={m} />)}</div></div></section>
+    )}
+    <section class="cta">
+      <div class="wrap">
+        <h2 set:html={ar ? 'يلا <em>نشتغل.</em>' : 'Let’s <em>talk.</em>'} />
+        <div class="row2"><p>{ar ? 'عندك مشروع؟ احكيلنا عنه وهنرد عليك خلال يوم عمل.' : 'Got a project in mind? Tell us about it and we reply within one working day.'}</p><a class="btn" href={ar ? '/ar/contact-us/' : '/contact-us/'}>{ar ? 'ابدأ مشروعك' : 'Start a project'} <span class="arrow">↗</span></a></div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter lang={d.lang} />
+</Base>

@@ -1,0 +1,1802 @@
+[
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/",
+  "status": 200,
+  "final": "https://doersadv.com/",
+  "file": "home.json",
+  "title": "Doers Advertising Agency in Egypt Cairo - Award winning Agency"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/",
+  "file": "ar__home.json",
+  "title": "Doers Advertising Agency in Egypt Cairo - Award winning Agency"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/contact-us/",
+  "status": 200,
+  "final": "https://doersadv.com/contact-us/",
+  "file": "contact-us.json",
+  "title": "Contact Us - Doers Advertising Agency"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/contact-us/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/contact-us/",
+  "file": "ar__contact-us.json",
+  "title": "Contact Us - Doers Advertising Agency"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/seo/",
+  "status": 200,
+  "final": "https://doersadv.com/seo/",
+  "file": "seo.json",
+  "title": "Best SEO Agency in Cairo, Egypt - Blogging - Guest Posting"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/seo/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/seo/",
+  "file": "ar__seo.json",
+  "title": "Best SEO Agency in Cairo, Egypt - Blogging - Guest Posting"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/digital-marketing/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/digital-marketing-agency-in-jeddah/",
+  "file": "ksa__digital-marketing.json",
+  "title": "Leading Digital Marketing Agency In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/digital-marketing/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/digital-marketing/",
+  "file": "ar__ksa__digital-marketing.json",
+  "title": "Digital Marketing Agency Riyadh | Saudi Arabia - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/branding/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/branding-agency-in-jeddah/",
+  "file": "ksa__branding.json",
+  "title": "Professional Branding Agency In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/branding/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/branding/",
+  "file": "ar__ksa__branding.json",
+  "title": "Best Branding Agency in Riyadh | Saudi Arabia - Brand Strategy"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/seo/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/seo-agency-in-jeddah/",
+  "file": "ksa__seo.json",
+  "title": "Leading SEO Agency In Jeddah - Amplify Your Online Impact"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/seo/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/seo/",
+  "file": "ar__ksa__seo.json",
+  "title": "Top SEO Agency in Riyadh | Saudi Arabia - Boost Online Presence"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/booth-production/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/booth-production-in-jeddah/",
+  "file": "ksa__booth-production.json",
+  "title": "Booth Production & Exhibition Stands in Jeddah | Doers"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/booth-production/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/booth-production/",
+  "file": "ar__ksa__booth-production.json",
+  "title": "Best Booth Production in Riyadh | Saudi Arabia - Stand Out Now"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/listening-and-reputation-management/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/listening-and-reputation-management/",
+  "file": "ksa__listening-and-reputation-management.json",
+  "title": "Listening And Reputation Management In Riyadh | Saudi Arabia"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/listening-and-reputation-management/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/listening-and-reputation-management/",
+  "file": "ar__ksa__listening-and-reputation-management.json",
+  "title": "Listening And Reputation Management In Riyadh | Saudi Arabia"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/event-managementbtl/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/event-management-agency-in-jeddah/",
+  "file": "ksa__event-managementbtl.json",
+  "title": "Top Event Management Agency In Jeddah | Expert Event Solutions"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/event-managementbtl/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/event-managementbtl/",
+  "file": "ar__ksa__event-managementbtl.json",
+  "title": "Best Event Management Agency in Egypt"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/ooh-3/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/ooh-outdoor-agency-in-jeddah/",
+  "file": "ksa__ooh-3.json",
+  "title": "Best OOH Outdoor Advertising In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/ooh-3/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/ooh-3/",
+  "file": "ar__ksa__ooh-3.json",
+  "title": "Best OOH Outdoor Advertising in Egypt | Saudi Arabia"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/listening-and-reputation-management/",
+  "status": 200,
+  "final": "https://doersadv.com/listening-and-reputation-management/",
+  "file": "listening-and-reputation-management.json",
+  "title": "Top Listening and reputation management in Cairo, Egypt and KSA."
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/listening-and-reputation-management/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/listening-and-reputation-management/",
+  "file": "ar__listening-and-reputation-management.json",
+  "title": "Top Listening and reputation management in Cairo, Egypt and KSA."
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/ooh-outdoor-agency-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/ooh-outdoor-agency-in-jeddah/",
+  "file": "ksa__ooh-outdoor-agency-in-jeddah.json",
+  "title": "Best OOH Outdoor Advertising In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/ooh-outdoor-agency-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/ooh-outdoor-agency-in-jeddah/",
+  "file": "ar__ksa__ooh-outdoor-agency-in-jeddah.json",
+  "title": "Best OOH Outdoor Advertising In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/listening-and-reputation-management-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/listening-and-reputation-management-in-jeddah/",
+  "file": "ksa__listening-and-reputation-management-in-jeddah.json",
+  "title": "Best Listening And Reputation Management Agency In Jeddah"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/listening-and-reputation-management-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/listening-and-reputation-management-in-jeddah/",
+  "file": "ar__ksa__listening-and-reputation-management-in-jeddah.json",
+  "title": "Best Listening And Reputation Management Agency In Jeddah"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/event-management-agency-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/event-management-agency-in-jeddah/",
+  "file": "ksa__event-management-agency-in-jeddah.json",
+  "title": "Top Event Management Agency In Jeddah | Expert Event Solutions"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/event-management-agency-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/event-management-agency-in-jeddah/",
+  "file": "ar__ksa__event-management-agency-in-jeddah.json",
+  "title": "Top Event Management Agency In Jeddah | Expert Event Solutions"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/digital-marketing-agency-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/digital-marketing-agency-in-jeddah/",
+  "file": "ksa__digital-marketing-agency-in-jeddah.json",
+  "title": "Leading Digital Marketing Agency In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/digital-marketing-agency-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/digital-marketing-agency-in-jeddah/",
+  "file": "ar__ksa__digital-marketing-agency-in-jeddah.json",
+  "title": "Leading Digital Marketing Agency In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/tv-advertising-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/tv-advertising-in-jeddah/",
+  "file": "ksa__tv-advertising-in-jeddah.json",
+  "title": "Professional TV Advertising Agency In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/tv-advertising-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/tv-advertising-in-jeddah/",
+  "file": "ar__ksa__tv-advertising-in-jeddah.json",
+  "title": "Professional TV Advertising Agency In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/website-development-company-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/website-development-company-in-jeddah/",
+  "file": "ksa__website-development-company-in-jeddah.json",
+  "title": "Top Website Development Company In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/website-development-company-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/website-development-company-in-jeddah/",
+  "file": "ar__ksa__website-development-company-in-jeddah.json",
+  "title": "Top Website Development Company In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/seo-agency-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/seo-agency-in-jeddah/",
+  "file": "ksa__seo-agency-in-jeddah.json",
+  "title": "Leading SEO Agency In Jeddah - Amplify Your Online Impact"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/seo-agency-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/seo-agency-in-jeddah/",
+  "file": "ar__ksa__seo-agency-in-jeddah.json",
+  "title": "Leading SEO Agency In Jeddah - Amplify Your Online Impact"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/radio-advertising-agencies-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/radio-advertising-agencies-in-jeddah/",
+  "file": "ksa__radio-advertising-agencies-in-jeddah.json",
+  "title": "Leading Radio Advertising Agencies In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/radio-advertising-agencies-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/radio-advertising-agencies-in-jeddah/",
+  "file": "ar__ksa__radio-advertising-agencies-in-jeddah.json",
+  "title": "Leading Radio Advertising Agencies In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/best-advertising-agency/",
+  "status": 200,
+  "final": "https://doersadv.com/",
+  "file": "best-advertising-agency.json",
+  "title": "Doers Advertising Agency in Egypt Cairo - Award winning Agency"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/best-advertising-agency/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/best-advertising-agency/",
+  "file": "ar__best-advertising-agency.json",
+  "title": "Best Advertising Agency In Egypt- 360 Marketing Agency"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/branding-agency-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/branding-agency-in-jeddah/",
+  "file": "ksa__branding-agency-in-jeddah.json",
+  "title": "Professional Branding Agency In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/branding-agency-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/branding-agency-in-jeddah/",
+  "file": "ar__ksa__branding-agency-in-jeddah.json",
+  "title": "Professional Branding Agency In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/advertising-agency-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/advertising-agency-in-jeddah/",
+  "file": "ksa__advertising-agency-in-jeddah.json",
+  "title": "Best Advertising Agency In Jeddah - 360 Marketing Agency"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/advertising-agency-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/advertising-agency-in-jeddah/",
+  "file": "ar__ksa__advertising-agency-in-jeddah.json",
+  "title": "Best Advertising Agency In Jeddah - 360 Marketing Agency"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/branding-agency-egypt/",
+  "status": 200,
+  "final": "https://doersadv.com/branding-agency-egypt/",
+  "file": "branding-agency-egypt.json",
+  "title": "Top Branding Agency in Cairo, Egypt - Brand Strategy - Positioning"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/branding-agency-egypt/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/branding-agency-egypt/",
+  "file": "ar__branding-agency-egypt.json",
+  "title": "Top Branding Agency in Cairo, Egypt - Brand Strategy - Positioning"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/tv-advertising/",
+  "status": 200,
+  "final": "https://doersadv.com/tv-advertising/",
+  "file": "tv-advertising.json",
+  "title": "Best TV Advertising Agencies in Cairo, Egypt - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/tv-advertising/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/tv-advertising/",
+  "file": "ar__tv-advertising.json",
+  "title": "Best TV Advertising Agencies in Cairo, Egypt - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/radio-advertising-egypt/",
+  "status": 200,
+  "final": "https://doersadv.com/radio-advertising-egypt/",
+  "file": "radio-advertising-egypt.json",
+  "title": "Top Radio advertising Agencies in Cairo, Egypt - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/radio-advertising-egypt/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/radio-advertising-egypt/",
+  "file": "ar__radio-advertising-egypt.json",
+  "title": "Top Radio advertising Agencies in Cairo, Egypt - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/media-production-egypt/",
+  "status": 200,
+  "final": "https://doersadv.com/media-production-egypt/",
+  "file": "media-production-egypt.json",
+  "title": "Media Production Agency, Animation, Motion Graphics, food"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/media-production-egypt/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/media-production-egypt/",
+  "file": "ar__media-production-egypt.json",
+  "title": "Media Production Agency, Animation, Motion Graphics, food"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/outdoor-advertising-egypt/",
+  "status": 200,
+  "final": "https://doersadv.com/outdoor-advertising-egypt/",
+  "file": "outdoor-advertising-egypt.json",
+  "title": "Top OOH Outdoor Advertising in Cairo, Egypt - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/outdoor-advertising-egypt/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/outdoor-advertising-egypt/",
+  "file": "ar__outdoor-advertising-egypt.json",
+  "title": "Top OOH Outdoor Advertising in Cairo, Egypt - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/digital-marketing-egypt-cairo/",
+  "status": 200,
+  "final": "https://doersadv.com/digital-marketing-egypt-cairo/",
+  "file": "digital-marketing-egypt-cairo.json",
+  "title": "Best Digital Marketing Agency in Cairo, Egypt - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/digital-marketing-egypt-cairo/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/digital-marketing-egypt-cairo/",
+  "file": "ar__digital-marketing-egypt-cairo.json",
+  "title": "Best Digital Marketing Agency in Cairo, Egypt - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/tv-advertising-ksa-riyadh/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/tv-advertising-in-jeddah/",
+  "file": "ksa__tv-advertising-ksa-riyadh.json",
+  "title": "Professional TV Advertising Agency In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/tv-advertising-ksa-riyadh/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/tv-advertising-ksa-riyadh/",
+  "file": "ar__ksa__tv-advertising-ksa-riyadh.json",
+  "title": "TV Advertising Agencies in Riyadh | Saudi Arabia - Promote Brand"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/",
+  "file": "ksa.json",
+  "title": "Best Advertising Agency in Riyadh | Saudi Arabia - 360 Marketing"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/",
+  "file": "ar__ksa.json",
+  "title": "Best Advertising Agency in Riyadh | Saudi Arabia - 360 Marketing"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/radio-advertising-ksa/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/radio-advertising-agencies-in-jeddah/",
+  "file": "ksa__radio-advertising-ksa.json",
+  "title": "Leading Radio Advertising Agencies In Jeddah - Doers Advertising"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/radio-advertising-ksa/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/radio-advertising-ksa/",
+  "file": "ar__ksa__radio-advertising-ksa.json",
+  "title": "Professional Radio Advertising Agencies in Riyadh | Saudi Arabia"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/booth-production-egypt/",
+  "status": 200,
+  "final": "https://doersadv.com/booth-production-egypt/",
+  "file": "booth-production-egypt.json",
+  "title": "Booth Production & Exhibition Stands in Egypt | Doers"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/booth-production-egypt/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/booth-production-egypt/",
+  "file": "ar__booth-production-egypt.json",
+  "title": "Booth Production & Exhibition Stands in Egypt | Doers"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/ksa/booth-production-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ksa/booth-production-in-jeddah/",
+  "file": "ksa__booth-production-in-jeddah.json",
+  "title": "Booth Production & Exhibition Stands in Jeddah | Doers"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ksa/booth-production-in-jeddah/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ksa/booth-production-in-jeddah/",
+  "file": "ar__ksa__booth-production-in-jeddah.json",
+  "title": "Booth Production & Exhibition Stands in Jeddah | Doers"
+ },
+ {
+  "kind": "page",
+  "lang": "en",
+  "url": "https://doersadv.com/event-management-cairo-egypt/",
+  "status": 200,
+  "final": "https://doersadv.com/event-management-cairo-egypt/",
+  "file": "event-management-cairo-egypt.json",
+  "title": "Event Management Agency in Cairo, Egypt | Doers"
+ },
+ {
+  "kind": "page",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/event-management-cairo-egypt/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/event-management-cairo-egypt/",
+  "file": "ar__event-management-cairo-egypt.json",
+  "title": "Event Management Agency in Cairo, Egypt | Doers"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/blog/",
+  "status": 200,
+  "final": "https://doersadv.com/blog/",
+  "file": "blog.json",
+  "title": "Blog - Doers Advertising Agency"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/blog/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/blog/",
+  "file": "ar__blog.json",
+  "title": "Blog - Doers Advertising Agency"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/5-advertising-strategies-that-work-well-for-you/",
+  "status": 200,
+  "final": "https://doersadv.com/5-advertising-strategies-that-work-well-for-you/",
+  "file": "5-advertising-strategies-that-work-well-for-you.json",
+  "title": "5 Advertising Strategies That Work Well For You"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/5-advertising-strategies-that-work-well-for-you/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/5-advertising-strategies-that-work-well-for-you/",
+  "file": "ar__5-advertising-strategies-that-work-well-for-you.json",
+  "title": "5 Advertising Strategies That Work Well For You"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/6-different-types-of-advertisement-to-make-your-business-successful/",
+  "status": 200,
+  "final": "https://doersadv.com/6-different-types-of-advertisement-to-make-your-business-successful/",
+  "file": "6-different-types-of-advertisement-to-make-your-business-successful.json",
+  "title": "6 Different Types of Advertisement to Make Your Business Successful"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/6-different-types-of-advertisement-to-make-your-business-successful/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/6-different-types-of-advertisement-to-make-your-business-successful/",
+  "file": "ar__6-different-types-of-advertisement-to-make-your-business-successful.json",
+  "title": "6 Different Types of Advertisement to Make Your Business Successful"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/what-do-event-management-companies-do/",
+  "status": 200,
+  "final": "https://doersadv.com/what-do-event-management-companies-do/",
+  "file": "what-do-event-management-companies-do.json",
+  "title": "What Do Event Management Companies Do?"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/what-do-event-management-companies-do/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/what-do-event-management-companies-do/",
+  "file": "ar__what-do-event-management-companies-do.json",
+  "title": "What Do Event Management Companies Do?"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/what-is-python-mainly-used-for/",
+  "status": 200,
+  "final": "https://doersadv.com/what-is-python-mainly-used-for/",
+  "file": "what-is-python-mainly-used-for.json",
+  "title": "What Is Python Mainly Used For?"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/what-is-python-mainly-used-for/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/what-is-python-mainly-used-for/",
+  "file": "ar__what-is-python-mainly-used-for.json",
+  "title": "What Is Python Mainly Used For?"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/8-google-ads-hacks-to-increase-conversion-rate/",
+  "status": 200,
+  "final": "https://doersadv.com/8-google-ads-hacks-to-increase-conversion-rate/",
+  "file": "8-google-ads-hacks-to-increase-conversion-rate.json",
+  "title": "8 Google Ads Hacks to Increase Conversion Rate"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/8-google-ads-hacks-to-increase-conversion-rate/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/8-google-ads-hacks-to-increase-conversion-rate/",
+  "file": "ar__8-google-ads-hacks-to-increase-conversion-rate.json",
+  "title": "8 Google Ads Hacks to Increase Conversion Rate"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/tips-to-add-a-profitable-google-ads-campaign/",
+  "status": 200,
+  "final": "https://doersadv.com/tips-to-add-a-profitable-google-ads-campaign/",
+  "file": "tips-to-add-a-profitable-google-ads-campaign.json",
+  "title": "Tips to add a profitable Google Ads Campaign"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/tips-to-add-a-profitable-google-ads-campaign/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/tips-to-add-a-profitable-google-ads-campaign/",
+  "file": "ar__tips-to-add-a-profitable-google-ads-campaign.json",
+  "title": "Tips to add a profitable Google Ads Campaign"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/branding-trends-in-2021/",
+  "status": 200,
+  "final": "https://doersadv.com/branding-trends-in-2021/",
+  "file": "branding-trends-in-2021.json",
+  "title": "Branding trends in 2021"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/branding-trends-in-2021/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/branding-trends-in-2021/",
+  "file": "ar__branding-trends-in-2021.json",
+  "title": "Branding trends in 2021"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/reasons-to-use-google-ads/",
+  "status": 200,
+  "final": "https://doersadv.com/reasons-to-use-google-ads/",
+  "file": "reasons-to-use-google-ads.json",
+  "title": "Reasons to use Google Ads"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/reasons-to-use-google-ads/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/reasons-to-use-google-ads/",
+  "file": "ar__reasons-to-use-google-ads.json",
+  "title": "Reasons to use Google Ads"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/online-branding-a-digital-centric-approach-to-developing-brands/",
+  "status": 200,
+  "final": "https://doersadv.com/online-branding-a-digital-centric-approach-to-developing-brands/",
+  "file": "online-branding-a-digital-centric-approach-to-developing-brands.json",
+  "title": "Online Branding: A Digital-Centric Approach to Developing Brands"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/online-branding-a-digital-centric-approach-to-developing-brands/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/online-branding-a-digital-centric-approach-to-developing-brands/",
+  "file": "ar__online-branding-a-digital-centric-approach-to-developing-brands.json",
+  "title": "Online Branding: A Digital-Centric Approach to Developing Brands"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/why-defining-clear-objectives-for-any-event-is-an-imperative-for-success/",
+  "status": 200,
+  "final": "https://doersadv.com/why-defining-clear-objectives-for-any-event-is-an-imperative-for-success/",
+  "file": "why-defining-clear-objectives-for-any-event-is-an-imperative-for-success.json",
+  "title": "Why Defining Clear Objectives For Any Event Is an Imperative for Success"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/why-defining-clear-objectives-for-any-event-is-an-imperative-for-success/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/why-defining-clear-objectives-for-any-event-is-an-imperative-for-success/",
+  "file": "ar__why-defining-clear-objectives-for-any-event-is-an-imperative-for-success.json",
+  "title": "Why Defining Clear Objectives For Any Event Is an Imperative for Success"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-and-where-to-use-different-types-of-content-management-systems/",
+  "status": 200,
+  "final": "https://doersadv.com/how-and-where-to-use-different-types-of-content-management-systems/",
+  "file": "how-and-where-to-use-different-types-of-content-management-systems.json",
+  "title": "How and Where to Use Different Types of Content Management System"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-and-where-to-use-different-types-of-content-management-systems/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-and-where-to-use-different-types-of-content-management-systems/",
+  "file": "ar__how-and-where-to-use-different-types-of-content-management-systems.json",
+  "title": "How and Where to Use Different Types of Content Management System"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/top-5-digital-content-strategy-development-steps/",
+  "status": 200,
+  "final": "https://doersadv.com/top-5-digital-content-strategy-development-steps/",
+  "file": "top-5-digital-content-strategy-development-steps.json",
+  "title": "Top 5 Digital Content Strategy Development Steps"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/top-5-digital-content-strategy-development-steps/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/top-5-digital-content-strategy-development-steps/",
+  "file": "ar__top-5-digital-content-strategy-development-steps.json",
+  "title": "Top 5 Digital Content Strategy Development Steps"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/10-elements-in-every-effective-branding-strategy/",
+  "status": 200,
+  "final": "https://doersadv.com/10-elements-in-every-effective-branding-strategy/",
+  "file": "10-elements-in-every-effective-branding-strategy.json",
+  "title": "10 Elements in Every Effective Branding Strategy"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/10-elements-in-every-effective-branding-strategy/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/10-elements-in-every-effective-branding-strategy/",
+  "file": "ar__10-elements-in-every-effective-branding-strategy.json",
+  "title": "10 Elements in Every Effective Branding Strategy"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-to-select-your-advertising-agency/",
+  "status": 200,
+  "final": "https://doersadv.com/how-to-select-your-advertising-agency/",
+  "file": "how-to-select-your-advertising-agency.json",
+  "title": "How to Select Your Advertising Agency"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-to-select-your-advertising-agency/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-to-select-your-advertising-agency/",
+  "file": "ar__how-to-select-your-advertising-agency.json",
+  "title": "How to Select Your Advertising Agency"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/complete-guide-on-how-to-use-facebook-stories-for-pages-in-2021/",
+  "status": 200,
+  "final": "https://doersadv.com/complete-guide-on-how-to-use-facebook-stories-for-pages-in-2021/",
+  "file": "complete-guide-on-how-to-use-facebook-stories-for-pages-in-2021.json",
+  "title": "Complete Guide on How to Use Facebook Stories For Pages In 2021"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/complete-guide-on-how-to-use-facebook-stories-for-pages-in-2021/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/complete-guide-on-how-to-use-facebook-stories-for-pages-in-2021/",
+  "file": "ar__complete-guide-on-how-to-use-facebook-stories-for-pages-in-2021.json",
+  "title": "Complete Guide on How to Use Facebook Stories For Pages In 2021"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/linkedin-ads-and-b2b-digital-campaigns-using-seo-and-google-search-ads/",
+  "status": 200,
+  "final": "https://doersadv.com/linkedin-ads-and-b2b-digital-campaigns-using-seo-and-google-search-ads/",
+  "file": "linkedin-ads-and-b2b-digital-campaigns-using-seo-and-google-search-ads.json",
+  "title": "Linkedin Ads and B2B Digital Campaigns Using SEO and Google Search Ads"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/linkedin-ads-and-b2b-digital-campaigns-using-seo-and-google-search-ads/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/linkedin-ads-and-b2b-digital-campaigns-using-seo-and-google-search-ads/",
+  "file": "ar__linkedin-ads-and-b2b-digital-campaigns-using-seo-and-google-search-ads.json",
+  "title": "Linkedin Ads and B2B Digital Campaigns Using SEO and Google Search Ads"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-ecommerce-marketers-can-successfully-compete-with-amazon/",
+  "status": 200,
+  "final": "https://doersadv.com/how-ecommerce-marketers-can-successfully-compete-with-amazon/",
+  "file": "how-ecommerce-marketers-can-successfully-compete-with-amazon.json",
+  "title": "How Ecommerce Marketers Can Successfully Compete With Amazon"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-ecommerce-marketers-can-successfully-compete-with-amazon/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-ecommerce-marketers-can-successfully-compete-with-amazon/",
+  "file": "ar__how-ecommerce-marketers-can-successfully-compete-with-amazon.json",
+  "title": "How Ecommerce Marketers Can Successfully Compete With Amazon"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/sustainable-link-building-increasing-your-chances-of-getting-links/",
+  "status": 200,
+  "final": "https://doersadv.com/sustainable-link-building-increasing-your-chances-of-getting-links/",
+  "file": "sustainable-link-building-increasing-your-chances-of-getting-links.json",
+  "title": "Sustainable Link Building Increasing Your Chances of Getting Links"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/sustainable-link-building-increasing-your-chances-of-getting-links/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/sustainable-link-building-increasing-your-chances-of-getting-links/",
+  "file": "ar__sustainable-link-building-increasing-your-chances-of-getting-links.json",
+  "title": "Sustainable Link Building Increasing Your Chances of Getting Links"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/virtual-events-are-here-to-stay-and-they-are-a-digital-channel/",
+  "status": 200,
+  "final": "https://doersadv.com/virtual-events-are-here-to-stay-and-they-are-a-digital-channel/",
+  "file": "virtual-events-are-here-to-stay-and-they-are-a-digital-channel.json",
+  "title": "Virtual Events Are Here To Stay and They Are a Digital Channel"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/virtual-events-are-here-to-stay-and-they-are-a-digital-channel/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/virtual-events-are-here-to-stay-and-they-are-a-digital-channel/",
+  "file": "ar__virtual-events-are-here-to-stay-and-they-are-a-digital-channel.json",
+  "title": "Virtual Events Are Here To Stay and They Are a Digital Channel"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/largest-annual-exhibitions-in-the-middle-east/",
+  "status": 200,
+  "final": "https://doersadv.com/largest-annual-exhibitions-in-the-middle-east/",
+  "file": "largest-annual-exhibitions-in-the-middle-east.json",
+  "title": "Largest Annual Exhibitions in the Middle East"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/largest-annual-exhibitions-in-the-middle-east/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/largest-annual-exhibitions-in-the-middle-east/",
+  "file": "ar__largest-annual-exhibitions-in-the-middle-east.json",
+  "title": "Largest Annual Exhibitions in the Middle East"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/increase-your-company-brand-value-through-digital-marketing/",
+  "status": 200,
+  "final": "https://doersadv.com/increase-your-company-brand-value-through-digital-marketing/",
+  "file": "increase-your-company-brand-value-through-digital-marketing.json",
+  "title": "Increase Your Company Brand Value through Digital Marketing"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/increase-your-company-brand-value-through-digital-marketing/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/increase-your-company-brand-value-through-digital-marketing/",
+  "file": "ar__increase-your-company-brand-value-through-digital-marketing.json",
+  "title": "Increase Your Company Brand Value through Digital Marketing"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/10-proven-ways-to-improve-your-brand-value-in-2021/",
+  "status": 200,
+  "final": "https://doersadv.com/10-proven-ways-to-improve-your-brand-value-in-2021/",
+  "file": "10-proven-ways-to-improve-your-brand-value-in-2021.json",
+  "title": "10 Proven Ways to Improve Your Brand Value In 2021"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/10-proven-ways-to-improve-your-brand-value-in-2021/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/10-proven-ways-to-improve-your-brand-value-in-2021/",
+  "file": "ar__10-proven-ways-to-improve-your-brand-value-in-2021.json",
+  "title": "10 Proven Ways to Improve Your Brand Value In 2021"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-to-strengthen-your-brand-with-your-marketing-strategy/",
+  "status": 200,
+  "final": "https://doersadv.com/how-to-strengthen-your-brand-with-your-marketing-strategy/",
+  "file": "how-to-strengthen-your-brand-with-your-marketing-strategy.json",
+  "title": "How to Strengthen Your Brand with Your Marketing Strategy"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-to-strengthen-your-brand-with-your-marketing-strategy/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-to-strengthen-your-brand-with-your-marketing-strategy/",
+  "file": "ar__how-to-strengthen-your-brand-with-your-marketing-strategy.json",
+  "title": "How to Strengthen Your Brand with Your Marketing Strategy"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/link-building-for-seo-the-definitive-guide-2021/",
+  "status": 200,
+  "final": "https://doersadv.com/link-building-for-seo-the-definitive-guide-2021/",
+  "file": "link-building-for-seo-the-definitive-guide-2021.json",
+  "title": "Link Building for SEO: The Definitive Guide (2021)"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/link-building-for-seo-the-definitive-guide-2021/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/link-building-for-seo-the-definitive-guide-2021/",
+  "file": "ar__link-building-for-seo-the-definitive-guide-2021.json",
+  "title": "Link Building for SEO: The Definitive Guide (2021)"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/5ds-of-digital-marketing-is-reshaping-global-business-sector/",
+  "status": 200,
+  "final": "https://doersadv.com/5ds-of-digital-marketing-is-reshaping-global-business-sector/",
+  "file": "5ds-of-digital-marketing-is-reshaping-global-business-sector.json",
+  "title": "5Ds of Digital Marketing are Reshaping Global Business Sector"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/5ds-of-digital-marketing-is-reshaping-global-business-sector/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/5ds-of-digital-marketing-is-reshaping-global-business-sector/",
+  "file": "ar__5ds-of-digital-marketing-is-reshaping-global-business-sector.json",
+  "title": "5Ds of Digital Marketing are Reshaping Global Business Sector"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/7-types-of-digital-marketing/",
+  "status": 200,
+  "final": "https://doersadv.com/7-types-of-digital-marketing/",
+  "file": "7-types-of-digital-marketing.json",
+  "title": "7 Types of Digital Marketing"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/7-types-of-digital-marketing/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/7-types-of-digital-marketing/",
+  "file": "ar__7-types-of-digital-marketing.json",
+  "title": "7 Types of Digital Marketing"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-to-clone-a-website-like-a-pros/",
+  "status": 200,
+  "final": "https://doersadv.com/how-to-clone-a-website-like-a-pros/",
+  "file": "how-to-clone-a-website-like-a-pros.json",
+  "title": "How to Clone a Website like A Pros"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-to-clone-a-website-like-a-pros/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-to-clone-a-website-like-a-pros/",
+  "file": "ar__how-to-clone-a-website-like-a-pros.json",
+  "title": "How to Clone a Website like A Pros"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/6-majors-ways-your-creative-agency-can-make-money/",
+  "status": 200,
+  "final": "https://doersadv.com/6-majors-ways-your-creative-agency-can-make-money/",
+  "file": "6-majors-ways-your-creative-agency-can-make-money.json",
+  "title": "6 Majors Ways Your Creative Agency Can Make Money"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/6-majors-ways-your-creative-agency-can-make-money/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/6-majors-ways-your-creative-agency-can-make-money/",
+  "file": "ar__6-majors-ways-your-creative-agency-can-make-money.json",
+  "title": "6 Majors Ways Your Creative Agency Can Make Money"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/social-media-seo-the-complicated-relationship/",
+  "status": 200,
+  "final": "https://doersadv.com/social-media-seo-the-complicated-relationship/",
+  "file": "social-media-seo-the-complicated-relationship.json",
+  "title": "Social Media & SEO: The Complicated Relationship"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/social-media-seo-the-complicated-relationship/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/social-media-seo-the-complicated-relationship/",
+  "file": "ar__social-media-seo-the-complicated-relationship.json",
+  "title": "Social Media & SEO: The Complicated Relationship"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-to-create-an-effective-social-media-strategy/",
+  "status": 200,
+  "final": "https://doersadv.com/how-to-create-an-effective-social-media-strategy/",
+  "file": "how-to-create-an-effective-social-media-strategy.json",
+  "title": "How to Create an Effective Social Media Strategy"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-to-create-an-effective-social-media-strategy/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-to-create-an-effective-social-media-strategy/",
+  "file": "ar__how-to-create-an-effective-social-media-strategy.json",
+  "title": "How to Create an Effective Social Media Strategy"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-to-create-a-unique-memorable-brand-identity-in-2021/",
+  "status": 200,
+  "final": "https://doersadv.com/how-to-create-a-unique-memorable-brand-identity-in-2021/",
+  "file": "how-to-create-a-unique-memorable-brand-identity-in-2021.json",
+  "title": "How to Create a Unique & Memorable Brand Identity In 2021"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-to-create-a-unique-memorable-brand-identity-in-2021/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-to-create-a-unique-memorable-brand-identity-in-2021/",
+  "file": "ar__how-to-create-a-unique-memorable-brand-identity-in-2021.json",
+  "title": "How to Create a Unique & Memorable Brand Identity In 2021"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-to-automate-your-social-media-marketing-like-the-pros/",
+  "status": 200,
+  "final": "https://doersadv.com/how-to-automate-your-social-media-marketing-like-the-pros/",
+  "file": "how-to-automate-your-social-media-marketing-like-the-pros.json",
+  "title": "How to Automate Your Social Media Marketing Like the Pros"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-to-automate-your-social-media-marketing-like-the-pros/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-to-automate-your-social-media-marketing-like-the-pros/",
+  "file": "ar__how-to-automate-your-social-media-marketing-like-the-pros.json",
+  "title": "How to Automate Your Social Media Marketing Like the Pros"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/listening-market-intelligence-and-competitive-benchmarking-techniques/",
+  "status": 200,
+  "final": "https://doersadv.com/listening-market-intelligence-and-competitive-benchmarking-techniques/",
+  "file": "listening-market-intelligence-and-competitive-benchmarking-techniques.json",
+  "title": "Listening, Market Intelligence and Competitive Bench marking Techniques"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/listening-market-intelligence-and-competitive-benchmarking-techniques/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/listening-market-intelligence-and-competitive-benchmarking-techniques/",
+  "file": "ar__listening-market-intelligence-and-competitive-benchmarking-techniques.json",
+  "title": "Listening, Market Intelligence and Competitive Bench marking Techniques"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/what-does-an-seo-manager-do/",
+  "status": 200,
+  "final": "https://doersadv.com/what-does-an-seo-manager-do/",
+  "file": "what-does-an-seo-manager-do.json",
+  "title": "What Does an SEO Manager Do"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/what-does-an-seo-manager-do/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/what-does-an-seo-manager-do/",
+  "file": "ar__what-does-an-seo-manager-do.json",
+  "title": "What Does an SEO Manager Do"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/the-future-of-online-advertising-advantages-and-challenges-in-2022/",
+  "status": 200,
+  "final": "https://doersadv.com/the-future-of-online-advertising-advantages-and-challenges-in-2022/",
+  "file": "the-future-of-online-advertising-advantages-and-challenges-in-2022.json",
+  "title": "The Future of Online Advertising: Advantages and Challenges in 2022"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/the-future-of-online-advertising-advantages-and-challenges-in-2022/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/the-future-of-online-advertising-advantages-and-challenges-in-2022/",
+  "file": "ar__the-future-of-online-advertising-advantages-and-challenges-in-2022.json",
+  "title": "The Future of Online Advertising: Advantages and Challenges in 2022"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/why-digital-marketing-is-important-for-small-business/",
+  "status": 200,
+  "final": "https://doersadv.com/why-digital-marketing-is-important-for-small-business/",
+  "file": "why-digital-marketing-is-important-for-small-business.json",
+  "title": "Why Digital Marketing is Important for Small Business"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/why-digital-marketing-is-important-for-small-business/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/why-digital-marketing-is-important-for-small-business/",
+  "file": "ar__why-digital-marketing-is-important-for-small-business.json",
+  "title": "Why Digital Marketing is Important for Small Business"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/practical-marketing-tips-for-black-friday/",
+  "status": 200,
+  "final": "https://doersadv.com/practical-marketing-tips-for-black-friday/",
+  "file": "practical-marketing-tips-for-black-friday.json",
+  "title": "Practical Marketing Tips for Black Friday"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/practical-marketing-tips-for-black-friday/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/practical-marketing-tips-for-black-friday/",
+  "file": "ar__practical-marketing-tips-for-black-friday.json",
+  "title": "Practical Marketing Tips for Black Friday"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-brands-can-take-on-social-issues-on-social-media/",
+  "status": 200,
+  "final": "https://doersadv.com/how-brands-can-take-on-social-issues-on-social-media/",
+  "file": "how-brands-can-take-on-social-issues-on-social-media.json",
+  "title": "How Brands Can Take on Social Issues on Social Media"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-brands-can-take-on-social-issues-on-social-media/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-brands-can-take-on-social-issues-on-social-media/",
+  "file": "ar__how-brands-can-take-on-social-issues-on-social-media.json",
+  "title": "How Brands Can Take on Social Issues on Social Media"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-to-do-market-research-a-guide-and-template/",
+  "status": 200,
+  "final": "https://doersadv.com/how-to-do-market-research-a-guide-and-template/",
+  "file": "how-to-do-market-research-a-guide-and-template.json",
+  "title": "How to Do Market Research: A Guide and Template"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-to-do-market-research-a-guide-and-template/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-to-do-market-research-a-guide-and-template/",
+  "file": "ar__how-to-do-market-research-a-guide-and-template.json",
+  "title": "How to Do Market Research: A Guide and Template"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/7-social-media-calendars-tools-templates-to-plan-your-content-in-2022/",
+  "status": 200,
+  "final": "https://doersadv.com/7-social-media-calendars-tools-templates-to-plan-your-content-in-2022/",
+  "file": "7-social-media-calendars-tools-templates-to-plan-your-content-in-2022.json",
+  "title": "7 Social Media Calendars, Tools, & Templates to Plan Your Content in 2022"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/7-social-media-calendars-tools-templates-to-plan-your-content-in-2022/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/7-social-media-calendars-tools-templates-to-plan-your-content-in-2022/",
+  "file": "ar__7-social-media-calendars-tools-templates-to-plan-your-content-in-2022.json",
+  "title": "7 Social Media Calendars, Tools, & Templates to Plan Your Content in 2022"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-do-influencer-and-businesses-make-money-on-social-media/",
+  "status": 200,
+  "final": "https://doersadv.com/how-do-influencer-and-businesses-make-money-on-social-media/",
+  "file": "how-do-influencer-and-businesses-make-money-on-social-media.json",
+  "title": "How do Influencer and Businesses make money on social media"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-do-influencer-and-businesses-make-money-on-social-media/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-do-influencer-and-businesses-make-money-on-social-media/",
+  "file": "ar__how-do-influencer-and-businesses-make-money-on-social-media.json",
+  "title": "How do Influencer and Businesses make money on social media"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/what-does-a-full-service-ad-agency-do/",
+  "status": 200,
+  "final": "https://doersadv.com/what-does-a-full-service-ad-agency-do/",
+  "file": "what-does-a-full-service-ad-agency-do.json",
+  "title": "What Does A Full-Service Ad Agency Do?"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/what-does-a-full-service-ad-agency-do/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/what-does-a-full-service-ad-agency-do/",
+  "file": "ar__what-does-a-full-service-ad-agency-do.json",
+  "title": "What Does A Full-Service Ad Agency Do?"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-to-create-loyal-customers-who-will-make-a-charismatic-brand-that-will-sustain-your-business/",
+  "status": 200,
+  "final": "https://doersadv.com/how-to-create-loyal-customers-who-will-make-a-charismatic-brand-that-will-sustain-your-business/",
+  "file": "how-to-create-loyal-customers-who-will-make-a-charismatic-brand-that-will-sustain-your-business.json",
+  "title": "How to create loyal customers, who will make a charismatic brand that will sustain your business?"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-to-create-loyal-customers-who-will-make-a-charismatic-brand-that-will-sustain-your-business/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-to-create-loyal-customers-who-will-make-a-charismatic-brand-that-will-sustain-your-business/",
+  "file": "ar__how-to-create-loyal-customers-who-will-make-a-charismatic-brand-that-will-sustain-your-business.json",
+  "title": "How to create loyal customers, who will make a charismatic brand that will sustain your business?"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/9-tips-for-designing-virtual-events/",
+  "status": 200,
+  "final": "https://doersadv.com/9-tips-for-designing-virtual-events/",
+  "file": "9-tips-for-designing-virtual-events.json",
+  "title": "9 Tips for Designing Virtual Events"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/9-tips-for-designing-virtual-events/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/9-tips-for-designing-virtual-events/",
+  "file": "ar__9-tips-for-designing-virtual-events.json",
+  "title": "9 Tips for Designing Virtual Events"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/branding-tips-the-steps-to-properly-branding-your-business/",
+  "status": 200,
+  "final": "https://doersadv.com/branding-tips-the-steps-to-properly-branding-your-business/",
+  "file": "branding-tips-the-steps-to-properly-branding-your-business.json",
+  "title": "Branding Tips: The Steps to Properly Branding Your Business"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/branding-tips-the-steps-to-properly-branding-your-business/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/branding-tips-the-steps-to-properly-branding-your-business/",
+  "file": "ar__branding-tips-the-steps-to-properly-branding-your-business.json",
+  "title": "Branding Tips: The Steps to Properly Branding Your Business"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/the-difference-between-a-logo-and-a-brand/",
+  "status": 200,
+  "final": "https://doersadv.com/the-difference-between-a-logo-and-a-brand/",
+  "file": "the-difference-between-a-logo-and-a-brand.json",
+  "title": "The Difference between a Logo and a Brand"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/the-difference-between-a-logo-and-a-brand/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/the-difference-between-a-logo-and-a-brand/",
+  "file": "ar__the-difference-between-a-logo-and-a-brand.json",
+  "title": "The Difference between a Logo and a Brand"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-to-assign-and-define-brand-attributes/",
+  "status": 200,
+  "final": "https://doersadv.com/how-to-assign-and-define-brand-attributes/",
+  "file": "how-to-assign-and-define-brand-attributes.json",
+  "title": "How to Assign and Define Brand Attributes"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-to-assign-and-define-brand-attributes/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-to-assign-and-define-brand-attributes/",
+  "file": "ar__how-to-assign-and-define-brand-attributes.json",
+  "title": "How to Assign and Define Brand Attributes"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/why-your-company-should-have-a-digital-strategy/",
+  "status": 200,
+  "final": "https://doersadv.com/why-your-company-should-have-a-digital-strategy/",
+  "file": "why-your-company-should-have-a-digital-strategy.json",
+  "title": "Why Your Company Should Have a Digital Strategy"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/why-your-company-should-have-a-digital-strategy/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/why-your-company-should-have-a-digital-strategy/",
+  "file": "ar__why-your-company-should-have-a-digital-strategy.json",
+  "title": "Why Your Company Should Have a Digital Strategy"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-to-market-your-business-and-keep-your-brand-intact/",
+  "status": 200,
+  "final": "https://doersadv.com/how-to-market-your-business-and-keep-your-brand-intact/",
+  "file": "how-to-market-your-business-and-keep-your-brand-intact.json",
+  "title": "How to Market Your Business and Keep Your Brand Intact"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-to-market-your-business-and-keep-your-brand-intact/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-to-market-your-business-and-keep-your-brand-intact/",
+  "file": "ar__how-to-market-your-business-and-keep-your-brand-intact.json",
+  "title": "How to Market Your Business and Keep Your Brand Intact"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/when-to-shift-focus-and-invest-in-branding/",
+  "status": 200,
+  "final": "https://doersadv.com/when-to-shift-focus-and-invest-in-branding/",
+  "file": "when-to-shift-focus-and-invest-in-branding.json",
+  "title": "When to Shift Focus and Invest in Branding"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/when-to-shift-focus-and-invest-in-branding/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/when-to-shift-focus-and-invest-in-branding/",
+  "file": "ar__when-to-shift-focus-and-invest-in-branding.json",
+  "title": "When to Shift Focus and Invest in Branding"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/what-are-the-difference-between-seo-friendly-and-seo-optimized/",
+  "status": 200,
+  "final": "https://doersadv.com/what-are-the-difference-between-seo-friendly-and-seo-optimized/",
+  "file": "what-are-the-difference-between-seo-friendly-and-seo-optimized.json",
+  "title": "What are the Difference between SEO Friendly and SEO Optimized?"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/what-are-the-difference-between-seo-friendly-and-seo-optimized/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/what-are-the-difference-between-seo-friendly-and-seo-optimized/",
+  "file": "ar__what-are-the-difference-between-seo-friendly-and-seo-optimized.json",
+  "title": "What are the Difference between SEO Friendly and SEO Optimized?"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/what-are-reasons-to-rebrand-when-your-company-is-making-money/",
+  "status": 200,
+  "final": "https://doersadv.com/what-are-reasons-to-rebrand-when-your-company-is-making-money/",
+  "file": "what-are-reasons-to-rebrand-when-your-company-is-making-money.json",
+  "title": "What Are Reasons to Rebrand When Your Company is Making Money?"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/what-are-reasons-to-rebrand-when-your-company-is-making-money/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/what-are-reasons-to-rebrand-when-your-company-is-making-money/",
+  "file": "ar__what-are-reasons-to-rebrand-when-your-company-is-making-money.json",
+  "title": "What Are Reasons to Rebrand When Your Company is Making Money?"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/what-is-co-branding/",
+  "status": 200,
+  "final": "https://doersadv.com/what-is-co-branding/",
+  "file": "what-is-co-branding.json",
+  "title": "What Is Co-Branding?"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/what-is-co-branding/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/what-is-co-branding/",
+  "file": "ar__what-is-co-branding.json",
+  "title": "What Is Co-Branding?"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/ethical-branding-a-guide-for-creating-more-ethical-brands/",
+  "status": 200,
+  "final": "https://doersadv.com/ethical-branding-a-guide-for-creating-more-ethical-brands/",
+  "file": "ethical-branding-a-guide-for-creating-more-ethical-brands.json",
+  "title": "Ethical Branding: A Guide for Creating More Ethical Brands"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/ethical-branding-a-guide-for-creating-more-ethical-brands/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/ethical-branding-a-guide-for-creating-more-ethical-brands/",
+  "file": "ar__ethical-branding-a-guide-for-creating-more-ethical-brands.json",
+  "title": "Ethical Branding: A Guide for Creating More Ethical Brands"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/finding-your-brand-purpose-what-do-you-stand-for/",
+  "status": 200,
+  "final": "https://doersadv.com/finding-your-brand-purpose-what-do-you-stand-for/",
+  "file": "finding-your-brand-purpose-what-do-you-stand-for.json",
+  "title": "Finding Your Brand Purpose: What Do You Stand for?"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/finding-your-brand-purpose-what-do-you-stand-for/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/finding-your-brand-purpose-what-do-you-stand-for/",
+  "file": "ar__finding-your-brand-purpose-what-do-you-stand-for.json",
+  "title": "Finding Your Brand Purpose: What Do You Stand for?"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/5-ways-how-outdoor-advertising-can-benefit-your-business/",
+  "status": 200,
+  "final": "https://doersadv.com/5-ways-how-outdoor-advertising-can-benefit-your-business/",
+  "file": "5-ways-how-outdoor-advertising-can-benefit-your-business.json",
+  "title": "Top Marketing Agency"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/5-ways-how-outdoor-advertising-can-benefit-your-business/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/5-ways-how-outdoor-advertising-can-benefit-your-business/",
+  "file": "ar__5-ways-how-outdoor-advertising-can-benefit-your-business.json",
+  "title": "Top Marketing Agency"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/behind-the-logo-decoding-the-symbolism-and-design-choices/",
+  "status": 200,
+  "final": "https://doersadv.com/behind-the-logo-decoding-the-symbolism-and-design-choices/",
+  "file": "behind-the-logo-decoding-the-symbolism-and-design-choices.json",
+  "title": "Decoding Logo Design: Symbolism and Design Choices"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/behind-the-logo-decoding-the-symbolism-and-design-choices/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/behind-the-logo-decoding-the-symbolism-and-design-choices/",
+  "file": "ar__behind-the-logo-decoding-the-symbolism-and-design-choices.json",
+  "title": "Decoding Logo Design: Symbolism and Design Choices"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/brand-identity-unveiling-the-core-elements-that-shape-strong-brands/",
+  "status": 200,
+  "final": "https://doersadv.com/brand-identity-unveiling-the-core-elements-that-shape-strong-brands/",
+  "file": "brand-identity-unveiling-the-core-elements-that-shape-strong-brands.json",
+  "title": "Unveiling Brand Identity: Core Elements of Strong Brands"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/brand-identity-unveiling-the-core-elements-that-shape-strong-brands/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/brand-identity-unveiling-the-core-elements-that-shape-strong-brands/",
+  "file": "ar__brand-identity-unveiling-the-core-elements-that-shape-strong-brands.json",
+  "title": "Unveiling Brand Identity: Core Elements of Strong Brands"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/typography-matters-how-fonts-convey-brand-personality-and-values/",
+  "status": 200,
+  "final": "https://doersadv.com/typography-matters-how-fonts-convey-brand-personality-and-values/",
+  "file": "typography-matters-how-fonts-convey-brand-personality-and-values.json",
+  "title": "How Fonts Convey Brand Personality: Typography Insights"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/typography-matters-how-fonts-convey-brand-personality-and-values/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/typography-matters-how-fonts-convey-brand-personality-and-values/",
+  "file": "ar__typography-matters-how-fonts-convey-brand-personality-and-values.json",
+  "title": "How Fonts Convey Brand Personality: Typography Insights"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/how-is-branding-the-real-mind-game-for-any-business/",
+  "status": 200,
+  "final": "https://doersadv.com/how-is-branding-the-real-mind-game-for-any-business/",
+  "file": "how-is-branding-the-real-mind-game-for-any-business.json",
+  "title": "How Is Branding The Real Mind Game For Any Business?"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/how-is-branding-the-real-mind-game-for-any-business/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/how-is-branding-the-real-mind-game-for-any-business/",
+  "file": "ar__how-is-branding-the-real-mind-game-for-any-business.json",
+  "title": "How Is Branding The Real Mind Game For Any Business?"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/6-reasons-why-you-should-pick-a-professional-event-management-agency/",
+  "status": 200,
+  "final": "https://doersadv.com/6-reasons-why-you-should-pick-a-professional-event-management-agency/",
+  "file": "6-reasons-why-you-should-pick-a-professional-event-management-agency.json",
+  "title": "6 Reasons Why You Should Pick A Professional Event Management Agency"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/6-reasons-why-you-should-pick-a-professional-event-management-agency/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/6-reasons-why-you-should-pick-a-professional-event-management-agency/",
+  "file": "ar__6-reasons-why-you-should-pick-a-professional-event-management-agency.json",
+  "title": "6 Reasons Why You Should Pick A Professional Event Management Agency"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/the-art-of-storytelling-in-creative-content-creation/",
+  "status": 200,
+  "final": "https://doersadv.com/the-art-of-storytelling-in-creative-content-creation/",
+  "file": "the-art-of-storytelling-in-creative-content-creation.json",
+  "title": "The Art of Storytelling in Creative Content Creation"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/the-art-of-storytelling-in-creative-content-creation/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/the-art-of-storytelling-in-creative-content-creation/",
+  "file": "ar__the-art-of-storytelling-in-creative-content-creation.json",
+  "title": "The Art of Storytelling in Creative Content Creation"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/beyond-words-visual-contents-role-in-a-digital-strategy/",
+  "status": 200,
+  "final": "https://doersadv.com/beyond-words-visual-contents-role-in-a-digital-strategy/",
+  "file": "beyond-words-visual-contents-role-in-a-digital-strategy.json",
+  "title": "Beyond Words: Visual Content's Role in a Digital Strategy"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/beyond-words-visual-contents-role-in-a-digital-strategy/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/beyond-words-visual-contents-role-in-a-digital-strategy/",
+  "file": "ar__beyond-words-visual-contents-role-in-a-digital-strategy.json",
+  "title": "Beyond Words: Visual Content's Role in a Digital Strategy"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/digital-content-strategy-from-conceptualization-to-engagement/",
+  "status": 200,
+  "final": "https://doersadv.com/digital-content-strategy-from-conceptualization-to-engagement/",
+  "file": "digital-content-strategy-from-conceptualization-to-engagement.json",
+  "title": "Top Marketing Agency"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/digital-content-strategy-from-conceptualization-to-engagement/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/digital-content-strategy-from-conceptualization-to-engagement/",
+  "file": "ar__digital-content-strategy-from-conceptualization-to-engagement.json",
+  "title": "Top Marketing Agency"
+ },
+ {
+  "kind": "post",
+  "lang": "en",
+  "url": "https://doersadv.com/why-you-need-a-website-development-company-for-your-business/",
+  "status": 200,
+  "final": "https://doersadv.com/why-you-need-a-website-development-company-for-your-business/",
+  "file": "why-you-need-a-website-development-company-for-your-business.json",
+  "title": "Why You Need A Website Development Company"
+ },
+ {
+  "kind": "post",
+  "lang": "ar",
+  "url": "https://doersadv.com/ar/why-you-need-a-website-development-company-for-your-business/",
+  "status": 200,
+  "final": "https://doersadv.com/ar/why-you-need-a-website-development-company-for-your-business/",
+  "file": "ar__why-you-need-a-website-development-company-for-your-business.json",
+  "title": "Why You Need A Website Development Company"
+ }
+]
