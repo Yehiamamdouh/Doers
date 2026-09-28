@@ -364,3 +364,6 @@ body{font-size:17px}
 .feat .has-img img{transition:transform .8s var(--ease)}
 .feat .has-img:hover img{transform:scale(1.04)}
 @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}}
+
+/* Latin names and domains inside Arabic pages keep their own direction */
+[dir=rtl] .folio b, [dir=rtl] .folio span, [dir=rtl] .stk, [dir=rtl] .g-item figcaption b { unicode-bidi: plaintext; }

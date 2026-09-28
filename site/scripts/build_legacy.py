@@ -315,6 +315,7 @@ def final_links(pages):
     rules = redirect_rules()
     exists = {p['path'] for p in pages} | {'/', '/ar/', '/contact-us/', '/ar/contact-us/', '/blog/', '/ar/blog/', '/privacy-policy/', '/ar/privacy-policy/',
               '/website-development-company-egypt/', '/signage-internal-branding-egypt/', '/ksa/signage-internal-branding-in-jeddah/'}
+    exists |= {'/ar/' + p['slug'] + '/' for p in json.loads((ROOT / 'src/data/service-pages.ar.json').read_text())}
     exists |= {'/' + f.stem + '/' for f in BLOG.glob('*.md')} | {'/ar/' + f.stem + '/' for f in (BLOG / 'ar').glob('*.md')}
     def resolve(path):
         for _ in range(4):
