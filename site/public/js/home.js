@@ -19,7 +19,7 @@ const CITIES=[["Cairo","القاهرة"],["Jeddah","جدة"],["Riyadh","الري
 
 const ar=document.documentElement.lang==="ar";
 // Service links: Arabic service pages arrive in phase 2, so both languages link to the English pages for now.
-const U=p=>p.startsWith("*")?"/"+p.slice(1).replace(/^\//,""):ar?"/ar"+p:p;
+const U=p=>p.startsWith("*")?"/"+p.slice(1).replace(/^\//,""):ar&&(window.AR_PAGES||[]).includes(p)?"/ar"+p:p;
 
 function render(){
   const nm=s=>ar?s.a:s.n, city=c=>ar?(c?"القاهرة":"جدة"):(c?"Cairo":"Jeddah");

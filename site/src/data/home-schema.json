@@ -18,7 +18,7 @@
    "image": {
     "@id": "https://doersadv.com/#primaryimage"
    },
-   "thumbnailUrl": "https://doersadv.com/wp-content/uploads/2019/02/Office-high.jpg",
+   "thumbnailUrl": "https://doersadv.com/img/og-default.jpg",
    "datePublished": "2019-02-23T01:03:47+00:00",
    "description": "Best advertising agency in Egypt, Cairo, Multi awards winning agency, Branding, Events, Digital, Web-design, Creative campaigns, OOH.",
    "breadcrumb": {
@@ -30,8 +30,8 @@
    "@type": "ImageObject",
    "inLanguage": "en-US",
    "@id": "https://doersadv.com/#primaryimage",
-   "url": "https://doersadv.com/wp-content/uploads/2019/02/Office-high.jpg",
-   "contentUrl": "https://doersadv.com/wp-content/uploads/2019/02/Office-high.jpg",
+   "url": "https://doersadv.com/img/og-default.jpg",
+   "contentUrl": "https://doersadv.com/img/og-default.jpg",
    "width": 2000,
    "height": 1125
   },
@@ -66,8 +66,8 @@
     "@type": "ImageObject",
     "inLanguage": "en-US",
     "@id": "https://doersadv.com/#/schema/logo/image/",
-    "url": "https://doersadv.com/wp-content/uploads/2019/02/logo.png",
-    "contentUrl": "https://doersadv.com/wp-content/uploads/2019/02/logo.png",
+    "url": "https://doersadv.com/img/logo.png",
+    "contentUrl": "https://doersadv.com/img/logo.png",
     "width": 400,
     "height": 400,
     "caption": "Doers Advertising Agency"

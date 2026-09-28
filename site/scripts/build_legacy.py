@@ -36,7 +36,24 @@ def load():
         # A page whose live URL already redirects is only a redirect in the new site.
         if path_of(r['final_url']).rstrip('/') != path_of(r['url']).rstrip('/'): continue
         recs.append(r)
-    return recs
+    # The Arabic copy of a page whose English URL redirects is redirected too (see .htaccess).
+    gone = {path_of(json.loads(f.read_text())['url']) for f in CRAWL.glob('*.json') if not f.name.startswith(('_', 'ar__'))} - {path_of(r['url']) for r in recs}
+    return [r for r in recs if not (r['lang'] == 'ar' and path_of(r['url'])[3:] in gone)]
+
+def arabic_share(r):
+    text = ' '.join(b.get('text', '') for b in r['blocks'] if b['type'] != 'img')
+    letters = re.findall(r'[A-Za-z\u0600-\u06FF]', text)
+    return sum(1 for c in letters if c >= '\u0600') / max(1, len(letters))
+
+def write_ar_redirects(paths):
+    """Arabic URLs whose page was never translated send readers to the English page."""
+    ht = ROOT / 'public/.htaccess'
+    s = ht.read_text()
+    a, b = '# ---- BEGIN untranslated Arabic pages (scripts/build_legacy.py) ----', '# ---- END untranslated Arabic pages ----'
+    rules = '\n'.join(f'RewriteRule ^ar{re.escape(p)}$ {p} [L,R=301]' for p in sorted(paths))
+    block = f'{a}\n{rules}\n{b}'
+    s = re.sub(re.escape(a) + '.*?' + re.escape(b), lambda m: block, s, flags=re.S) if a in s else s.replace('</IfModule>', block + '\n</IfModule>', 1)
+    ht.write_text(s)
 
 # ---------- images ----------
 def local_img(src, used):
@@ -150,8 +167,20 @@ def build_page(r, common, used, en_by_path):
             if cur is None:
                 cur = {'h2': '', 'nodes': []}; sections.append(cur)
             cur['nodes'].append(n)
-    sections = [s for s in sections if s['h2'] or s['nodes']]
+    # A block of images with no heading belongs to the section after it.
+    merged, carry = [], []
     for s in sections:
+        if not s['h2'] and all(n['t'] == 'img' for n in s['nodes']):
+            carry += s['nodes']; continue
+        s['nodes'] = carry + s['nodes']; carry = []
+        merged.append(s)
+    if carry and merged: merged[-1]['nodes'] += carry
+    sections = [s for s in merged if s['h2'] or s['nodes']]
+    for s in sections:
+        # The first image sits beside the heading; the rest stay in the text.
+        first = next((n for n in s['nodes'] if n['t'] == 'img'), None)
+        if first and s['h2']:
+            s['img'] = first; s['nodes'] = [n for n in s['nodes'] if n is not first]
         s['cards'] = sum(1 for n in s['nodes'] if n['t'] == 'h3') >= 3
         for n in s['nodes']: n.pop('text', None)
     title, desc = r['title'], r['description']
@@ -224,6 +253,9 @@ def build_post(r, common, used, en_by_path):
 
 def main():
     recs = load()
+    untranslated = {path_of(r['url'])[3:] for r in recs if r['lang'] == 'ar' and arabic_share(r) < 0.5 and path_of(r['url'])[3:] not in SKIP_PAGES}
+    recs = [r for r in recs if not (r['lang'] == 'ar' and path_of(r['url'])[3:] in untranslated)]
+    write_ar_redirects(untranslated)
     en_by_path = {path_of(r['url']): r for r in recs if r['lang'] == 'en'}
     used = set()
     pages, posts = [], collections.Counter()
@@ -237,12 +269,12 @@ def main():
                 if kind == 'page':
                     if p.removeprefix('/ar') in SKIP_PAGES or p == '/ar/': continue
                     pages.append(build_page(r, common, used, en_by_path))
-                else:
+                elif p.removeprefix('/ar') not in SKIP_PAGES:
                     build_post(r, common, used, en_by_path); posts[lang] += 1
     (ROOT / 'src/data/legacy-pages.json').write_text(json.dumps(pages, ensure_ascii=False, indent=1))
     for f in IMG_DIR.glob('*'):
         if f.name not in used: f.unlink()
-    print(f'{len(pages)} pages, posts {dict(posts)}, {len(used)} images')
+    print(f'{len(pages)} pages, posts {dict(posts)}, {len(used)} images, {len(untranslated)} untranslated Arabic URLs redirected')
 
 if __name__ == '__main__':
     main()

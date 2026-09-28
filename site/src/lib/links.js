@@ -1,13 +1,15 @@
-// Menu paths starting with "*" are pages new to this site that have no Arabic version yet.
-const EN_ONLY = new Set(['/website-development-company-egypt/', '/signage-internal-branding-egypt/', '/ksa/signage-internal-branding-in-jeddah/']);
+import legacy from '../data/legacy-pages.json';
 
-/** The URL of a site page in the reader's language. */
+// Pages built for the new site that have an Arabic version, plus every old page that was really translated.
+const AR = new Set(['/', '/contact-us/', '/blog/', '/privacy-policy/', ...legacy.filter((p) => p.lang === 'ar').map((p) => p.path.slice(3))]);
+
+/** The URL of a site page in the reader's language (English when there is no Arabic version). Menu paths may start with "*". */
 export function loc(path, lang = 'en') {
   const p = path.startsWith('*') ? path.slice(1) : path;
-  if (lang !== 'ar' || EN_ONLY.has(p) || p.startsWith('/ar/')) return p;
+  if (lang !== 'ar' || !AR.has(p)) return p;
   return p === '/' ? '/ar/' : '/ar' + p;
 }
 
 export function hasArabic(path) {
-  return !EN_ONLY.has(path);
+  return AR.has(path);
 }

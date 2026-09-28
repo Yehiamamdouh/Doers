@@ -5,7 +5,7 @@ const d = post.data;
 const ar = d.lang === 'ar';
 const fmt = (dt) => dt.toLocaleDateString(ar ? 'ar-EG' : 'en-GB', { month: 'short', year: 'numeric' });
 ---
-<a class={`post-card${big ? ' big' : ''}`} href={postPath(post)}>
+<a class={`post-card${big ? ' pc-big' : ''}`} href={postPath(post)}>
   <div class="pc-img">{d.cover ? <img src={d.cover} alt="" loading={big ? 'eager' : 'lazy'}> : null}</div>
   <div>
     <span class="label">{d.category || fmt(d.date)}</span>

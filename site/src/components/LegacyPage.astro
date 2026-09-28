@@ -58,11 +58,14 @@ const imgs = p.sections.flatMap((s) => s.nodes.filter((n) => n.t === 'img'));
     <div class="wrap">
       {p.sections.map((s, si) => (
         <section class={`p-sec lg-sec${s.cards ? ' is-cards' : ''}`}>
-          {s.h2 && <h2>{s.h2}</h2>}
+          {s.h2 && (s.img && !s.cards
+            ? <div class="lg-side"><h2>{s.h2}</h2><figure class="lg-fig"><img src={s.img.src} alt={s.img.alt} width={s.img.w} height={s.img.h} loading="lazy"></figure></div>
+            : <h2>{s.h2}</h2>)}
           {s.cards ? (
             <>
               {s.nodes.filter((n, i) => i < s.nodes.findIndex((x) => x.t === 'h3')).map((n) => n.t === 'p' ? <p class="lg-intro" set:html={n.html} /> : null)}
-              <div class="feat">
+              {s.img && <figure class="lg-fig lg-wide"><img src={s.img.src} alt={s.img.alt} width={s.img.w} height={s.img.h} loading="lazy"></figure>}
+              <div class={`feat${s.nodes.filter((x) => x.t === 'h3').length === 4 ? ' n4' : ''}`}>
                 {(() => {
                   const cards = [];
                   let cur = null;
