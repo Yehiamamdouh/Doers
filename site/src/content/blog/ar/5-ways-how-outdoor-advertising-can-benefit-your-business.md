@@ -5,6 +5,8 @@ description: "بواسطة يحيى دسوقي | أبريل 13, 2023 | وكال�
 lang: ar
 date: 2023-04-13T10:32:53+00:00
 cover: /img/legacy/2023-04-outdoor.jpg
+category: "إعلانات الطرق"
+service: /outdoor-advertising-egypt/
 ---
 
 <p>بواسطة <a href="/ar/author/yehia/">يحيى دسوقي</a> | أبريل 13, 2023 | <a href="/ar/category/advertising-agency/">وكالة الإعلانات</a> | <a href="/ar/5-ways-how-outdoor-advertising-can-benefit-your-business/#respond">0 تعليقات</a></p>

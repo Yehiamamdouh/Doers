@@ -6,7 +6,8 @@ lang: en
 date: 2021-11-03T08:24:12+00:00
 updated: 2021-11-03T08:24:15+00:00
 cover: /img/legacy/2021-11-social-media-gd4dff8654_1280.jpg
-category: "social media agency in Egypt"
+category: "Social media"
+service: /digital-marketing-egypt-cairo/
 ---
 
 <p>Social media marketing is a powerful tool for every company, and the most successful social media strategies are those which combine both organic and paid marketing. Organic promotion can be accomplished by engaging with customers on social media channels like Facebook, Instagram, Twitter, and Google+. Paid promotions will help you get in front of new audiences that your company may not have been able to reach organically. The best way to ensure success with any type of marketing strategy is through an integrated approach that blends organic engagement with paid advertising. In this blog post, we’ll cover how to create a social media strategy that combines both types of promotion so you can maximize your ROI while providing stellar customer service.</p>

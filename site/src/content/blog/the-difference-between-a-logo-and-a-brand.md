@@ -6,7 +6,8 @@ lang: en
 date: 2021-12-22T10:54:36+00:00
 updated: 2021-12-22T10:54:39+00:00
 cover: /img/legacy/2021-12-logo-and-a-brand.jpg
-category: "branding agency in Egypt"
+category: "Branding"
+service: /branding-agency-egypt/
 ---
 
 <p>A company can have an amazing logo but without the proper execution of their brand, they are not going to attract customers on their own. Brands are about how your customer perceives you as well as what you want them to think about when they see your name or product in stores or online. Your branding should be cohesive – meaning that it reflects your business’s values and beliefs across all channels including print advertising, social media posts, website design, packaging, and more. You can’t just create a great logo for yourself; you need to build up the entire brand.</p>

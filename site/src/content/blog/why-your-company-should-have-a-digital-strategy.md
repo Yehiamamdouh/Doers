@@ -6,7 +6,8 @@ lang: en
 date: 2021-12-24T10:53:29+00:00
 updated: 2021-12-24T10:53:32+00:00
 cover: /img/legacy/2021-12-why-your-company-should-have-a-digital-strategy.png
-category: "digital marketing"
+category: "Digital marketing"
+service: /digital-marketing-egypt-cairo/
 ---
 
 <p>A digital strategy is an essential component for any company looking to thrive in the modern business world. Businesses are increasingly relying on digital platforms to engage with their customers, grow their brands, and increase revenue. As a result, it’s important for companies to have an overarching strategy in place that helps them navigate the ever-changing world of digital marketing.</p>

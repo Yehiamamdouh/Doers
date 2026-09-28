@@ -6,7 +6,8 @@ lang: en
 date: 2021-12-14T10:34:32+00:00
 updated: 2021-12-14T10:34:34+00:00
 cover: /img/legacy/2021-12-anatomydigitalmarketingagencyblog.jpg
-category: "advertising agency"
+category: "Advertising"
+service: /
 ---
 
 <p>A full-service ad agency provides a broad range of advertising and marketing services to help clients achieve their desired results. Services can include brand strategy, market research, creative development, media planning and buying, web design and development, and public relations. Ad agencies typically have expertise in one or more channels such as television, radio, print, online, or outdoor advertising. Depending on the size of the agency, they may also have additional specialties such as healthcare marketing or student loan consolidation.</p>

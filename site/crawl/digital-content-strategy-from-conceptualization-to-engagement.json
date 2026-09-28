@@ -384,34 +384,6 @@
    "links": []
   },
   {
-   "type": "h1",
-   "text": "2 Comments",
-   "html": "2 Comments",
-   "links": []
-  },
-  {
-   "type": "p",
-   "text": "https://shorturl.fm/D7zrA",
-   "html": "<a href=\"https://shorturl.fm/D7zrA\">https://shorturl.fm/D7zrA</a>",
-   "links": [
-    "https://shorturl.fm/D7zrA"
-   ]
-  },
-  {
-   "type": "p",
-   "text": "https://shorturl.fm/mKkVc",
-   "html": "<a href=\"https://shorturl.fm/mKkVc\">https://shorturl.fm/mKkVc</a>",
-   "links": [
-    "https://shorturl.fm/mKkVc"
-   ]
-  },
-  {
-   "type": "h3",
-   "text": "Submit a Comment",
-   "html": "Submit a Comment",
-   "links": []
-  },
-  {
    "type": "h4",
    "text": "Welcome to Doers Portal",
    "html": "Welcome to Doers Portal",

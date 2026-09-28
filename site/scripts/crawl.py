@@ -1,7 +1,7 @@
 """Crawl the live WordPress site: every page and post in the Yoast sitemaps, English and Arabic.
 
 Saves one JSON per URL with the SEO fields and the main content, so the new
-site can rebuild each page on the same URL. Run: python3 scripts/crawl.py
+site can rebuild each page on the same URL. Run: python3 scripts/crawl.py   (add --from-raw to re-parse the saved HTML offline)
 """
 import json, re, subprocess, pathlib, html, sys, time
 from html.parser import HTMLParser
@@ -27,14 +27,22 @@ def meta(doc, pattern):
 class Content(HTMLParser):
     """Collects headings, paragraphs, list items and images from the Divi content area."""
     SKIP = {'script', 'style', 'noscript', 'header', 'footer', 'nav', 'form', 'svg'}
+    VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr'}
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.blocks, self.stack, self.buf, self.skip = [], [], [], 0
+    def skip_region(self, tag, a):
+        cls = a.get('class') or ''
+        return (tag in self.SKIP or a.get('id') in ('main-header', 'main-footer', 'top-header', 'comments', 'comment-wrap', 'respond')
+                or any(c in cls for c in ('et-l--header', 'et-l--footer', 'et_pb_comments_module', 'commentlist', 'comment-respond')))
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
-        if tag in self.SKIP or 'et-l--header' in a.get('class', '') or 'et-l--footer' in a.get('class', '') or a.get('id') in ('main-header', 'main-footer', 'top-header'):
-            self.skip += 1
-        if self.skip: return
+        # Inside a skipped region, count nested elements so we know where it ends.
+        if self.skip:
+            if tag not in self.VOID: self.skip += 1
+            return
+        if tag not in self.VOID and self.skip_region(tag, a):
+            self.skip = 1; return
         if tag in ('h1', 'h2', 'h3', 'h4', 'p', 'li'):
             self.stack.append(tag); self.buf = []
         elif tag == 'img':
@@ -48,9 +56,9 @@ class Content(HTMLParser):
         elif tag == 'br' and self.stack:
             self.buf.append(' ')
     def handle_endtag(self, tag):
-        if tag in self.SKIP and self.skip:
-            self.skip -= 1; return
-        if self.skip: return
+        if self.skip:
+            if tag not in self.VOID: self.skip -= 1
+            return
         if tag == 'a' and self.stack:
             self.buf.append(('/a', ''))
         elif tag in ('strong', 'b', 'em', 'i') and self.stack:
@@ -128,5 +136,16 @@ def main():
                 time.sleep(0.3)
     (OUT / '_index.json').write_text(json.dumps(index, ensure_ascii=False, indent=1))
 
+def reparse():
+    """Rebuild the JSON files from the saved HTML in crawl/raw/ without fetching again."""
+    for f in OUT.glob('*.json'):
+        if f.name.startswith('_'): continue
+        rec = json.loads(f.read_text())
+        raw = RAW / (f.stem + '.html')
+        if rec.get('status') != 200 or not raw.exists(): continue
+        keep = {k: rec[k] for k in ('kind', 'lang', 'status', 'final_url')}
+        keep.update(parse(rec['url'], raw.read_text()))
+        f.write_text(json.dumps(keep, ensure_ascii=False, indent=1))
+
 if __name__ == '__main__':
-    main()
+    reparse() if '--from-raw' in sys.argv else main()

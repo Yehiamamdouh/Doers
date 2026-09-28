@@ -6,7 +6,8 @@ lang: en
 date: 2021-11-02T12:27:12+00:00
 updated: 2021-11-02T12:27:21+00:00
 cover: /img/legacy/2021-11-mobile-phone-ga382cf2cd_1280.jpg
-category: "social media agency in Egypt"
+category: "Social media"
+service: /digital-marketing-egypt-cairo/
 ---
 
 <p>Social media and SEO (Search Engine Optimization) have a complicated relationship. When you post something on social media, it can be seen by anyone with access to your account. This means that if you post content on Instagram, for example, without adding hashtags or tags it will still show up in Google search engines because of its popularity amongst users. However, this is not always beneficial as people often use their social media accounts to share personal information instead of business-related ones which can make them less trustworthy sources for potential clients or customers looking for products or services offered by your company. The best way to solve this problem is to create specific profiles intended only for business purposes but this takes time and dedication from both the company’s employees and followers who are willing to help spread out.</p>

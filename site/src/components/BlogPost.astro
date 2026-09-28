@@ -5,6 +5,8 @@ import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
 import PostCard from './PostCard.astro';
 import { postPath } from '../lib/posts.js';
+import { loc } from '../lib/links.js';
+import menu from '../data/services-menu.json';
 const { post, alt, more = [] } = Astro.props;
 const d = post.data;
 const ar = d.lang === 'ar';
@@ -15,10 +17,16 @@ const alternates = alt ? { en: enPath, ar: '/ar' + enPath } : ar ? { ar: path } 
 const { Content } = await render(post);
 const fmt = (dt) => dt.toLocaleDateString(ar ? 'ar-EG' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 const h1 = d.h1 || d.title;
+// The service page this post leads to.
+const svcItem = d.service && menu.find((m) => [m.eg, m.ksa].some((x) => x && x.replace('*', '') === d.service));
+const svc = d.service && {
+  href: loc(d.service, d.lang),
+  name: svcItem ? (ar ? svcItem.ar : svcItem.name) : ar ? 'دورز: وكالة إعلانات متكاملة' : 'Doers: full-service advertising agency',
+};
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
-    { '@type': 'BlogPosting', '@id': site + path + '#article', headline: h1, description: d.description, inLanguage: ar ? 'ar' : 'en-US', mainEntityOfPage: site + path, datePublished: d.date.toISOString(), dateModified: (d.updated || d.date).toISOString(), ...(d.cover && { image: site + d.cover }), ...(d.category && { articleSection: d.category }), author: { '@id': `${site}/#organization` }, publisher: { '@id': `${site}/#organization` } },
+    { '@type': 'BlogPosting', '@id': site + path + '#article', headline: h1, description: d.description, inLanguage: ar ? 'ar' : 'en-US', mainEntityOfPage: site + path, datePublished: d.date.toISOString(), dateModified: (d.updated || d.date).toISOString(), ...(d.cover && { image: site + d.cover }), ...(d.category && { articleSection: d.category }), ...(svc && { about: { '@type': 'Service', name: svc.name, url: site + svc.href } }), author: { '@id': `${site}/#organization` }, publisher: { '@id': `${site}/#organization` } },
     { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: ar ? 'الرئيسية' : 'Home', item: site + (ar ? '/ar/' : '/') }, { '@type': 'ListItem', position: 2, name: ar ? 'المدونة' : 'Blog', item: site + (ar ? '/ar/blog/' : '/blog/') }, { '@type': 'ListItem', position: 3, name: h1 }] },
     { '@type': 'Organization', '@id': `${site}/#organization`, name: 'Doers Advertising Agency', url: site + '/', logo: site + '/img/logo.png' },
   ],
@@ -38,6 +46,13 @@ const schema = {
         <h1>{h1}</h1>
         {d.cover && <figure class="post-cover"><img src={d.cover} alt={d.coverAlt || h1} fetchpriority="high"></figure>}
         <div class="post-body"><Content /></div>
+        {svc && (
+          <a class="post-svc" href={svc.href}>
+            <span class="label">{ar ? 'الخدمة المرتبطة' : 'Related service'}</span>
+            <b>{svc.name}</b>
+            <span>{ar ? 'شوف إزاي بنشتغل عليها مع عملائنا' : 'See how we do this for our clients'} <span class="arrow">↗</span></span>
+          </a>
+        )}
       </article>
     </div>
     {more.length > 0 && (

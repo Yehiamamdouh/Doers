@@ -6,7 +6,8 @@ lang: en
 date: 2021-11-17T12:18:37+00:00
 updated: 2021-11-17T12:18:40+00:00
 cover: /img/legacy/2021-11-benchmarking-techniques.jpg
-category: "SEO services"
+category: "SEO"
+service: /listening-and-reputation-management/
 ---
 
 <p>The ability to listen is one of the most important aspects of developing a successful business. Listening can help you understand your market, what your customers are looking for and how you can provide it better than anyone else.</p>

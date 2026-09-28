@@ -276,26 +276,6 @@
    "links": []
   },
   {
-   "type": "h1",
-   "text": "1 تعليق",
-   "html": "1 تعليق",
-   "links": []
-  },
-  {
-   "type": "p",
-   "text": "Really convenient app for anyone on the go. The layout is clean and everything works exactly as it should. Download nutristarapp and see for yourself.",
-   "html": "Really convenient app for anyone on the go. The layout is clean and everything works exactly as it should. Download <a href=\"https://nutristarapp.ph\">nutristarapp</a> and see for yourself.",
-   "links": [
-    "https://nutristarapp.ph"
-   ]
-  },
-  {
-   "type": "h3",
-   "text": "تقديم تعليق",
-   "html": "تقديم تعليق",
-   "links": []
-  },
-  {
    "type": "h4",
    "text": "مرحبًا بكم في منصة Doers",
    "html": "مرحبًا بكم في منصة Doers",

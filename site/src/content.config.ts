@@ -15,7 +15,8 @@ const blog = defineCollection({
     cover: z.string().optional(),
     coverAlt: z.string().optional(),
     category: z.string().optional(),
-    service: z.string().optional(),
+    service: z.string().optional(),   // path of the related service page, e.g. /seo/
+    translated: z.boolean().optional(), // Arabic post translated by hand (not generated from the old site)
   }),
 });
 

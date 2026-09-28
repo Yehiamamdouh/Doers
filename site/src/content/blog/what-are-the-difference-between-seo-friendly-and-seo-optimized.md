@@ -6,7 +6,8 @@ lang: en
 date: 2022-01-12T12:40:07+00:00
 updated: 2022-01-12T12:45:52+00:00
 cover: /img/legacy/2022-01-screenshot_1.png
-category: "SEO services"
+category: "SEO"
+service: /seo/
 ---
 
 <p>SEO friendly and SEO optimized are two terms you’ve likely heard before. There is a lot of confusion surrounding the both terms. Many people assume that they mean the same thing, but this is not always the case. SEO friendly refers to practices that make it easier for search engines to crawl and index your website. SEO optimized, on the other hand, means that your site has been specifically configured to rank as high as possible in search engine results pages.</p>
@@ -86,5 +87,3 @@ category: "SEO services"
 <p>19) UX-based Design: An agency would make sure your site will have an excellent design which delivers a great user experience and also ranks high on Google too.</p>
 
 <p>19) Analytics Implementation: An agency would help you in implementing Google Analytics tracking codes. This way, you would be able to monitor the traffic of your website on a regular basis.</p>
-
-<p>Really convenient app for anyone on the go. The layout is clean and everything works exactly as it should. Download <a href="https://nutristarapp.ph">nutristarapp</a> and see for yourself.</p>

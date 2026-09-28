@@ -6,7 +6,8 @@ lang: en
 date: 2021-07-30T15:17:45+00:00
 updated: 2021-07-30T15:26:22+00:00
 cover: /img/legacy/2021-07-social-media-763731_1280-1.jpg
-category: "social media agency in Egypt"
+category: "Social media"
+service: /digital-marketing-egypt-cairo/
 ---
 
 <p>Facebook stories have many features themselves. The camera features of Facebook have many qualities having snap-chat features and these stories have very limited or short span effects. People enjoy these effects by using different outstanding moments included features. The third upgrade, Direct, is a hybrid of Messenger and Snap-chat that allows users to send pals brief movies and photos that would vanish after a short period of time.</p>

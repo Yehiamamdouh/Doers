@@ -5,6 +5,8 @@ description: "Rely on 15 years of experience in creating unique campaigns and bu
 lang: en
 date: 2023-04-13T10:32:53+00:00
 cover: /img/legacy/2023-04-outdoor.jpg
+category: "Outdoor advertising"
+service: /outdoor-advertising-egypt/
 ---
 
 <p>by <a href="/author/yehia/">Yehia Dessouki</a> | Apr 13, 2023 | <a href="/category/advertising-agency/">advertising agency</a> | <a href="/5-ways-how-outdoor-advertising-can-benefit-your-business/#respond">0 comments</a></p>

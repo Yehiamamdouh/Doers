@@ -64,6 +64,11 @@
 .post-body figure{border-radius:18px;overflow:hidden;margin-block:1.6em}
 .post-body img{width:100%;height:auto}
 .post-body blockquote{border-inline-start:3px solid var(--orange);padding-inline-start:18px;font-size:20px;color:var(--bone)}
+.post-svc{display:grid;gap:6px;margin-top:48px;padding:26px 28px;border-radius:20px;background:var(--ink);color:#F1EFEA;transition:transform .3s var(--ease)}
+.post-svc:hover{transform:translateY(-3px)}
+.post-svc .label{color:var(--orange)}
+.post-svc b{font:800 clamp(24px,2.6vw,34px)/1.1 var(--display);letter-spacing:-.03em}
+.post-svc>span:last-child{color:#C9C6BF;font-size:15px}
 .post-more{border-top:1px solid var(--line)}
 .post-more .posts{padding-top:32px}
 @media (max-width:1000px){.posts{grid-template-columns:1fr 1fr}.post-card.pc-big{grid-template-columns:1fr}}

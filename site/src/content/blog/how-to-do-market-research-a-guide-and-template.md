@@ -6,7 +6,8 @@ lang: en
 date: 2021-11-30T08:20:44+00:00
 updated: 2021-11-30T08:20:46+00:00
 cover: /img/legacy/2021-11-blog-26-0120featured.width-1500.png
-category: "advertising agency"
+category: "Branding"
+service: /branding-agency-egypt/
 ---
 
 <p>Market Research is the process of finding out what your potential customers want from your product or service in order to make it more appealing and successful. Market research can help determine if there’s a need for new products or services, which customer groups would be most interested in them, and how much they might be willing to pay.</p>

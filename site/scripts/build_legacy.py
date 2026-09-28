@@ -24,6 +24,47 @@ SKIP_PAGES = {'/', '/contact-us/', '/blog/'}
 NOISE = re.compile(r'^(WhatsApp us|SEO Intro|Read More|Submit a Comment|Welcome to Doers Portal|Contact Us|Get In Touch|Let\'?s talk|تواصل معنا)$', re.I)
 STOP = re.compile(r'^(Submit a Comment|Welcome to Doers Portal|أرسل تعليقاً|إرسال تعليق)', re.I)
 
+# Topic label (EN, AR) and the service page each post points readers to.
+TOPICS = {
+    'branding': ('Branding', 'الهوية والبراندنج', '/branding-agency-egypt/'),
+    'advertising': ('Advertising', 'الإعلان', '/'),
+    'digital': ('Digital marketing', 'التسويق الرقمي', '/digital-marketing-egypt-cairo/'),
+    'social': ('Social media', 'السوشيال ميديا', '/digital-marketing-egypt-cairo/'),
+    'seo': ('SEO', 'تحسين محركات البحث', '/seo/'),
+    'events': ('Events', 'الفعاليات', '/event-management-cairo-egypt/'),
+    'web': ('Web development', 'تطوير المواقع', '/website-development-company-egypt/'),
+    'ooh': ('Outdoor advertising', 'إعلانات الطرق', '/outdoor-advertising-egypt/'),
+}
+CATEGORY_TOPIC = {
+    'branding agency in egypt': 'branding', 'advertising agency': 'advertising', 'digital marketing': 'digital',
+    'digital marketing agency in egypt': 'digital', 'social media agency in egypt': 'social', 'seo services': 'seo',
+    'event management agency': 'events', 'content management systems': 'web', 'website development company': 'web',
+}
+# Posts whose best next step is a specific page (off-topic posts point to the closest service).
+SLUG_TOPIC = {
+    'what-is-python-mainly-used-for': 'web', 'how-to-clone-a-website-like-a-pros': 'web',
+    'how-ecommerce-marketers-can-successfully-compete-with-amazon': 'web',
+    'why-you-need-a-website-development-company-for-your-business': 'web',
+    'digital-content-strategy-from-conceptualization-to-engagement': 'digital', 'top-5-digital-content-strategy-development-steps': 'digital',
+    'beyond-words-visual-contents-role-in-a-digital-strategy': 'digital', 'the-art-of-storytelling-in-creative-content-creation': 'digital',
+    'practical-marketing-tips-for-black-friday': 'digital', 'linkedin-ads-and-b2b-digital-campaigns-using-seo-and-google-search-ads': 'digital',
+    'the-future-of-online-advertising-advantages-and-challenges-in-2022': 'digital', '5-advertising-strategies-that-work-well-for-you': 'digital',
+    '5-ways-how-outdoor-advertising-can-benefit-your-business': 'ooh', '6-different-types-of-advertisement-to-make-your-business-successful': 'ooh',
+    '6-reasons-why-you-should-pick-a-professional-event-management-agency': 'events', 'largest-annual-exhibitions-in-the-middle-east': 'events',
+    'how-is-branding-the-real-mind-game-for-any-business': 'branding', 'behind-the-logo-decoding-the-symbolism-and-design-choices': 'branding',
+    'brand-identity-unveiling-the-core-elements-that-shape-strong-brands': 'branding', 'typography-matters-how-fonts-convey-brand-personality-and-values': 'branding',
+    'how-to-do-market-research-a-guide-and-template': 'branding', '6-majors-ways-your-creative-agency-can-make-money': 'branding',
+    'listening-market-intelligence-and-competitive-benchmarking-techniques': 'seo',
+}
+SLUG_SERVICE = {
+    'largest-annual-exhibitions-in-the-middle-east': '/booth-production-egypt/',
+    'listening-market-intelligence-and-competitive-benchmarking-techniques': '/listening-and-reputation-management/',
+}
+TRANSLATIONS = ROOT / 'src/data/translations'
+
+def topic_of(slug, en_cat):
+    return SLUG_TOPIC.get(slug) or CATEGORY_TOPIC.get((en_cat or '').lower()) or 'advertising'
+
 def path_of(url):
     return re.sub(r'^https?://[^/]+', '', url) or '/'
 
@@ -227,6 +268,15 @@ def build_post(r, common, used, en_by_path):
     for b in r['blocks']:
         m = re.match(r'^(?:by|بواسطة) \|.*?\|\s*(.*?),?\s*\|', b.get('text', ''))
         if m: cat = m.group(1).strip(' ,'); break
+    en_cat = cat
+    if lang == 'ar':
+        en_rec = en_by_path.get(path[3:]) or {}
+        m = next((re.match(r'^by \|.*?\|\s*(.*?),?\s*\|', b.get('text', '')) for b in en_rec.get('blocks', []) if b.get('text', '').startswith('by |')), None)
+        en_cat = m.group(1).strip(' ,') if m else ''
+    topic = topic_of(slug, en_cat)
+    label_en, label_ar, service = TOPICS[topic]
+    service = SLUG_SERVICE.get(slug, service)
+    cat = label_ar if lang == 'ar' else label_en
     title, desc = r['title'], r['description']
     if lang == 'ar':
         en = en_by_path.get(path[3:])
@@ -244,7 +294,8 @@ def build_post(r, common, used, en_by_path):
     ]
     if r.get('modified'): fm.append(f'updated: {r["modified"]}')
     if cover: fm.append(f'cover: {cover["src"]}')
-    if cat: fm.append(f'category: {yaml_str(cat)}')
+    fm.append(f'category: {yaml_str(cat)}')
+    fm.append(f'service: {service}')
     fm.append('---')
     dest = BLOG / ('ar' if lang == 'ar' else '') / f'{slug}.md'
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -254,6 +305,10 @@ def build_post(r, common, used, en_by_path):
 def main():
     recs = load()
     untranslated = {path_of(r['url'])[3:] for r in recs if r['lang'] == 'ar' and arabic_share(r) < 0.5 and path_of(r['url'])[3:] not in SKIP_PAGES}
+    # Hand translations (see README): posts live in src/content/blog/ar/ with `translated: true`, pages in src/data/translations/.
+    manual_posts = {f'/{f.stem}/' for f in (BLOG / 'ar').glob('*.md') if re.search(r'^translated: true$', f.read_text(), re.M)}
+    manual_pages = {json.loads(f.read_text())['path'][3:]: json.loads(f.read_text()) for f in TRANSLATIONS.glob('*.json')} if TRANSLATIONS.exists() else {}
+    untranslated -= manual_posts | set(manual_pages)
     recs = [r for r in recs if not (r['lang'] == 'ar' and path_of(r['url'])[3:] in untranslated)]
     write_ar_redirects(untranslated)
     en_by_path = {path_of(r['url']): r for r in recs if r['lang'] == 'en'}
@@ -268,7 +323,11 @@ def main():
                 p = path_of(r['url'])
                 if kind == 'page':
                     if p.removeprefix('/ar') in SKIP_PAGES or p == '/ar/': continue
+                    if lang == 'ar' and p[3:] in manual_pages:
+                        pages.append(manual_pages[p[3:]]); continue
                     pages.append(build_page(r, common, used, en_by_path))
+                elif lang == 'ar' and p[3:] in manual_posts:
+                    continue
                 elif p.removeprefix('/ar') not in SKIP_PAGES:
                     build_post(r, common, used, en_by_path); posts[lang] += 1
     (ROOT / 'src/data/legacy-pages.json').write_text(json.dumps(pages, ensure_ascii=False, indent=1))

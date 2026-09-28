@@ -6,7 +6,8 @@ lang: en
 date: 2021-11-29T15:42:25+00:00
 updated: 2021-11-29T15:42:28+00:00
 cover: /img/legacy/2021-11-mobile-phone-ge4a135a96_1280.jpg
-category: "branding agency in Egypt"
+category: "Branding"
+service: /branding-agency-egypt/
 ---
 
 <p>The use of social media is on the rise. Businesses are utilizing this new technology to connect with their consumers, but more importantly, they are using it to take a stand for important issues in today’s society. Instead of simply tweeting about products or discounts, brands can now be advocates for change by speaking out on topics that need attention. It is not enough anymore to only respond if you have been directly tagged in a conversation; companies must be mindful and aware of what is happening at all times within social media platforms.</p>

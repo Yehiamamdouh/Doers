@@ -6,7 +6,8 @@ lang: en
 date: 2021-04-19T09:24:32+00:00
 updated: 2021-04-20T07:12:32+00:00
 cover: /img/legacy/2021-04-event.jpg
-category: "Event management agency"
+category: "Events"
+service: /event-management-cairo-egypt/
 ---
 
 <p>Event management is not an easy task. If you are a seminar in your city, you have so many things on your to-do list. And it has nothing to do with the size of the event.</p>

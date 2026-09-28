@@ -6,7 +6,8 @@ lang: en
 date: 2021-11-22T10:38:21+00:00
 updated: 2021-11-22T10:38:24+00:00
 cover: /img/legacy/2021-11-tips-for-finding-seo-expert-aca-web-consulting.jpg
-category: "SEO services"
+category: "SEO"
+service: /seo/
 ---
 
 <p>An SEO manager is a professional that helps a business or website with the goal of obtaining more traffic and visibility. These professionals use different strategies to increase their client’s online presence in organic search results, thus increasing revenue from potential clients.</p>
