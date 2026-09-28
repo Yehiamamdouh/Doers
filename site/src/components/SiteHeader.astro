@@ -1,0 +1,32 @@
+---
+import menu from '../data/services-menu.json';
+const { lang = 'en', altHref } = Astro.props;
+const ar = lang === 'ar';
+const home = ar ? '/ar/' : '/';
+const link = (p) => (p.startsWith('*') ? p.slice(1) : p);
+const L = ar
+  ? { work: 'أعمالنا', services: 'الخدمات', ksa: 'السعودية', blog: 'المدونة', contact: 'تواصل', cairo: 'القاهرة', jeddah: 'جدة', start: 'ابدأ مشروعك', other: 'English' }
+  : { work: 'Work', services: 'Services', ksa: 'KSA', blog: 'Blog', contact: 'Contact', cairo: 'Cairo', jeddah: 'Jeddah', start: 'Start a project', other: 'عربي' };
+const name = (s) => (ar ? s.ar : s.name);
+---
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href={home}><img src="/img/logo.png" alt="Doers Advertising Agency" width="500" height="322"></a>
+    <ul class="menu">
+      <li><a href={home + '#work'}>{L.work}</a></li>
+      <li class="dd"><a href={home + '#services'}>{L.services}</a>
+        <div class="mega">
+          <div><div class="label">{L.cairo}</div>{menu.filter((s) => s.eg).map((s) => <a href={link(s.eg)}>{name(s)}</a>)}</div>
+          <div><div class="label">{L.jeddah}</div>{menu.filter((s) => s.ksa).map((s) => <a href={link(s.ksa)}>{name(s)}</a>)}</div>
+        </div>
+      </li>
+      <li><a href="/ksa/">{L.ksa}</a></li>
+      <li><a href="/blog/">{L.blog}</a></li>
+      <li><a href={ar ? '/ar/contact-us/' : '/contact-us/'}>{L.contact}</a></li>
+    </ul>
+    <div class="nav-r">
+      {altHref && <a class="lang" href={altHref} hreflang={ar ? 'en' : 'ar'} lang={ar ? 'en' : 'ar'}>{L.other}</a>}
+      <a class="btn btn-line" href={ar ? '/ar/contact-us/' : '/contact-us/'}>{L.start} <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</header>

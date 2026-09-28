@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import schema from '../data/home-schema.json';
+import { renderHome } from '../lib/home.js';
+const body = renderHome('en');
+---
+<Base
+  title="Doers Advertising Agency in Egypt Cairo - Award winning Agency"
+  description="Best advertising agency in Egypt, Cairo, Multi awards winning agency, Branding, Events, Digital, Web-design, Creative campaigns, OOH."
+  path="/"
+  lang="en"
+  alternates={{ en: '/', ar: '/ar/' }}
+  ogImage="https://doersadv.com/wp-content/uploads/2019/02/Office-high.jpg"
+  schema={schema}
+  styles={['/css/home.css']}
+>
+  <Fragment set:html={body} />
+  <script is:inline src="/js/home.js" defer></script>
+</Base>

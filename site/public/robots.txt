@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /contact.php
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://doersadv.com/sitemap-index.xml

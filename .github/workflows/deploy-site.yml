@@ -1,0 +1,63 @@
+# Builds the Astro site in /site and uploads it to Namecheap over FTP.
+#
+# Staging: every push to main that touches site/ (noindex, no analytics).
+# Production: run manually from the Actions tab and choose "production".
+#
+# Repository secrets needed (Settings → Secrets and variables → Actions):
+#   FTP_SERVER          e.g. ftp.doersadv.com
+#   FTP_USERNAME        a cPanel FTP account limited to the web folders
+#   FTP_PASSWORD
+#   FTP_STAGING_DIR     e.g. /staging.doersadv.com/
+#   FTP_PRODUCTION_DIR  e.g. /public_html/
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+    paths: ['site/**', '.github/workflows/deploy-site.yml']
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Where to deploy
+        type: choice
+        options: [staging, production]
+        default: staging
+
+concurrency:
+  group: deploy-${{ github.event.inputs.target || 'staging' }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.target || 'staging' }}
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - run: npm ci
+      - name: Build
+        run: npm run build
+        env:
+          STAGING: ${{ (github.event.inputs.target || 'staging') == 'staging' && '1' || '0' }}
+      - name: Block search engines on staging
+        if: ${{ (github.event.inputs.target || 'staging') == 'staging' }}
+        run: printf 'User-agent: *\nDisallow: /\n' > dist/robots.txt
+      - name: Upload over FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: site/dist/
+          server-dir: ${{ (github.event.inputs.target || 'staging') == 'staging' && secrets.FTP_STAGING_DIR || secrets.FTP_PRODUCTION_DIR }}
+          exclude: |
+            **/.git*
+            **/node_modules/**

@@ -1,0 +1,61 @@
+---
+/**
+ * Shared <head> for every page: title, description, canonical, hreflang,
+ * Open Graph, JSON-LD and Google Tag Manager (live builds only).
+ */
+interface Props {
+  title: string;
+  description: string;
+  path: string;              // e.g. "/" or "/signage-internal-branding-egypt/"
+  lang?: 'en' | 'ar';
+  alternates?: { en?: string; ar?: string };
+  ogImage?: string;
+  schema?: object;
+  styles?: string[];
+  ogType?: string;
+}
+const { title, description, path, lang = 'en', alternates = {}, ogImage = '/img/og-default.jpg', schema, styles = [], ogType = 'website' } = Astro.props;
+const site = 'https://doersadv.com';
+const canonical = site + path;
+const staging = import.meta.env.STAGING === '1' || process.env.STAGING === '1';
+const gtm = process.env.GTM_ID || 'GTM-TH643JH';
+---
+<!doctype html>
+<html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content={description}>
+{staging
+  ? <meta name="robots" content="noindex, nofollow">
+  : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">}
+<link rel="canonical" href={canonical}>
+{alternates.en && <link rel="alternate" hreflang="en" href={site + alternates.en}>}
+{alternates.ar && <link rel="alternate" hreflang="ar" href={site + alternates.ar}>}
+{alternates.en && <link rel="alternate" hreflang="x-default" href={site + alternates.en}>}
+<meta property="og:locale" content={lang === 'ar' ? 'ar_AR' : 'en_US'}>
+<meta property="og:type" content={ogType}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={canonical}>
+<meta property="og:site_name" content="Doers Advertising Agency">
+<meta property="og:image" content={ogImage.startsWith('http') ? ogImage : site + ogImage}>
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/img/favicon-32.jpg" sizes="32x32">
+<link rel="apple-touch-icon" href="/img/favicon-32.jpg">
+{schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+{!staging && (
+  <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtm}');`} />
+)}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&family=Alexandria:wght@400;600;800&display=swap" rel="stylesheet">
+{styles.map((href) => <link rel="stylesheet" href={href}>)}
+<slot name="head" />
+</head>
+<body>
+{!staging && <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtm}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>}
+<slot />
+</body>
+</html>

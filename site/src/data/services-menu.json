@@ -1,0 +1,74 @@
+[
+ {
+  "name": "Branding",
+  "eg": "/branding-agency-egypt/",
+  "ksa": "/ksa/branding-agency-in-jeddah/",
+  "ar": "الهوية والبراندنج"
+ },
+ {
+  "name": "Event Management",
+  "eg": "/event-management-cairo-egypt/",
+  "ksa": "/ksa/event-management-agency-in-jeddah/",
+  "ar": "تنظيم الفعاليات"
+ },
+ {
+  "name": "Booth Production",
+  "eg": "/booth-production-egypt/",
+  "ksa": "/ksa/booth-production-in-jeddah/",
+  "ar": "تصميم وتنفيذ البوثات"
+ },
+ {
+  "name": "Signage & Internal Branding",
+  "eg": "*/signage-internal-branding-egypt/",
+  "ksa": "*/ksa/signage-internal-branding-in-jeddah/",
+  "ar": "اللافتات والهوية الداخلية"
+ },
+ {
+  "name": "Digital Marketing",
+  "eg": "/digital-marketing-egypt-cairo/",
+  "ksa": "/ksa/digital-marketing-agency-in-jeddah/",
+  "ar": "التسويق الرقمي"
+ },
+ {
+  "name": "SEO",
+  "eg": "/seo/",
+  "ksa": "/ksa/seo-agency-in-jeddah/",
+  "ar": "تحسين محركات البحث"
+ },
+ {
+  "name": "Web Development",
+  "eg": "*/website-development-company-egypt/",
+  "ksa": "/ksa/website-development-company-in-jeddah/",
+  "ar": "تطوير المواقع والتطبيقات"
+ },
+ {
+  "name": "Media Production",
+  "eg": "/media-production-egypt/",
+  "ksa": null,
+  "ar": "الإنتاج الإعلامي"
+ },
+ {
+  "name": "Outdoor (OOH)",
+  "eg": "/outdoor-advertising-egypt/",
+  "ksa": "/ksa/ooh-outdoor-agency-in-jeddah/",
+  "ar": "إعلانات الطرق"
+ },
+ {
+  "name": "TV Advertising",
+  "eg": "/tv-advertising/",
+  "ksa": "/ksa/tv-advertising-in-jeddah/",
+  "ar": "إعلانات التلفزيون"
+ },
+ {
+  "name": "Radio Advertising",
+  "eg": "/radio-advertising-egypt/",
+  "ksa": "/ksa/radio-advertising-agencies-in-jeddah/",
+  "ar": "إعلانات الراديو"
+ },
+ {
+  "name": "Reputation Management",
+  "eg": "/listening-and-reputation-management/",
+  "ksa": "/ksa/listening-and-reputation-management-in-jeddah/",
+  "ar": "إدارة السمعة"
+ }
+]

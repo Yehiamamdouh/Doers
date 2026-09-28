@@ -1,0 +1,87 @@
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://doersadv.com/",
+   "url": "https://doersadv.com/",
+   "name": "Doers Advertising Agency in Egypt Cairo - Award winning Agency",
+   "isPartOf": {
+    "@id": "https://doersadv.com/#website"
+   },
+   "about": {
+    "@id": "https://doersadv.com/#organization"
+   },
+   "primaryImageOfPage": {
+    "@id": "https://doersadv.com/#primaryimage"
+   },
+   "image": {
+    "@id": "https://doersadv.com/#primaryimage"
+   },
+   "thumbnailUrl": "https://doersadv.com/wp-content/uploads/2019/02/Office-high.jpg",
+   "datePublished": "2019-02-23T01:03:47+00:00",
+   "description": "Best advertising agency in Egypt, Cairo, Multi awards winning agency, Branding, Events, Digital, Web-design, Creative campaigns, OOH.",
+   "breadcrumb": {
+    "@id": "https://doersadv.com/#breadcrumb"
+   },
+   "inLanguage": "en-US"
+  },
+  {
+   "@type": "ImageObject",
+   "inLanguage": "en-US",
+   "@id": "https://doersadv.com/#primaryimage",
+   "url": "https://doersadv.com/wp-content/uploads/2019/02/Office-high.jpg",
+   "contentUrl": "https://doersadv.com/wp-content/uploads/2019/02/Office-high.jpg",
+   "width": 2000,
+   "height": 1125
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://doersadv.com/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home"
+    }
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://doersadv.com/#website",
+   "url": "https://doersadv.com/",
+   "name": "Doers Advertising Agency",
+   "description": "Advertising Agency in Egypt 360 || Digital || Events || Media.",
+   "publisher": {
+    "@id": "https://doersadv.com/#organization"
+   },
+   "inLanguage": "en-US"
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://doersadv.com/#organization",
+   "name": "Doers Advertising Agency",
+   "url": "https://doersadv.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "inLanguage": "en-US",
+    "@id": "https://doersadv.com/#/schema/logo/image/",
+    "url": "https://doersadv.com/wp-content/uploads/2019/02/logo.png",
+    "contentUrl": "https://doersadv.com/wp-content/uploads/2019/02/logo.png",
+    "width": 400,
+    "height": 400,
+    "caption": "Doers Advertising Agency"
+   },
+   "image": {
+    "@id": "https://doersadv.com/#/schema/logo/image/"
+   },
+   "award": "TechBehemoths Awards Winner, Branding, Egypt",
+   "sameAs": [
+    "https://techbehemoths.com/company/doers-advertising-ltd",
+    "http://facebook.com/DoersAdv",
+    "https://www.instagram.com/doersadvertising/",
+    "https://www.linkedin.com/in/doers-advertising-agency/"
+   ]
+  }
+ ]
+}

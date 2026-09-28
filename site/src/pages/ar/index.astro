@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import schema from '../../data/home-schema.json';
+import { renderHome } from '../../lib/home.js';
+const body = renderHome('ar');
+const arSchema = JSON.parse(JSON.stringify(schema));
+for (const node of arSchema['@graph']) {
+  if (node['@type'] === 'WebPage') {
+    node['@id'] = node.url = 'https://doersadv.com/ar/';
+    node.name = 'دورز - وكالة إعلانات في مصر والسعودية حاصلة على جوائز';
+    node.inLanguage = 'ar';
+    node.description = 'دورز وكالة إعلانات متكاملة في القاهرة وجدة: براندنج، فعاليات ومعارض، لافتات، تسويق رقمي، SEO، إنتاج إعلامي وإعلانات طرق.';
+  }
+}
+---
+<Base
+  title="دورز - وكالة إعلانات في مصر والسعودية حاصلة على جوائز"
+  description="دورز وكالة إعلانات متكاملة في القاهرة وجدة: براندنج، فعاليات ومعارض، لافتات، تسويق رقمي، SEO، إنتاج إعلامي وإعلانات طرق."
+  path="/ar/"
+  lang="ar"
+  alternates={{ en: '/', ar: '/ar/' }}
+  ogImage="https://doersadv.com/wp-content/uploads/2019/02/Office-high.jpg"
+  schema={arSchema}
+  styles={['/css/home.css']}
+>
+  <Fragment set:html={body} />
+  <script is:inline src="/js/home.js" defer></script>
+</Base>

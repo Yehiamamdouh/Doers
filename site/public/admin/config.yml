@@ -1,0 +1,54 @@
+# Decap CMS configuration.
+# Login uses a GitHub OAuth app through /api/github-oauth.php (credentials live on the server, not in the repo).
+backend:
+  name: github
+  repo: Yehiamamdouh/Doers
+  branch: main
+  base_url: https://doersadv.com
+  auth_endpoint: api/github-oauth.php
+  commit_messages:
+    create: 'Add {{collection}} “{{slug}}” from the dashboard'
+    update: 'Update {{collection}} “{{slug}}” from the dashboard'
+    delete: 'Delete {{collection}} “{{slug}}” from the dashboard'
+
+publish_mode: editorial_workflow   # drafts and reviews before anything goes live
+media_folder: site/public/img/uploads
+public_folder: /img/uploads
+locale: en
+
+collections:
+  - name: blog
+    label: Blog posts
+    label_singular: Blog post
+    folder: site/src/content/blog
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: SEO description, name: description, widget: text, hint: 'About 150 characters. Shown in Google results.' }
+      - { label: Language, name: lang, widget: select, options: [en, ar], default: en }
+      - { label: Publish date, name: date, widget: datetime }
+      - { label: Cover image, name: cover, widget: image, required: false }
+      - { label: Cover image description, name: coverAlt, widget: string, required: false }
+      - { label: Related service, name: service, widget: string, required: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: projects
+    label: Projects & case studies
+    label_singular: Project
+    folder: site/src/content/projects
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: Client, name: client, widget: string }
+      - { label: Project title, name: title, widget: string }
+      - { label: SEO description, name: description, widget: text }
+      - { label: Year, name: year, widget: string, required: false }
+      - { label: City, name: city, widget: string }
+      - { label: Services, name: services, widget: list, hint: 'e.g. Booth Production, Event Management' }
+      - { label: Cover photo, name: cover, widget: image }
+      - { label: Gallery, name: gallery, widget: list, field: { label: Photo, name: photo, widget: image } }
+      - { label: Vimeo video ID, name: vimeo, widget: string, required: false }
+      - { label: The brief, name: brief, widget: text }
+      - { label: What we did, name: body, widget: markdown }
+      - { label: Results, name: results, widget: text, required: false }

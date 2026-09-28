@@ -1,0 +1,23 @@
+.contact{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,72px);padding-block:28px clamp(64px,8vw,110px)}
+.contact .disp{font:800 clamp(44px,6vw,92px)/.95 var(--display);letter-spacing:-.045em;margin:18px 0}
+.contact .disp em{font-style:normal;color:var(--orange)}
+.contact .lead{color:var(--bone-2);font-size:18px;max-width:46ch}
+.offices{display:grid;gap:22px;margin-top:34px;border-top:1px solid var(--line);padding-top:26px}
+.offices .label{color:var(--orange-d);display:block;margin-bottom:6px}
+.offices p{color:var(--bone-2)}
+.offices a{text-decoration:underline;text-underline-offset:3px}
+.offices .map{font-size:14px;font-weight:600;color:var(--bone)}
+.wa-btn{margin-top:10px;text-decoration:none!important}
+.cform{display:grid;gap:16px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(20px,3vw,36px);align-self:start}
+.cform .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cform label{display:grid;gap:6px;font-weight:600;font-size:14px}
+.cform small{color:var(--smoke);font-weight:500}
+.cform input,.cform select,.cform textarea{font:400 16px var(--body);color:var(--bone);background:var(--night);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
+.cform input:focus,.cform select:focus,.cform textarea:focus{outline:2px solid var(--orange);outline-offset:1px;border-color:transparent}
+.cform button{justify-self:start;border:0;cursor:pointer}
+.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.status{font-weight:600;min-height:1.5em}
+.status.ok{color:#2F7D55}
+.status.err{color:#B3261E}
+[dir=rtl] .contact .disp{letter-spacing:0;line-height:1.2}
+@media (max-width:900px){.contact,.cform .row{grid-template-columns:1fr}}
