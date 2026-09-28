@@ -1,0 +1,139 @@
+{
+ "services": [
+  {
+   "n": "Branding",
+   "a": "الهوية والبراندنج",
+   "eg": "/branding-agency-egypt/",
+   "ksa": "/ksa/branding-agency-in-jeddah/",
+   "img": "img/signage/mash-vision.jpg",
+   "d": "Award-winning brand strategy, identity and guidelines. TechBehemoths award winner for branding in Egypt.",
+   "da": "استراتيجية وهوية بصرية حاصلة على جايزة TechBehemoths للبراندنج في مصر."
+  },
+  {
+   "n": "Event Management",
+   "a": "تنظيم الفعاليات",
+   "eg": "/event-management-cairo-egypt/",
+   "ksa": "/ksa/event-management-agency-in-jeddah/",
+   "img": "img/work/isys-arch.jpg",
+   "d": "Events, launches and BTL activations that engage customers and generate leads.",
+   "da": "فعاليات وإطلاقات وتفعيلات بتبني علاقة حقيقية مع جمهورك."
+  },
+  {
+   "n": "Booth Production",
+   "a": "تصميم وتنفيذ البوثات",
+   "eg": "/booth-production-egypt/",
+   "ksa": "/ksa/booth-production-in-jeddah/",
+   "img": "img/work/asfour-crystal.jpg",
+   "d": "Exhibition stands designed, built and installed by our own team.",
+   "da": "بوثات معارض بنصممها وننفذها ونركبها بفريقنا."
+  },
+  {
+   "n": "Signage & Internal Branding",
+   "a": "اللافتات والهوية الداخلية",
+   "eg": "*signage-internal-branding-egypt/",
+   "ksa": "*ksa/signage-internal-branding-in-jeddah/",
+   "img": "img/signage/arab-bank-night.jpg",
+   "d": "Building signs, office branding and wayfinding, designed, made and installed by us.",
+   "da": "لافتات المباني وهوية المكاتب، تصميم وتنفيذ وتركيب."
+  },
+  {
+   "n": "Digital Marketing",
+   "a": "التسويق الرقمي",
+   "eg": "/digital-marketing-egypt-cairo/",
+   "ksa": "/ksa/digital-marketing-agency-in-jeddah/",
+   "d": "Social, search, email and mobile campaigns driven by data and ROI.",
+   "da": "سوشيال وسيرش وحملات مبنية على البيانات والعائد."
+  },
+  {
+   "n": "SEO",
+   "a": "تحسين محركات البحث",
+   "eg": "/seo/",
+   "ksa": "/ksa/seo-agency-in-jeddah/",
+   "d": "Rank higher, attract relevant traffic and convert it.",
+   "da": "ترتيب أعلى وزيارات مهتمة فعلاً بخدماتك."
+  },
+  {
+   "n": "Web & App Development",
+   "a": "تطوير المواقع والتطبيقات",
+   "eg": "*website-development-company-egypt/",
+   "ksa": "/ksa/website-development-company-in-jeddah/",
+   "d": "Websites, apps, online stores and AI agents, Arabic-first and built to convert.",
+   "da": "مواقع وتطبيقات ومتاجر ووكلاء ذكاء اصطناعي، بالعربي أولاً."
+  },
+  {
+   "n": "Media Production",
+   "a": "الإنتاج الإعلامي",
+   "eg": "/media-production-egypt/",
+   "ksa": null,
+   "d": "Ads, corporate films, motion graphics and animation.",
+   "da": "إعلانات وأفلام مؤسسية وموشن جرافيك."
+  },
+  {
+   "n": "Outdoor (OOH)",
+   "a": "إعلانات الطرق",
+   "eg": "/outdoor-advertising-egypt/",
+   "ksa": "/ksa/ooh-outdoor-agency-in-jeddah/",
+   "img": "img/signage/trivium-pylon.jpg",
+   "d": "The right message, place and time for maximum reach.",
+   "da": "الرسالة الصح في المكان والوقت الصح."
+  },
+  {
+   "n": "TV Advertising",
+   "a": "إعلانات التلفزيون",
+   "eg": "/tv-advertising/",
+   "ksa": "/ksa/tv-advertising-in-jeddah/",
+   "d": "Broadcast TV campaigns across Egypt and KSA.",
+   "da": "حملات تلفزيون في مصر والسعودية."
+  },
+  {
+   "n": "Radio Advertising",
+   "a": "إعلانات الراديو",
+   "eg": "/radio-advertising-egypt/",
+   "ksa": "/ksa/radio-advertising-agencies-in-jeddah/",
+   "d": "Radio spots that reach audiences on the move.",
+   "da": "إعلانات راديو بتوصل لجمهورك وهو في الطريق."
+  },
+  {
+   "n": "Reputation Management",
+   "a": "إدارة السمعة",
+   "eg": "/listening-and-reputation-management/",
+   "ksa": "/ksa/listening-and-reputation-management-in-jeddah/",
+   "d": "Social listening and reputation management that protects your brand.",
+   "da": "رصد ومتابعة وإدارة سمعة البراند أونلاين."
+  }
+ ],
+ "cities": [
+  [
+   "Cairo",
+   "القاهرة"
+  ],
+  [
+   "Jeddah",
+   "جدة"
+  ],
+  [
+   "Riyadh",
+   "الرياض"
+  ],
+  [
+   "Dubai",
+   "دبي"
+  ],
+  [
+   "Abu Dhabi",
+   "أبوظبي"
+  ],
+  [
+   "Kuwait",
+   "الكويت"
+  ],
+  [
+   "Berlin",
+   "برلين"
+  ],
+  [
+   "London",
+   "لندن"
+  ]
+ ]
+}

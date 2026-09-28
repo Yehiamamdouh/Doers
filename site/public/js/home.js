@@ -1,38 +1,7 @@
 document.documentElement.classList.add("js");
 const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
-const SVC=[
- {n:"Branding",a:"الهوية والبراندنج",eg:"/branding-agency-egypt/",ksa:"/ksa/branding-agency-in-jeddah/",img:"img/signage/mash-vision.jpg",d:"Award-winning brand strategy, identity and guidelines. TechBehemoths award winner for branding in Egypt.",da:"استراتيجية وهوية بصرية حاصلة على جايزة TechBehemoths للبراندنج في مصر."},
- {n:"Event Management",a:"تنظيم الفعاليات",eg:"/event-management-cairo-egypt/",ksa:"/ksa/event-management-agency-in-jeddah/",img:"img/work/isys-arch.jpg",d:"Events, launches and BTL activations that engage customers and generate leads.",da:"فعاليات وإطلاقات وتفعيلات بتبني علاقة حقيقية مع جمهورك."},
- {n:"Booth Production",a:"تصميم وتنفيذ البوثات",eg:"/booth-production-egypt/",ksa:"/ksa/booth-production-in-jeddah/",img:"img/work/asfour-crystal.jpg",d:"Exhibition stands designed, built and installed by our own team.",da:"بوثات معارض بنصممها وننفذها ونركبها بفريقنا."},
- {n:"Signage & Internal Branding",a:"اللافتات والهوية الداخلية",eg:"*signage-internal-branding-egypt/",ksa:"*ksa/signage-internal-branding-in-jeddah/",img:"img/signage/arab-bank-night.jpg",d:"Building signs, office branding and wayfinding, designed, made and installed by us.",da:"لافتات المباني وهوية المكاتب، تصميم وتنفيذ وتركيب."},
- {n:"Digital Marketing",a:"التسويق الرقمي",eg:"/digital-marketing-egypt-cairo/",ksa:"/ksa/digital-marketing-agency-in-jeddah/",d:"Social, search, email and mobile campaigns driven by data and ROI.",da:"سوشيال وسيرش وحملات مبنية على البيانات والعائد."},
- {n:"SEO",a:"تحسين محركات البحث",eg:"/seo/",ksa:"/ksa/seo-agency-in-jeddah/",d:"Rank higher, attract relevant traffic and convert it.",da:"ترتيب أعلى وزيارات مهتمة فعلاً بخدماتك."},
- {n:"Web & App Development",a:"تطوير المواقع والتطبيقات",eg:"*website-development-company-egypt/",ksa:"/ksa/website-development-company-in-jeddah/",d:"Websites, apps, online stores and AI agents, Arabic-first and built to convert.",da:"مواقع وتطبيقات ومتاجر ووكلاء ذكاء اصطناعي، بالعربي أولاً."},
- {n:"Media Production",a:"الإنتاج الإعلامي",eg:"/media-production-egypt/",ksa:null,d:"Ads, corporate films, motion graphics and animation.",da:"إعلانات وأفلام مؤسسية وموشن جرافيك."},
- {n:"Outdoor (OOH)",a:"إعلانات الطرق",eg:"/outdoor-advertising-egypt/",ksa:"/ksa/ooh-outdoor-agency-in-jeddah/",img:"img/signage/trivium-pylon.jpg",d:"The right message, place and time for maximum reach.",da:"الرسالة الصح في المكان والوقت الصح."},
- {n:"TV Advertising",a:"إعلانات التلفزيون",eg:"/tv-advertising/",ksa:"/ksa/tv-advertising-in-jeddah/",d:"Broadcast TV campaigns across Egypt and KSA.",da:"حملات تلفزيون في مصر والسعودية."},
- {n:"Radio Advertising",a:"إعلانات الراديو",eg:"/radio-advertising-egypt/",ksa:"/ksa/radio-advertising-agencies-in-jeddah/",d:"Radio spots that reach audiences on the move.",da:"إعلانات راديو بتوصل لجمهورك وهو في الطريق."},
- {n:"Reputation Management",a:"إدارة السمعة",eg:"/listening-and-reputation-management/",ksa:"/ksa/listening-and-reputation-management-in-jeddah/",d:"Social listening and reputation management that protects your brand.",da:"رصد ومتابعة وإدارة سمعة البراند أونلاين."}
-];
-
-const CITIES=[["Cairo","القاهرة"],["Jeddah","جدة"],["Riyadh","الرياض"],["Dubai","دبي"],["Abu Dhabi","أبوظبي"],["Kuwait","الكويت"],["Berlin","برلين"],["London","لندن"]];
-
 const ar=document.documentElement.lang==="ar";
-// Service links: Arabic service pages arrive in phase 2, so both languages link to the English pages for now.
-const U=p=>p.startsWith("*")?"/"+p.slice(1).replace(/^\//,""):ar&&(window.AR_PAGES||[]).includes(p)?"/ar"+p:p;
-
-function render(){
-  const nm=s=>ar?s.a:s.n, city=c=>ar?(c?"القاهرة":"جدة"):(c?"Cairo":"Jeddah");
-  document.getElementById("svc").innerHTML=SVC.map((s,i)=>`<div class="row"${s.img?` data-img="${s.img}"`:""}><span class="n">${String(i+1).padStart(2,"0")}</span><h3><a href="${U(s.eg||s.ksa)}">${nm(s)}</a></h3><p>${ar?s.da:s.d}</p><span class="cities">${s.eg?`<a href="${U(s.eg)}">${city(1)}</a>`:""}${s.ksa?`<a href="${U(s.ksa)}">${city(0)}</a>`:""}</span></div>`).join("");
-  document.getElementById("menu-eg").innerHTML=SVC.filter(s=>s.eg).map(s=>`<a href="${U(s.eg)}">${nm(s)}</a>`).join("");
-  document.getElementById("menu-ksa").innerHTML=SVC.filter(s=>s.ksa).map(s=>`<a href="${U(s.ksa)}">${nm(s)}</a>`).join("");
-  document.getElementById("fsvc").innerHTML=SVC.map(s=>`<li><a href="${U(s.eg||s.ksa)}">${nm(s)}</a></li>`).join("");
-  const items=SVC.map(s=>`<span>${nm(s)}</span>`).join("");
-  document.getElementById("track").innerHTML=items+items;
-  document.getElementById("citylist").innerHTML=CITIES.map(c=>`<span>${ar?c[1]:c[0]}</span>`).join("<i>·</i>");
-  bindPeek();
-}
-
+// The service lists and menus are rendered into the HTML at build time (src/lib/home.js).
 
 /* reveal on scroll */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.14,rootMargin:"0px 0px -6% 0px"});
@@ -106,4 +75,4 @@ const rt=document.getElementById("reeltrack");let reelX=0,rpause=false;
 rt.addEventListener("pointerenter",()=>rpause=true);rt.addEventListener("pointerleave",()=>rpause=false);
 (function rl(){if(!RM&&!rpause){reelX-=(0.5+vel*.15)*(ar?-1:1);const half=rt.scrollWidth/2;if(ar){if(reelX>half)reelX-=half}else if(-reelX>half)reelX+=half;rt.style.transform=`translate3d(${reelX}px,0,0)`}requestAnimationFrame(rl)})();
 
-render();
+bindPeek();

@@ -1,4 +1,5 @@
 ---
+import { readFileSync } from 'node:fs';
 import CookieNotice from '../components/CookieNotice.astro';
 /**
  * Shared <head> for every page: title, description, canonical, hreflang,
@@ -21,6 +22,8 @@ const site = 'https://doersadv.com';
 const canonical = site + path;
 const staging = import.meta.env.STAGING === '1' || process.env.STAGING === '1';
 const gtm = process.env.GTM_ID || 'GTM-TH643JH';
+// Self-hosted font faces, inlined so text never waits on another stylesheet.
+const fontFaces = readFileSync('public/css/fonts.css', 'utf8');
 ---
 <!doctype html>
 <html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
@@ -53,9 +56,8 @@ const gtm = process.env.GTM_ID || 'GTM-TH643JH';
 {!staging && (
   <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtm}');`} />
 )}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&family=Alexandria:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="preload" href={lang === 'ar' ? '/fonts/alexandria-arabic.woff2' : '/fonts/bricolage-grotesque-latin.woff2'} as="font" type="font/woff2" crossorigin>
+<Fragment set:html={`<style>${fontFaces}</style>`} />
 {styles.map((href) => <link rel="stylesheet" href={href}>)}
 <slot name="head" />
 </head>

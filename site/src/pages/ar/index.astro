@@ -3,10 +3,6 @@ import VideoBand from '../../components/VideoBand.astro';
 import Base from '../../layouts/Base.astro';
 import schema from '../../data/home-schema.json';
 import { renderHome } from '../../lib/home.js';
-import { hasArabic } from '../../lib/links.js';
-import menu from '../../data/services-menu.json';
-// Service pages that exist in Arabic; the homepage script links the rest to English.
-const arPages = menu.flatMap((s) => [s.eg, s.ksa]).filter((p) => p && !p.startsWith('*') && hasArabic(p));
 const [bodyTop, bodyRest] = renderHome('ar').split('<!--VIDEOBAND-->');
 const arSchema = JSON.parse(JSON.stringify(schema));
 for (const node of arSchema['@graph']) {
@@ -31,6 +27,5 @@ for (const node of arSchema['@graph']) {
   <Fragment set:html={bodyTop} />
   <VideoBand id="booth-build" lang="ar" />
   <Fragment set:html={bodyRest} />
-  <script is:inline set:html={`window.AR_PAGES=${JSON.stringify(arPages)};`} />
   <script is:inline src="/js/home.js" defer></script>
 </Base>

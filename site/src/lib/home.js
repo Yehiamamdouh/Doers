@@ -1,7 +1,8 @@
 import * as cheerio from 'cheerio';
 import template from '../content/home.html?raw';
 import ar from '../i18n/home.ar.json';
-import { hasArabic } from './links.js';
+import { hasArabic, loc } from './links.js';
+import data from '../data/home-services.json';
 
 function localPath(href, lang) {
   let path = href.replace(/^https:\/\/doersadv\.com/, '');
@@ -26,6 +27,19 @@ export function renderHome(lang = 'en') {
   });
   $('[src^="img/"]').each((_, el) => $(el).attr('src', '/' + $(el).attr('src')));
   $('[style*="url(img/"]').each((_, el) => $(el).attr('style', $(el).attr('style').replace(/url\(img\//g, 'url(/img/')));
+  // Service lists, menus and the city strip are in the HTML (not built in the browser) so search engines see every link.
+  const isAr = lang === 'ar';
+  const nm = (s) => (isAr ? s.a : s.n);
+  const city = (c) => (isAr ? (c ? 'القاهرة' : 'جدة') : c ? 'Cairo' : 'Jeddah');
+  const U = (p) => loc(p.startsWith('*') ? '/' + p.slice(1).replace(/^\//, '') : p, lang);
+  const S = data.services;
+  $('#svc').html(S.map((s, i) => `<div class="row"${s.img ? ` data-img="/${s.img}"` : ''}><span class="n">${String(i + 1).padStart(2, '0')}</span><h3><a href="${U(s.eg || s.ksa)}">${nm(s)}</a></h3><p>${isAr ? s.da : s.d}</p><span class="cities">${s.eg ? `<a href="${U(s.eg)}">${city(1)}</a>` : ''}${s.ksa ? `<a href="${U(s.ksa)}">${city(0)}</a>` : ''}</span></div>`).join(''));
+  $('#menu-eg').html(S.filter((s) => s.eg).map((s) => `<a href="${U(s.eg)}">${nm(s)}</a>`).join(''));
+  $('#menu-ksa').html(S.filter((s) => s.ksa).map((s) => `<a href="${U(s.ksa)}">${nm(s)}</a>`).join(''));
+  $('#fsvc').html(S.map((s) => `<li><a href="${U(s.eg || s.ksa)}">${nm(s)}</a></li>`).join(''));
+  const items = S.map((s) => `<span>${nm(s)}</span>`).join('');
+  $('#track').html(items + items);
+  $('#citylist').html(data.cities.map((c) => `<span>${isAr ? c[1] : c[0]}</span>`).join('<i>·</i>'));
   const langLink = $('#lang');
   if (lang === 'ar') langLink.attr({ href: '/', hreflang: 'en', lang: 'en' }).text('English');
   else langLink.attr({ href: '/ar/', hreflang: 'ar', lang: 'ar' }).text('عربي');
