@@ -15,7 +15,7 @@ SERVICES = [
     ("Branding", "/branding-agency-egypt/", "/ksa/branding-agency-in-jeddah/"),
     ("Event Management", "/event-management-cairo-egypt/", "/ksa/event-management-agency-in-jeddah/"),
     ("Booth Production", "/booth-production-egypt/", "/ksa/booth-production-in-jeddah/"),
-    ("Signage & Internal Branding", "*/signage-internal-branding-egypt/", None),
+    ("Signage & Internal Branding", "*/signage-internal-branding-egypt/", "*/ksa/signage-internal-branding-in-jeddah/"),
     ("Digital Marketing", "/digital-marketing-egypt-cairo/", "/ksa/digital-marketing-agency-in-jeddah/"),
     ("SEO", "/seo/", "/ksa/seo-agency-in-jeddah/"),
     ("Web Development", "*/website-development-company-egypt/", "/ksa/website-development-company-in-jeddah/"),
@@ -41,7 +41,7 @@ def menu(depth):
 
 
 def page(p):
-    depth = 1
+    depth = p["slug"].count("/") + 1
     up = "../" * depth
     eg, ksa = menu(depth)
     url = f"{SITE}/{p['slug']}/"
@@ -179,22 +179,114 @@ def page(p):
 """
 
 
+DISCIPLINES = [
+    ("Website Development", "Corporate, marketing and product websites built from scratch, responsive, bilingual and tuned for Core Web Vitals.", "HTML5 · CSS3 · Tailwind · React · Next.js · PHP · Laravel · WordPress"),
+    ("UI/UX Design", "Research, wireframes, design systems and clickable prototypes, with a WCAG 2.1 accessibility baseline.", "Figma · Adobe XD · Maze · Hotjar · Lottie"),
+    ("E-Commerce", "Multi-currency, multi-language stores for GCC and MENA, with checkout flows built to cut abandonment.", "Shopify · WooCommerce · Magento · Laravel"),
+    ("Web Applications", "CRMs, ERPs, dashboards and SaaS platforms with role-based access, audit logs and real-time features.", "Laravel · Node.js · NestJS · Vue · PostgreSQL · MongoDB · Redis · Docker"),
+    ("Mobile Apps", "Cross-platform and native iOS and Android apps, published and maintained on both stores.", "React Native · Flutter · Swift · Kotlin · Firebase"),
+    ("Payment Gateways", "Local and global gateways, wallets and Buy Now Pay Later, with tokenization and 3D Secure 2.", "HyperPay · PayTabs · Tap · MyFatoorah · Moyasar · Stripe"),
+    ("Content Management", "Custom and headless CMSs with Arabic editorial tools, roles, approvals and scheduling.", "WordPress · Strapi · Sanity · Contentful · Drupal"),
+    ("SEO", "Technical audits, Arabic keyword research, content clusters and monthly reporting tied to business KPIs.", "Search Console · Ahrefs · SEMrush · Screaming Frog · GA4"),
+    ("Maintenance", "Security patches, daily backups, uptime monitoring and a named technical contact with SLA response times.", "Cloudflare · UptimeRobot · New Relic · Sentry · Wazuh"),
+    ("AI Agents", "Chat and support agents connected to your website, knowledge base and CRM, answering in Arabic and English.", "LLM APIs · RAG · WhatsApp & web chat"),
+]
+
+STACK = [
+    ("Frontend", "HTML5, CSS3, Tailwind, React, Next.js, Vue"),
+    ("Backend", "PHP, Laravel, Node.js, NestJS, REST & GraphQL APIs"),
+    ("Data", "PostgreSQL, MySQL, MongoDB, Redis"),
+    ("Mobile", "React Native, Flutter, Swift, Kotlin, Firebase, TestFlight"),
+    ("CMS", "WordPress, Strapi, Sanity, Contentful, Drupal"),
+    ("Commerce", "Shopify, WooCommerce, Magento"),
+    ("Saudi & GCC payments", "HyperPay, PayTabs, Tap, MyFatoorah, Moyasar"),
+    ("Global payments", "Stripe, PayPal, Adyen, Checkout.com, 2Checkout"),
+    ("Wallets & BNPL", "Apple Pay, Google Pay, mada, STC Pay, KNET, Tabby, Tamara"),
+    ("Cloud & DevOps", "AWS, Cloudflare, Docker, auto-scaling, zero-downtime releases"),
+    ("Monitoring & security", "Sentry, New Relic, UptimeRobot, Wazuh, SSL, daily backups"),
+    ("Analytics", "GA4, Tag Manager, Mixpanel, Hotjar, Looker Studio"),
+]
+
+INCLUDED = [
+    "Arabic and English with proper right-to-left layouts",
+    "Responsive on desktop, tablet and mobile",
+    "Core Web Vitals tuning: image optimization, lazy loading, caching",
+    "SEO foundations: meta, schema, sitemap, clean URLs",
+    "SSL, secure hosting setup, daily backups and uptime monitoring",
+    "PCI-aware payments with tokenization and 3D Secure 2",
+    "Analytics and conversion tracking from day one",
+    "Full source code and admin handover documentation",
+    "Training session for your team",
+    "30 days of post-launch support",
+]
+
+WEBSITES = [
+    ("AMHZ Group", "https://www.amhz-group.com/ar"), ("Haya Karima", "https://www.hayakarima.com/"),
+    ("5 Quarters Edu", "https://5quartersedu.com/"), ("Spider Bees", "https://spiderbees.com/en"),
+    ("AMAS Edu", "https://amasedu.com/"), ("Maestros Hoteleros", "https://maestroshoteleros.com/"),
+    ("Three Egypt", "https://three-egypt.com"), ("Kafiil", "https://kafiil.com/"),
+    ("Innvii Rent", "https://innvii-rent.com"), ("Ziydia", "https://ziydia.com"),
+    ("Sadany Khalifa", "https://sadanykhalifa.com/ar"), ("Sera Cars", "https://seracars.com/en"),
+    ("The Laundry Hub", "https://thelaundryhub.com.eg"), ("Matrix Clouds", "http://matrixclouds.com"),
+    ("Tasahel", "http://www.tasahel.net"), ("Fly Aram", "https://flyaram.com"),
+    ("Estedama Plus", "https://estedamaplus.com/en"), ("Nile Wise", "https://www.nilewisect.com/"),
+]
+APPS = [
+    ("Innvii Rent", "com.Innvii.rent"), ("Dacktra", "com.dacktra.user"), ("FOF Clinic", "com.fofclinic"),
+    ("Sera Cars", "com.sera.cars"), ("Qanoni", "app.qanoniapp.com"), ("Tomy", "com.Tomy"),
+    ("GCI", "com.app.gci"), ("Shoglana", "com.shoglana"), ("DigEarth", "com.app.digearth"), ("Bkamthis", "com.Bkamthis.app"),
+]
+
+
 def web_proof(up):
-    return """<section class="p-sec">
-    <h2>Built on <em>results.</em></h2>
-    <div class="two">
-      <div>
-        <p>A website only pays off when people find it and act on it. Our web team sits next to our performance and SEO teams, so the site is planned around the campaigns that will drive traffic to it.</p>
-        <p>Recent digital work from the same team: paid social for Safi reached 6M+ unique users and 500K clicks on a $20K budget, and a real estate lead campaign on Instagram and TikTok delivered leads at $7.5 each.</p>
-      </div>
-      <div class="names" style="grid-template-columns:1fr 1fr">
-        <div><b>6M+</b><span>Unique users reached, Safi</span></div>
-        <div><b>500K</b><span>Clicks, Safi</span></div>
-        <div><b>$7.5</b><span>Cost per lead, real estate</span></div>
-        <div><b>$1.51</b><span>Effective CPC, real estate</span></div>
-      </div>
+    e = html.escape
+    disc = "".join(
+        f'<div class="disc-row"><span class="n">{i:02d}</span><h3>{e(n)}</h3><p>{e(d)}</p><p class="stk">{e(s)}</p></div>'
+        for i, (n, d, s) in enumerate(DISCIPLINES, 1))
+    stack = "".join(f'<div><span class="label">{e(g)}</span><p>{e(t)}</p></div>' for g, t in STACK)
+    inc = "".join(f"<li>{e(x)}</li>" for x in INCLUDED)
+    sites = "".join(f'<a href="{u}" rel="noopener" target="_blank"><b>{e(n)}</b><span>{e(u.split("//")[1].split("/")[0].replace("www.", ""))} ↗</span></a>' for n, u in WEBSITES)
+    apps = "".join(f'<a href="https://play.google.com/store/apps/details?id={i}" rel="noopener" target="_blank"><b>{e(n)}</b><span>Google Play ↗</span></a>' for n, i in APPS)
+    return f"""<section class="p-sec">
+    <div class="stats-row">
+      <div><b>80+</b><span>Projects delivered across web, mobile and enterprise platforms</span></div>
+      <div><b>10</b><span>Service disciplines, from UI/UX to AI agents</span></div>
+      <div><b>6</b><span>Countries: Egypt, Saudi Arabia, UAE, Kuwait, Jordan, Qatar</span></div>
+      <div><b>12+</b><span>Industries, including government, real estate, healthcare and retail</span></div>
     </div>
-    <p class="note">Strategy work for Dubai Future Foundation and a Gen Z investor-education platform concept for Dubai Financial Market came from the same digital team.</p>
+  </section>
+
+  <section class="p-sec">
+    <h2>Ten disciplines. <em>One accountable team.</em></h2>
+    <div class="disc">{disc}</div>
+  </section>
+
+  <section class="p-sec">
+    <h2>The <em>stack.</em></h2>
+    <div class="stack">{stack}</div>
+  </section>
+
+  <section class="p-sec two">
+    <div><h2 style="margin-bottom:0">Included in <em>every build.</em></h2></div>
+    <ul class="checks">{inc}</ul>
+  </section>
+
+  <section class="p-sec">
+    <h2>Live <em>websites.</em></h2>
+    <div class="folio">{sites}</div>
+    <h2 style="margin-top:64px">Apps on the <em>stores.</em></h2>
+    <div class="folio">{apps}</div>
+  </section>
+
+  <section class="p-sec">
+    <h2>Traffic that <em>converts.</em></h2>
+    <div class="names">
+      <div><b>6M+</b><span>Unique users reached for Safi on a $20K budget</span></div>
+      <div><b>500K</b><span>Clicks, Safi campaign</span></div>
+      <div><b>$7.5</b><span>Cost per lead, real estate campaign</span></div>
+      <div><b>$1.51</b><span>Effective CPC, real estate campaign</span></div>
+    </div>
+    <p class="note">Our web team sits next to our performance and SEO teams, so every site is planned around the campaigns that will send people to it.</p>
   </section>"""
 
 
@@ -224,51 +316,70 @@ def signage_proof(up):
   </section>"""
 
 
+def ksa_signage_proof(up):
+    rows = [
+        ("Sanofi", "Office branding · Jeddah, Riyadh & Dubai"),
+        ("MSD", "Dubai office branding"),
+        ("Jeddah Defense Show", "Production & AV · Hilton Jeddah"),
+        ("AXA", "Cairo head office · design to installation"),
+        ("Bosch", "Signage & internal branding"),
+        ("Arab Bank", "Signage & internal branding"),
+        ("Nestlé", "Signage & internal branding"),
+        ("Marriott Hotels", "Hotel signage"),
+    ]
+    cells = "".join(f"<div><b>{html.escape(n)}</b><span>{html.escape(d)}</span></div>" for n, d in rows)
+    return f"""<section class="p-sec">
+    <h2>Trusted in <em>the Kingdom</em> and beyond.</h2>
+    <div class="names">{cells}</div>
+  </section>"""
+
+
 PAGES = [
     {
         "slug": "website-development-company-egypt",
         "title": "Website Development Company in Egypt | Doers Advertising Agency",
-        "desc": "Fast, bilingual, SEO-ready websites and online stores built in Cairo by Doers: corporate sites, landing pages, Shopify and Salla stores, and custom web platforms.",
+        "desc": "Websites, web apps, mobile apps, e-commerce and AI agents built by Doers in Cairo. 80+ projects across Egypt and the GCC, with local payment gateways and Arabic-first builds.",
         "service": "Website development",
-        "areas": ["Egypt", "Saudi Arabia", "United Arab Emirates"],
+        "areas": ["Egypt", "Saudi Arabia", "United Arab Emirates", "Kuwait", "Jordan", "Qatar"],
         "crumb": "Website Development",
         "eyebrow": "Website development company in Egypt",
-        "h1": "Websites that <em>work hard.</em>",
-        "lead": "We design and build fast, bilingual websites and online stores for brands in Egypt and the Gulf. Every site ships SEO-ready, measurable from day one, and easy for your team to update.",
-        "cta": "Plan my website",
-        "feat_h": "What we <em>build.</em>",
+        "h1": "We engineer <em>outcomes.</em>",
+        "lead": "Websites, web apps, mobile apps, online stores and AI agents for ambitious organizations across the MENA region. Arabic-first, production-grade, and owned by us after launch.",
+        "cta": "Plan my project",
+        "feat_h": "Why clients <em>come back.</em>",
         "feats": [
-            ("Corporate", "Company websites", "Clear structure, strong copy and fast pages that explain what you do and turn visitors into enquiries."),
-            ("Campaigns", "Landing pages", "Focused pages for launches and ad campaigns, wired to your pixels and CRM so every lead is tracked."),
-            ("E-commerce", "Online stores", "Shopify for brands selling internationally, Salla or Zid for Saudi-first stores, with local payments and shipping."),
-            ("Platforms", "Custom web apps", "Portals, booking tools and learning platforms when an off-the-shelf builder won't fit."),
-            ("Arabic & English", "Bilingual by design", "Proper right-to-left layouts and Arabic typography, not a translated copy of the English site."),
-            ("Care", "Hosting & support", "Deployment, backups, security updates and monthly performance checks after launch."),
+            ("Strategy first", "A goal before a mockup", "Every project starts with a business goal, a target audience and a KPI, not a Figma file."),
+            ("Bilingual by default", "Arabic-first", "Fully localized for Egypt, Saudi Arabia and the Gulf, and ready in English."),
+            ("Engineering depth", "Code we can defend", "Clean, documented, scalable code that passes review, not throwaway prototypes."),
+            ("Security & compliance", "Built to be trusted", "PCI-aware payments, SSL, privacy controls and government-grade access control."),
+            ("Design that sells", "Clarity over decoration", "Interfaces tuned for clarity and conversion, tested with real users."),
+            ("Ownership mindset", "We stay after launch", "Maintenance, optimization and growth as a long-term partner, not project-and-leave."),
         ],
         "proof": web_proof,
         "steps": [
-            ("Discovery", "Goals, audience, competitors and the pages you really need."),
-            ("Sitemap & content", "Page structure, SEO keywords and copy, in Arabic and English."),
-            ("Design", "Homepage and key templates first, reviewed on desktop and mobile."),
-            ("Build", "Clean, fast code or the right platform, with analytics and tracking."),
-            ("Launch", "Redirects, Search Console, speed and accessibility checks before go-live."),
-            ("Grow", "Monthly reports, content updates and conversion improvements."),
+            ("Discovery", "Business goal, audience, KPIs and the scope that really matters."),
+            ("UX & architecture", "Research, sitemap, wireframes and the technical plan."),
+            ("Design system", "High-fidelity UI, components and a clickable prototype for sign-off."),
+            ("Engineering", "Build, integrations and payments, in reviewed, documented code."),
+            ("Launch", "Security, speed, SEO and analytics checks, then go-live and training."),
+            ("Grow", "Monitoring, monthly reports, updates and new features under an SLA."),
         ],
-        "why_h": "Why a website from an <em>agency?</em>",
+        "why_h": "Websites from an <em>advertising agency.</em>",
         "why": [
-            "Most websites are built by one team and marketed by another. At Doers the same people plan the brand, the campaigns and the site, so the message, the design and the tracking line up.",
-            "We have 15+ years of marketing experience across Egypt, Saudi Arabia and the UAE, and we're a Google Partner and HubSpot Partner.",
+            "Most websites are built by one company and marketed by another. At Doers the same group plans the brand, runs the campaigns and engineers the platform, so the message, the design and the tracking line up.",
+            "We have 15+ years of marketing experience, we're a Google Partner and a HubSpot Partner, and our web team has shipped 80+ projects for government, real estate, healthcare, education, retail and hospitality clients.",
         ],
-        "tags": ["HTML & JavaScript", "WordPress", "Shopify", "Salla", "Zid", "Google Analytics 4", "Tag Manager", "HubSpot", "Core Web Vitals", "Arabic RTL"],
+        "tags": ["React", "Next.js", "Laravel", "Node.js", "Flutter", "Shopify", "WordPress", "AWS", "Cloudflare", "mada", "Apple Pay", "Tabby", "Tamara"],
         "faq": [
-            ("How long does a company website take?", "A typical corporate website takes 3 to 6 weeks from kickoff to launch, depending on the number of pages and how quickly content is approved. Landing pages can go live within a week."),
-            ("Do you build websites in Arabic and English?", "Yes. We design both languages from the start, with right-to-left layouts, Arabic typography and separate SEO for each language."),
-            ("Will I be able to update the website myself?", "Yes. We set up an editing dashboard for your team and walk them through it, and we can also handle updates for you on a monthly plan."),
-            ("Can you redesign my current website without losing Google rankings?", "Yes. We keep your existing URLs where possible, map redirects for any that change, and check titles, meta descriptions and structured data against the old site before launch."),
-            ("Do you build online stores?", "Yes. We recommend Shopify for brands that will sell internationally and Salla or Zid for Saudi-first stores, and we connect local payment and shipping providers."),
+            ("What do you build?", "Websites, web applications, mobile apps for iOS and Android, e-commerce stores, content management systems and AI chat agents, plus the UI/UX design, SEO, payment integration and maintenance around them."),
+            ("Which payment gateways can you integrate?", "Saudi and GCC gateways such as HyperPay, PayTabs, Tap, MyFatoorah and Moyasar; global gateways such as Stripe, PayPal, Adyen and Checkout.com; wallets including Apple Pay, mada, STC Pay and KNET; and Buy Now Pay Later with Tabby and Tamara."),
+            ("Do you build in Arabic and English?", "Yes. We build Arabic-first with proper right-to-left layouts and Arabic editorial tools, and every site is ready in English."),
+            ("What do I receive at handover?", "The live platform, full source code, admin documentation, a training session for your team and 30 days of post-launch support. Ongoing maintenance with SLA response times is available after that."),
+            ("Can you redesign my current website without losing Google rankings?", "Yes. We keep your existing URLs where possible, map redirects for any that change, and check titles, descriptions and structured data against the old site before launch."),
+            ("Do you build AI agents?", "Yes. We build chat and support agents connected to your website, knowledge base and CRM, answering customers in Arabic and English."),
         ],
         "cta_h": "Let's build<br>it right.",
-        "cta_p": "Tell us what the website needs to do. We'll reply within one business day with next steps.",
+        "cta_p": "Tell us what you need to launch. We'll reply within one business day with next steps.",
     },
     {
         "slug": "signage-internal-branding-egypt",
@@ -315,11 +426,56 @@ PAGES = [
         "cta_h": "Let's put your<br>name up.",
         "cta_p": "Send us your location and what you need. We'll book a site survey and reply within one business day.",
     },
+    {
+        "slug": "ksa/signage-internal-branding-in-jeddah",
+        "title": "Signage & Internal Branding Company in Jeddah | Doers Advertising Agency",
+        "desc": "Indoor and outdoor signage, wayfinding and office branding in Jeddah and Riyadh, designed, fabricated and installed by Doers. Office branding delivered for Sanofi in Jeddah, Riyadh and Dubai.",
+        "service": "Signage and internal branding",
+        "areas": ["Saudi Arabia", "Jeddah", "Riyadh", "United Arab Emirates"],
+        "crumb": "Signage & Internal Branding, Jeddah",
+        "eyebrow": "Signage & internal branding company in Jeddah",
+        "h1": "Your brand, <em>on every wall.</em>",
+        "lead": "From our Jeddah office we design, fabricate and install shop signs, building signage and office branding across Saudi Arabia, and roll the same standard out to your branches in the Gulf.",
+        "cta": "Request a site survey",
+        "feat_h": "What we <em>make.</em>",
+        "feats": [
+            ("Outdoor", "Shop & building signs", "Illuminated 3D letters, lightboxes, pylons and facade signs built for Saudi heat and sun."),
+            ("Indoor", "Office branding", "Reception walls, wall graphics, frosted-glass film and meeting room branding."),
+            ("Wayfinding", "Directional systems", "Floor directories, room signs and directional signs for offices, clinics and malls."),
+            ("Retail & malls", "Mall signage", "Storefronts and in-store branding that follow mall and landlord guidelines."),
+            ("Exhibitions", "Event branding", "Branding and production for exhibitions and events, from Jeddah to Riyadh."),
+            ("Rollouts", "Multi-branch programs", "One standard applied across branches in Saudi Arabia, the UAE and Egypt."),
+        ],
+        "proof": ksa_signage_proof,
+        "steps": [
+            ("Site survey", "We visit your location in Jeddah or Riyadh, measure and photograph it."),
+            ("Design", "Signage and branding designs with renders on your real walls and facade."),
+            ("Approvals", "Drawings and specifications for your landlord, mall and municipality permits."),
+            ("Fabrication", "Production with quality checks at each stage, before anything reaches site."),
+            ("Installation", "Scheduled installation, after hours when needed so your business keeps running."),
+            ("Aftercare", "Maintenance and replacements when your team, branches or brand change."),
+        ],
+        "why_h": "One team from <em>design to drill.</em>",
+        "why": [
+            "Signage usually passes between a designer, a print shop and an installer, and quality gets lost at every handover. Doers runs the whole job, so the sign that goes up matches the design you approved.",
+            "We delivered office branding for Sanofi in Jeddah, Riyadh and Dubai, and production for the Jeddah Defense Show at Hilton Jeddah. In Egypt our signage clients include AXA, Bosch, Arab Bank, Nestlé and Marriott.",
+        ],
+        "tags": ["3D letters", "Lightboxes", "Pylons", "Acrylic & metal", "Wall graphics", "Frosted film", "Wayfinding", "Installation"],
+        "faq": [
+            ("Do you install signage in Jeddah and Riyadh?", "Yes. We survey, fabricate and install across Saudi Arabia from our Jeddah office, including office branding we delivered for Sanofi in Jeddah and Riyadh."),
+            ("Do you help with municipality sign permits?", "Yes. We prepare the drawings and specifications that landlords, malls and the municipality ask for, and follow the approval through with you."),
+            ("How long does an office branding project take?", "Most office branding projects take 2 to 4 weeks after design approval, depending on materials and the size of the space."),
+            ("Can you roll out the same signage to branches in other countries?", "Yes. We apply one standard across branches in Saudi Arabia, the UAE and Egypt."),
+            ("Can you install without disrupting our work?", "Yes. We schedule installation around your working hours, including evenings and weekends when needed."),
+        ],
+        "cta_h": "Let's put your<br>name up.",
+        "cta_p": "Send us your location in Saudi Arabia and what you need. We'll book a site survey and reply within one business day.",
+    },
 ]
 
 if __name__ == "__main__":
     for p in PAGES:
         out = ROOT / p["slug"] / "index.html"
-        out.parent.mkdir(exist_ok=True)
+        out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(page(p), encoding="utf-8")
         print("wrote", out.relative_to(ROOT.parent))
