@@ -20,7 +20,7 @@ STAGING=1 npm run build   # noindex, no analytics, no sitemap
 | Homepage (English and Arabic from one template) | `src/content/home.html`, `src/i18n/home.ar.json`, `src/lib/home.js`, `public/js/home.js`, `public/css/home.css` |
 | Service pages | `src/data/service-pages.json` → `src/components/ServicePage.astro` |
 | Services menu (EN + AR names, URLs) | `src/data/services-menu.json` |
-| Contact pages and form | `src/components/ContactPage.astro`, `public/contact.php` (sends to info@doersadv.com) |
+| Contact pages and form | `src/components/ContactPage.astro`, `public/contact.php` (sends to yehia@doersadv.com) |
 | Blog posts and projects (edited in the dashboard) | `src/content/blog/`, `src/content/projects/` |
 | Content dashboard | `/admin/` (Decap CMS), login via `public/api/github-oauth.php` |
 | Deploy | `.github/workflows/deploy-site.yml` |
