@@ -1,0 +1,53 @@
+---
+/**
+ * Full-width band that opens a section with a short silent loop.
+ * The video loads only when the band scrolls into view; phones and data-saver get the small file;
+ * reduced-motion visitors keep the poster. Clips live in public/video/ (see scripts/README).
+ */
+import bands from '../data/video-bands.json';
+const { id, lang = 'en' } = Astro.props;
+const b = bands[id];
+const ar = lang === 'ar';
+const t = ar ? b.ar : b.en;
+---
+<section class="vband" aria-label={t.title}>
+  <video class="vband-v" muted playsinline loop preload="none" poster={`/video/${id}.jpg`}
+    data-base={`/video/${id}`} aria-hidden="true"></video>
+  <div class="vband-in">
+    <span class="vband-l">{t.label}</span>
+    <p class="vband-h">{t.title}</p>
+    {t.sub && <p class="vband-s">{t.sub}</p>}
+  </div>
+</section>
+<style is:global>
+.vband{position:relative;min-height:clamp(380px,72vh,760px);display:grid;align-items:end;overflow:hidden;background:#141414 center/cover;color:#fff;isolation:isolate}
+.vband-v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.vband::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(10,10,10,.82),rgba(10,10,10,.15) 55%,rgba(10,10,10,.05))}
+.vband-in{max-width:1360px;width:100%;margin:0 auto;padding:clamp(28px,5vw,64px) clamp(16px,4.4vw,64px)}
+.vband-l{display:inline-block;font:600 12px/1.4 "Bricolage Grotesque","Alexandria",system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#F7A21B;margin-bottom:14px}
+.vband-h{font:800 clamp(40px,7vw,112px)/.95 "Bricolage Grotesque","Alexandria",system-ui,sans-serif;letter-spacing:-.045em;max-width:14ch;text-wrap:balance}
+.vband-s{margin-top:16px;font:400 17px/1.5 "Bricolage Grotesque","Alexandria",system-ui,sans-serif;color:rgba(255,255,255,.82);max-width:52ch}
+[dir=rtl] .vband-l{letter-spacing:0;font-size:13px}
+[dir=rtl] .vband-h{font-family:"Alexandria",system-ui,sans-serif;letter-spacing:0;line-height:1.2;font-size:clamp(34px,5.4vw,84px)}
+[dir=rtl] .vband-s,[dir=rtl] .vband-l{font-family:"Alexandria",system-ui,sans-serif}
+</style>
+<script is:inline>
+(function(){
+  if(window.__vband)return; window.__vband=1;
+  var still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var small=innerWidth<760||(navigator.connection&&navigator.connection.saveData);
+  // WebM (VP9) where supported, MP4 (H.264) for Safari and older browsers.
+  var ext=document.createElement("video").canPlayType('video/webm; codecs="vp9"')?".webm":".mp4";
+  function start(){
+    document.querySelectorAll(".vband-v").forEach(function(v){
+      if(still)return;
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){
+        if(e.isIntersecting){ if(!v.src){v.src=v.dataset.base+(small?"-sm":"")+ext;} var p=v.play(); if(p&&p.catch)p.catch(function(){}); }
+        else if(!v.paused){ v.pause(); }
+      })},{rootMargin:"200px 0px"});
+      io.observe(v);
+    });
+  }
+  if(document.readyState!=="loading")start(); else document.addEventListener("DOMContentLoaded",start);
+})();
+</script>

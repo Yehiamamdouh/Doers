@@ -40,3 +40,19 @@ STAGING=1 npm run build   # noindex, no analytics, no sitemap
    <?php return ['client_id' => '…', 'client_secret' => '…'];
    ```
 3. Open `https://doersadv.com/admin/` and log in with GitHub.
+
+## Section videos
+
+Short silent loops open some sections (homepage, booth and event pages). They live in `public/video/`:
+`<name>.webm` / `<name>.mp4` (1280px), `<name>-sm.webm` / `<name>-sm.mp4` (640px, phones and data-saver) and `<name>.jpg` (poster).
+Captions and which pages show each loop are in `src/data/video-bands.json`.
+
+To add one from a longer film (8–10 seconds, no sound):
+
+```
+ffmpeg -ss 00:00:27 -t 9 -i source.mp4 -an -vf "scale=1280:-2,fps=30" -c:v libx264 -crf 27 -pix_fmt yuv420p -movflags +faststart public/video/name.mp4
+ffmpeg -ss 00:00:27 -t 9 -i source.mp4 -an -vf "scale=1280:-2,fps=30" -c:v libvpx-vp9 -b:v 0 -crf 43 public/video/name.webm
+```
+
+Repeat with `scale=640:-2` for the `-sm` files, and save one frame as the `.jpg` poster. Keep each desktop file under ~2.5 MB.
+Full-length films belong on Vimeo, not on the hosting.

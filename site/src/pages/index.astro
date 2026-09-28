@@ -1,8 +1,9 @@
 ---
+import VideoBand from '../components/VideoBand.astro';
 import Base from '../layouts/Base.astro';
 import schema from '../data/home-schema.json';
 import { renderHome } from '../lib/home.js';
-const body = renderHome('en');
+const [bodyTop, bodyRest] = renderHome('en').split('<!--VIDEOBAND-->');
 ---
 <Base
   title="Doers Advertising Agency in Egypt Cairo - Award winning Agency"
@@ -14,6 +15,8 @@ const body = renderHome('en');
   schema={schema}
   styles={['/css/home.css']}
 >
-  <Fragment set:html={body} />
+  <Fragment set:html={bodyTop} />
+  <VideoBand id="booth-build" lang="en" />
+  <Fragment set:html={bodyRest} />
   <script is:inline src="/js/home.js" defer></script>
 </Base>

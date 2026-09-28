@@ -8,6 +8,8 @@ import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
 import menu from '../data/services-menu.json';
 import LegacySection from './LegacySection.astro';
+import VideoBand from './VideoBand.astro';
+import bands from '../data/video-bands.json';
 import { loc } from '../lib/links.js';
 const { p, alt } = Astro.props;
 const ar = p.lang === 'ar';
@@ -23,6 +25,7 @@ const related = menu
   .map((s) => ({ href: loc(ksa ? s.ksa : s.eg, p.lang), name: ar ? s.ar : s.name }))
   .filter((r) => r.href !== p.path);
 const crumb = p.eyebrow || p.h1;
+const band = Object.keys(bands).find((k) => bands[k].pages.includes(enPath));
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -56,6 +59,7 @@ const schema = {
         {p.hero && <figure class="lg-fig"><img src={p.hero.src} alt={p.hero.alt} width={p.hero.w} height={p.hero.h} fetchpriority="high"></figure>}
       </section>
     </div>
+    {band && <VideoBand id={band} lang={p.lang} />}
     <div class="wrap">
       {p.sections.map((s) => s.kind ? <LegacySection s={s} /> : (
         <section class={`p-sec lg-sec${s.cards ? ' is-cards' : ''}`}>

@@ -1,0 +1,67 @@
+{
+ "booth-build": {
+  "source": "Drive: Copy of Fast Motion RAI.mp4 (0:02–1:54, 11× speed)",
+  "en": {
+   "label": "Booth production",
+   "title": "From an empty hall to opening day.",
+   "sub": "The RAI Group stand at Plastex: designed, built and installed by Doers."
+  },
+  "ar": {
+   "label": "تصميم وتنفيذ البوثات",
+   "title": "من قاعة فارغة إلى يوم الافتتاح.",
+   "sub": "جناح مجموعة RAI في معرض بلاستكس: صممته دورز ونفذته وركّبته."
+  },
+  "pages": [
+   "/",
+   "/booth-production-egypt/"
+  ]
+ },
+ "booth-live": {
+  "source": "Drive: CAIRO ICT ISYS.mp4 (0:27–0:36)",
+  "en": {
+   "label": "Exhibitions",
+   "title": "Stands that pull a crowd.",
+   "sub": "ISYS at Cairo ICT: a stand built for conversations, demos and a steady queue."
+  },
+  "ar": {
+   "label": "المعارض",
+   "title": "أجنحة تجذب الزوار.",
+   "sub": "جناح ISYS في معرض Cairo ICT: مساحة صُممت للحوار والعروض وزحام لا يتوقف."
+  },
+  "pages": [
+   "/ksa/booth-production-in-jeddah/"
+  ]
+ },
+ "events-dell": {
+  "source": "Drive: Dell CX DAy.mp4 (0:21–0:30)",
+  "en": {
+   "label": "Event management",
+   "title": "Nights people remember.",
+   "sub": "Dell Technologies Customer Experience Day, produced by Doers."
+  },
+  "ar": {
+   "label": "تنظيم الفعاليات",
+   "title": "ليالٍ لا تُنسى.",
+   "sub": "يوم تجربة العملاء لـ Dell Technologies، من تنفيذ دورز."
+  },
+  "pages": [
+   "/event-management-cairo-egypt/"
+  ]
+ },
+ "events-conference": {
+  "source": "Drive: ISYS - Highlights.mp4 (0:09–0:17)",
+  "en": {
+   "label": "Corporate events",
+   "title": "Conferences that run like clockwork.",
+   "sub": "ISYS: registration, branded entrance arch, exhibition zone and main stage."
+  },
+  "ar": {
+   "label": "فعاليات الشركات",
+   "title": "مؤتمرات تسير بدقة الساعة.",
+   "sub": "فعالية ISYS: التسجيل، وبوابة الدخول، ومنطقة العرض، والمسرح الرئيسي."
+  },
+  "pages": [
+   "/ksa/event-management-agency-in-jeddah/"
+  ]
+ }
+}
