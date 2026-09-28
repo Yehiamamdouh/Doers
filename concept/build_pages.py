@@ -92,7 +92,7 @@ def page(p):
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{up}assets/site.css">
 </head>
 <body>
@@ -100,12 +100,13 @@ def page(p):
   <div class="wrap">
     <a class="logo" href="{up}"><img src="{up}img/logo.png" alt="Doers Advertising Agency" width="500" height="322"></a>
     <ul class="menu">
-      <li><a href="{up}#work">Selected work</a></li>
-      <li class="dd"><a href="{up}#services">What we do</a>
+      <li><a href="{up}#work">Work</a></li>
+      <li class="dd"><a href="{up}#services">Services</a>
         <div class="mega"><div><div class="label">Cairo</div>{eg}</div><div><div class="label">Jeddah</div>{ksa}</div></div>
       </li>
-      <li><a href="{up}#who">Who we are</a></li>
+      <li><a href="{SITE}/ksa/">KSA</a></li>
       <li><a href="{SITE}/blog/">Blog</a></li>
+      <li><a href="{SITE}/contact-us/">Contact</a></li>
     </ul>
     <div class="nav-r">
       <a class="lang" href="{SITE}/ar/{p['slug']}/" hreflang="ar" lang="ar">عربي</a>
@@ -177,6 +178,11 @@ def page(p):
   </div>
 </footer>
 <a class="wa" href="https://wa.me/201101000255" aria-label="WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg></a>
+<script>
+document.documentElement.classList.add("js");
+const io=new IntersectionObserver(es=>es.forEach(e=>{{if(e.isIntersecting){{e.target.classList.add("in");io.unobserve(e.target)}}}}),{{threshold:.12}});
+document.querySelectorAll(".p-sec h2,.feat>div,.disc-row,.stack>div,.names>div,.steps li,.folio a,.g-item,.faq details,.stats-row>div").forEach((el,i)=>{{el.classList.add("rv");el.style.transitionDelay=(i%6)*60+"ms";io.observe(el)}});
+</script>
 </body>
 </html>
 """

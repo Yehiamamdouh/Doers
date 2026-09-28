@@ -333,3 +333,34 @@ footer a:hover{color:var(--orange)}
   .mosaic .m1{grid-row:2/4}
 }
 @media (max-width:560px){.big{font-size:clamp(52px,15vw,72px)}.big .o{white-space:normal;padding-inline-start:.12em}}
+
+/* ===== Light editorial theme (chosen layout) ===== */
+:root{--display:"Bricolage Grotesque",system-ui,sans-serif;--body:"Bricolage Grotesque",system-ui,sans-serif;--night:#F6F3EE;--night-2:#EDE8E0;--ease:cubic-bezier(.2,.8,.2,1)}
+body{font-size:17px}
+.p-hero .disp,.p-sec h2,.feat h3,.names b,.disc-row h3,.folio b,.g-item figcaption b,.cta h2,.ftag,.idx-head h2,.stats-row b,.mosaic figcaption{text-transform:none}
+.p-hero .disp{font-size:clamp(48px,7vw,112px);letter-spacing:-.045em;line-height:.95}
+.p-sec h2{font-size:clamp(34px,4.4vw,64px);letter-spacing:-.04em;line-height:1}
+.feat h3{font-size:24px;letter-spacing:-.02em}
+.names b,.folio b{font-size:20px;letter-spacing:-.02em}
+.disc-row h3{font-size:clamp(22px,2.2vw,30px);letter-spacing:-.03em}
+.g-item figcaption b{font-size:16px;letter-spacing:-.01em}
+.stats-row b{letter-spacing:-.04em}
+.cta h2{font-size:clamp(56px,9vw,140px);letter-spacing:-.05em;line-height:.92}
+.ftag{font-size:32px;letter-spacing:-.02em;line-height:1.1}
+.feat{border-radius:22px;overflow:hidden}
+.stack{border-radius:22px;overflow:hidden}
+.mosaic figure{border-radius:20px}
+.g-open{border-radius:16px}
+.mosaic figcaption{border-radius:99px;letter-spacing:.06em;text-transform:uppercase}
+.btn{position:relative;overflow:hidden;isolation:isolate;transition:color .35s var(--ease)}
+.btn-o::before,.btn-line::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--ink);transform:translateY(101%);transition:transform .45s var(--ease);z-index:-1}
+.btn-o:hover,.btn-line:hover{background:var(--orange);color:#fff}
+.btn-o:hover::before,.btn-line:hover::before{transform:none}
+.btn-o:hover{transform:none}
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+.feat>div,.disc-row,.stack>div{transition:background .3s}
+.feat>div:hover{background:#fff}
+.feat .has-img img{transition:transform .8s var(--ease)}
+.feat .has-img:hover img{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}}

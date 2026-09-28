@@ -29,84 +29,370 @@
 <!-- Google Tag Manager (GTM-TH643JH) is added at launch only, so previews don't pollute analytics. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=Alexandria:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&family=Alexandria:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#F7A21B; --orange-d:#B86F00; --sun:#FFC83A;
+  --ink:#141414; --ink-2:#232323; --gray:#7C7A75;
+  --paper:#F6F3EE; --paper-2:#EDE8E0; --line:rgba(20,20,20,.12); --line-d:rgba(255,255,255,.14);
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Bricolage Grotesque",system-ui,sans-serif;
+  --pad:clamp(16px,4vw,56px);
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+[dir=rtl]{--display:"Alexandria",system-ui,sans-serif;--body:"Alexandria",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+main{overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.wrap{max-width:1320px;margin:0 auto;padding-inline:var(--pad)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gray)}
+[dir=rtl] .eyebrow{letter-spacing:0}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(247,162,27,.6)}70%{box-shadow:0 0 0 10px rgba(247,162,27,0)}100%{box-shadow:0 0 0 0 rgba(247,162,27,0)}}
+.arrow{display:inline-block;transition:transform .3s var(--ease)}
+[dir=rtl] .arrow{transform:scaleX(-1)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(246,243,238,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:transform .4s var(--ease)}
+.nav.hide{transform:translateY(-100%)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.nav .logo img{height:58px;width:auto}
+.menu{display:flex;gap:30px;list-style:none;font-weight:600;font-size:15px}
+.menu>li>a{position:relative;padding:6px 0}
+.menu>li>a::after{content:"";position:absolute;inset-inline-start:0;bottom:0;height:2px;width:100%;background:var(--orange);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+.menu>li>a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-r{display:flex;gap:12px;align-items:center}
+.lang{border:1px solid var(--line);border-radius:99px;padding:8px 14px;font-weight:600;font-size:14px}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;border-radius:99px;padding:13px 22px;font-weight:600;font-size:15px;overflow:hidden;isolation:isolate;transition:color .35s var(--ease)}
+.btn::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--orange);transform:translateY(101%);transition:transform .45s var(--ease);z-index:-1}
+.btn:hover{color:var(--ink)}
+.btn:hover::before{transform:none}
+.btn:hover .arrow{transform:translateX(4px)}
+[dir=rtl] .btn:hover .arrow{transform:scaleX(-1) translateX(4px)}
+.btn.o{background:var(--orange);color:var(--ink)}
+.btn.o::before{background:var(--ink)}
+.btn.o:hover{color:#fff}
+.dd{position:relative}
+.mega{position:absolute;top:calc(100% + 18px);inset-inline-start:-28px;display:grid;grid-template-columns:1fr 1fr;gap:32px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px 28px;box-shadow:0 30px 70px rgba(0,0,0,.12);min-width:560px;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .3s var(--ease)}
+.dd::before{content:"";position:absolute;inset-inline:0;top:100%;height:22px}
+.dd:hover .mega,.dd:focus-within .mega{opacity:1;visibility:visible;transform:none}
+.mega h6{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:10px}
+.mega a{display:block;padding:5px 0;font-weight:500;transition:color .2s,transform .2s}
+.mega a:hover{color:var(--orange-d);transform:translateX(4px)}
+
+/* hero */
+.hero{padding-block:clamp(48px,8vw,110px) clamp(36px,5vw,64px)}
+.hero h1.eyebrow{margin:0}
+.slogan{font:800 clamp(52px,9.4vw,142px)/.94 var(--display);letter-spacing:-.045em;margin:26px 0 34px}
+[dir=rtl] .slogan{letter-spacing:0;line-height:1.2;font-size:clamp(44px,7vw,108px)}
+.line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.line>span{display:inline-block;transform:translateY(105%);animation:rise 1s var(--ease) forwards}
+.line:nth-child(2)>span{animation-delay:.12s}
+@keyframes rise{to{transform:none}}
+.slogan em{font-style:normal;color:var(--orange)}
+.ring{position:relative;display:inline-block;padding:0 .16em}
+.ring svg{position:absolute;inset:-.06em -.02em;width:calc(100% + .04em);height:calc(100% + .12em);overflow:visible;pointer-events:none}
+.ring path{fill:none;stroke:var(--ink);stroke-width:3.5;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.1s .7s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero-row{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end}
+.hero-row p{font-size:clamp(18px,1.5vw,21px);max-width:560px;color:#3a3a3a}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+.badges{display:flex;gap:28px;align-items:center;margin-top:44px;padding-top:26px;border-top:1px solid var(--line);flex-wrap:wrap}
+.badges span{font-size:13px;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.badges img{height:38px;width:auto;filter:grayscale(1);opacity:.75;transition:filter .3s,opacity .3s}
+.badges img:hover{filter:none;opacity:1}
+
+/* marquee */
+.marquee{background:var(--orange);overflow:hidden;padding:18px 0;border-block:2px solid var(--ink)}
+.track{display:flex;gap:44px;width:max-content;font:800 clamp(24px,3vw,40px)/1.1 var(--display);letter-spacing:-.02em;white-space:nowrap;will-change:transform}
+.track span::after{content:"✦";margin-inline-start:44px;font-size:.6em;vertical-align:middle}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.stat{padding:38px 20px 38px 0}
+.stat+.stat{border-inline-start:1px solid var(--line);padding-inline-start:28px}
+.stat b{display:block;font:800 clamp(44px,5vw,76px)/1 var(--display);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.stat b i{font-style:normal;color:var(--orange)}
+.stat>span{color:var(--gray);font-size:15px}
+
+/* sections */
+section{padding-block:clamp(72px,10vw,140px)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px 40px;margin-bottom:52px;flex-wrap:wrap}
+.head h2,.h2{font:800 clamp(40px,6vw,88px)/.98 var(--display);letter-spacing:-.04em;max-width:840px}
+[dir=rtl] .head h2,[dir=rtl] .h2{letter-spacing:0;line-height:1.25}
+.head h2 em,.h2 em{font-style:normal;color:var(--orange)}
+.head p{max-width:380px;color:#555}
+
+/* work */
+.work{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+.w{grid-column:span 4;display:block}
+.w.a{grid-column:span 7}.w.b{grid-column:span 5}
+.w .frame{position:relative;overflow:hidden;border-radius:22px;aspect-ratio:4/3;background:var(--paper-2);clip-path:inset(100% 0 0 0 round 22px);transition:clip-path 1.1s var(--ease)}
+.w.a .frame,.w.b .frame{aspect-ratio:16/11}
+.w.in .frame{clip-path:inset(0 0 0 0 round 22px)}
+.w img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;transform:translateY(var(--py,0));transition:scale .8s var(--ease)}
+.w:hover img{scale:1.05}
+.w .tag{position:absolute;top:14px;inset-inline-start:14px;background:var(--orange);color:var(--ink);font:700 11px var(--body);letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:99px}
+.w figcaption{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding-top:14px}
+.w h3{font:800 clamp(22px,2.2vw,30px)/1.05 var(--display);letter-spacing:-.03em}
+.w span{color:var(--gray);font-size:14px;text-align:end}
+
+/* intro */
+.intro{padding-top:0}
+.intro-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(32px,6vw,96px)}
+.intro h2{font:800 clamp(32px,4vw,56px)/1.05 var(--display);letter-spacing:-.03em;position:sticky;top:110px;align-self:start}
+.intro h2 em{font-style:normal;color:var(--orange)}
+.intro-copy p{color:#444;margin-bottom:18px;font-size:18px}
+
+/* services */
+.dark{background:var(--ink);color:#fff}
+.dark .head p{color:#aaa}
+.svc{border-top:1px solid var(--line-d)}
+.row{position:relative;display:grid;grid-template-columns:64px 1fr 1.1fr auto;gap:24px;align-items:center;padding-block:26px;border-bottom:1px solid var(--line-d)}
+.row .n{font:600 15px var(--display);color:var(--orange)}
+.row h3{font:800 clamp(28px,3.4vw,48px)/1.05 var(--display);letter-spacing:-.03em;transition:color .3s,transform .5s var(--ease)}
+[dir=rtl] .row h3{letter-spacing:0}
+.row:hover h3{color:var(--orange);transform:translateX(12px)}
+[dir=rtl] .row:hover h3{transform:translateX(-12px)}
+.row p{color:#9b9b9b;font-size:16px}
+.cities{display:flex;gap:8px}
+.cities a{border:1px solid var(--line-d);border-radius:99px;padding:8px 16px;font-size:14px;font-weight:600;transition:all .25s}
+.cities a:hover{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+.peek{position:fixed;left:0;top:0;width:300px;aspect-ratio:4/3;border-radius:18px;overflow:hidden;pointer-events:none;z-index:40;opacity:0;scale:.6;rotate:-4deg;transition:opacity .3s,scale .4s var(--ease),rotate .4s var(--ease);box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.peek.on{opacity:1;scale:1;rotate:3deg}
+.peek img{width:100%;height:100%;object-fit:cover}
+
+/* project index */
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:none;border-radius:99px;padding:9px 16px;font-weight:600;font-size:14px;cursor:pointer;transition:all .25s}
+.chip.on,.chip:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.idx-scroll{overflow-x:auto;margin-top:28px}
+.idx{width:100%;border-collapse:collapse;min-width:720px;font-size:15px}
+.idx th{text-align:start;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);padding:12px 16px 12px 0;border-bottom:1.5px solid var(--ink)}
+.idx td{padding:16px 16px 16px 0;border-bottom:1px solid var(--line);vertical-align:top;transition:background .2s}
+.idx td:first-child{color:var(--orange-d);font-weight:600;width:84px;font-variant-numeric:tabular-nums}
+.idx td:nth-child(2){font:800 20px/1.15 var(--display);letter-spacing:-.02em;width:22%}
+.idx td:last-child{color:var(--gray);font-size:14px}
+.idx tbody tr{animation:rowin .5s var(--ease) both}
+.idx tbody tr:hover td{background:#fff}
+@keyframes rowin{from{opacity:0;transform:translateY(8px)}}
+
+/* results */
+.results{background:var(--ink);color:#F1EFEA}
+.results .head p{color:#A9A69F}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line-d)}
+.res{padding:30px 24px 30px 0;border-bottom:1px solid var(--line-d)}
+.res:not(:nth-child(3n+1)){border-inline-start:1px solid var(--line-d);padding-inline-start:28px}
+.res b{display:block;font:800 clamp(52px,6vw,88px)/1 var(--display);letter-spacing:-.04em;color:var(--orange);font-variant-numeric:tabular-nums}
+.res>span{color:#C9C6BF;font-size:15px}
+.res-more{color:#A9A69F;margin-top:30px;font-size:14px;line-height:1.9}
+
+/* clients */
+.clients{padding-block:72px;border-bottom:1px solid var(--line)}
+.clients h4{text-align:center;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:30px}
+.logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.logos div{background:#fff;display:grid;place-items:center;aspect-ratio:3/2}
+.logos img{height:66%;width:auto;max-width:78%;object-fit:contain;filter:grayscale(1);opacity:.7;mix-blend-mode:multiply;transition:filter .3s,opacity .3s,transform .4s var(--ease)}
+.logos div:hover img{filter:none;opacity:1;transform:scale(1.08)}
+
+/* why */
+.why{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
+.why-img{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5}
+.why-img img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;transform:translateY(var(--py,0))}
+.why-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,20,20,.72),transparent 55%)}
+.why-img figcaption{position:absolute;bottom:24px;inset-inline:24px;z-index:1;color:#fff;font:800 28px/1.1 var(--display);letter-spacing:-.02em}
+.why-img figcaption em{font-style:normal;color:var(--orange)}
+.pts{list-style:none;display:grid;margin-top:36px}
+.pts li{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--line)}
+.pts .ic{width:48px;height:48px;border-radius:14px;background:var(--orange);display:grid;place-items:center;font-size:22px;transition:transform .5s var(--ease)}
+.pts li:hover .ic{transform:rotate(-12deg) scale(1.08)}
+.pts h3{font:800 22px var(--display);margin-bottom:4px}
+.pts p{color:#555;font-size:16px}
+
+/* footprint */
+.where{padding-block:56px;border-top:1px solid var(--line)}
+.where .eyebrow{margin-bottom:10px}
+.cities-big{font:800 clamp(30px,4.6vw,66px)/1.1 var(--display);letter-spacing:-.035em}
+.cities-big span{transition:color .25s}
+.cities-big span:hover{color:var(--orange)}
+.cities-big i{font-style:normal;color:var(--orange);padding-inline:.18em}
+
+/* let's talk */
+.talk{background:#3B3B3B;background:radial-gradient(ellipse at center,#4a4a4a 0%,#2c2c2c 70%);color:#fff;overflow:hidden;position:relative}
+.talk .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.stage{position:relative;aspect-ratio:1.35;display:grid;place-items:center;cursor:pointer}
+.stage svg.burst{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.stage .say{position:relative;font:800 clamp(56px,8.5vw,128px)/.86 var(--display);letter-spacing:-.03em;color:var(--orange);text-transform:uppercase;transform:rotate(-14deg) skewX(-6deg);text-align:center;user-select:none}
+[dir=rtl] .stage .say{text-transform:none;line-height:1.2}
+.stage .say span{display:block}
+.stage .say span:last-child{padding-inline-start:.5em}
+.talk p{font-size:19px;color:#ddd;max-width:440px;margin-bottom:26px}
+.talk .h2{margin-bottom:20px}
+.talk-actions{display:flex;gap:12px;flex-wrap:wrap}
+.talk .btn{background:#fff;color:var(--ink)}
+.talk .btn::before{background:var(--orange)}
+
+/* footer */
+footer{background:var(--ink);color:#bbb;padding-block:80px 32px;font-size:15px}
+.fgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 1fr;gap:40px}
+footer h5{color:#fff;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+footer .big{font:800 30px/1.1 var(--display);color:#fff;letter-spacing:-.02em}
+footer .big em{font-style:normal;color:var(--orange)}
+footer ul{list-style:none;display:grid;gap:8px}
+footer a{transition:color .2s}
+footer a:hover{color:var(--orange)}
+.fbot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:64px;padding-top:24px;border-top:1px solid var(--line-d);font-size:13px}
+.wa{position:fixed;bottom:20px;inset-inline-end:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .3s var(--ease)}
+.wa:hover{transform:scale(1.1) rotate(-8deg)}
+
+/* cursor */
+.cur{position:fixed;left:0;top:0;z-index:100;pointer-events:none;display:none}
+.cur .d{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--orange)}
+.cur .r{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:1.5px solid rgba(20,20,20,.35);display:grid;place-items:center;font:700 13px var(--body);color:var(--ink);transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),background .35s,border-color .35s}
+.cur .r em{font-style:normal;opacity:0;transition:opacity .2s}
+.cur.big .r{width:96px;height:96px;margin:-48px 0 0 -48px;background:var(--orange);border-color:var(--orange)}
+.cur.big .r em{opacity:1}
+.cur.big .d{opacity:0}
+@media (hover:hover) and (pointer:fine){.cur{display:block}}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+
+@media (max-width:1000px){
+  .menu{display:none}
+  .nav .btn{display:none}
+  .nav .logo img{height:46px}
+  .hero-row,.why,.intro-grid,.talk .wrap{grid-template-columns:1fr}
+  .hero-cta{justify-content:flex-start}
+  .intro h2{position:static}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-inline-start:0;padding-inline-start:0}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .work{grid-template-columns:1fr 1fr}
+  .w,.w.a,.w.b{grid-column:span 1}
+  .w.a{grid-column:1/-1}
+  .row{grid-template-columns:36px 1fr;gap:10px 14px;padding-block:20px}
+  .row p{display:none}
+  .row .cities{grid-column:2}
+  .res-grid{grid-template-columns:1fr 1fr}
+  .res:nth-child(n){border-inline-start:0;padding-inline-start:0}
+  .res:nth-child(even){border-inline-start:1px solid var(--line-d);padding-inline-start:20px}
+  .logos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .fgrid>div:first-child{grid-column:1/-1}
+  .peek{display:none}
+}
+@media (max-width:560px){.work{grid-template-columns:1fr}.w,.w.a,.w.b{grid-column:1/-1}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .line>span{transform:none}.ring path{stroke-dashoffset:0}
+  .js .rv{opacity:1;transform:none}.w .frame{clip-path:none}
+}
+</style>
 </head>
 <body>
+<div class="cur" aria-hidden="true"><div class="r"><em>View</em></div><div class="d"></div></div>
+<div class="peek" aria-hidden="true"><img alt=""></div>
 
 <header class="nav">
   <div class="wrap">
-    <a class="logo" href="https://doersadv.com/"><img src="img/logo.png" alt="Doers Advertising Agency" width="500" height="322"></a>
+    <a class="logo" href="#"><img src="img/logo.png" alt="Doers Advertising Agency" width="500" height="322"></a>
     <ul class="menu">
-      <li><a href="#work" data-t="n1">Selected work</a></li>
-      <li class="dd"><a href="#services" data-t="n2">What we do</a>
+      <li><a href="#work" data-t="nw">Work</a></li>
+      <li class="dd"><a href="#services" data-t="nav1">Services</a>
         <div class="mega">
-          <div><div class="label" data-t="cai">Cairo</div><div id="menu-eg"></div></div>
-          <div><div class="label" data-t="jed">Jeddah</div><div id="menu-ksa"></div></div>
+          <div><h6 data-t="mcai">Cairo</h6><div id="menu-eg"></div></div>
+          <div><h6 data-t="mjed">Jeddah</h6><div id="menu-ksa"></div></div>
         </div>
       </li>
-      <li><a href="#who" data-t="n3">Who we are</a></li>
-      <li><a href="https://doersadv.com/blog/" data-t="n4">Blog</a></li>
+      <li><a href="https://doersadv.com/ksa/" data-t="nav2">KSA</a></li>
+      <li><a href="https://doersadv.com/blog/" data-t="nav3">Blog</a></li>
+      <li><a href="https://doersadv.com/contact-us/" data-t="nav4">Contact</a></li>
     </ul>
     <div class="nav-r">
       <a class="lang" id="lang" href="https://doersadv.com/ar/" hreflang="ar" lang="ar">عربي</a>
-      <a class="btn btn-line" href="https://doersadv.com/contact-us/"><span data-t="nc">Start a project</span> <span class="arrow">↗</span></a>
+      <a class="btn mag" href="https://doersadv.com/contact-us/" data-cursor="Talk"><span data-t="navcta">Start a project</span> <span class="arrow">→</span></a>
     </div>
   </div>
 </header>
 
 <main>
-<section class="hero wrap">
-  <div class="hero-top">
-    <h1 class="label" data-t="h1">Doers Advertising Agency in Cairo Egypt, Jeddah KSA</h1>
-    <span class="label" data-t="cities">Cairo · Jeddah · Dubai</span>
-  </div>
-  <div class="hero-grid">
-    <div>
-      <p class="big" data-t="big" data-html><span>Big ideas.</span><span class="o">Made real.</span></p>
-      <p class="hero-copy" data-t="lead">We build brands, create experiences and bring ambitious ideas to life. From the first spark to the final detail, across Egypt, Saudi Arabia and the MENA region.</p>
-      <a class="btn btn-o" href="#work" style="margin-inline-start:.5em"><span data-t="explore">Explore the work</span> <span class="arrow">↗</span></a>
+<div class="wrap hero">
+  <h1 class="eyebrow"><span class="dot"></span><span data-t="eyebrow">Doers Advertising Agency in Cairo Egypt, Jeddah KSA</span></h1>
+  <p class="slogan" data-t="h1" data-html><span class="line"><span>We don't just</span></span><span class="line"><span>advertise. <em>We&nbsp;<span class="ring">do.<svg viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M52 3 C 20 1, 2 12, 3 26 C 4 42, 30 48, 55 47 C 82 46, 98 36, 97 22 C 96 8, 72 2, 44 4"/></svg></span></em></span></span></p>
+  <div class="hero-row rv">
+    <p data-t="lead">A full-service, award-winning advertising agency building winning brands across Egypt, Saudi Arabia and the Gulf, from strategy and branding to events, exhibitions, signage, digital and outdoor.</p>
+    <div class="hero-cta">
+      <a class="btn o mag" href="#talk" data-cursor="Talk"><span data-t="cta1">Let's talk</span> <span class="arrow">→</span></a>
+      <a class="btn mag" href="#work" data-t="cta2">See our work</a>
     </div>
-    <a class="card" href="https://doersadv.com/booth-production-egypt/">
-      <figure>
-        <img src="img/work/asfour-crystal.jpg" alt="Asfour Crystal exhibition booth with crystal leopard and glass curtains, designed and built by Doers" width="1600" height="856" fetchpriority="high">
-        <span class="tag label">Doers / In real life</span>
-        <figcaption><div><b>Asfour Crystal · Dubai 2023</b><span data-t="c1">Creative 3D, production, AV &amp; lighting</span></div><i class="arrow">↗</i></figcaption>
-      </figure>
-    </a>
   </div>
-  <div class="hero-bot">
-    <span class="label" data-t="conn">Strategy. Creativity. Production. All connected.</span>
-    <a class="label" href="#who"><span data-t="disc">Discover Doers</span> ↓</a>
+  <div class="badges rv">
+    <span data-t="accr">Accredited by</span>
+    <img src="img/google-partner.png" alt="Google Partner" width="311" height="162">
+    <img src="img/hubspot.png" alt="HubSpot Partner" width="650" height="268">
+    <strong style="font-size:14px;color:#666">TIA · Top Interactive Agencies</strong>
   </div>
-</section>
+</div>
 
-<section class="clients" aria-label="Clients">
-  <div class="wrap">
-    <p class="label" data-t="good" data-html>Good company.<br>Great collaborations.</p>
-    <div class="logos"><div class="logos-track" id="logos"></div></div>
-  </div>
-</section>
+<div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
 
-<section class="sec wrap" id="work">
-  <div class="sec-head">
-    <h2 data-t="wh" data-html>Selected<br><em>work.</em></h2>
-    <p data-t="wp">Stands, launches and brand experiences we designed and built in Cairo, Dubai, Abu Dhabi, Jeddah, Riyadh, Kuwait and Berlin.</p>
+<div class="wrap">
+  <div class="stats">
+    <div class="stat rv"><b><span class="count" data-to="15">15</span><i>+</i></b><span data-t="s1">Years of marketing experience</span></div>
+    <div class="stat rv"><b><span class="count" data-to="7">7</span></b><span data-t="s2">Countries we've built in</span></div>
+    <div class="stat rv"><b><span class="count" data-to="12">12</span></b><span data-t="s3">Integrated services</span></div>
+    <div class="stat rv"><b><span class="count" data-to="80">80</span><i>+</i></b><span data-t="s4">Web & app projects delivered</span></div>
+  </div>
+</div>
+
+<section class="wrap" id="work">
+  <div class="head">
+    <h2 class="rv" data-t="wh" data-html>Selected <em>work.</em></h2>
+    <p class="rv" data-t="wp">Stands, launches and brand spaces we designed and built in Cairo, Dubai, Abu Dhabi, Jeddah, Riyadh, Kuwait and Berlin.</p>
   </div>
   <div class="work">
-    <a class="w a" href="https://doersadv.com/booth-production-egypt/"><img src="img/work/isys-arch.jpg" alt="iSYS Intelligent Systems circular arch booth at an AI exhibition in Cairo" loading="lazy"><span class="pill label" data-t="real">Built</span><div class="meta"><div><h3>iSYS Intelligent Systems</h3><span class="label" data-t="t1">AI Expo · Cairo · 3D concept, production, AV</span></div></div></a>
-    <a class="w b" href="https://doersadv.com/booth-production-egypt/"><img src="img/work/isys-booth.jpg" alt="iSYS blue and white exhibition stand with LED screens" loading="lazy"><span class="pill label" data-t="real">Built</span><div class="meta"><div><h3>iSYS Pavilion</h3><span class="label" data-t="t2">Cairo ICT · 3D concept, production, AV</span></div></div></a>
-    <a class="w c" href="https://doersadv.com/booth-production-egypt/"><img src="img/work/serenity-booth.jpg" alt="Serenity Hospitality Group marble booth design" loading="lazy"><div class="meta"><div><h3>Serenity Group</h3><span class="label" data-t="t3">ITB Berlin · Germany</span></div></div></a>
-    <a class="w d" href="https://doersadv.com/booth-production-egypt/"><img src="img/work/gd-netcetera.jpg" alt="Giesecke+Devrient and Netcetera booth with living green wall" loading="lazy"><div class="meta"><div><h3>Seamless × Netcetera</h3><span class="label" data-t="t4">Seamless · Dubai 2023</span></div></div></a>
-    <a class="w e" href="https://doersadv.com/ksa/booth-production-in-jeddah/"><img src="img/work/rai.jpg" alt="RAI Global Distribution two-storey exhibition booth" loading="lazy"><div class="meta"><div><h3>RAI Group</h3><span class="label" data-t="t5">Plastex 2024 · Cairo</span></div></div></a>
+    <a class="w a" href="https://doersadv.com/booth-production-egypt/" data-cursor="View"><div class="frame"><img src="img/work/asfour-crystal.jpg" alt="Asfour Crystal exhibition stand with a crystal leopard, Dubai 2023" width="1600" height="856"><span class="tag" data-t="built">Built</span></div><figcaption><h3>Asfour Crystal</h3><span data-t="t0">Dubai 2023 · creative 3D, production, lighting</span></figcaption></a>
+    <a class="w b" href="https://doersadv.com/booth-production-egypt/" data-cursor="View"><div class="frame"><img src="img/work/isys-arch.jpg" alt="iSYS circular arch stand at an AI exhibition in Cairo" width="1600" height="856" loading="lazy"><span class="tag" data-t="built">Built</span></div><figcaption><h3>iSYS</h3><span data-t="t1">AI Expo · Cairo</span></figcaption></a>
+    <a class="w" href="signage-internal-branding-egypt/" data-cursor="View"><div class="frame"><img src="img/signage/arab-bank-night.jpg" alt="Arab Bank illuminated facade letters" width="1400" height="635" loading="lazy"><span class="tag" data-t="built">Built</span></div><figcaption><h3>Arab Bank</h3><span data-t="t2">Facade signage</span></figcaption></a>
+    <a class="w" href="https://doersadv.com/booth-production-egypt/" data-cursor="View"><div class="frame"><img src="img/work/isys-booth.jpg" alt="iSYS blue and white exhibition stand" width="1600" height="856" loading="lazy"><span class="tag" data-t="built">Built</span></div><figcaption><h3>iSYS Pavilion</h3><span data-t="t3">Cairo ICT</span></figcaption></a>
+    <a class="w" href="signage-internal-branding-egypt/" data-cursor="View"><div class="frame"><img src="img/signage/axa-world-map.jpg" alt="AXA head office wall graphics" width="1280" height="944" loading="lazy"><span class="tag" data-t="built">Built</span></div><figcaption><h3>AXA</h3><span data-t="t4">Head office branding · Cairo</span></figcaption></a>
   </div>
 </section>
 
+<section class="intro" id="about">
+  <div class="wrap intro-grid">
+    <h2 class="rv">Accredited Marketing Solutions. <em>We deliver fully integrated marketing solutions.</em></h2>
+    <div class="intro-copy rv">
+      <p>Headquartered in Egypt, with offices in Jeddah and Dubai serving clients around the globe. Top full service international Advertising agency in Egypt and KSA. Rely on 15 years of marketing experience and join our elite clients in MENA region.</p>
+      <p>DOERS is a full service advertising agency in Cairo Egypt and Jeddah KSA building winning brands, Event Management, Digital Media, Web Design, Branding and OOH services, Booth Design and Exhibition management, Consumer and Trade Marketing Branding, DOERS DO IT All.</p>
+      <p>We are pioneers when it comes to Digital Marketing SEO PPC, Social Media Management, Media Production, Branding Services as well. Every step is tied to objectives and measurable KPIs to help attract more admirers to your business and products.</p>
+      <p>Doers also provide marketing consultation and strategy as a partner of HubSpot to help implement inbound strategy, launch your product in a perfect way and craft a great buyer journey with us.</p>
+      <p>Over 15 years DOERS has established a strong footprint in the market and business engagements with Multinational Companies, UN Agencies and small ambitious businesses in Egypt, ME and United States.</p>
+    </div>
+  </div>
+</section>
 
-<section class="wrap idx-sec" id="index" aria-labelledby="idx-h">
-  <div class="idx-head">
-    <h2 id="idx-h" data-t="ih">Project index</h2>
-    <div class="chips" role="group" aria-label="Filter projects">
+<section class="dark" id="services">
+  <div class="wrap">
+    <div class="head">
+      <h2 class="rv" data-t="svch" data-html>Everything your brand needs. <em>Under one roof.</em></h2>
+      <p class="rv" data-t="svcp">Twelve services, every step tied to objectives and measurable KPIs. Pick a city to see the local team.</p>
+    </div>
+    <div class="svc" id="svc"></div>
+  </div>
+</section>
+
+<section class="wrap" id="index">
+  <div class="head" style="margin-bottom:0">
+    <h2 class="rv" data-t="ih" data-html>Project <em>index.</em></h2>
+    <div class="chips rv" role="group" aria-label="Filter projects">
       <button class="chip on" data-f="all" data-t="fa">All</button>
       <button class="chip" data-f="ex" data-t="fe">Exhibitions</button>
       <button class="chip" data-f="ev" data-t="fv">Events &amp; launches</button>
@@ -121,65 +407,76 @@
 
 <section class="results">
   <div class="wrap">
-    <div class="sec-head">
-      <h2 data-t="rh" data-html>Digital that<br><em>performs.</em></h2>
-      <p data-t="rp">Paid social for Safi on Meta and TikTok. $20K of media, reported by the client dashboard.</p>
+    <div class="head">
+      <h2 class="rv" data-t="rh" data-html>Digital that <em>performs.</em></h2>
+      <p class="rv" data-t="rp">Paid social for Safi on Meta and TikTok, on a $20K media budget.</p>
     </div>
     <div class="res-grid">
-      <div class="res"><b>6M+</b><span data-t="r1">Unique users reached</span></div>
-      <div class="res"><b>26M</b><span data-t="r2">Impressions</span></div>
-      <div class="res"><b>27M</b><span data-t="r3">Video views</span></div>
-      <div class="res"><b>500K</b><span data-t="r4">Clicks</span></div>
-      <div class="res"><b>11K+</b><span data-t="r5">Messages</span></div>
-      <div class="res"><b>$7.5</b><span data-t="r6">Cost per lead, real estate campaign on Instagram &amp; TikTok</span></div>
+      <div class="res rv"><b><span class="count" data-to="6">6</span>M+</b><span data-t="r1">Unique users reached</span></div>
+      <div class="res rv"><b><span class="count" data-to="26">26</span>M</b><span data-t="r2">Impressions</span></div>
+      <div class="res rv"><b><span class="count" data-to="27">27</span>M</b><span data-t="r3">Video views</span></div>
+      <div class="res rv"><b><span class="count" data-to="500">500</span>K</b><span data-t="r4">Clicks</span></div>
+      <div class="res rv"><b><span class="count" data-to="11">11</span>K+</b><span data-t="r5">Messages</span></div>
+      <div class="res rv"><b>$7.5</b><span data-t="r6">Cost per lead, real estate campaign on Instagram &amp; TikTok</span></div>
     </div>
-    <p class="res-more label" data-t="rm">Also: annual media strategy for Dubai Future Foundation · Gen Z investor program for Dubai Financial Market · corporate films for Egypt's Ministry of Petroleum</p>
+    <p class="res-more rv" data-t="rm">Also: annual media strategy for Dubai Future Foundation · Gen Z investor program for Dubai Financial Market · corporate films for Egypt's Ministry of Petroleum</p>
   </div>
 </section>
 
-<section class="where wrap" aria-label="Where we work">
-  <span class="label" data-t="wl">Where we've built</span>
-  <p class="cities-big" data-t="wc">Cairo · Jeddah · Riyadh · Dubai · Abu Dhabi · Kuwait · Berlin</p>
-</section>
-
-<section class="sec svc-wrap" id="services">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 data-t="sh" data-html>What<br>we <em>do.</em></h2>
-      <p data-t="sp">Twelve integrated services, every step tied to objectives and measurable KPIs. Choose the city to see the local team.</p>
-    </div>
-    <div class="svc" id="svc"></div>
+<div class="clients wrap" id="clients">
+  <h4 data-t="clh">Trusted by multinationals, UN agencies and ambitious brands</h4>
+  <div class="logos rv">
+    <div><img src="img/clients/8.png" alt="United Nations" loading="lazy"></div>
+    <div><img src="img/clients/7.png" alt="UNHCR" loading="lazy"></div>
+    <div><img src="img/clients/6.png" alt="Nestlé" loading="lazy"></div>
+    <div><img src="img/clients/9.png" alt="Etisalat" loading="lazy"></div>
+    <div><img src="img/clients/4.png" alt="AXA" loading="lazy"></div>
+    <div><img src="img/clients/12.png" alt="GSK" loading="lazy"></div>
+    <div><img src="img/clients/5.png" alt="Asus" loading="lazy"></div>
+    <div><img src="img/clients/3.png" alt="Timberland" loading="lazy"></div>
+    <div><img src="img/clients/13.png" alt="RB" loading="lazy"></div>
+    <div><img src="img/clients/11.png" alt="FAO" loading="lazy"></div>
+    <div><img src="img/clients/2.png" alt="EMS Revolution" loading="lazy"></div>
+    <div><img src="img/clients/1.png" alt="Gento" loading="lazy"></div>
   </div>
-</section>
+</div>
 
-<section class="sec wrap" id="who">
-  <div class="who">
-    <h2 data-t="whoh" data-html>Accredited marketing solutions. <em>Fully integrated.</em></h2>
+<section id="why">
+  <div class="wrap why">
+    <figure class="why-img rv">
+      <img class="px" src="img/signage/serenity-alpha-beach.jpg" alt="Serenity Alpha Beach resort entrance sign by Doers" width="1400" height="1400" loading="lazy">
+      <figcaption data-t="figc" data-html>Veteran creatives.<br><em>Explosive art room.</em></figcaption>
+    </figure>
     <div>
-      <div class="who-copy">
-        <p>Headquartered in Egypt, with offices in Jeddah and Dubai serving clients around the globe. Top full service international Advertising agency in Egypt and KSA. Rely on 15 years of marketing experience and join our elite clients in MENA region.</p>
-        <p>DOERS is a full service advertising agency in Cairo Egypt and Jeddah KSA building winning brands, Event Management, Digital Media, Web Design, Branding and OOH services, Booth Design and Exhibition management, Consumer and Trade Marketing Branding, DOERS DO IT All.</p>
-        <p>We are pioneers when it comes to Digital Marketing SEO PPC, Social Media Management, Media Production, Branding Services as well. Every step is tied to objectives and measurable KPIs to help attract more admirers to your business and products.</p>
-        <p>Doers also provide marketing consultation and strategy as a partner of HubSpot to help implement inbound strategy, launch your product in a perfect way and craft a great buyer journey with us.</p>
-        <p>Over 15 years DOERS has established a strong footprint in the market and business engagements with Multinational Companies, UN Agencies and small ambitious businesses in Egypt, ME and United States.</p>
-      </div>
-      <div class="stats">
-        <div class="stat"><b>15+</b><span data-t="s1">Years of experience</span></div>
-        <div class="stat"><b>3</b><span data-t="s2">Offices</span></div>
-        <div class="stat"><b>12</b><span data-t="s3">Services</span></div>
-        <div class="stat"><b>4.3</b><span data-t="s4">Trustpilot score</span></div>
-      </div>
-      <div class="accr"><span class="label" data-t="acc">Accredited by</span><img src="img/google-partner.png" alt="Google Partner"><img src="img/hubspot.png" alt="HubSpot Partner"><span class="label">TIA</span></div>
+      <div class="eyebrow rv"><span class="dot"></span><span data-t="whye">Why Doers</span></div>
+      <h2 class="h2 rv" style="font-size:clamp(36px,4.6vw,64px);margin-top:16px" data-t="whyh" data-html>Deliberate analysis. <em>Great magic.</em></h2>
+      <ul class="pts">
+        <li class="rv"><div class="ic">◎</div><div><h3 data-t="w1">Experience &amp; expertise</h3><p data-t="w1p">15+ years delivering campaigns for local businesses, multinationals and UN agencies.</p></div></li>
+        <li class="rv"><div class="ic">↗</div><div><h3 data-t="w2">AI-powered, data-driven</h3><p data-t="w2p">Campaigns tailored to your budget and goals, measured against real KPIs.</p></div></li>
+        <li class="rv"><div class="ic">✦</div><div><h3 data-t="w3">One team, design to install</h3><p data-t="w3p">Concept, production and installation under one roof, from Cairo to Jeddah.</p></div></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section class="cta" id="contact">
+<div class="where wrap" aria-label="Where we work">
+  <div class="eyebrow"><span class="dot"></span><span data-t="wl">Where we've built</span></div>
+  <p class="cities-big" id="citylist"></p>
+</div>
+
+<section class="talk" id="talk">
   <div class="wrap">
-    <h2 data-t="ch" data-html>Let's make<br>it real.</h2>
-    <div class="row2">
-      <p data-t="cp">Tell us about your brand, event or launch. We reply within one business day.</p>
-      <a class="btn" href="https://doersadv.com/contact-us/"><span data-t="cb">Start a project</span> <span class="arrow">↗</span></a>
+    <div class="stage" id="stage" data-cursor="Boom" role="img" aria-label="Let's talk">
+      <svg class="burst" viewBox="-300 -220 600 440" aria-hidden="true"><g id="splash"></g><path id="star" fill="#fff"/></svg>
+      <div class="say" id="say" data-t="say" data-html><span>Let's</span><span>talk</span></div>
+    </div>
+    <div>
+      <h2 class="h2 rv" data-t="ctah" data-html>Got a launch, a stand or a brand <em>to build?</em></h2>
+      <p class="rv" data-t="ctap">Tell us what you're planning. We reply within one business day.</p>
+      <div class="talk-actions rv">
+        <a class="btn mag" href="https://doersadv.com/contact-us/" data-cursor="Talk"><span data-t="ctab">Start a project</span> <span class="arrow">→</span></a>
+        <a class="btn mag" href="https://wa.me/201101000255" style="background:transparent;color:#fff;border:1.5px solid #fff" data-cursor="Talk"><span data-t="ctaw">WhatsApp us</span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -188,42 +485,36 @@
 <footer>
   <div class="wrap">
     <div class="fgrid">
-      <div>
-        <p class="ftag" data-t="ft" data-html>Doers<br><em>do it all.</em></p>
-        <ul style="margin-top:24px">
-          <li><a href="https://doersadv.com/ksa/" data-t="fk">Advertising Agency KSA</a></li>
-          <li><a href="https://doersadv.com/ksa/advertising-agency-in-jeddah/" data-t="fj">Advertising Agency in Jeddah</a></li>
-          <li><a href="https://doersadv.com/blog/" data-t="n4">Blog</a></li>
-          <li><a href="https://doersadv.com/contact-us/" data-t="fc">Contact Us</a></li>
-        </ul>
-      </div>
-      <div><span class="label" data-t="n2">What we do</span><ul id="fsvc"></ul></div>
-      <div><span class="label" data-t="cai">Cairo</span><p data-t="fa1">Raslan St, Nasr City, 9th Area, Block 23, Tower 3</p><p dir="ltr" style="margin-top:8px"><a href="tel:+201101000255">+20 110 1000 255</a></p></div>
-      <div><span class="label" data-t="jed">Jeddah</span><p data-t="fa2">Zahran Building Center, Tower B, 12th Floor</p><p dir="ltr" style="margin-top:8px"><a href="tel:+966509881646">+966 50 988 1646</a></p></div>
-      <div><span class="label" data-t="fo">Follow</span><ul><li><a href="https://www.facebook.com/DoersAdv/">Facebook</a></li><li><a href="https://www.instagram.com/doersadvertising/">Instagram</a></li><li><a href="https://www.linkedin.com/company/doers-advertising">LinkedIn</a></li><li><a href="https://vimeo.com/doersadvertising">Vimeo</a></li></ul></div>
+      <div><p class="big" data-t="fbig" data-html>Doers <em>do</em> it all.</p><ul style="margin-top:24px"><li><a href="https://doersadv.com/ksa/" data-t="fk">Advertising Agency KSA</a></li><li><a href="https://doersadv.com/ksa/advertising-agency-in-jeddah/" data-t="fj">Advertising Agency in Jeddah</a></li><li><a href="https://doersadv.com/blog/" data-t="fbl">Blog</a></li><li><a href="https://doersadv.com/contact-us/" data-t="fc">Contact Us</a></li></ul></div>
+      <div><h5 data-t="fs">Services</h5><ul id="fsvc"></ul></div>
+      <div><h5 data-t="f1">Cairo</h5><p data-t="f1a">Raslan St, Nasr City, 9th Area, Block 23, Tower 3</p><p style="margin-top:8px"><a href="tel:+201101000255" dir="ltr">+20 110 1000 255</a></p></div>
+      <div><h5 data-t="f2">Jeddah</h5><p data-t="f2a">Zahran Building Center, Tower B, 12th Floor</p><p style="margin-top:8px"><a href="tel:+966509881646" dir="ltr">+966 50 988 1646</a></p></div>
+      <div><h5 data-t="f3">Follow</h5><ul><li><a href="https://www.facebook.com/DoersAdv/">Facebook</a></li><li><a href="https://www.instagram.com/doersadvertising/">Instagram</a></li><li><a href="https://vimeo.com/doersadvertising">Vimeo</a></li><li><a href="https://www.linkedin.com/company/doers-advertising">LinkedIn</a></li></ul></div>
     </div>
     <div class="fbot"><span>© Doers Advertising LTD</span><span data-t="hrs">Sun–Thu · 10:00–18:00</span></div>
   </div>
 </footer>
 
 <a class="wa" href="https://wa.me/201101000255" aria-label="WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>
 </a>
 
 <script>
+document.documentElement.classList.add("js");
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
 const SVC=[
- {n:"Branding",a:"الهوية والبراندنج",eg:"/branding-agency-egypt/",ksa:"/ksa/branding-agency-in-jeddah/",d:"Brand strategy, identity, persona and guidelines, built with your customers in the room.",da:"استراتيجية البراند والهوية البصرية ودليل الاستخدام."},
- {n:"Event Management",a:"تنظيم الفعاليات",eg:"/event-management-cairo-egypt/",ksa:"/ksa/event-management-agency-in-jeddah/",d:"Events and BTL activations that engage customers and generate leads.",da:"فعاليات وتفعيلات BTL تبني علاقة حقيقية مع جمهورك."},
- {n:"Booth Production",a:"تصميم وتنفيذ البوثات",eg:"/booth-production-egypt/",ksa:"/ksa/booth-production-in-jeddah/",d:"Exhibition booths designed, built and installed by our own team.",da:"بوثات معارض بنصممها وننفذها ونركبها بفريقنا."},
- {n:"Signage & Internal Branding",a:"اللافتات والهوية الداخلية",eg:"*signage-internal-branding-egypt/",ksa:"*ksa/signage-internal-branding-in-jeddah/",d:"Building signs, office branding and wayfinding, designed, made and installed by us.",da:"لافتات المباني وهوية المكاتب ولافتات الإرشاد، تصميم وتنفيذ وتركيب."},
- {n:"Digital Marketing",a:"التسويق الرقمي",eg:"/digital-marketing-egypt-cairo/",ksa:"/ksa/digital-marketing-agency-in-jeddah/",d:"Social, search, email and mobile campaigns driven by data and ROI.",da:"سوشيال وسيرش وإيميل وحملات مبنية على البيانات والعائد."},
+ {n:"Branding",a:"الهوية والبراندنج",eg:"/branding-agency-egypt/",ksa:"/ksa/branding-agency-in-jeddah/",img:"img/signage/mash-vision.jpg",d:"Brand strategy, identity, persona and guidelines, built with your customers in the room.",da:"استراتيجية البراند والهوية البصرية ودليل الاستخدام."},
+ {n:"Event Management",a:"تنظيم الفعاليات",eg:"/event-management-cairo-egypt/",ksa:"/ksa/event-management-agency-in-jeddah/",img:"img/work/isys-arch.jpg",d:"Events, launches and BTL activations that engage customers and generate leads.",da:"فعاليات وإطلاقات وتفعيلات بتبني علاقة حقيقية مع جمهورك."},
+ {n:"Booth Production",a:"تصميم وتنفيذ البوثات",eg:"/booth-production-egypt/",ksa:"/ksa/booth-production-in-jeddah/",img:"img/work/asfour-crystal.jpg",d:"Exhibition stands designed, built and installed by our own team.",da:"بوثات معارض بنصممها وننفذها ونركبها بفريقنا."},
+ {n:"Signage & Internal Branding",a:"اللافتات والهوية الداخلية",eg:"*signage-internal-branding-egypt/",ksa:"*ksa/signage-internal-branding-in-jeddah/",img:"img/signage/arab-bank-night.jpg",d:"Building signs, office branding and wayfinding, designed, made and installed by us.",da:"لافتات المباني وهوية المكاتب، تصميم وتنفيذ وتركيب."},
+ {n:"Digital Marketing",a:"التسويق الرقمي",eg:"/digital-marketing-egypt-cairo/",ksa:"/ksa/digital-marketing-agency-in-jeddah/",d:"Social, search, email and mobile campaigns driven by data and ROI.",da:"سوشيال وسيرش وحملات مبنية على البيانات والعائد."},
  {n:"SEO",a:"تحسين محركات البحث",eg:"/seo/",ksa:"/ksa/seo-agency-in-jeddah/",d:"Rank higher, attract relevant traffic and convert it.",da:"ترتيب أعلى وزيارات مهتمة فعلاً بخدماتك."},
- {n:"Media Production",a:"الإنتاج الإعلامي",eg:"/media-production-egypt/",ksa:null,d:"Ads, motion graphics and animated videos that tell your story.",da:"إعلانات وموشن جرافيك وفيديوهات تحكي قصتك."},
- {n:"Outdoor (OOH)",a:"إعلانات الطرق",eg:"/outdoor-advertising-egypt/",ksa:"/ksa/ooh-outdoor-agency-in-jeddah/",d:"The right message, place and time for maximum reach.",da:"الرسالة الصح في المكان والوقت الصح."},
+ {n:"Web & App Development",a:"تطوير المواقع والتطبيقات",eg:"*website-development-company-egypt/",ksa:"/ksa/website-development-company-in-jeddah/",d:"Websites, apps, online stores and AI agents, Arabic-first and built to convert.",da:"مواقع وتطبيقات ومتاجر ووكلاء ذكاء اصطناعي، بالعربي أولاً."},
+ {n:"Media Production",a:"الإنتاج الإعلامي",eg:"/media-production-egypt/",ksa:null,d:"Ads, corporate films, motion graphics and animation.",da:"إعلانات وأفلام مؤسسية وموشن جرافيك."},
+ {n:"Outdoor (OOH)",a:"إعلانات الطرق",eg:"/outdoor-advertising-egypt/",ksa:"/ksa/ooh-outdoor-agency-in-jeddah/",img:"img/signage/trivium-pylon.jpg",d:"The right message, place and time for maximum reach.",da:"الرسالة الصح في المكان والوقت الصح."},
  {n:"TV Advertising",a:"إعلانات التلفزيون",eg:"/tv-advertising/",ksa:"/ksa/tv-advertising-in-jeddah/",d:"Broadcast TV campaigns across Egypt and KSA.",da:"حملات تلفزيون في مصر والسعودية."},
  {n:"Radio Advertising",a:"إعلانات الراديو",eg:"/radio-advertising-egypt/",ksa:"/ksa/radio-advertising-agencies-in-jeddah/",d:"Radio spots that reach audiences on the move.",da:"إعلانات راديو بتوصل لجمهورك وهو في الطريق."},
- {n:"Reputation Management",a:"إدارة السمعة",eg:"/listening-and-reputation-management/",ksa:"/ksa/listening-and-reputation-management-in-jeddah/",d:"Social listening and reputation management that protects your brand.",da:"رصد ومتابعة وإدارة سمعة البراند أونلاين."},
- {n:"Web Development",a:"تطوير المواقع",eg:"*website-development-company-egypt/",ksa:"/ksa/website-development-company-in-jeddah/",d:"Fast, search-friendly websites built to convert.",da:"مواقع سريعة ومتوافقة مع جوجل ومصممة للتحويل."}
+ {n:"Reputation Management",a:"إدارة السمعة",eg:"/listening-and-reputation-management/",ksa:"/ksa/listening-and-reputation-management-in-jeddah/",d:"Social listening and reputation management that protects your brand.",da:"رصد ومتابعة وإدارة سمعة البراند أونلاين."}
 ];
 const PROJ=[
  ["2026","iSYS","AI Expo 2026 stand","Cairo","3D concept · production · AV","ex"],
@@ -248,52 +539,114 @@ const PROJ=[
  ["—","Dell","University road show: GUC, AUC, BUE, Helwan","Cairo","3D design · car production · activation","ev"],
  ["—","Aston Martin · DS 7","Launches at Capital Business Park","Cairo","3D design · booth production · giveaways","ev"],
  ["—","AXA","Head office branding","New Cairo","Design · print · production · installation","br"],
- ["—","Bosch · Arab Bank · Nestlé","Signage & internal branding","Egypt","Design · production · installation","br"],
- ["—","Marriott · Sheraton","Hotel signage","Egypt","Signage · installation","br"]
+ ["—","Arab Bank · Bosch · Nestlé","Signage & internal branding","Egypt","Design · production · installation","br"],
+ ["—","Marriott · Sheraton · Serenity","Hotel & resort signage","Egypt","Signage · installation","br"]
 ];
-let filt="all";
-function renderIdx(){
-  document.getElementById("idx").innerHTML=PROJ.filter(r=>filt==="all"||r[5]===filt).map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("");
-}
-document.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{
-  filt=b.dataset.f; document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===b)); renderIdx();
-}));
-renderIdx();
-const LOGOS=[["8","United Nations"],["7","UNHCR"],["6","Nestlé"],["12","GSK"],["5","Asus"],["4","AXA"],["9","Etisalat"],["3","Timberland"],["13","RB"],["11","FAO"],["2","EMS Revolution"],["1","Gento"]];
+const CITIES=[["Cairo","القاهرة"],["Jeddah","جدة"],["Riyadh","الرياض"],["Dubai","دبي"],["Abu Dhabi","أبوظبي"],["Kuwait","الكويت"],["Berlin","برلين"]];
 const AR={
- n1:"أعمالنا",n2:"خدماتنا",n3:"مين إحنا",n4:"المدونة",nc:"ابدأ مشروعك",cai:"القاهرة",jed:"جدة",
- h1:"دورز وكالة إعلانات في القاهرة مصر وجدة السعودية",cities:"القاهرة · جدة · دبي",
- big:"<span>أفكار كبيرة.</span><span class=\"o\">بتتنفذ بجد.</span>",
- lead:"بنبني براندات، ونعمل تجارب، ونحوّل الأفكار الطموحة لحقيقة. من أول شرارة لآخر تفصيلة، في مصر والسعودية والشرق الأوسط.",
- explore:"شوف أعمالنا",c1:"تصميم وتنفيذ بوث معرض",conn:"استراتيجية. إبداع. تنفيذ. كله متوصل ببعضه.",disc:"اعرف دورز",
- good:"شركاء كبار.<br>وشغل أكبر.",wh:"من<br><em>أعمالنا.</em>",wp:"بوثات ومعارض وتجارب براند صممناها ونفذناها لعملاء في مصر والخليج.",
- real:"اتنفذ",t1:"معرض AI Expo · القاهرة",t2:"معرض Cairo ICT · القاهرة",t3:"معرض ITB برلين · ألمانيا",t4:"معرض Seamless · دبي 2023",t5:"معرض Plastex 2024 · القاهرة",ih:"فهرس المشاريع",fa:"الكل",fe:"معارض",fv:"فعاليات وإطلاقات",fb:"هوية ولافتات",c_y:"السنة",c_c:"العميل",c_p:"المشروع",c_l:"المكان",c_s:"نطاق العمل",rh:"ديجيتال<br><em>بيجيب نتيجة.</em>",rp:"حملة سوشيال مدفوعة لصافي على ميتا وتيك توك، بميزانية 20 ألف دولار.",r1:"مستخدم فريد وصلناله",r2:"مرة ظهور",r3:"مشاهدة فيديو",r4:"نقرة",r5:"رسالة",r6:"تكلفة العميل المحتمل في حملة عقارات على إنستجرام وتيك توك",rm:"كمان: استراتيجية ميديا سنوية لمؤسسة دبي للمستقبل · برنامج جيل Z للاستثمار لسوق دبي المالي · أفلام مؤسسية لوزارة البترول المصرية",wl:"اشتغلنا فين",wc:"القاهرة · جدة · الرياض · دبي · أبوظبي · الكويت · برلين",
- sh:"إحنا<br><em>بنعمل إيه.</em>",sp:"12 خدمة متكاملة، وكل خطوة مربوطة بأهداف ومؤشرات أداء. اختار المدينة وشوف الفريق المحلي.",
- whoh:"حلول تسويق معتمدة. <em>ومتكاملة.</em>",s1:"سنة خبرة",s2:"مكاتب",s3:"خدمة",s4:"تقييم Trustpilot",acc:"معتمدين من",
- ch:"يلا نخليها<br>حقيقة.",cp:"احكيلنا عن البراند أو الفعالية أو الإطلاق. هنرد عليك خلال يوم عمل.",cb:"ابدأ مشروعك",
- ft:"دورز<br><em>بتعمل كل حاجة.</em>",fk:"وكالة إعلانات في السعودية",fj:"وكالة إعلانات في جدة",fc:"تواصل معنا",
- fa1:"شارع رسلان، مدينة نصر، المنطقة التاسعة، بلوك 23، برج 3",fa2:"مركز زهران، برج B، الدور 12",fo:"تابعنا",hrs:"الأحد–الخميس · 10:00–18:00"
+ nw:"أعمالنا",nav1:"الخدمات",nav2:"السعودية",nav3:"المدونة",nav4:"تواصل",mcai:"القاهرة",mjed:"جدة",navcta:"ابدأ مشروعك",
+ eyebrow:"دورز وكالة إعلانات في القاهرة مصر وجدة السعودية",
+ h1:"<span class=\"line\"><span>إحنا مش بس</span></span><span class=\"line\"><span>بنعلن. <em>إحنا <span class=\"ring\">بنعمل.</span></em></span></span>",
+ lead:"وكالة إعلانات متكاملة وحاصلة على جوايز، بنبني براندات ناجحة في مصر والسعودية والخليج، من الاستراتيجية والهوية لحد المعارض والفعاليات واللافتات والديجيتال.",
+ cta1:"يلا نتكلم",cta2:"شوف أعمالنا",accr:"معتمدين من",
+ s1:"سنة خبرة في التسويق",s2:"دول اشتغلنا فيها",s3:"خدمة متكاملة",s4:"مشروع مواقع وتطبيقات",
+ wh:"من <em>أعمالنا.</em>",wp:"بوثات وإطلاقات ومساحات براند صممناها ونفذناها في القاهرة ودبي وأبوظبي وجدة والرياض والكويت وبرلين.",built:"اتنفذ",
+ t0:"دبي 2023 · تصميم وتنفيذ وإضاءة",t1:"معرض AI Expo · القاهرة",t2:"لافتات الواجهة",t3:"معرض Cairo ICT",t4:"هوية المقر الرئيسي · القاهرة",
+ svch:"كل اللي البراند بتاعك محتاجه. <em>في مكان واحد.</em>",svcp:"12 خدمة، وكل خطوة مربوطة بأهداف ومؤشرات أداء. اختار المدينة وشوف الفريق المحلي.",
+ ih:"فهرس <em>المشاريع.</em>",fa:"الكل",fe:"معارض",fv:"فعاليات وإطلاقات",fb:"هوية ولافتات",c_y:"السنة",c_c:"العميل",c_p:"المشروع",c_l:"المكان",c_s:"نطاق العمل",
+ rh:"ديجيتال <em>بيجيب نتيجة.</em>",rp:"حملة سوشيال مدفوعة لصافي على ميتا وتيك توك، بميزانية 20 ألف دولار.",r1:"مستخدم فريد",r2:"مرة ظهور",r3:"مشاهدة فيديو",r4:"نقرة",r5:"رسالة",r6:"تكلفة العميل المحتمل في حملة عقارات",
+ rm:"كمان: استراتيجية ميديا لمؤسسة دبي للمستقبل · برنامج جيل Z لسوق دبي المالي · أفلام مؤسسية لوزارة البترول",
+ clh:"بيثق فينا شركات عالمية ومنظمات الأمم المتحدة وبراندات طموحة",
+ figc:"فريق إبداعي محترف.<br><em>وأفكار بتفرقع.</em>",whye:"ليه دورز",whyh:"تحليل دقيق. <em>ونتايج سحرية.</em>",
+ w1:"خبرة حقيقية",w1p:"أكتر من 15 سنة حملات لشركات محلية وعالمية ومنظمات دولية.",w2:"ذكاء اصطناعي وبيانات",w2p:"حملات مفصلة على ميزانيتك وأهدافك وبتتقاس بأرقام حقيقية.",w3:"فريق واحد من التصميم للتركيب",w3p:"الفكرة والتنفيذ والتركيب تحت سقف واحد، من القاهرة لجدة.",
+ wl:"اشتغلنا فين",say:"<span>يلا</span><span>نتكلم</span>",ctah:"عندك إطلاق أو بوث أو براند <em>عايز تبنيه؟</em>",ctap:"احكيلنا بتخطط لإيه، وهنرد عليك خلال يوم عمل.",ctab:"ابدأ مشروعك",ctaw:"كلمنا واتساب",
+ fbig:"دورز <em>بتعمل</em> كل حاجة.",fk:"وكالة إعلانات في السعودية",fj:"وكالة إعلانات في جدة",fbl:"المدونة",fc:"تواصل معنا",fs:"الخدمات",f1:"القاهرة",f1a:"شارع رسلان، مدينة نصر، المنطقة التاسعة، بلوك 23، برج 3",f2:"جدة",f2a:"مركز زهران، برج B، الدور 12",f3:"تابعنا",hrs:"الأحد–الخميس · 10:00–18:00"
 };
 const U=p=>p.startsWith("*")?p.slice(1):"https://doersadv.com"+p, EN={};
 document.querySelectorAll("[data-t]").forEach(el=>{EN[el.dataset.t]??=el.innerHTML});
-let ar=false;
+let ar=false, filt="all";
+
 function render(){
-  const nm=s=>ar?s.a:s.n, city=(c)=>ar?(c==="eg"?"القاهرة":"جدة"):(c==="eg"?"Cairo":"Jeddah");
-  document.getElementById("svc").innerHTML=SVC.map(s=>`<div class="row"><h3><a href="${U(s.eg||s.ksa)}">${nm(s)}</a></h3><p>${ar?s.da:s.d}</p><span class="cities">${s.eg?`<a href="${U(s.eg)}">${city("eg")}</a>`:""}${s.ksa?`<a href="${U(s.ksa)}">${city("ksa")}</a>`:""}</span></div>`).join("");
+  const nm=s=>ar?s.a:s.n, city=c=>ar?(c?"القاهرة":"جدة"):(c?"Cairo":"Jeddah");
+  document.getElementById("svc").innerHTML=SVC.map((s,i)=>`<div class="row"${s.img?` data-img="${s.img}"`:""}><span class="n">${String(i+1).padStart(2,"0")}</span><h3><a href="${U(s.eg||s.ksa)}">${nm(s)}</a></h3><p>${ar?s.da:s.d}</p><span class="cities">${s.eg?`<a href="${U(s.eg)}">${city(1)}</a>`:""}${s.ksa?`<a href="${U(s.ksa)}">${city(0)}</a>`:""}</span></div>`).join("");
   document.getElementById("menu-eg").innerHTML=SVC.filter(s=>s.eg).map(s=>`<a href="${U(s.eg)}">${nm(s)}</a>`).join("");
   document.getElementById("menu-ksa").innerHTML=SVC.filter(s=>s.ksa).map(s=>`<a href="${U(s.ksa)}">${nm(s)}</a>`).join("");
   document.getElementById("fsvc").innerHTML=SVC.map(s=>`<li><a href="${U(s.eg||s.ksa)}">${nm(s)}</a></li>`).join("");
+  const items=SVC.map(s=>`<span>${nm(s)}</span>`).join("");
+  document.getElementById("track").innerHTML=items+items;
+  document.getElementById("citylist").innerHTML=CITIES.map(c=>`<span>${ar?c[1]:c[0]}</span>`).join("<i>·</i>");
+  renderIdx(); bindPeek();
 }
-const logos=LOGOS.map(([f,a])=>`<img src="img/clients/${f}.png" alt="${a}" width="140" height="140" loading="lazy">`).join("");
-document.getElementById("logos").innerHTML=logos+logos.replaceAll('alt="','aria-hidden="true" alt="');
+function renderIdx(){
+  document.getElementById("idx").innerHTML=PROJ.filter(r=>filt==="all"||r[5]===filt).map((r,i)=>`<tr style="animation-delay:${i*25}ms"><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("");
+}
+document.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{filt=b.dataset.f;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===b));renderIdx();}));
 document.getElementById("lang").addEventListener("click",e=>{
-  if(location.hostname==="doersadv.com")return; // production: /ar/ is its own page
+  if(location.hostname==="doersadv.com")return; // on the live site /ar/ is its own page
   e.preventDefault(); ar=!ar;
   const r=document.documentElement; r.lang=ar?"ar":"en"; r.dir=ar?"rtl":"ltr";
   document.querySelectorAll("[data-t]").forEach(el=>{el.innerHTML=(ar?AR:EN)[el.dataset.t]??EN[el.dataset.t]});
   const L=e.currentTarget; L.textContent=ar?"English":"عربي"; L.href=ar?U("/"):U("/ar/");
-  render();
+  render(); burst();
 });
+
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.14,rootMargin:"0px 0px -6% 0px"});
+document.querySelectorAll(".rv,.w").forEach(el=>io.observe(el));
+
+/* count-up */
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cio.unobserve(e.target);const el=e.target,to=+el.dataset.to;if(RM)return;const t0=performance.now();
+  (function f(t){const k=Math.min(1,(t-t0)/1400),v=Math.round(to*(1-Math.pow(1-k,3)));el.textContent=v;if(k<1)requestAnimationFrame(f)})(t0);}),{threshold:.6});
+document.querySelectorAll(".count").forEach(el=>{if(!RM)el.textContent="0";cio.observe(el)});
+
+/* scroll: marquee velocity, parallax, nav hide */
+const track=document.getElementById("track"), nav=document.querySelector(".nav");
+let x=0,lastY=scrollY,vel=0;
+function tick(){
+  const y=scrollY,d=y-lastY;lastY=y;vel+= (Math.abs(d)-vel)*.1;
+  if(!RM){x-= (0.6+vel*.25)*(ar?-1:1);const half=track.scrollWidth/2;if(ar){if(x>0)x-=half}else if(-x>half)x+=half;track.style.transform=`translate3d(${x}px,0,0)`;}
+  nav.classList.toggle("hide",d>4&&y>400);if(d<-4)nav.classList.remove("hide");
+  if(!RM)document.querySelectorAll(".w img,.px").forEach(im=>{const r=im.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const p=(r.top+r.height/2-innerHeight/2)/innerHeight;im.style.setProperty("--py",(p*-6).toFixed(2)+"%")});
+  requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+
+/* custom cursor + magnetic buttons + service peek */
+const fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
+const cur=document.querySelector(".cur"),ring=cur.querySelector(".r"),dotEl=cur.querySelector(".d"),label=ring.querySelector("em"),peek=document.querySelector(".peek"),peekImg=peek.querySelector("img");
+let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,px=mx,py=my;
+if(fine&&!RM){
+  addEventListener("pointermove",e=>{mx=e.clientX;my=e.clientY;dotEl.style.transform=`translate(${mx}px,${my}px)`;});
+  (function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.transform=`translate(${rx}px,${ry}px)`;px+=(mx-px)*.12;py+=(my-py)*.12;peek.style.transform=`translate(${px+24}px,${py-120}px)`;requestAnimationFrame(loop)})();
+  document.addEventListener("pointerover",e=>{const t=e.target.closest("[data-cursor]");cur.classList.toggle("big",!!t);if(t)label.textContent=ar?({View:"شوف",Talk:"كلمنا",Boom:"بوم"}[t.dataset.cursor]||t.dataset.cursor):t.dataset.cursor;});
+  document.querySelectorAll(".mag").forEach(b=>{b.addEventListener("pointermove",e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`});b.addEventListener("pointerleave",()=>{b.style.transform="";b.style.transition="transform .5s cubic-bezier(.2,.8,.2,1)";setTimeout(()=>b.style.transition="",500)})});
+}
+function bindPeek(){
+  if(!fine||RM)return;
+  document.querySelectorAll(".row[data-img]").forEach(r=>{r.addEventListener("pointerenter",()=>{peekImg.src=r.dataset.img;peek.classList.add("on")});r.addEventListener("pointerleave",()=>peek.classList.remove("on"))});
+}
+
+/* Let's talk splash: burst star + paint splats + tilted pop */
+const star=document.getElementById("star"),splash=document.getElementById("splash"),say=document.getElementById("say");
+function starPath(n,r1,r2){let d="";for(let i=0;i<n*2;i++){const a=i*Math.PI/n+(Math.random()-.5)*.25,r=(i%2?r2:r1)*(0.8+Math.random()*.4);d+=(i?"L":"M")+(Math.cos(a)*r*1.35).toFixed(1)+" "+(Math.sin(a)*r).toFixed(1)}return d+"Z"}
+function burst(){
+  if(RM){star.setAttribute("d","");return}
+  star.setAttribute("d",starPath(11,190,95));
+  star.animate([{transform:"scale(0) rotate(-20deg)",opacity:1},{transform:"scale(1.12) rotate(4deg)",opacity:1,offset:.35},{transform:"scale(1) rotate(0)",opacity:1,offset:.6},{transform:"scale(1.25)",opacity:0}],{duration:1500,easing:"cubic-bezier(.2,.8,.2,1)",fill:"forwards"});
+  splash.innerHTML="";
+  for(let i=0;i<16;i++){
+    const a=Math.random()*Math.PI*2,dist=170+Math.random()*120,r=6+Math.random()*16,c=Math.random()<.6?"#FFC83A":"#F7A21B";
+    const e=document.createElementNS("http://www.w3.org/2000/svg","ellipse");
+    e.setAttribute("rx",r*1.6);e.setAttribute("ry",r);e.setAttribute("fill",c);e.setAttribute("transform",`rotate(${a*57.3})`);splash.appendChild(e);
+    e.animate([{transform:`rotate(${a*57.3}deg) translate(0,0) scale(.2)`,opacity:1},{transform:`rotate(${a*57.3}deg) translate(${dist}px,0) scale(1)`,opacity:1,offset:.55},{transform:`rotate(${a*57.3}deg) translate(${dist*1.15}px,${20+Math.random()*30}px) scale(.8)`,opacity:0}],{duration:1300+Math.random()*500,easing:"cubic-bezier(.15,.8,.25,1)",fill:"forwards"});
+  }
+  say.animate([{transform:"rotate(-14deg) skewX(-6deg) scale(.2)",opacity:0},{transform:"rotate(-18deg) skewX(-6deg) scale(1.18)",opacity:1,offset:.45},{transform:"rotate(-12deg) skewX(-6deg) scale(.96)",offset:.7},{transform:"rotate(-14deg) skewX(-6deg) scale(1)",opacity:1}],{duration:900,delay:120,easing:"cubic-bezier(.2,.8,.2,1)",fill:"both"});
+}
+const stage=document.getElementById("stage");
+new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){burst();o.disconnect()}}),{threshold:.5}).observe(stage);
+let lastB=0;stage.addEventListener("pointerenter",()=>{if(performance.now()-lastB>1200){lastB=performance.now();burst()}});
+stage.addEventListener("click",()=>{burst();setTimeout(()=>location.href="https://doersadv.com/contact-us/",650)});
+
 render();
 </script>
 </body>
