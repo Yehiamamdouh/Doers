@@ -64,7 +64,9 @@ def page(p):
         ],
     }
     faq = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in p["faq"])
-    feats = "".join(f'<div><span class="label">{esc(k)}</span><h3>{esc(t)}</h3><p>{esc(d)}</p></div>' for k, t, d in p["feats"])
+    feats = "".join(
+        (f'<div class="has-img"><img src="{up}img/signage/{f[3]}.jpg" alt="{esc(f[1])}" loading="lazy">' if len(f) > 3 else '<div>')
+        + f'<span class="label">{esc(f[0])}</span><h3>{esc(f[1])}</h3><p>{esc(f[2])}</p></div>' for f in p["feats"])
     steps = "".join(f"<li><h3>{esc(t)}</h3><p>{esc(d)}</p></li>" for t, d in p["steps"])
     tags = "".join(f"<span>{esc(t)}</span>" for t in p["tags"])
     proof = p["proof"](up)
@@ -127,6 +129,7 @@ def page(p):
       </div>
     </div>
   </section>
+  {p['mosaic'](up) if p.get('mosaic') else ''}
 
   <section class="p-sec">
     <h2>{p['feat_h']}</h2>
@@ -290,6 +293,91 @@ def web_proof(up):
   </section>"""
 
 
+from PIL import Image as _Img
+
+SIGNAGE_GALLERY = [
+    # (file, client, caption, category)
+    ("arab-bank-night", "Arab Bank", "Illuminated facade letters and logo", "facades"),
+    ("sheraton", "Sheraton", "Hotel facade letters", "hotels"),
+    ("trivium-pylon", "Trivium Square", "Illuminated mall pylon", "malls"),
+    ("axa-world-map", "AXA", "Head office wall graphics", "offices"),
+    ("mcvities", "McVitie's", "Illuminated logo sign", "facades"),
+    ("serenity-alpha-beach", "Serenity Alpha Beach", "Resort entrance sign", "hotels"),
+    ("sway-mall", "Sway Mall", "Facade lighting and letters", "malls"),
+    ("mash-vision", "Mash Premier", "Vision & values wall", "offices"),
+    ("arab-bank-day", "Arab Bank", "Branch facade", "facades"),
+    ("meat-moot", "Meat Moot", "Backlit restaurant sign", "facades"),
+    ("serenity-stamina", "Serenity Hotels", "Backlit venue sign", "hotels"),
+    ("axa-history-wall", "AXA", "“Proud of our history” wall", "offices"),
+    ("trivium-facade", "Trivium Square", "Mall facade signage at night", "malls"),
+    ("gourmet-wall", "Gourmet Food Stores", "3D letters and app signage", "facades"),
+    ("serenity-alma-heights", "Serenity Alma Heights", "Resort entrance sign", "hotels"),
+    ("mash-manifesto", "Mash Premier", "Manifesto wall", "offices"),
+    ("marriott-pylon", "Marriott Hotels", "Wayfinding pylon", "hotels"),
+    ("itsa-wood", "ITSA Wood", "Showroom facade sign", "facades"),
+    ("axa-partition", "AXA", "Branded partition", "offices"),
+    ("serenity-aurora", "Serenity Hotels", "Restaurant name sign", "hotels"),
+    ("gourmet-3d", "Gourmet Food Stores", "3D logo letters", "facades"),
+    ("mash-focus", "Mash Premier", "Feature wall", "offices"),
+    ("serenity-stardust", "Serenity Hotels", "StarDust restaurant sign", "hotels"),
+    ("dina-farms", "Dina Farms", "Building branding", "facades"),
+    ("sanofi-office", "Sanofi", "Office branding, Jeddah, Riyadh & Dubai", "offices"),
+    ("serenity-tau", "Serenity Hotels", "Illuminated letters at night", "hotels"),
+    ("arab-bank-install", "Arab Bank", "Letters during installation", "facades"),
+    ("msd-dubai", "MSD", "Dubai office graphics", "offices"),
+    ("serenity-monterey", "Serenity Hotels", "Restaurant entrance", "hotels"),
+    ("axa-reception", "AXA", "Reception branding", "offices"),
+    ("serenity-ma-ligure", "Serenity Hotels", "Backlit logo wall", "hotels"),
+    ("rsa-wall-of-fame", "RSA", "Glass wall of fame", "offices"),
+    ("axa-kitchen", "AXA", "Pantry illustrations", "offices"),
+    ("mash-never-try", "Mash Premier", "Motivational panel", "offices"),
+    ("serenity-infinity", "Serenity Hotels", "Brushed metal letters", "hotels"),
+    ("axa-print-less", "AXA", "Sustainability wall graphic", "offices"),
+]
+CATS = [("all", "All work"), ("facades", "Facades & shops"), ("hotels", "Hotels & resorts"), ("malls", "Malls"), ("offices", "Offices")]
+
+
+def _size(up_img, name):
+    im = _Img.open(ROOT / "img" / "signage" / f"{name}.jpg")
+    return im.size
+
+
+def signage_mosaic(up, names=("arab-bank-night", "trivium-pylon", "axa-world-map", "sheraton")):
+    items = {f: (c, t) for f, c, t, _ in SIGNAGE_GALLERY}
+    cells = ""
+    for i, n in enumerate(names):
+        w, h = _size(up, n)
+        c, t = items[n]
+        load = 'fetchpriority="high"' if i == 0 else 'loading="lazy"'
+        cells += (f'<figure class="m{i}"><img src="{up}img/signage/{n}.jpg" alt="{html.escape(c)}: {html.escape(t)}" '
+                  f'width="{w}" height="{h}" {load}><figcaption>{html.escape(c)}</figcaption></figure>')
+    return f'<div class="mosaic">{cells}</div>'
+
+
+def signage_gallery(up, cats=CATS, only=None):
+    rows = [g for g in SIGNAGE_GALLERY if not only or g[0] in only]
+    chips = "".join(f'<button class="chip{" on" if k == "all" else ""}" data-f="{k}">{html.escape(v)}</button>' for k, v in cats)
+    figs = ""
+    for f, c, t, cat in rows:
+        w, h = _size(up, f)
+        figs += (f'<figure class="g-item" data-c="{cat}"><button type="button" class="g-open" aria-label="Open {html.escape(c)} photo">'
+                 f'<img src="{up}img/signage/{f}.jpg" alt="{html.escape(c)}: {html.escape(t)}" width="{w}" height="{h}" loading="lazy"></button>'
+                 f'<figcaption><b>{html.escape(c)}</b><span>{html.escape(t)}</span></figcaption></figure>')
+    return f"""<section class="p-sec" id="gallery">
+    <div class="idx-head"><h2 style="margin-bottom:0">The <em>work.</em></h2><div class="chips" role="group" aria-label="Filter photos">{chips}</div></div>
+    <div class="gallery">{figs}</div>
+  </section>
+  <dialog class="lb" id="lb"><button class="lb-x" type="button" aria-label="Close">×</button><img alt=""><p></p></dialog>
+  <script>
+  (()=>{{const g=document.querySelector('.gallery'),lb=document.getElementById('lb');
+  document.querySelectorAll('#gallery .chip').forEach(b=>b.addEventListener('click',()=>{{document.querySelectorAll('#gallery .chip').forEach(x=>x.classList.toggle('on',x===b));
+  g.querySelectorAll('.g-item').forEach(it=>it.hidden=!(b.dataset.f==='all'||it.dataset.c===b.dataset.f));}}));
+  g.addEventListener('click',e=>{{const o=e.target.closest('.g-open');if(!o)return;const im=o.querySelector('img');
+  lb.querySelector('img').src=im.src;lb.querySelector('img').alt=im.alt;lb.querySelector('p').textContent=im.alt;lb.showModal();}});
+  lb.addEventListener('click',e=>{{if(e.target===lb||e.target.classList.contains('lb-x'))lb.close();}});}})();
+  </script>"""
+
+
 def signage_proof(up):
     clients = [
         ("AXA", "Cairo head office · design, print, production, installation"),
@@ -394,14 +482,15 @@ PAGES = [
         "cta": "Request a site survey",
         "feat_h": "What we <em>make.</em>",
         "feats": [
-            ("Outdoor", "Building & shop signage", "3D letters, illuminated lightboxes, pylons and facade signs built for the sun and dust."),
-            ("Indoor", "Office branding", "Reception walls, wall graphics, frosted-glass film and meeting room branding."),
-            ("Wayfinding", "Directional systems", "Floor directories, room signs and directional signs for offices, hospitals and malls."),
-            ("Retail & malls", "Mall signage", "Storefronts, mall directories and in-store branding that follows landlord guidelines."),
-            ("Hospitality", "Hotel signage", "Signage packages for hotels and resorts, from arrival to room numbering."),
-            ("Rollouts", "Multi-site programs", "One standard applied across branches in Egypt, Saudi Arabia and the UAE."),
+            ("Outdoor", "Building & shop signage", "3D letters, illuminated lightboxes, pylons and facade signs built for the sun and dust.", "arab-bank-day"),
+            ("Indoor", "Office branding", "Reception walls, wall graphics, frosted-glass film and meeting room branding.", "axa-world-map"),
+            ("Wayfinding", "Directional systems", "Floor directories, room signs and directional signs for offices, hospitals and malls.", "marriott-pylon"),
+            ("Retail & malls", "Mall signage", "Storefronts, mall directories and in-store branding that follows landlord guidelines.", "trivium-facade"),
+            ("Hospitality", "Hotel signage", "Signage packages for hotels and resorts, from arrival to room numbering.", "serenity-alpha-beach"),
+            ("Rollouts", "Multi-site programs", "One standard applied across branches in Egypt, Saudi Arabia and the UAE.", "gourmet-3d"),
         ],
-        "proof": signage_proof,
+        "proof": signage_gallery,
+        "mosaic": signage_mosaic,
         "steps": [
             ("Site survey", "We measure the space, photograph it and check power and fixing points."),
             ("Design", "Signage and branding designs with renders on your real walls."),
@@ -439,14 +528,15 @@ PAGES = [
         "cta": "Request a site survey",
         "feat_h": "What we <em>make.</em>",
         "feats": [
-            ("Outdoor", "Shop & building signs", "Illuminated 3D letters, lightboxes, pylons and facade signs built for Saudi heat and sun."),
-            ("Indoor", "Office branding", "Reception walls, wall graphics, frosted-glass film and meeting room branding."),
-            ("Wayfinding", "Directional systems", "Floor directories, room signs and directional signs for offices, clinics and malls."),
-            ("Retail & malls", "Mall signage", "Storefronts and in-store branding that follow mall and landlord guidelines."),
-            ("Exhibitions", "Event branding", "Branding and production for exhibitions and events, from Jeddah to Riyadh."),
-            ("Rollouts", "Multi-branch programs", "One standard applied across branches in Saudi Arabia, the UAE and Egypt."),
+            ("Outdoor", "Shop & building signs", "Illuminated 3D letters, lightboxes, pylons and facade signs built for Saudi heat and sun.", "arab-bank-night"),
+            ("Indoor", "Office branding", "Reception walls, wall graphics, frosted-glass film and meeting room branding.", "sanofi-office"),
+            ("Wayfinding", "Directional systems", "Floor directories, room signs and directional signs for offices, clinics and malls.", "marriott-pylon"),
+            ("Retail & malls", "Mall signage", "Storefronts and in-store branding that follow mall and landlord guidelines.", "sway-mall"),
+            ("Hospitality", "Hotel & resort signage", "Entrance signs, venue names and wayfinding for hotels and resorts.", "serenity-alma-heights"),
+            ("Rollouts", "Multi-branch programs", "One standard applied across branches in Saudi Arabia, the UAE and Egypt.", "gourmet-3d"),
         ],
-        "proof": ksa_signage_proof,
+        "proof": lambda up: ksa_signage_proof(up) + signage_gallery(up),
+        "mosaic": lambda up: signage_mosaic(up, ("sanofi-office", "arab-bank-night", "msd-dubai", "serenity-alpha-beach")),
         "steps": [
             ("Site survey", "We visit your location in Jeddah or Riyadh, measure and photograph it."),
             ("Design", "Signage and branding designs with renders on your real walls and facade."),
