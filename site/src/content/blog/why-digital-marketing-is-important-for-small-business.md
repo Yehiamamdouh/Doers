@@ -14,7 +14,7 @@ service: /digital-marketing-egypt-cairo/
 
 <h2>Average Person Spends More Time Online Than Watching TV Ads:</h2>
 
-<p>The average person spends more time on the internet than they do watching TV ads. This is a problem for advertisers who are trying to reach their target audience. To combat this, some brands have started using influencers in order to get their message across. You can still use traditional methods like TV or radio, but it’s important that you know your audience and what works best for them. The study found that Egyptians spend an average of two hours and 30 minutes per day on social media sites like Facebook and Twitter, which is almost double the amount of time they watch television each day<strong>. </strong><a href="/digital-marketing/"><strong>Digital Marketing Agency in Egypt</strong></a> is growing rapidly because of these increasing trends</p>
+<p>The average person spends more time on the internet than they do watching TV ads. This is a problem for advertisers who are trying to reach their target audience. To combat this, some brands have started using influencers in order to get their message across. You can still use traditional methods like TV or radio, but it’s important that you know your audience and what works best for them. The study found that Egyptians spend an average of two hours and 30 minutes per day on social media sites like Facebook and Twitter, which is almost double the amount of time they watch television each day<strong>. </strong><a href="/digital-marketing-egypt-cairo/"><strong>Digital Marketing Agency in Egypt</strong></a> is growing rapidly because of these increasing trends</p>
 
 <h2>Digital Marketing Is the Future Of Advertising:</h2>
 

@@ -1,0 +1,55 @@
+---
+// Structured sections for hand-written pages (src/data/pages/): stats, cards, gallery, quote, faq.
+const { s } = Astro.props;
+---
+{s.kind === 'stats' && (
+  <section class="p-sec">
+    {s.h2 && <h2>{s.h2}</h2>}
+    <div class="stats-row">{s.items.map((it) => <div><b>{it.n}</b><span>{it.label}</span></div>)}</div>
+  </section>
+)}
+{s.kind === 'cards' && (
+  <section class="p-sec">
+    {s.h2 && <h2>{s.h2}</h2>}
+    {s.intro && <p class="lg-intro" set:html={s.intro} />}
+    <div class={`feat${s.items.length === 4 ? ' n4' : ''}`}>
+      {s.items.map((it, i) => (
+        <div><span class="label">{String(i + 1).padStart(2, '0')}</span><h3 set:html={it.h} /><p set:html={it.p} /></div>
+      ))}
+    </div>
+  </section>
+)}
+{s.kind === 'gallery' && (
+  <section class="p-sec">
+    {s.h2 && <h2>{s.h2}</h2>}
+    {s.intro && <p class="lg-intro" set:html={s.intro} />}
+    <div class="lg-gallery">
+      {s.items.map((it) => (
+        <figure>
+          <img src={it.src} alt={it.alt} width={it.w} height={it.h} loading="lazy">
+          <figcaption>{it.client && <b>{it.client}</b>}<span>{it.caption}</span></figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+)}
+{s.kind === 'quote' && (
+  <section class="p-sec two lg-quote">
+    <div>{s.h2 && <h2>{s.h2}</h2>}</div>
+    <div>
+      <ul class="checks">{s.points.map((pt) => <li set:html={pt} />)}</ul>
+      {s.name && (
+        <div class="lg-person">
+          {s.img && <img src={s.img} alt={s.name} width="72" height="72" loading="lazy">}
+          <div><b>{s.name}</b><span>{s.role}</span></div>
+        </div>
+      )}
+    </div>
+  </section>
+)}
+{s.kind === 'faq' && (
+  <section class="p-sec faq">
+    {s.h2 && <h2>{s.h2}</h2>}
+    {s.items.map((it) => <details><summary>{it.q}</summary><p set:html={it.a} /></details>)}
+  </section>
+)}

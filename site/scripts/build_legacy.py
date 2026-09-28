@@ -21,7 +21,7 @@ SITE = 'https://doersadv.com'
 # Pages the new site already renders with its own templates.
 SKIP_PAGES = {'/', '/contact-us/', '/blog/'}
 # Live URLs that already 301 elsewhere (kept as redirects in .htaccess, not as pages).
-NOISE = re.compile(r'^(WhatsApp us|SEO Intro|Read More|Submit a Comment|Welcome to Doers Portal|Contact Us|Get In Touch|Let\'?s talk|تواصل معنا)$', re.I)
+NOISE = re.compile(r'^(\d{1,2}\.?|WhatsApp us|SEO Intro|Read More|Submit a Comment|Welcome to Doers Portal|Contact Us|Get In Touch|Creative|Let\'?s talk|تواصل معنا)$', re.I)
 STOP = re.compile(r'^(Submit a Comment|Welcome to Doers Portal|أرسل تعليقاً|إرسال تعليق)', re.I)
 
 # Topic label (EN, AR) and the service page each post points readers to.
@@ -60,7 +60,11 @@ SLUG_SERVICE = {
     'largest-annual-exhibitions-in-the-middle-east': '/booth-production-egypt/',
     'listening-market-intelligence-and-competitive-benchmarking-techniques': '/listening-and-reputation-management/',
 }
-TRANSLATIONS = ROOT / 'src/data/translations'
+# Hand-written pages (src/data/pages/<path with / as __>.<lang>.json) replace the crawl for that page and language.
+PAGES_DIR = ROOT / 'src/data/pages'
+
+def page_key(path):
+    return path.strip('/').removeprefix('ar/').replace('/', '__')
 
 def topic_of(slug, en_cat):
     return SLUG_TOPIC.get(slug) or CATEGORY_TOPIC.get((en_cat or '').lower()) or 'advertising'
@@ -302,13 +306,60 @@ def build_post(r, common, used, en_by_path):
     dest.write_text('\n'.join(fm) + '\n\n' + body_html(nodes) + '\n')
     return slug
 
+def redirect_rules():
+    ht = (ROOT / 'public/.htaccess').read_text()
+    return [(re.compile(m.group(1)), m.group(2)) for m in re.finditer(r'^RewriteRule (\^\S+) (/\S*) \[L,R=301\]', ht, re.M) if m.group(1) != '^(.*)$']
+
+def final_links(pages):
+    """Point internal links at their final URL (no redirect hops) and keep Arabic readers in Arabic."""
+    rules = redirect_rules()
+    exists = {p['path'] for p in pages} | {'/', '/ar/', '/contact-us/', '/ar/contact-us/', '/blog/', '/ar/blog/', '/privacy-policy/', '/ar/privacy-policy/',
+              '/website-development-company-egypt/', '/signage-internal-branding-egypt/', '/ksa/signage-internal-branding-in-jeddah/'}
+    exists |= {'/' + f.stem + '/' for f in BLOG.glob('*.md')} | {'/ar/' + f.stem + '/' for f in (BLOG / 'ar').glob('*.md')}
+    def resolve(path):
+        for _ in range(4):
+            if path in exists: return path
+            for rx, to in rules:
+                m = rx.match(path[1:])
+                if m:
+                    path = re.sub(r'\$(\d)', lambda g: m.group(int(g.group(1))) or '', to); break
+            else:
+                return None
+        return path if path in exists else None
+    # Old URLs that the live site redirects to Jeddah pages, while the posts link them with Cairo/Egypt anchor text.
+    intent = {'/digital-marketing/': '/digital-marketing-egypt-cairo/', '/ooh-3/': '/', '/event-managementbtl/': '/event-management-cairo-egypt/',
+              '/ar/digital-marketing/': '/ar/digital-marketing-egypt-cairo/', '/ar/ooh-3/': '/ar/', '/ar/event-managementbtl/': '/ar/event-management-cairo-egypt/'}
+    def fix(text, lang):
+        def rep(m):
+            href = intent.get(m.group(1), m.group(1))
+            if not href.startswith('/') or href.startswith(('/img/', '/css/', '/js/')): return m.group(0)
+            path = href.split('#')[0].split('?')[0]
+            if not path.endswith('/') and '.' not in path.rsplit('/', 1)[-1]: path += '/'
+            target = resolve(path) or path
+            if lang == 'ar' and not target.startswith('/ar/'):
+                ar = resolve('/ar' + target if target != '/' else '/ar/')
+                if ar and ar.startswith('/ar'): target = ar
+            return f'href="{target}"'
+        return re.sub(r'href="([^"]*)"', rep, text)
+    for f in list(BLOG.glob('*.md')) + list((BLOG / 'ar').glob('*.md')):
+        lang = 'ar' if f.parent.name == 'ar' else 'en'
+        t = f.read_text(); n = fix(t, lang)
+        if n != t: f.write_text(n)
+    for f in PAGES_DIR.glob('*.json'):
+        t = f.read_text(); n = fix(t, 'ar' if f.name.endswith('.ar.json') else 'en')
+        if n != t: f.write_text(n)
+    return [json.loads(fix(json.dumps(p, ensure_ascii=False), p['lang'])) for p in pages]
+
 def main():
     recs = load()
     untranslated = {path_of(r['url'])[3:] for r in recs if r['lang'] == 'ar' and arabic_share(r) < 0.5 and path_of(r['url'])[3:] not in SKIP_PAGES}
     # Hand translations (see README): posts live in src/content/blog/ar/ with `translated: true`, pages in src/data/translations/.
     manual_posts = {f'/{f.stem}/' for f in (BLOG / 'ar').glob('*.md') if re.search(r'^translated: true$', f.read_text(), re.M)}
-    manual_pages = {json.loads(f.read_text())['path'][3:]: json.loads(f.read_text()) for f in TRANSLATIONS.glob('*.json')} if TRANSLATIONS.exists() else {}
-    untranslated -= manual_posts | set(manual_pages)
+    manual = {}
+    for f in PAGES_DIR.glob('*.json'):
+        page = json.loads(f.read_text())
+        manual[(page_key(page['path']), page['lang'])] = page
+    untranslated -= manual_posts | {'/' + k.replace('__', '/') + '/' for (k, lang) in manual if lang == 'ar'}
     recs = [r for r in recs if not (r['lang'] == 'ar' and path_of(r['url'])[3:] in untranslated)]
     write_ar_redirects(untranslated)
     en_by_path = {path_of(r['url']): r for r in recs if r['lang'] == 'en'}
@@ -323,13 +374,22 @@ def main():
                 p = path_of(r['url'])
                 if kind == 'page':
                     if p.removeprefix('/ar') in SKIP_PAGES or p == '/ar/': continue
-                    if lang == 'ar' and p[3:] in manual_pages:
-                        pages.append(manual_pages[p[3:]]); continue
+                    if (page_key(p), lang) in manual:
+                        pages.append(manual[(page_key(p), lang)]); continue
                     pages.append(build_page(r, common, used, en_by_path))
                 elif lang == 'ar' and p[3:] in manual_posts:
                     continue
                 elif p.removeprefix('/ar') not in SKIP_PAGES:
                     build_post(r, common, used, en_by_path); posts[lang] += 1
+    # Images used only by hand-written pages: rebuild them from the download cache and keep them.
+    for page in manual.values():
+        for name in set(re.findall(r'/img/legacy/([^"\s]+)', json.dumps(page))):
+            stem = name.rsplit('.', 1)[0]
+            src = next(CACHE.glob(stem + '.*'), None)
+            m = re.match(r'(\d{4})-(\d{2})-(.+)$', src.name) if src else None
+            if m:
+                local_img(f'{SITE}/wp-content/uploads/{m.group(1)}/{m.group(2)}/{m.group(3)}', used)
+    pages = final_links(pages)
     (ROOT / 'src/data/legacy-pages.json').write_text(json.dumps(pages, ensure_ascii=False, indent=1))
     for f in IMG_DIR.glob('*'):
         if f.name not in used: f.unlink()

@@ -14,7 +14,7 @@ service: /digital-marketing-egypt-cairo/
 
 <h2>How businesses can make money on social media</h2>
 
-<p>There are a few different ways businesses can make money on social media. One way is to use social media as a marketing tool to sell their products or services. Another way is to use social media as a way to connect with customers and create a community around their brand. A third way is to use social media as a way to generate leads and attract new customers/clients.<a href="/digital-marketing/"> <strong>Social media agency in Egypt</strong></a> can help businesses use social media successfully as a marketing tool to generate leads or build a community around their brand, which will then result in more traffic and ultimately sales for the business.</p>
+<p>There are a few different ways businesses can make money on social media. One way is to use social media as a marketing tool to sell their products or services. Another way is to use social media as a way to connect with customers and create a community around their brand. A third way is to use social media as a way to generate leads and attract new customers/clients.<a href="/digital-marketing-egypt-cairo/"> <strong>Social media agency in Egypt</strong></a> can help businesses use social media successfully as a marketing tool to generate leads or build a community around their brand, which will then result in more traffic and ultimately sales for the business.</p>
 
 <h2>Marketing tips and tricks for success on social media</h2>
 

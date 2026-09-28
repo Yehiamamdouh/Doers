@@ -7,6 +7,7 @@ import Base from '../layouts/Base.astro';
 import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
 import menu from '../data/services-menu.json';
+import LegacySection from './LegacySection.astro';
 import { loc } from '../lib/links.js';
 const { p, alt } = Astro.props;
 const ar = p.lang === 'ar';
@@ -29,9 +30,9 @@ const schema = {
     { '@type': 'Service', name: crumb, serviceType: crumb, areaServed: ksa ? { '@type': 'Country', name: 'Saudi Arabia' } : { '@type': 'Country', name: 'Egypt' }, provider: { '@id': `${site}/#organization` }, url: site + p.path },
     { '@type': 'BreadcrumbList', '@id': site + p.path + '#breadcrumb', itemListElement: [{ '@type': 'ListItem', position: 1, name: L.home, item: site + (ar ? '/ar/' : '/') }, ...(ksa && enPath !== '/ksa/' ? [{ '@type': 'ListItem', position: 2, name: L.ksa, item: site + loc('/ksa/', p.lang) }] : []), { '@type': 'ListItem', position: ksa && enPath !== '/ksa/' ? 3 : 2, name: crumb }] },
     { '@type': 'Organization', '@id': `${site}/#organization`, name: 'Doers Advertising Agency', url: site + '/' },
+    ...p.sections.filter((s) => s.kind === 'faq').map((s) => ({ '@type': 'FAQPage', mainEntity: s.items.map((it) => ({ '@type': 'Question', name: it.q, acceptedAnswer: { '@type': 'Answer', text: it.a.replace(/<[^>]+>/g, '') } })) })),
   ],
 };
-const imgs = p.sections.flatMap((s) => s.nodes.filter((n) => n.t === 'img'));
 ---
 <Base title={p.title} description={p.description} path={p.path} lang={p.lang} alternates={alternates} ogImage={p.og || undefined} schema={schema} styles={['/css/site.css', '/css/legacy.css']} ogType="article">
   <SiteHeader lang={p.lang} altHref={alt ? (ar ? enPath : '/ar' + enPath) : undefined} />
@@ -56,7 +57,7 @@ const imgs = p.sections.flatMap((s) => s.nodes.filter((n) => n.t === 'img'));
       </section>
     </div>
     <div class="wrap">
-      {p.sections.map((s, si) => (
+      {p.sections.map((s) => s.kind ? <LegacySection s={s} /> : (
         <section class={`p-sec lg-sec${s.cards ? ' is-cards' : ''}`}>
           {s.h2 && (s.img && !s.cards
             ? <div class="lg-side"><h2>{s.h2}</h2><figure class="lg-fig"><img src={s.img.src} alt={s.img.alt} width={s.img.w} height={s.img.h} loading="lazy"></figure></div>

@@ -14,7 +14,7 @@ service: /branding-agency-egypt/
 
 <p>Many of us will be starting out on our own as entrepreneurs or freelancers and need a strong foundation for our business that can withstand any changes present in today’s world. What does this mean? It means knowing who your target audience is, understanding their needs, and coming up with a design aesthetic that speaks to them – all while maintaining your company’s unique voice.</p>
 
-<p>In order to create a great <strong><a href="/branding/">branding agency in Egypt</a></strong> identity for yourself, there are some things you’ll have to consider: do they know how my product/service works? Will they care if I’m doing something different? Should I change?</p>
+<p>In order to create a great <strong><a href="/branding-agency-egypt/">branding agency in Egypt</a></strong> identity for yourself, there are some things you’ll have to consider: do they know how my product/service works? Will they care if I’m doing something different? Should I change?</p>
 
 <h2>Compose A Brand Strategy:</h2>
 

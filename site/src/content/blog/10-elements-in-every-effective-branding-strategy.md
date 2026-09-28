@@ -52,4 +52,4 @@ service: /branding-agency-egypt/
 
 <p>The way a product is positioned in the market is called positioning. It simply identifies which market groups it intends to target. For example, Virginia Slims is a female-oriented cigarette. The basic components in all cigarettes are the same, but this one has been designed to appeal to women by being smaller and having sleeker packaging.</p>
 
-<p>If you take a look at <strong><a href="/branding/">branding agency in Egypt</a></strong>, you will get to know that all these branding strategies are effectively implemented.</p>
+<p>If you take a look at <strong><a href="/branding-agency-egypt/">branding agency in Egypt</a></strong>, you will get to know that all these branding strategies are effectively implemented.</p>

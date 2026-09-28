@@ -50,6 +50,12 @@
   },
   {
    "type": "p",
+   "text": "01.",
+   "html": "01.",
+   "links": []
+  },
+  {
+   "type": "p",
    "text": "Brief us about your objectives, location, guests persona, budget and perceived agenda.",
    "html": "Brief us about your objectives, location, guests persona, budget and perceived agenda.",
    "links": []
@@ -82,6 +88,18 @@
    "type": "h2",
    "text": "What to Expect",
    "html": "What to Expect",
+   "links": []
+  },
+  {
+   "type": "p",
+   "text": "We have been delivering large scale events to our partners since our launch in 2013 we take a great pride to distinguish ourselves as a market leader while keeping our nose to grind to excel more and keep delighting our partners, I look forward to collaborating with you soon..",
+   "html": "We have been delivering large scale events to our partners since our launch in 2013 we take a great pride to distinguish ourselves as a market leader while keeping our nose to grind to excel more and keep delighting our partners, I look forward to collaborating with you soon..",
+   "links": []
+  },
+  {
+   "type": "p",
+   "text": "Best",
+   "html": "Best",
    "links": []
   },
   {

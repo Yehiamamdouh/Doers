@@ -12,7 +12,7 @@ service: /branding-agency-egypt/
 
 <p>Marketing your business is a critical component of success. However, it’s important to do so in a way that doesn’t damage your brand. Maintaining a consistent message across all marketing platforms is essential in today’s digital age. Your Brand Consistency is the picture you want to create of your brand in the minds of customers. Branding is not just a logo or an emblem, it’s the entire package that says buy this product.</p>
 
-<p>Brand is how customers see your company and what they think of when they hear the name. It’s important to have a good brand because it can drive sales and keep customers coming back. <a href="/branding/">Branding agency in Egypt</a> help businesses create and maintain their brand in order to achieve these goals.</p>
+<p>Brand is how customers see your company and what they think of when they hear the name. It’s important to have a good brand because it can drive sales and keep customers coming back. <a href="/branding-agency-egypt/">Branding agency in Egypt</a> help businesses create and maintain their brand in order to achieve these goals.</p>
 
 <p>There are some steps you can take to market your business and staying on track while growing your business.</p>
 

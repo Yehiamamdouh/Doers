@@ -50,6 +50,6 @@ service: /branding-agency-egypt/
 
 <h2>What Are Your Advertising Costs Per Customer Acquired?</h2>
 
-<p>The <strong><a href="/ooh-3/">advertising agency in Egypt</a></strong> will be able to help answer these questions if they’ve worked with similar clients in the past. One of the most important things for advertising agencies to consider is this: advertising is not just about getting the right message across. In order for advertising to be successful, it must reach its target audience and motivate them enough to take action – click through a sponsored link, make a purchase or come out and vote next election day.</p>
+<p>The <strong><a href="/">advertising agency in Egypt</a></strong> will be able to help answer these questions if they’ve worked with similar clients in the past. One of the most important things for advertising agencies to consider is this: advertising is not just about getting the right message across. In order for advertising to be successful, it must reach its target audience and motivate them enough to take action – click through a sponsored link, make a purchase or come out and vote next election day.</p>
 
 <p>Market research can help determine if there’s a need for new products or services, which customer groups would be most interested in them, and how much they might be willing to pay.</p>

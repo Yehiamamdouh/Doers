@@ -28,7 +28,7 @@ service: /digital-marketing-egypt-cairo/
 
 <h3>Step 2: Make Your Own Content:</h3>
 
-<p>Users on Facebook may add photographs and videos to their stories. You will be able to record your movie or take a short snapshot once the camera is open. You’ll also note that there are a variety of lenses and filters available to enhance your photos. Tap the button in the center of the screen to snap a photo, and keep it down to record a video. By clicking on the album icon, you may also upload photos from your phone’s camera roll For example if you want to show about the <a href="/digital-marketing/"><strong>social media agency in Egypt</strong></a>, you may represent all it by using its photographs. We created Stories Creator to make it easy for you to create eye-catching stories for free.</p>
+<p>Users on Facebook may add photographs and videos to their stories. You will be able to record your movie or take a short snapshot once the camera is open. You’ll also note that there are a variety of lenses and filters available to enhance your photos. Tap the button in the center of the screen to snap a photo, and keep it down to record a video. By clicking on the album icon, you may also upload photos from your phone’s camera roll For example if you want to show about the <a href="/digital-marketing-egypt-cairo/"><strong>social media agency in Egypt</strong></a>, you may represent all it by using its photographs. We created Stories Creator to make it easy for you to create eye-catching stories for free.</p>
 
 <h3>Step 3: Tell Us About Your Experience:</h3>
 

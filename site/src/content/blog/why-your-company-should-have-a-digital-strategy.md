@@ -40,7 +40,7 @@ service: /digital-marketing-egypt-cairo/
 
 <p>Now that you understand why your company needs a digital strategy, it’s time to start creating one. This can be a daunting task; there are plenty of resources available to help you out.</p>
 
-<p>The <strong><a href="/digital-marketing/">digital marketing agency in Egypt</a></strong> understands that any company needs to be following three key steps if they want their business’s success. These include developing a strong brand, having an engaging website with the right content for it and monitoring how customers interact online through social media engagement tools such as Facebook ads or Google Adwords campaigns.</p>
+<p>The <strong><a href="/digital-marketing-egypt-cairo/">digital marketing agency in Egypt</a></strong> understands that any company needs to be following three key steps if they want their business’s success. These include developing a strong brand, having an engaging website with the right content for it and monitoring how customers interact online through social media engagement tools such as Facebook ads or Google Adwords campaigns.</p>
 
 <p>Here are three essential steps need to be follow:</p>
 

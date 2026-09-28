@@ -24,7 +24,7 @@ service: /branding-agency-egypt/
 
 <h2>Get creative with advertising</h2>
 
-<p>Have you ever thought about <strong><a href="/ooh-3/">advertising agency in Egypt</a></strong> to make more money? It’s a great way to grow your business and increase revenue by using the right marketing strategies. If you’re looking for creative ways to advertise, I’ve got plenty of ideas for you. From social media ads to sponsored posts, there are many different avenues that can help get your message out there.</p>
+<p>Have you ever thought about <strong><a href="/">advertising agency in Egypt</a></strong> to make more money? It’s a great way to grow your business and increase revenue by using the right marketing strategies. If you’re looking for creative ways to advertise, I’ve got plenty of ideas for you. From social media ads to sponsored posts, there are many different avenues that can help get your message out there.</p>
 
 <h2>Invest time into something you’re passionate about</h2>
 

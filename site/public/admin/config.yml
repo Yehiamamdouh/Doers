@@ -33,6 +33,21 @@ collections:
       - { label: Publish date, name: date, widget: datetime }
       - { label: Last updated, name: updated, widget: datetime, required: false }
       - { label: Category, name: category, widget: string, required: false }
+      - label: Related service
+        name: service
+        widget: select
+        required: false
+        options:
+          - { label: 'Branding (Cairo)', value: /branding-agency-egypt/ }
+          - { label: 'Events (Cairo)', value: /event-management-cairo-egypt/ }
+          - { label: 'Booth production (Cairo)', value: /booth-production-egypt/ }
+          - { label: 'Digital marketing (Cairo)', value: /digital-marketing-egypt-cairo/ }
+          - { label: 'SEO (Cairo)', value: /seo/ }
+          - { label: 'Web development (Cairo)', value: /website-development-company-egypt/ }
+          - { label: 'Outdoor (Cairo)', value: /outdoor-advertising-egypt/ }
+          - { label: 'Reputation management (Cairo)', value: /listening-and-reputation-management/ }
+          - { label: 'Signage (Cairo)', value: /signage-internal-branding-egypt/ }
+          - { label: 'Full-service agency (homepage)', value: / }
       - { label: Cover image, name: cover, widget: image, required: false }
       - { label: Cover image description, name: coverAlt, widget: string, required: false }
       - { label: Body, name: body, widget: markdown }
@@ -50,9 +65,25 @@ collections:
       - { label: Headline, name: h1, widget: string, required: false }
       - { label: SEO description, name: description, widget: text }
       - { label: Language, name: lang, widget: hidden, default: ar }
+      - { label: Hand translated, name: translated, widget: hidden, default: true }
       - { label: Publish date, name: date, widget: datetime }
       - { label: Last updated, name: updated, widget: datetime, required: false }
       - { label: Category, name: category, widget: string, required: false }
+      - label: Related service
+        name: service
+        widget: select
+        required: false
+        options:
+          - { label: 'Branding (Cairo)', value: /branding-agency-egypt/ }
+          - { label: 'Events (Cairo)', value: /event-management-cairo-egypt/ }
+          - { label: 'Booth production (Cairo)', value: /booth-production-egypt/ }
+          - { label: 'Digital marketing (Cairo)', value: /digital-marketing-egypt-cairo/ }
+          - { label: 'SEO (Cairo)', value: /seo/ }
+          - { label: 'Web development (Cairo)', value: /website-development-company-egypt/ }
+          - { label: 'Outdoor (Cairo)', value: /outdoor-advertising-egypt/ }
+          - { label: 'Reputation management (Cairo)', value: /listening-and-reputation-management/ }
+          - { label: 'Signage (Cairo)', value: /signage-internal-branding-egypt/ }
+          - { label: 'Full-service agency (homepage)', value: / }
       - { label: Cover image, name: cover, widget: image, required: false }
       - { label: Cover image description, name: coverAlt, widget: string, required: false }
       - { label: Body, name: body, widget: markdown }

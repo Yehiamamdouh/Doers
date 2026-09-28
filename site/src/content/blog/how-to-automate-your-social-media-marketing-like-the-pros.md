@@ -10,7 +10,7 @@ category: "Digital marketing"
 service: /digital-marketing-egypt-cairo/
 ---
 
-<p>Social media has become a staple of business marketing. It’s been shown to increase brand awareness, drive traffic and convert leads into sales if done correctly. But the question is, how do you do it correctly? I’ll tell you what <a href="/digital-marketing/"><strong>social media agency in Egypt</strong></a> does with automation software that makes social media management a breeze for small businesses.</p>
+<p>Social media has become a staple of business marketing. It’s been shown to increase brand awareness, drive traffic and convert leads into sales if done correctly. But the question is, how do you do it correctly? I’ll tell you what <a href="/digital-marketing-egypt-cairo/"><strong>social media agency in Egypt</strong></a> does with automation software that makes social media management a breeze for small businesses.</p>
 
 <h2><strong>Find a Social Media Management Tool That’s Right for You</strong></h2>
 

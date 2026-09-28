@@ -18,6 +18,12 @@
  },
  "blocks": [
   {
+   "type": "h2",
+   "text": "— إنتاج البوث",
+   "html": "— إنتاج البوث",
+   "links": []
+  },
+  {
    "type": "h1",
    "text": "Booth Production & Exhibition Stands in Jeddah",
    "html": "Booth Production &amp; Exhibition Stands in Jeddah",
@@ -289,6 +295,12 @@
    "links": []
   },
   {
+   "type": "p",
+   "text": "نحن نتفهم أهمية الالتزام بالمواعيد. يمكننا الإسراع في تسليم البوث المخصص، مما يتيح لك التركيز على الجوانب الأساسية الأخرى من عرضك.",
+   "html": "نحن نتفهم أهمية الالتزام بالمواعيد. يمكننا الإسراع في تسليم البوث المخصص، مما يتيح لك التركيز على الجوانب الأساسية الأخرى من عرضك.",
+   "links": []
+  },
+  {
    "type": "img",
    "src": "https://doersadv.com/wp-content/uploads/2023/10/round-the-clock.jpg",
    "alt": "round-the-clock",
@@ -299,6 +311,12 @@
    "type": "h3",
    "text": "الدعم على مدار الساعة:",
    "html": "الدعم على مدار الساعة:",
+   "links": []
+  },
+  {
+   "type": "p",
+   "text": "Our expert booth production service team is available 24/7. Whenever you require assistance, you can reach out to us at any time. When you’re in need of a trade show booth that truly stands out, Doers is the company to contact. Our custom-designed and tailored booths will make your exhibit unique and attention-grabbing at every trade show.",
+   "html": "Our expert booth production service team is available 24/7. Whenever you require assistance, you can reach out to us at any time. When you’re in need of a trade show booth that truly stands out, Doers is the company to contact. Our custom-designed and tailored booths will make your exhibit unique and attention-grabbing at every trade show.",
    "links": []
   },
   {

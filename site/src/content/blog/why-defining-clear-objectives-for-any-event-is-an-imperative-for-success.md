@@ -48,4 +48,4 @@ service: /event-management-cairo-egypt/
 
 <p>It is recommended to enlist all the goals that you have set in your mind for event management. Enlisting of goals will make you more clear, focused and precise. In order to set the goals, you have to set certain objectives. You need to identify the reason of event that why you are organizing the event. Identify the purpose of event. Your event should be significant enough that participants can benefit from it in any form. Most importantly define success for you and how you will gong to achieve it.Answer all the questions in order to get grip over the idea of event management.</p>
 
-<p>You can consult the <strong><a href="/event-managementbtl/">event management agency in Egypt</a></strong> to get the idea of successful event management and factors behind.</p>
+<p>You can consult the <strong><a href="/event-management-cairo-egypt/">event management agency in Egypt</a></strong> to get the idea of successful event management and factors behind.</p>

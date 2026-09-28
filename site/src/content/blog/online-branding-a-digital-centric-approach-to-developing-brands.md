@@ -40,4 +40,4 @@ service: /branding-agency-egypt/
 
 <p>Create a catchy, attractive, unique and clear slogans for your brand that instantly catches the attraction of the viewer. It has been observed that brand slogans get ingrained into people’s mind instantly and while thinking about brand, the first thing that comes to a mind is the slogan of the brand. There are certain things that need to be kept in mind while devising a slogan for brand. Make sure the slogan you have designed is short and easy to remember. Include such things in your brand that make it stand out among other brands. Most importantly it should be positive.</p>
 
-<p>There is a <a href="/branding/"><strong>branding agency in Egypt</strong></a> that has meticulously designed the branding strategy based on the above mentioned factors.</p>
+<p>There is a <a href="/branding-agency-egypt/"><strong>branding agency in Egypt</strong></a> that has meticulously designed the branding strategy based on the above mentioned factors.</p>

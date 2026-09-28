@@ -44,7 +44,7 @@ service: /event-management-cairo-egypt/
 
 <p>The time you have to spend on calling distributors and technicians is utilized in something more essential.</p>
 
-<p>The <strong><a href="/event-managementbtl/">event management agencies in Cairo </a></strong>value the time and money of their clients and make sure to go an extra mile for them. They help their clients and set the standard in event management.</p>
+<p>The <strong><a href="/event-management-cairo-egypt/">event management agencies in Cairo </a></strong>value the time and money of their clients and make sure to go an extra mile for them. They help their clients and set the standard in event management.</p>
 
 <h2>Help You In Planning:</h2>
 

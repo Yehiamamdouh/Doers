@@ -14,7 +14,7 @@ service: /branding-agency-egypt/
 
 <h2>What is your brand purpose</h2>
 
-<p>What is the purpose of a brand? Many people would say that a brand’s purpose is to create consumer demand and generate profits for its shareholders. While this may be partially true, it does not give brands their due credit. Several <strong><a href="/branding/">branding agency in egypt</a></strong> has the potential to do so much more to be a force for good in the world and build meaningful connections with its consumers. some common reasons brands might pursue a purpose could include attracting new customers, improving employee morale, or differentiating themselves from their competitors. Whatever the reason, it’s important for businesses to identify and articulate their brand purpose in order to create a message that resonates with their target audience.</p>
+<p>What is the purpose of a brand? Many people would say that a brand’s purpose is to create consumer demand and generate profits for its shareholders. While this may be partially true, it does not give brands their due credit. Several <strong><a href="/branding-agency-egypt/">branding agency in egypt</a></strong> has the potential to do so much more to be a force for good in the world and build meaningful connections with its consumers. some common reasons brands might pursue a purpose could include attracting new customers, improving employee morale, or differentiating themselves from their competitors. Whatever the reason, it’s important for businesses to identify and articulate their brand purpose in order to create a message that resonates with their target audience.</p>
 
 <h2>Why do you need a clear and compelling brand purpose</h2>
 

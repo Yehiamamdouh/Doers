@@ -36,7 +36,7 @@ service: /digital-marketing-egypt-cairo/
 
 <p>It will take you a little more effort to do this, but this effort will definitely be worth it and you will see the results showing up.</p>
 
-<h2><strong>Updating </strong><strong>the </strong><strong>Content Will Turn Out Well</strong><strong>:</strong></h2>
+<h2><strong>Updating the Content Will Turn Out Well:</strong></h2>
 
 <p>One strategy that is most ignored by people is that they do not update their old content that has once done well.</p>
 

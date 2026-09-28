@@ -33,6 +33,19 @@
   .lg-sec>h2,.lg-side{position:static}
 }
 
+/* hand-written page sections */
+.lg-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 20px}
+.lg-gallery figure{display:grid;gap:12px;align-content:start}
+.lg-gallery img{width:100%;height:auto;aspect-ratio:1600/856;object-fit:cover;border-radius:18px;background:var(--night-2);transition:transform .7s var(--ease)}
+.lg-gallery figure:hover img{transform:scale(1.02)}
+.lg-gallery figcaption{display:grid;gap:4px;font-size:15px;color:var(--bone-2)}
+.lg-gallery figcaption b{font:800 20px/1.1 var(--display);letter-spacing:-.02em;color:var(--bone)}
+.lg-person{display:flex;align-items:center;gap:14px;margin-top:28px}
+.lg-person img{width:72px;height:72px;border-radius:50%;object-fit:cover}
+.lg-person b{display:block;font:800 18px var(--display)}
+.lg-person span{color:var(--smoke);font-size:14px}
+@media (max-width:760px){.lg-gallery{grid-template-columns:1fr}}
+
 /* blog */
 .blog-head{padding-block:28px clamp(40px,6vw,72px);border-bottom:1px solid var(--line)}
 .blog-head h1{font:800 clamp(56px,9vw,140px)/.92 var(--display);letter-spacing:-.05em}

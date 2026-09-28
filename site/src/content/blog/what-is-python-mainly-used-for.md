@@ -66,4 +66,4 @@ service: /website-development-company-egypt/
 
 <p>Python can effortlessly manage all the complex steps of software development, like the visual representation of data by using APIs and its visualization libraries.</p>
 
-<p>If you want to learn about python, you can contact the <strong><a href="/ooh-3/">advertising agency in Cairo</a></strong> as they conduct the official software webinars where they teach people about programming language.</p>
+<p>If you want to learn about python, you can contact the <strong><a href="/">advertising agency in Cairo</a></strong> as they conduct the official software webinars where they teach people about programming language.</p>

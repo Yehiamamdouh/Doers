@@ -54,7 +54,7 @@ service: /digital-marketing-egypt-cairo/
 
 <h2>Offer:</h2>
 
-<p>It is recommended to give offers to your customers in order to grab their attention. <a href="/digital-marketing/">Digital Marketing Agency in Egypt</a> usually make an offer that is based on four components including value, believe and reduction of risk.</p>
+<p>It is recommended to give offers to your customers in order to grab their attention. <a href="/digital-marketing-egypt-cairo/">Digital Marketing Agency in Egypt</a> usually make an offer that is based on four components including value, believe and reduction of risk.</p>
 
 <h2>Value of product:</h2>
 

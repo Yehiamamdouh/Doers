@@ -230,6 +230,12 @@
    "h": "1125"
   },
   {
+   "type": "p",
+   "text": "Services",
+   "html": "Services",
+   "links": []
+  },
+  {
    "type": "h2",
    "text": "— Services",
    "html": "— Services",
@@ -313,6 +319,14 @@
    "text": "Digital Marketing",
    "html": "Digital Marketing",
    "links": []
+  },
+  {
+   "type": "p",
+   "text": "Our Digital Marketing Agency in Egypt allows businesses to reach a wider audience and target specific demographics through a variety of online channels, such as social media, search engines, email, and mobile apps. By using data and analytics, our Marketing Agency in Cairo provides digital marketing strategies that can be tailored to specific audiences, which in turn, result in higher conversion rates and a better return on investment. Our digital marketing solutions offer digital marketing that allows for real-time tracking and measurement of campaign success, providing valuable insights and enabling organizations to make data-driven decisions.",
+   "html": "Our <a href=\"https://doersadv.com/digital-marketing/\">Digital Marketing Agency in Egypt</a> allows businesses to reach a wider audience and target specific demographics through a variety of online channels, such as social media, search engines, email, and mobile apps. By using data and analytics, our Marketing Agency in Cairo provides digital marketing strategies that can be tailored to specific audiences, which in turn, result in higher conversion rates and a better return on investment. Our digital marketing solutions offer digital marketing that allows for real-time tracking and measurement of campaign success, providing valuable insights and enabling organizations to make data-driven decisions.",
+   "links": [
+    "https://doersadv.com/digital-marketing/"
+   ]
   },
   {
    "type": "img",

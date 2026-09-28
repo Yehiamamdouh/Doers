@@ -24,7 +24,7 @@ service: /digital-marketing-egypt-cairo/
 
 <h2>Digital Media:</h2>
 
-<p>In the global economy, businesses are being forced to rethink their strategies and adopt a digital-first mindset. In the past decade, the rise of the mobile internet has created a major shift in consumer behavior. The growth of social media has also changed how we communicate with one another, which is forcing companies to think about new ways to market themselves and engage customers. A company’s success is directly linked to its ability to harness digital media. <strong><a href="/digital-marketing/">Digital Marketing Agency in Egypt</a></strong> helps companies to build a strong strategy. Businesses must adapt if they want to thrive in this rapidly changing landscape.</p>
+<p>In the global economy, businesses are being forced to rethink their strategies and adopt a digital-first mindset. In the past decade, the rise of the mobile internet has created a major shift in consumer behavior. The growth of social media has also changed how we communicate with one another, which is forcing companies to think about new ways to market themselves and engage customers. A company’s success is directly linked to its ability to harness digital media. <strong><a href="/digital-marketing-egypt-cairo/">Digital Marketing Agency in Egypt</a></strong> helps companies to build a strong strategy. Businesses must adapt if they want to thrive in this rapidly changing landscape.</p>
 
 <h2>Digital Data:</h2>
 

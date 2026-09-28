@@ -12,7 +12,7 @@ service: /digital-marketing-egypt-cairo/
 
 <p>Social media calendars, tools, and templates are an integral part of any company’s social media marketing strategy. Before you begin to plan your content for the week or month, it is important to make sure that you have a plan in place. There are many out there but it can be difficult to choose which one will work best for your business! What works well for one brand might not necessarily work well for another.</p>
 
-<p>It is important that you have a social media calendar in place before beginning your digital marketing strategy. <a href="/digital-marketing/"><strong>Digital Marketing Agency in Egypt</strong></a> will be far more effective if you know what content is going out when on which channel(s) and to whom. Creating a digital marketing plan or digital marketing strategy is the first step towards developing an effective digital presence for your business – digital marketing strategies are never set in stone and should be an ongoing process that is constantly evolving.</p>
+<p>It is important that you have a social media calendar in place before beginning your digital marketing strategy. <a href="/digital-marketing-egypt-cairo/"><strong>Digital Marketing Agency in Egypt</strong></a> will be far more effective if you know what content is going out when on which channel(s) and to whom. Creating a digital marketing plan or digital marketing strategy is the first step towards developing an effective digital presence for your business – digital marketing strategies are never set in stone and should be an ongoing process that is constantly evolving.</p>
 
 <h2>ContentCal:</h2>
 
