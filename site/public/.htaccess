@@ -9,7 +9,10 @@ RewriteEngine On
 # One canonical host: https://doersadv.com (staging keeps its own host)
 RewriteCond %{HTTP_HOST} ^www\.doersadv\.com$ [NC]
 RewriteRule ^ https://doersadv.com%{REQUEST_URI} [L,R=301]
+# Behind Cloudflare the origin can see plain HTTP even when the visitor is on HTTPS.
 RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTP:CF-Visitor} !https
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Every page lives at a URL ending in a slash, as on the old site.
