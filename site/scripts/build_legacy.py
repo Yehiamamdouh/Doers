@@ -332,7 +332,7 @@ def final_links(pages):
               '/ar/digital-marketing/': '/ar/digital-marketing-egypt-cairo/', '/ar/ooh-3/': '/ar/', '/ar/event-managementbtl/': '/ar/event-management-cairo-egypt/'}
     def fix(text, lang):
         def rep(m):
-            href = intent.get(m.group(1), m.group(1))
+            href = intent.get(m.group(2), m.group(2))
             if not href.startswith('/') or href.startswith(('/img/', '/css/', '/js/')): return m.group(0)
             path = href.split('#')[0].split('?')[0]
             if not path.endswith('/') and '.' not in path.rsplit('/', 1)[-1]: path += '/'
@@ -340,8 +340,9 @@ def final_links(pages):
             if lang == 'ar' and not target.startswith('/ar/'):
                 ar = resolve('/ar' + target if target != '/' else '/ar/')
                 if ar and ar.startswith('/ar'): target = ar
-            return f'href="{target}"'
-        return re.sub(r'href="([^"]*)"', rep, text)
+            return f'href={m.group(1)}"{target}{m.group(1)}"'
+        # Page data is JSON text, where the quotes are escaped (href=\"...\").
+        return re.sub(r'href=(\\?)"([^"\\]*)\1"', rep, text)
     for f in list(BLOG.glob('*.md')) + list((BLOG / 'ar').glob('*.md')):
         lang = 'ar' if f.parent.name == 'ar' else 'en'
         t = f.read_text(); n = fix(t, lang)
