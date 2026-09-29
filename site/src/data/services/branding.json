@@ -171,12 +171,24 @@
      "alt": "Serenity: brand patterns"
     },
     {
-     "src": "/img/branding/zas-homepage.jpg",
-     "alt": "ZAS: the new homepage"
+     "src": "/img/branding/wsl-lockups.jpg",
+     "alt": "WSL: bilingual lockups"
     },
     {
-     "src": "/img/branding/zas-legacy.jpg",
-     "alt": "ZAS: 50 years of aviation"
+     "src": "/img/branding/wsl-colours.jpg",
+     "alt": "WSL: logo on brand colours"
+    },
+    {
+     "src": "/img/branding/wsl-pattern.jpg",
+     "alt": "WSL: brand pattern"
+    },
+    {
+     "src": "/img/branding/unhcr-arab-strategy.jpg",
+     "alt": "UNHCR & League of Arab States: Arab strategy book"
+    },
+    {
+     "src": "/img/branding/unhcr-books.jpg",
+     "alt": "UNHCR: printed publications"
     },
     {
      "src": "/img/branding/ignite-essence.jpg",
@@ -230,6 +242,7 @@
      "tag": "Hospitality · Group identity & brand architecture",
      "client": "Serenity Hospitality Group",
      "img": "/img/signage/serenity-alpha-beach.jpg",
+     "alt": "Serenity Alpha Beach entrance sign",
      "text": "A full brand system for Serenity's hotels, resorts and restaurants: strategy, positioning and persona, a refined group mark, and a family of sub-brands, from Sky Fringe and Alpha Beach to Alma Heights, Ross Park and Gourmet, each with its own palette, plus typography, photography style and patterns.",
      "metrics": [
       [
@@ -244,15 +257,14 @@
        "1",
        "Group system"
       ]
-     ],
-     "alt": "Serenity Alpha Beach entrance sign"
+     ]
     },
     {
-     "tag": "Aviation · Logo, identity & website",
+     "tag": "Aviation · Logo & identity",
      "client": "ZAS · Z-Aviation Services",
      "img": "/img/branding/zas-logo.jpg",
      "fit": "contain",
-     "text": "The ZAS logo and identity, then a new digital experience built on it: brand colours and typography for the web, a homepage that leads with 50 years of aviation, and sections for its specialised brands, leadership and regional network across Egypt, Sudan and South Sudan.",
+     "text": "The ZAS logo and identity for Z-Aviation Services, an aviation group with five decades of ground handling, cargo and specialised services across Egypt, Sudan and South Sudan: a winged mark with speed built into the letters, a red and aviation-blue palette and the line “One Partner. Unlimited Possibilities.”",
      "metrics": [
       [
        "50",
@@ -265,6 +277,13 @@
      ]
     },
     {
+     "tag": "Networking · Bilingual identity · Saudi Arabia",
+     "client": "WSL · وصل",
+     "img": "/img/branding/wsl-logo.jpg",
+     "fit": "contain",
+     "text": "A bilingual identity for WSL, “Connect ME”: one mark that reads وصل in Arabic and WSL in Latin, built on a linking stroke that becomes the icon, the pattern and the app symbol, with versions for light, dark and colour backgrounds."
+    },
+    {
      "tag": "Entertainment · Brand strategy book",
      "client": "Ignite Park",
      "img": "/img/branding/ignite-hero.jpg",
@@ -275,6 +294,13 @@
      "client": "Tuya Home Innovations",
      "img": "/img/branding/tuya-hoarding.jpg",
      "text": "An identity that balances structure and experience: a logo built letter by letter from materials (T for structure, U for sustainability, Y for light and space, A for craft), with typography, palettes, stationery, site hoardings, posters and a digital presence."
+    },
+    {
+     "tag": "United Nations · Publications",
+     "client": "UNHCR, the UN Refugee Agency",
+     "img": "/img/branding/unhcr-refugee-law.jpg",
+     "fit": "contain",
+     "text": "Book design and printing for UNHCR, including the International Refugee Law handbook and the Arab Strategy on public health services for refugees, produced with the League of Arab States, in Arabic and English and within UNHCR's brand guidelines."
     }
    ]
   },
@@ -289,9 +315,17 @@
    ],
    "cases": [
     {
+     "tag": "Networking · Bilingual identity · Saudi Arabia",
+     "client": "WSL · وصل",
+     "img": "/img/branding/wsl-logo.jpg",
+     "fit": "contain",
+     "text": "A bilingual identity for WSL, “Connect ME”: one mark that reads وصل in Arabic and WSL in Latin, built on a linking stroke that becomes the icon, the pattern and the app symbol, with versions for light, dark and colour backgrounds."
+    },
+    {
      "tag": "Hospitality · Group identity & brand architecture",
      "client": "Serenity Hospitality Group",
      "img": "/img/signage/serenity-alpha-beach.jpg",
+     "alt": "Serenity Alpha Beach entrance sign",
      "text": "A full brand system for Serenity's hotels, resorts and restaurants: strategy, positioning and persona, a refined group mark, and a family of sub-brands, from Sky Fringe and Alpha Beach to Alma Heights, Ross Park and Gourmet, each with its own palette, plus typography, photography style and patterns.",
      "metrics": [
       [
@@ -306,15 +340,14 @@
        "1",
        "Group system"
       ]
-     ],
-     "alt": "Serenity Alpha Beach entrance sign"
+     ]
     },
     {
-     "tag": "Aviation · Logo, identity & website",
+     "tag": "Aviation · Logo & identity",
      "client": "ZAS · Z-Aviation Services",
      "img": "/img/branding/zas-logo.jpg",
      "fit": "contain",
-     "text": "The ZAS logo and identity, then a new digital experience built on it: brand colours and typography for the web, a homepage that leads with 50 years of aviation, and sections for its specialised brands, leadership and regional network across Egypt, Sudan and South Sudan.",
+     "text": "The ZAS logo and identity for Z-Aviation Services, an aviation group with five decades of ground handling, cargo and specialised services across Egypt, Sudan and South Sudan: a winged mark with speed built into the letters, a red and aviation-blue palette and the line “One Partner. Unlimited Possibilities.”",
      "metrics": [
       [
        "50",
@@ -337,6 +370,13 @@
      "client": "Tuya Home Innovations",
      "img": "/img/branding/tuya-hoarding.jpg",
      "text": "An identity that balances structure and experience: a logo built letter by letter from materials (T for structure, U for sustainability, Y for light and space, A for craft), with typography, palettes, stationery, site hoardings, posters and a digital presence."
+    },
+    {
+     "tag": "United Nations · Publications",
+     "client": "UNHCR, the UN Refugee Agency",
+     "img": "/img/branding/unhcr-refugee-law.jpg",
+     "fit": "contain",
+     "text": "Book design and printing for UNHCR, including the International Refugee Law handbook and the Arab Strategy on public health services for refugees, produced with the League of Arab States, in Arabic and English and within UNHCR's brand guidelines."
     }
    ]
   }
@@ -508,12 +548,24 @@
      "alt": "سيرينيتي: باترن العلامة"
     },
     {
-     "src": "/img/branding/zas-homepage.jpg",
-     "alt": "ZAS: الصفحة الرئيسية الجديدة"
+     "src": "/img/branding/wsl-lockups.jpg",
+     "alt": "وصل WSL: نسخ اللوجو بلغتين"
     },
     {
-     "src": "/img/branding/zas-legacy.jpg",
-     "alt": "ZAS: خمسين سنة طيران"
+     "src": "/img/branding/wsl-colours.jpg",
+     "alt": "وصل WSL: اللوجو على ألوان العلامة"
+    },
+    {
+     "src": "/img/branding/wsl-pattern.jpg",
+     "alt": "وصل WSL: باترن العلامة"
+    },
+    {
+     "src": "/img/branding/unhcr-arab-strategy.jpg",
+     "alt": "المفوضية والجامعة العربية: كتاب الاستراتيجية العربية"
+    },
+    {
+     "src": "/img/branding/unhcr-books.jpg",
+     "alt": "المفوضية: مطبوعات"
     },
     {
      "src": "/img/branding/ignite-essence.jpg",
@@ -581,13 +633,12 @@
        "نظام للمجموعة"
       ]
      ],
-     "img": "/img/signage/serenity-alpha-beach.jpg",
-     "alt": "لافتة مدخل سيرينيتي ألفا بيتش"
+     "img": "/img/signage/serenity-alpha-beach.jpg"
     },
     {
-     "tag": "طيران · لوجو وهوية وموقع",
+     "tag": "طيران · لوجو وهوية",
      "client": "ZAS · Z-Aviation Services",
-     "text": "لوجو وهوية ZAS، وبعدين تجربة ديجيتال جديدة مبنية عليهم: ألوان وخطوط العلامة للويب، وصفحة رئيسية بتبدأ بخمسين سنة طيران، وأقسام للعلامات المتخصصة والقيادات والشبكة في مصر والسودان وجنوب السودان.",
+     "text": "لوجو وهوية ZAS، مجموعة خدمات طيران عندها خمسين سنة في الخدمات الأرضية والشحن والخدمات المتخصصة في مصر والسودان وجنوب السودان: رمز بجناح والسرعة جوه الحروف، وألوان أحمر وأزرق طيران، وجملة «One Partner. Unlimited Possibilities.»",
      "metrics": [
       [
        "50",
@@ -602,6 +653,13 @@
      "fit": "contain"
     },
     {
+     "tag": "تواصل · هوية بلغتين · السعودية",
+     "client": "وصل · WSL",
+     "text": "هوية بلغتين لـ«وصل» (Connect ME): رمز واحد بيتقري «وصل» بالعربي وWSL باللاتيني، مبني على خط بيوصل الحروف وبيبقى هو الأيقونة والباترن ورمز التطبيق، بنسخ للخلفيات الفاتحة والغامقة والملونة.",
+     "img": "/img/branding/wsl-logo.jpg",
+     "fit": "contain"
+    },
+    {
      "tag": "ترفيه · كتاب استراتيجية العلامة",
      "client": "إجنايت بارك",
      "text": "كتاب استراتيجية لمدينة ترفيهية معمولة تبسط وتلهم الشباب: منصة التموضع، وإطار الرسالة الأساسية، وجوهر العلامة وقيمها، ونقط قوتها، ونبرة صوت لكل تواصل.",
@@ -612,6 +670,13 @@
      "client": "Tuya Home Innovations",
      "text": "هوية بتوازن بين الهيكل والتجربة: لوجو متبني حرف حرف من الخامات (T للهيكل، وU للاستدامة، وY للنور والمساحة، وA للحرفة)، ومعاه الخطوط والألوان والمطبوعات ولافتات المواقع والبوسترات والحضور الديجيتال.",
      "img": "/img/branding/tuya-hoarding.jpg"
+    },
+    {
+     "tag": "الأمم المتحدة · مطبوعات",
+     "client": "المفوضية السامية لشؤون اللاجئين",
+     "text": "تصميم وطباعة كتب للمفوضية، منها دليل القانون الدولي للاجئين والاستراتيجية العربية لإتاحة خدمات الصحة العامة للاجئين مع جامعة الدول العربية، بالعربي والإنجليزي وعلى دليل هوية المفوضية.",
+     "img": "/img/branding/unhcr-refugee-law.jpg",
+     "fit": "contain"
     }
    ]
   },
@@ -625,6 +690,13 @@
     "يعمل معك فريق الهوية، الحاصل على جائزة TechBehemoths للبراندنج عام 2022، في جدة أو عن بُعد من أول ورشة عمل حتى الدليل النهائي، وتطبّق فرق الإنتاج لدينا الهوية على اللافتات والأجنحة والمركبات."
    ],
    "cases": [
+    {
+     "tag": "تواصل · هوية ثنائية اللغة · السعودية",
+     "client": "وصل · WSL",
+     "text": "هوية ثنائية اللغة لـ«وصل» (Connect ME): رمز واحد يُقرأ «وصل» بالعربية وWSL باللاتينية، مبني على خط واصل يتحول إلى الأيقونة والنمط ورمز التطبيق، بنسخ للخلفيات الفاتحة والداكنة والملونة.",
+     "img": "/img/branding/wsl-logo.jpg",
+     "fit": "contain"
+    },
     {
      "tag": "ضيافة · هوية المجموعة وبنية العلامات",
      "client": "مجموعة سيرينيتي للضيافة",
@@ -643,13 +715,12 @@
        "نظام للمجموعة"
       ]
      ],
-     "img": "/img/signage/serenity-alpha-beach.jpg",
-     "alt": "لافتة مدخل سيرينيتي ألفا بيتش"
+     "img": "/img/signage/serenity-alpha-beach.jpg"
     },
     {
-     "tag": "طيران · شعار وهوية وموقع",
+     "tag": "طيران · شعار وهوية",
      "client": "ZAS · Z-Aviation Services",
-     "text": "شعار ZAS وهويتها، ثم تجربة رقمية جديدة مبنية عليهما: ألوان العلامة وخطوطها للويب، وصفحة رئيسية تنطلق من خمسين عاماً في الطيران، وأقسام للعلامات المتخصصة والقيادات والشبكة الإقليمية في مصر والسودان وجنوب السودان.",
+     "text": "شعار ZAS وهويتها، لمجموعة خدمات طيران لها خمسة عقود في الخدمات الأرضية والشحن والخدمات المتخصصة في مصر والسودان وجنوب السودان: رمز مجنّح تسكن السرعة حروفه، وألوان الأحمر والأزرق الجوي، وشعار «One Partner. Unlimited Possibilities.»",
      "metrics": [
       [
        "50",
@@ -674,6 +745,13 @@
      "client": "Tuya Home Innovations",
      "text": "هوية توازن بين البنية والتجربة: شعار مبني حرفاً حرفاً من الخامات (T للبنية، وU للاستدامة، وY للضوء والمساحة، وA للحرفة)، مع الخطوط والألوان والمطبوعات ولافتات المواقع والملصقات والحضور الرقمي.",
      "img": "/img/branding/tuya-hoarding.jpg"
+    },
+    {
+     "tag": "الأمم المتحدة · مطبوعات",
+     "client": "المفوضية السامية للأمم المتحدة لشؤون اللاجئين",
+     "text": "تصميم وطباعة كتب للمفوضية، منها دليل القانون الدولي للاجئين والاستراتيجية العربية بشأن إتاحة خدمات الصحة العامة للاجئين بالتعاون مع جامعة الدول العربية، بالعربية والإنجليزية ووفق دليل هوية المفوضية.",
+     "img": "/img/branding/unhcr-refugee-law.jpg",
+     "fit": "contain"
     }
    ]
   },
