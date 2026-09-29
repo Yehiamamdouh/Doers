@@ -747,7 +747,7 @@
     "nodes": [
      {
       "t": "p",
-      "html": "Since our inception, we’ve covered a wide array of large-scale events, from product launches to virtual events. Our events are all managed to perfection!"
+      "html": "Since our inception, we’ve covered a wide array of large-scale events, from product launches and conferences to sports events. Our events are all managed to perfection!"
      },
      {
       "t": "h3",
@@ -774,14 +774,6 @@
       "html": "From venue selection to registration and logistics to speaker management and audio-visual production, we handle every aspect of the planning process with precision and attention to detail. We also assist in developing marketing and communication plans to reach the right audience. Trust us to make your conference an engaging, informative, and memorable experience for all attendees."
      },
      {
-      "t": "p",
-      "html": "At Doers, we understand the unique challenges and opportunities that come with planning virtual events, and we are dedicated to providing the best virtual event management service in the industry."
-     },
-     {
-      "t": "p",
-      "html": "Our team of experts specializes in creating engaging and interactive virtual experiences that connect attendees regardless of their location. We work toward understanding your goals and objectives and develop a custom plan that utilizes the latest technology to deliver a seamless and impactful event. From live streaming to virtual interactive activities to virtual networking opportunities, we have the expertise and resources to make your virtual event a success. Trust us to bring your virtual event to life and create an immersive experience for your attendees."
-     },
-     {
       "t": "h3",
       "html": "Sports Events"
      },
@@ -796,7 +788,7 @@
     ],
     "img": {
      "t": "img",
-     "alt": "Virtual Events Management",
+     "alt": "Event management by Doers",
      "src": "/img/legacy/2020-06-f40052a8-ccd4-42bc-8e3a-e7a6ceb635ac.jpg",
      "w": 1000,
      "h": 1000
@@ -1886,14 +1878,6 @@
      {
       "t": "p",
       "html": "We believe that conferences should be more than just gatherings; they should be opportunities for knowledge sharing, networking, and lasting connections. Our meticulous planning covers every aspect, including venue selection, registration, logistics, speaker management, audio-visual production, and targeted marketing. We transform your conference into a memorable and enriching experience for all attendees."
-     },
-     {
-      "t": "h3",
-      "html": "<strong>Virtual Events:</strong>"
-     },
-     {
-      "t": "p",
-      "html": "In the digital age, virtual events present unique challenges and opportunities, and Doers, being a leading advertising agency in Jeddah, excels in creating immersive virtual experiences. From live streaming to interactive activities and virtual networking, we transform online events into engaging journeys that connect and captivate your audience."
      },
      {
       "t": "h3",
@@ -4653,7 +4637,7 @@
     "nodes": [
      {
       "t": "p",
-      "html": "منذ بدايتنا، قمنا بتنظيم مجموعة واسعة من الفعاليات ذات الحجم الكبير، بدءاً من إطلاق المنتجات وصولاً إلى الفعاليات الافتراضية. ندير جميع فعالياتنا بدقة واحترافية تامة!"
+      "html": "منذ بدايتنا، قمنا بتنظيم مجموعة واسعة من الفعاليات ذات الحجم الكبير، من إطلاق المنتجات والمؤتمرات إلى الفعاليات الرياضية. ندير جميع فعالياتنا بدقة واحترافية تامة!"
      },
      {
       "t": "h3",
@@ -4680,14 +4664,6 @@
       "html": "من اختيار الموقع إلى التسجيل واللوجستيات، وإدارة المتحدثين وإنتاج الصوت والصورة، ندير كل جانب من جوانب عملية التخطيط بدقة واهتمام بالتفاصيل. كما نساعد في تطوير خطط التسويق والاتصال للوصول إلى الجمهور المناسب. ثق بنا لجعل مؤتمرك تجربة جذابة ومثرية ولا تُنسى لجميع المشاركين."
      },
      {
-      "t": "p",
-      "html": "نحن في شركة Doers نتفهم التحديات والفرص الفريدة التي تأتي مع التخطيط للفعاليات الافتراضية، ونحن ملتزمون بتقديم أفضل خدمة لإدارة الفعاليات الافتراضية في هذا المجال."
-     },
-     {
-      "t": "p",
-      "html": "فريقنا من الخبراء متخصص في خلق تجارب افتراضية مشوقة وتفاعلية تربط المشاركين بغض النظر عن موقعهم. نعمل على فهم أهدافك ومطالبك ونطور خطة مخصصة تستخدم أحدث التقنيات لتقديم فعالية سلسة ومؤثرة. من بث الفيديو المباشر إلى الأنشطة التفاعلية الافتراضية وفرص التواصل الافتراضي، لدينا الخبرة والموارد لجعل فعاليتك الافتراضية ناجحة. ثق بنا لجعل فعاليتك الافتراضية حية ولإنشاء تجربة غامرة للمشاركين."
-     },
-     {
       "t": "h3",
       "html": "الفاعليات الرياضية"
      },
@@ -4702,7 +4678,7 @@
     ],
     "img": {
      "t": "img",
-     "alt": "Virtual Events Management",
+     "alt": "تنظيم الفعاليات من دورز",
      "src": "/img/legacy/2020-06-f40052a8-ccd4-42bc-8e3a-e7a6ceb635ac.jpg",
      "w": 1000,
      "h": 1000
@@ -5786,14 +5762,6 @@
      {
       "t": "p",
       "html": "نحن نؤمن بأن المؤتمرات يجب أن تكون أكثر من مجرد تجمعات، بل يجب أن تكون فرصاً لتبادل المعرفة والتواصل والعلاقات الدائمة. يغطي تخطيطنا الدقيق كل جانب، بما في ذلك اختيار مكان انعقاد المؤتمر، والتسجيل، والخدمات اللوجستية، وإدارة المتحدثين، والإنتاج السمعي والبصري، والتسويق المستهدف. نحن نحول مؤتمرك إلى تجربة ثرية لا تُنسى لجميع الحاضرين."
-     },
-     {
-      "t": "h3",
-      "html": "<strong>الفعاليات الافتراضية:</strong>"
-     },
-     {
-      "t": "p",
-      "html": "في العصر الرقمي، تقدم الفعاليات الافتراضية تحديات وفرصًا فريدة، وتتفوق Doers، بصفتها وكالة إعلانات رائدة في جدة، في إنشاء تجارب افتراضية غامرة. من البث المباشر إلى الأنشطة التفاعلية والشبكات الافتراضية، نحول الفعاليات عبر الإنترنت إلى رحلات مشوقة تتواصل وتبهر جمهورك."
      },
      {
       "t": "h3",

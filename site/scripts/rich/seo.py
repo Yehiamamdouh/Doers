@@ -1,0 +1,56 @@
+"""Builds src/data/services/seo.json."""
+import json
+en_base = {"crumb": "SEO",
+ "stats": [["4", "Pillars: technical, content, local and authority"], ["EN + AR", "Keyword research in both languages"], ["Monthly", "Ranking, traffic and lead reports"], ["GA4", "Tracking tied to leads and sales"]],
+ "servicesH": "Search, done <em>properly.</em>", "servicesP": "Technical fixes, content and authority, measured on leads, not just rankings.",
+ "services": [
+  {"t": "Technical SEO", "d": "Crawlability, indexing, Core Web Vitals, schema, redirects and site architecture fixed at the source.", "tags": ["Core Web Vitals", "Schema", "Indexing"]},
+  {"t": "Keyword research", "d": "What your customers actually type, in Arabic, English and Franco-Arabic, mapped to pages and intent.", "tags": ["Arabic keywords", "Search intent", "Keyword map"]},
+  {"t": "On-page SEO", "d": "Titles, headings, internal links, images and copy tuned for each target keyword.", "tags": ["Titles & meta", "Internal links", "Headings"]},
+  {"t": "Content", "d": "Service pages, landing pages and articles planned as topic clusters and written by native writers.", "tags": ["Topic clusters", "Blog", "Landing pages"]},
+  {"t": "Local SEO", "d": "Google Business Profile, maps, reviews and city pages for Cairo, Jeddah, Riyadh and beyond.", "tags": ["Google Business Profile", "Maps", "Reviews"]},
+  {"t": "Link building & PR", "d": "Guest posts and digital PR on relevant Arabic and English sites, never link farms.", "tags": ["Guest posts", "Digital PR", "Outreach"]},
+  {"t": "Off-page & reputation", "d": "Brand mentions, directory listings and review management that build trust with Google and people.", "tags": ["Mentions", "Directories"]},
+  {"t": "Reporting", "d": "A monthly report on rankings, organic traffic, conversions and next month's plan.", "tags": ["Looker Studio", "GA4", "Search Console"]}],
+ "processH": "Our SEO <em>method.</em>", "processP": "Six steps that repeat every month.",
+ "process": [["Audit", "Technical, content and backlink audit, plus a look at your top competitors."], ["Strategy", "Keyword map, priorities and a 90-day roadmap tied to your goals."], ["Fixes", "Technical and on-page fixes, done by us or with your developers."], ["Content", "New and improved pages and articles, published on a calendar."], ["Authority", "Links, mentions and local listings that build trust."], ["Report & refine", "Monthly results, what worked and what's next."]],
+ "lists": [{"h": "Every month <em>you get.</em>", "rows": ["Keyword rankings for your target terms", "Organic traffic and conversions from GA4", "Pages published and improved", "Links and mentions earned", "Technical issues found and fixed", "Next month's priorities"]}],
+ "chipsH": "Tools <em>we use.</em>", "chips": ["Google Search Console", "GA4", "Google Tag Manager", "Ahrefs", "SEMrush", "Screaming Frog", "PageSpeed Insights", "Looker Studio", "Google Business Profile"]}
+ar_base = {"crumb": "تحسين محركات البحث",
+ "stats": [["4", "محاور: تقني، محتوى، محلي، وثقة"], ["عربي + إنجليزي", "بحث كلمات مفتاحية باللغتين"], ["شهرياً", "تقارير الترتيب والزيارات والعملاء"], ["GA4", "تتبع مربوط بالعملاء والمبيعات"]],
+ "servicesH": "بحث، <em>معمول صح.</em>", "servicesP": "إصلاحات تقنية ومحتوى وثقة، بنقيسها بالعملاء مش بالترتيب بس.",
+ "services": [
+  {"t": "SEO التقني", "d": "الأرشفة والفهرسة وCore Web Vitals والـSchema والتحويلات وبنية الموقع، بنصلحها من الأساس.", "tags": ["Core Web Vitals", "Schema", "الفهرسة"]},
+  {"t": "بحث الكلمات المفتاحية", "d": "اللي عملاؤك بيكتبوه فعلاً، بالعربي والإنجليزي والفرانكو، ومربوط بالصفحات ونية البحث.", "tags": ["كلمات عربية", "نية البحث", "خريطة الكلمات"]},
+  {"t": "تحسين الصفحات", "d": "العناوين والوصف والروابط الداخلية والصور والنصوص، مضبوطة لكل كلمة مستهدفة.", "tags": ["العناوين والوصف", "الروابط الداخلية"]},
+  {"t": "المحتوى", "d": "صفحات خدمات وهبوط ومقالات مخططة كمجموعات مواضيع ومكتوبة بكتّاب لغتهم الأم.", "tags": ["مجموعات المواضيع", "المدونة", "صفحات الهبوط"]},
+  {"t": "SEO المحلي", "d": "ملف جوجل للأنشطة التجارية والخرائط والتقييمات وصفحات المدن للقاهرة وجدة والرياض وغيرها.", "tags": ["ملف جوجل للأنشطة", "الخرائط", "التقييمات"]},
+  {"t": "بناء الروابط والعلاقات العامة", "d": "مقالات ضيف وعلاقات عامة رقمية على مواقع عربية وإنجليزية مرتبطة بمجالك، من غير مزارع روابط.", "tags": ["مقالات ضيف", "علاقات عامة رقمية"]},
+  {"t": "خارج الموقع والسمعة", "d": "ذكر العلامة والأدلة وإدارة التقييمات اللي بتبني ثقة جوجل والناس.", "tags": ["الإشارات", "الأدلة"]},
+  {"t": "التقارير", "d": "تقرير شهري بالترتيب والزيارات والتحويلات وخطة الشهر الجاي.", "tags": ["Looker Studio", "GA4", "Search Console"]}],
+ "processH": "منهجنا في <em>الـSEO.</em>", "processP": "ست خطوات بتتكرر كل شهر.",
+ "process": [["المراجعة", "مراجعة تقنية وللمحتوى والروابط، ونظرة على أقوى منافسينك."], ["الاستراتيجية", "خريطة الكلمات والأولويات وخطة 90 يوم مربوطة بأهدافك."], ["الإصلاحات", "إصلاحات تقنية وعلى الصفحات، بنعملها أو مع المطورين عندك."], ["المحتوى", "صفحات ومقالات جديدة ومحسّنة، بتتنشر على جدول."], ["بناء الثقة", "روابط وإشارات وقوائم محلية بتبني الثقة."], ["التقرير والتطوير", "نتايج كل شهر، وإيه اللي نجح، وإيه الخطوة الجاية."]],
+ "lists": [{"h": "كل شهر <em>هتستلم.</em>", "rows": ["ترتيب الكلمات المستهدفة", "الزيارات والتحويلات من GA4", "الصفحات اللي اتنشرت واتحسنت", "الروابط والإشارات الجديدة", "المشاكل التقنية اللي اتلقت واتصلحت", "أولويات الشهر الجاي"]}],
+ "chipsH": "أدوات <em>بنستخدمها.</em>", "chips": en_base['chips']}
+panel = lambda t, rows, foot: {"t": t, "rows": rows, "foot": foot}
+d = {"id": "seo", "paths": {"eg": "/seo/", "ksa": "/ksa/seo-agency-in-jeddah/"},
+ "en": {"base": en_base,
+  "eg": {"eyebrow": "SEO agency in Cairo, Egypt", "slogan": "Found first, <em>chosen first.</em>",
+         "lead": "We get Egyptian businesses found on Google in Arabic and English: technical SEO, keyword research, content, local SEO and link building, reported every month against leads and sales.",
+         "heroPanel": panel("doers · SEO audit", [["Indexing & crawl", "Checked ✓"], ["Core Web Vitals", "LCP · INP · CLS"], ["Arabic keywords", "Mapped ✓"], ["Schema", "Organization · FAQ · Service"], ["Google Business Profile", "Cairo ✓"], ["Backlink profile", "Reviewed ✓"]], "What we check in the first two weeks."),
+         "introH": "Your customers <em>search first.</em>", "intro": ["Before they call, visit or buy, Egyptian customers search: for a clinic in New Cairo, a compound in Sheikh Zayed, a supplier in the 10th of Ramadan. Most of them never scroll past the first results.", "We build SEO that lasts: a fast, well-structured site, content in the Arabic people actually use, and trust from real links and reviews. And because we also run your ads, we use paid search data to find the keywords that convert."]},
+  "ksa": {"eyebrow": "SEO agency in Jeddah", "slogan": "Rank across <em>the Kingdom.</em>",
+          "lead": "From our Jeddah office we grow organic search for Saudi businesses: Saudi Arabic keyword research, technical SEO, content, local SEO for Jeddah, Riyadh and Dammam, and monthly reporting.",
+          "heroPanel": panel("doers · KSA SEO audit", [["Saudi Arabic keywords", "Mapped ✓"], ["Core Web Vitals", "LCP · INP · CLS"], ["Hreflang ar-SA / en", "Checked ✓"], ["Google Business Profile", "Jeddah · Riyadh"], ["Schema", "Organization · FAQ · Service"], ["Backlink profile", "Reviewed ✓"]], "What we check in the first two weeks."),
+          "introH": "Search in Saudi Arabia <em>is Arabic.</em>", "intro": ["Most Saudi searches happen in Arabic and on mobile, with local dialect and spellings that translated keyword lists miss. Ranking in Jeddah is not the same as ranking in Riyadh, and Google Maps decides much of the local traffic.", "We research keywords the way Saudis search, build city pages and Google Business Profiles for each branch, and grow authority with links from relevant Saudi and Gulf sites."]}},
+ "ar": {"base": ar_base,
+  "eg": {"eyebrow": "شركة SEO في القاهرة، مصر", "slogan": "تظهر الأول، <em>تتختار الأول.</em>",
+         "lead": "بنخلي الشركات المصرية تظهر على جوجل بالعربي والإنجليزي: SEO تقني وبحث كلمات ومحتوى وSEO محلي وبناء روابط، مع تقرير شهري بالعملاء والمبيعات.",
+         "heroPanel": panel("doers · مراجعة SEO", [["الأرشفة والفهرسة", "✓ متراجعة"], ["Core Web Vitals", "LCP · INP · CLS"], ["الكلمات العربية", "✓ متخططة"], ["Schema", "Organization · FAQ · Service"], ["ملف جوجل للأنشطة", "القاهرة ✓"], ["ملف الروابط", "✓ متراجع"]], "اللي بنراجعه في أول أسبوعين."),
+         "introH": "عملاؤك <em>بيدوّروا الأول.</em>", "intro": ["قبل ما يتصل أو يزور أو يشتري، العميل المصري بيدوّر: على عيادة في التجمع، أو كمبوند في الشيخ زايد، أو مورد في العاشر من رمضان. ومعظمهم مش بيعدّي أول النتايج.", "بنبني SEO يدوم: موقع سريع ومنظم، ومحتوى بالعربي اللي الناس بتكتبه فعلاً، وثقة من روابط وتقييمات حقيقية. ولأننا كمان بندير إعلاناتك، بنستخدم بيانات البحث المدفوع علشان نلاقي الكلمات اللي بتبيع."]},
+  "ksa": {"eyebrow": "وكالة SEO في جدة", "slogan": "تصدّر <em>في كل المملكة.</em>",
+          "lead": "من مكتبنا في جدة ننمّي البحث المجاني للشركات السعودية: كلمات مفتاحية باللهجة السعودية، وSEO تقني، ومحتوى، وSEO محلي لجدة والرياض والدمام، وتقارير شهرية.",
+          "heroPanel": panel("doers · مراجعة SEO للسعودية", [["كلمات سعودية", "✓ متخططة"], ["Core Web Vitals", "LCP · INP · CLS"], ["Hreflang ar-SA / en", "✓"], ["ملف جوجل للأنشطة", "جدة · الرياض"], ["Schema", "Organization · FAQ · Service"], ["ملف الروابط", "✓ متراجع"]], "اللي نراجعه في أول أسبوعين."),
+          "introH": "البحث في السعودية <em>بالعربي.</em>", "intro": ["أغلب عمليات البحث في السعودية بالعربي ومن الجوال، بلهجة وتهجئات محلية تفوّتها قوائم الكلمات المترجمة. والتصدّر في جدة غير التصدّر في الرياض، وخرائط جوجل تحدد جزء كبير من الزيارات المحلية.", "نبحث الكلمات بالطريقة اللي يبحث فيها السعوديون، ونبني صفحات المدن وملفات جوجل لكل فرع، ونقوّي الموقع بروابط من مواقع سعودية وخليجية مرتبطة بمجالك."]}}}
+json.dump(d, open('src/data/services/seo.json', 'w'), ensure_ascii=False, indent=1)
+print('ok')

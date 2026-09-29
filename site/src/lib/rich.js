@@ -17,3 +17,15 @@ export function richFor(enPath, lang) {
   }
   return null;
 }
+
+/**
+ * Route props for a page from service-pages(.ar).json: the rich template when a services/*.json file covers its path,
+ * with the page's own title and description kept and its keyword eyebrow promoted to the H1; otherwise the ServicePage.
+ */
+export function servicePageProps(p, lang, alt) {
+  const enPath = '/' + p.slug + '/';
+  const r = richFor(enPath, lang);
+  if (!r) return { kind: 'service', p, alt };
+  const path = (lang === 'ar' ? '/ar' : '') + enPath;
+  return { kind: 'legacy', r: { ...r, faq: r.faq || p.faq }, p: { path, lang, title: p.title, description: p.desc, og: p.og, h1: p.eyebrow, sections: [] }, alt };
+}

@@ -10,6 +10,7 @@ import SiteFooter from './SiteFooter.astro';
 import ServiceStrip from './ServiceStrip.astro';
 import VideoBand from './VideoBand.astro';
 import VimeoLightbox from './VimeoLightbox.astro';
+import FilmGallery from './FilmGallery.astro';
 import menu from '../data/services-menu.json';
 import faqs from '../data/faqs.json';
 import media from '../data/media-films.json';
@@ -20,13 +21,13 @@ const lang = p.lang;
 const site = 'https://doersadv.com';
 const enPath = ar ? p.path.slice(3) : p.path;
 const alternates = alt ? { en: enPath, ar: '/ar' + enPath } : ar ? { ar: p.path } : { en: p.path };
-const ksa = r.city === 'ksa';
+const ksa = r.city !== 'eg';
 const L = ar
-  ? { home: 'الرئيسية', ksa: 'السعودية', crumbs: 'مسار الصفحة', start: 'ابدأ مشروعك', wa: 'واتساب', cairo: 'القاهرة', jeddah: 'جدة', city: 'اختر المدينة', faq: 'أسئلة <em>شائعة.</em>', more: ksa ? 'خدماتنا في جدة' : 'خدماتنا في القاهرة', play: 'شغّل', readMore: 'اقرأ المزيد عن الخدمة', ctaH: 'يلا <em>نشتغل.</em>', ctaP: 'احكيلنا عن مشروعك، وهنرد عليك خلال يوم عمل واحد بخطة وتكلفة واضحة.' }
-  : { home: 'Home', ksa: 'KSA', crumbs: 'Breadcrumb', start: 'Start a project', wa: 'WhatsApp us', cairo: 'Cairo', jeddah: 'Jeddah', city: 'Choose a city', faq: 'Questions, <em>answered.</em>', more: ksa ? 'More from our Jeddah team' : 'More from our Cairo team', play: 'Play', readMore: 'Read more about this service', ctaH: 'Let’s <em>talk.</em>', ctaP: 'Tell us about the project. We reply within one working day with a plan and a clear quote.' };
+  ? { home: 'الرئيسية', ksa: 'السعودية', crumbs: 'مسار الصفحة', start: 'ابدأ مشروعك', wa: 'واتساب', cairo: 'القاهرة', jeddah: 'جدة', riyadh: 'الرياض', city: 'اختر المدينة', faq: 'أسئلة <em>شائعة.</em>', more: ksa ? 'خدماتنا في جدة' : 'خدماتنا في القاهرة', play: 'شغّل', readMore: 'اقرأ المزيد عن الخدمة', ctaH: 'يلا <em>نشتغل.</em>', ctaP: 'احكيلنا عن مشروعك، وهنرد عليك خلال يوم عمل واحد بخطة وتكلفة واضحة.' }
+  : { home: 'Home', ksa: 'KSA', crumbs: 'Breadcrumb', start: 'Start a project', wa: 'WhatsApp us', cairo: 'Cairo', jeddah: 'Jeddah', riyadh: 'Riyadh', city: 'Choose a city', faq: 'Questions, <em>answered.</em>', more: ksa ? 'More from our Jeddah team' : 'More from our Cairo team', play: 'Play', readMore: 'Read more about this service', ctaH: 'Let’s <em>talk.</em>', ctaP: 'Tell us about the project. We reply within one working day with a plan and a clear quote.' };
 const reelTitle = (id) => { const x = media.reels.find((m) => m.id === id) || media.films.find((m) => m.id === id); return x ? (ar ? x.ar : x.en) : ''; };
-const faq = (faqs[enPath] && faqs[enPath][lang]) || [];
-const oldCopy = p.sections.filter((s) => !s.kind && (s.nodes || []).some((n) => n.t === 'p'));
+const faq = (faqs[enPath] && faqs[enPath][lang]) || r.faq || [];
+const oldCopy = (p.sections || []).filter((s) => !s.kind && (s.nodes || []).some((n) => n.t === 'p'));
 const related = menu.filter((s) => (ksa ? s.ksa : s.eg)).map((s) => ({ href: loc(ksa ? s.ksa : s.eg, lang), name: ar ? s.ar : s.name })).filter((x) => x.href !== p.path);
 const crumb = r.crumb || p.eyebrow || p.h1;
 const schema = {
@@ -53,7 +54,8 @@ const schema = {
         <div class="rs-hero-t">
           <nav class="rs-city" aria-label={L.city}>
             {r.paths.eg && <a href={loc(r.paths.eg, lang)} aria-current={!ksa ? 'page' : undefined}>{L.cairo}</a>}
-            {r.paths.ksa && <a href={loc(r.paths.ksa, lang)} aria-current={ksa ? 'page' : undefined}>{L.jeddah}</a>}
+            {r.paths.ksa && <a href={loc(r.paths.ksa, lang)} aria-current={r.city === 'ksa' ? 'page' : undefined}>{L.jeddah}</a>}
+            {r.paths.riyadh && <a href={loc(r.paths.riyadh, lang)} aria-current={r.city === 'riyadh' ? 'page' : undefined}>{L.riyadh}</a>}
           </nav>
           <span class="label eyebrow">{r.eyebrow}</span>
           <h1 class="rs-h1">{p.h1}</h1>
@@ -74,6 +76,13 @@ const schema = {
           </div>
         )}
         {r.heroFilm && <button type="button" class="rs-hero-film" data-vimeo={r.heroFilm.vimeo} aria-label={`${L.play}: ${r.heroFilm.alt}`}><img src={r.heroFilm.img} alt={r.heroFilm.alt} fetchpriority="high"><span class="rs-pl" aria-hidden="true"></span><span class="rs-hero-cap">{r.heroFilm.alt}</span></button>}
+        {r.heroPanel && (
+          <div class="rs-panel" aria-label={r.heroPanel.t}>
+            <div class="rs-panel-h"><i></i><i></i><i></i><span>{r.heroPanel.t}</span></div>
+            <ul>{r.heroPanel.rows.map(([k, v]) => <li><span>{k}</span><b>{v}</b></li>)}</ul>
+            {r.heroPanel.foot && <p>{r.heroPanel.foot}</p>}
+          </div>
+        )}
         {r.heroImg && <figure class={`rs-hero-img${r.heroImg.fit === "contain" ? " fit-c" : ""}`}><img src={r.heroImg.src} alt={r.heroImg.alt} fetchpriority="high">{r.heroImg.cap && <figcaption>{r.heroImg.cap}</figcaption>}</figure>}
       </section>
     </div>
@@ -100,7 +109,7 @@ const schema = {
             {r.services.map((s, i) => (
               <div class="rs-row">
                 <span class="n">{String(i + 1).padStart(2, '0')}</span>
-                <h3>{s.t}</h3>
+                <h3>{s.href ? <a href={loc(s.href, lang)}>{s.t} <span class="arrow">↗</span></a> : s.t}</h3>
                 <div><p>{s.d}</p>{s.tags && <div class="rs-tags">{s.tags.map((t) => <span>{t}</span>)}</div>}</div>
               </div>
             ))}
@@ -137,6 +146,8 @@ const schema = {
           </div>
         </section>
       )}
+
+      {r.films && <FilmGallery lang={lang} />}
 
       {r.gallery && (
         <section class="rs-sec">
@@ -185,6 +196,27 @@ const schema = {
         <section class="rs-sec">
           <div class="rs-head"><h2 class="rs-h2" set:html={r.chipsH} />{r.chipsP && <p>{r.chipsP}</p>}</div>
           <div class="rs-chips">{r.chips.map((c) => <span>{c}</span>)}</div>
+        </section>
+      )}
+
+      {(r.lists || []).map((x) => (
+        <section class="rs-sec">
+          <div class="rs-head"><h2 class="rs-h2" set:html={x.h} />{x.p && <p>{x.p}</p>}</div>
+          <dl class={`rs-list${x.rows.every((row) => typeof row === 'string') ? ' ticks' : ''}`}>
+            {x.rows.map((row) => (typeof row === 'string' ? <div><dd>{row}</dd></div> : <div><dt>{row[0]}</dt><dd>{row[1]}</dd></div>))}
+          </dl>
+        </section>
+      ))}
+
+      {r.sites && (
+        <section class="rs-sec">
+          <div class="rs-head"><h2 class="rs-h2" set:html={r.sites.h} />{r.sites.p && <p>{r.sites.p}</p>}</div>
+          {r.sites.groups.map((g) => (
+            <div class="rs-sites">
+              <h3 class="label">{g.t}</h3>
+              <ul>{g.items.map(([name, href, note]) => <li><a href={href} target="_blank" rel="noopener"><b>{name}</b><span>{note} ↗</span></a></li>)}</ul>
+            </div>
+          ))}
         </section>
       )}
 

@@ -1,0 +1,939 @@
+{
+ "id": "signage",
+ "paths": {
+  "eg": "/signage-internal-branding-egypt/",
+  "ksa": "/ksa/signage-internal-branding-in-jeddah/"
+ },
+ "en": {
+  "base": {
+   "crumb": "Signage & Internal Branding",
+   "stats": [
+    [
+     "15+",
+     "Brands in our signage portfolio"
+    ],
+    [
+     "3",
+     "Countries: Egypt, KSA and the UAE"
+    ],
+    [
+     "6",
+     "Stages from survey to aftercare"
+    ],
+    [
+     "1",
+     "Team from design to drill"
+    ]
+   ],
+   "servicesH": "What we <em>make.</em>",
+   "processH": "From survey <em>to install.</em>",
+   "casesH": "Work <em>on the wall.</em>",
+   "galleryH": "From <em>the job.</em>",
+   "chipsH": "Materials <em>& methods.</em>"
+  },
+  "eg": {
+   "eyebrow": "Signage & internal branding · Cairo",
+   "slogan": "Signs people <em>notice.</em>",
+   "lead": "From the sign on your building to the walls of your meeting rooms, we design, fabricate and install signage and internal branding that make your space look like your brand.",
+   "heroImg": {
+    "src": "/img/signage/arab-bank-night.jpg",
+    "alt": "Arab Bank: illuminated facade letters and logo",
+    "cap": "Arab Bank: illuminated facade letters and logo"
+   },
+   "services": [
+    {
+     "t": "Building & shop signage",
+     "d": "3D letters, illuminated lightboxes, pylons and facade signs built for the sun and dust.",
+     "tags": [
+      "Outdoor"
+     ]
+    },
+    {
+     "t": "Office branding",
+     "d": "Reception walls, wall graphics, frosted-glass film and meeting room branding.",
+     "tags": [
+      "Indoor"
+     ]
+    },
+    {
+     "t": "Directional systems",
+     "d": "Floor directories, room signs and directional signs for offices, hospitals and malls.",
+     "tags": [
+      "Wayfinding"
+     ]
+    },
+    {
+     "t": "Mall signage",
+     "d": "Storefronts, mall directories and in-store branding that follows landlord guidelines.",
+     "tags": [
+      "Retail & malls"
+     ]
+    },
+    {
+     "t": "Hotel signage",
+     "d": "Signage packages for hotels and resorts, from arrival to room numbering.",
+     "tags": [
+      "Hospitality"
+     ]
+    },
+    {
+     "t": "Multi-site programs",
+     "d": "One standard applied across branches in Egypt, Saudi Arabia and the UAE.",
+     "tags": [
+      "Rollouts"
+     ]
+    }
+   ],
+   "process": [
+    [
+     "Site survey",
+     "We measure the space, photograph it and check power and fixing points."
+    ],
+    [
+     "Design",
+     "Signage and branding designs with renders on your real walls."
+    ],
+    [
+     "Samples & approvals",
+     "Material samples and sign-off from you, the landlord and the authorities where needed."
+    ],
+    [
+     "Fabrication",
+     "Production with quality checks at each stage, before anything reaches your site."
+    ],
+    [
+     "Installation",
+     "Scheduled installation, often after hours so your business keeps running."
+    ],
+    [
+     "Aftercare",
+     "Maintenance and replacements when your team or brand changes."
+    ]
+   ],
+   "introH": "One team from <em>design to drill.</em>",
+   "intro": [
+    "Signage usually passes between a designer, a print shop and an installer, and quality gets lost at every handover. Doers runs the whole job, so the sign that goes up matches the design you approved.",
+    "We've branded head offices, banks, hotels and malls, including Sanofi offices in Jeddah, Riyadh and Dubai and the MSD office in Dubai."
+   ],
+   "chips": [
+    "3D letters",
+    "Lightboxes",
+    "Pylons",
+    "Acrylic & metal",
+    "Wall graphics",
+    "Frosted film",
+    "Wayfinding",
+    "Installation"
+   ],
+   "gallery": [
+    {
+     "src": "/img/signage/arab-bank-night.jpg",
+     "alt": "Arab Bank · Illuminated facade letters and logo"
+    },
+    {
+     "src": "/img/signage/axa-reception.jpg",
+     "alt": "AXA · Reception branding"
+    },
+    {
+     "src": "/img/signage/serenity-alpha-beach.jpg",
+     "alt": "Serenity Alpha Beach · Resort entrance sign"
+    },
+    {
+     "src": "/img/signage/trivium-pylon.jpg",
+     "alt": "Trivium Square · Illuminated mall pylon"
+    },
+    {
+     "src": "/img/signage/sanofi-office.jpg",
+     "alt": "Sanofi · Office branding, Jeddah, Riyadh & Dubai"
+    },
+    {
+     "src": "/img/signage/mash-manifesto.jpg",
+     "alt": "Mash Premier · Manifesto wall"
+    },
+    {
+     "src": "/img/signage/sheraton.jpg",
+     "alt": "Sheraton · Hotel facade letters"
+    },
+    {
+     "src": "/img/signage/gourmet-3d.jpg",
+     "alt": "Gourmet Food Stores · 3D logo letters"
+    },
+    {
+     "src": "/img/signage/axa-history-wall.jpg",
+     "alt": "AXA · “Proud of our history” wall"
+    },
+    {
+     "src": "/img/signage/marriott-pylon.jpg",
+     "alt": "Marriott Hotels · Wayfinding pylon"
+    },
+    {
+     "src": "/img/signage/serenity-stardust.jpg",
+     "alt": "Serenity Hotels · StarDust restaurant sign"
+    },
+    {
+     "src": "/img/signage/msd-dubai.jpg",
+     "alt": "MSD · Dubai office graphics"
+    },
+    {
+     "src": "/img/signage/sway-mall.jpg",
+     "alt": "Sway Mall · Facade lighting and letters"
+    },
+    {
+     "src": "/img/signage/rsa-wall-of-fame.jpg",
+     "alt": "RSA · Glass wall of fame"
+    },
+    {
+     "src": "/img/signage/dina-farms.jpg",
+     "alt": "Dina Farms · Building branding"
+    },
+    {
+     "src": "/img/signage/arab-bank-install.jpg",
+     "alt": "Arab Bank · Letters during installation"
+    },
+    {
+     "src": "/img/signage/meat-moot.jpg",
+     "alt": "Meat Moot · Backlit restaurant sign"
+    },
+    {
+     "src": "/img/signage/itsa-wood.jpg",
+     "alt": "ITSA Wood · Showroom facade sign"
+    }
+   ],
+   "cases": [
+    {
+     "tag": "Insurance · Head office · Cairo",
+     "client": "AXA",
+     "text": "The AXA head office in Cairo, branded from reception to meeting rooms: the world-map wall, the “Proud of our history” wall, branded partitions and sustainability graphics.",
+     "img": "/img/signage/axa-reception.jpg",
+     "alt": "AXA reception branding",
+     "metrics": [
+      [
+       "Design",
+       "to installation"
+      ],
+      [
+       "5+",
+       "Branded zones"
+      ]
+     ]
+    },
+    {
+     "tag": "Banking · Facade & branches",
+     "client": "Arab Bank",
+     "text": "Illuminated facade letters and logos for Arab Bank branches, from shop drawings and fabrication to night installation.",
+     "img": "/img/signage/arab-bank-install.jpg",
+     "alt": "Arab Bank letters during installation"
+    },
+    {
+     "tag": "Hospitality · Resort signage",
+     "client": "Serenity Hotels",
+     "text": "A full signage package across Serenity resorts: entrance signs, restaurant names, backlit logo walls and brushed-metal letters.",
+     "img": "/img/signage/serenity-alpha-beach.jpg",
+     "alt": "Serenity Alpha Beach entrance sign"
+    },
+    {
+     "tag": "Healthcare · Offices · Jeddah, Riyadh & Dubai",
+     "client": "Sanofi",
+     "text": "Office branding for Sanofi in Jeddah, Riyadh and Dubai, one standard rolled out across three cities.",
+     "img": "/img/signage/sanofi-office.jpg",
+     "alt": "Sanofi office branding",
+     "metrics": [
+      [
+       "3",
+       "Cities"
+      ],
+      [
+       "1",
+       "Standard"
+      ]
+     ]
+    }
+   ]
+  },
+  "ksa": {
+   "eyebrow": "Signage & internal branding · Jeddah",
+   "slogan": "Your brand, <em>on every wall.</em>",
+   "lead": "From our Jeddah office we design, fabricate and install shop signs, building signage and office branding across Saudi Arabia, and roll the same standard out to your branches in the Gulf.",
+   "heroImg": {
+    "src": "/img/signage/sanofi-office.jpg",
+    "alt": "Sanofi: office branding in Jeddah, Riyadh and Dubai",
+    "cap": "Sanofi: office branding in Jeddah, Riyadh and Dubai"
+   },
+   "services": [
+    {
+     "t": "Shop & building signs",
+     "d": "Illuminated 3D letters, lightboxes, pylons and facade signs built for Saudi heat and sun.",
+     "tags": [
+      "Outdoor"
+     ]
+    },
+    {
+     "t": "Office branding",
+     "d": "Reception walls, wall graphics, frosted-glass film and meeting room branding.",
+     "tags": [
+      "Indoor"
+     ]
+    },
+    {
+     "t": "Directional systems",
+     "d": "Floor directories, room signs and directional signs for offices, clinics and malls.",
+     "tags": [
+      "Wayfinding"
+     ]
+    },
+    {
+     "t": "Mall signage",
+     "d": "Storefronts and in-store branding that follow mall and landlord guidelines.",
+     "tags": [
+      "Retail & malls"
+     ]
+    },
+    {
+     "t": "Hotel & resort signage",
+     "d": "Entrance signs, venue names and wayfinding for hotels and resorts.",
+     "tags": [
+      "Hospitality"
+     ]
+    },
+    {
+     "t": "Multi-branch programs",
+     "d": "One standard applied across branches in Saudi Arabia, the UAE and Egypt.",
+     "tags": [
+      "Rollouts"
+     ]
+    }
+   ],
+   "process": [
+    [
+     "Site survey",
+     "We visit your location in Jeddah or Riyadh, measure and photograph it."
+    ],
+    [
+     "Design",
+     "Signage and branding designs with renders on your real walls and facade."
+    ],
+    [
+     "Approvals",
+     "Drawings and specifications for your landlord, mall and municipality permits."
+    ],
+    [
+     "Fabrication",
+     "Production with quality checks at each stage, before anything reaches site."
+    ],
+    [
+     "Installation",
+     "Scheduled installation, after hours when needed so your business keeps running."
+    ],
+    [
+     "Aftercare",
+     "Maintenance and replacements when your team, branches or brand change."
+    ]
+   ],
+   "introH": "One team from <em>design to drill.</em>",
+   "intro": [
+    "Signage usually passes between a designer, a print shop and an installer, and quality gets lost at every handover. Doers runs the whole job, so the sign that goes up matches the design you approved.",
+    "We delivered office branding for Sanofi in Jeddah, Riyadh and Dubai, and production for the Jeddah Defense Show at Hilton Jeddah. In Egypt our signage clients include AXA, Bosch, Arab Bank, Nestlé and Marriott."
+   ],
+   "chips": [
+    "3D letters",
+    "Lightboxes",
+    "Pylons",
+    "Acrylic & metal",
+    "Wall graphics",
+    "Frosted film",
+    "Wayfinding",
+    "Installation"
+   ],
+   "gallery": [
+    {
+     "src": "/img/signage/arab-bank-night.jpg",
+     "alt": "Arab Bank · Illuminated facade letters and logo"
+    },
+    {
+     "src": "/img/signage/axa-reception.jpg",
+     "alt": "AXA · Reception branding"
+    },
+    {
+     "src": "/img/signage/serenity-alpha-beach.jpg",
+     "alt": "Serenity Alpha Beach · Resort entrance sign"
+    },
+    {
+     "src": "/img/signage/trivium-pylon.jpg",
+     "alt": "Trivium Square · Illuminated mall pylon"
+    },
+    {
+     "src": "/img/signage/sanofi-office.jpg",
+     "alt": "Sanofi · Office branding, Jeddah, Riyadh & Dubai"
+    },
+    {
+     "src": "/img/signage/mash-manifesto.jpg",
+     "alt": "Mash Premier · Manifesto wall"
+    },
+    {
+     "src": "/img/signage/sheraton.jpg",
+     "alt": "Sheraton · Hotel facade letters"
+    },
+    {
+     "src": "/img/signage/gourmet-3d.jpg",
+     "alt": "Gourmet Food Stores · 3D logo letters"
+    },
+    {
+     "src": "/img/signage/axa-history-wall.jpg",
+     "alt": "AXA · “Proud of our history” wall"
+    },
+    {
+     "src": "/img/signage/marriott-pylon.jpg",
+     "alt": "Marriott Hotels · Wayfinding pylon"
+    },
+    {
+     "src": "/img/signage/serenity-stardust.jpg",
+     "alt": "Serenity Hotels · StarDust restaurant sign"
+    },
+    {
+     "src": "/img/signage/msd-dubai.jpg",
+     "alt": "MSD · Dubai office graphics"
+    },
+    {
+     "src": "/img/signage/sway-mall.jpg",
+     "alt": "Sway Mall · Facade lighting and letters"
+    },
+    {
+     "src": "/img/signage/rsa-wall-of-fame.jpg",
+     "alt": "RSA · Glass wall of fame"
+    },
+    {
+     "src": "/img/signage/dina-farms.jpg",
+     "alt": "Dina Farms · Building branding"
+    },
+    {
+     "src": "/img/signage/arab-bank-install.jpg",
+     "alt": "Arab Bank · Letters during installation"
+    },
+    {
+     "src": "/img/signage/meat-moot.jpg",
+     "alt": "Meat Moot · Backlit restaurant sign"
+    },
+    {
+     "src": "/img/signage/itsa-wood.jpg",
+     "alt": "ITSA Wood · Showroom facade sign"
+    }
+   ],
+   "cases": [
+    {
+     "tag": "Healthcare · Offices · Jeddah, Riyadh & Dubai",
+     "client": "Sanofi",
+     "text": "Office branding for Sanofi in Jeddah, Riyadh and Dubai, one standard rolled out across three cities.",
+     "img": "/img/signage/sanofi-office.jpg",
+     "alt": "Sanofi office branding",
+     "metrics": [
+      [
+       "3",
+       "Cities"
+      ],
+      [
+       "1",
+       "Standard"
+      ]
+     ]
+    },
+    {
+     "tag": "Healthcare · Office · Dubai",
+     "client": "MSD",
+     "text": "Wall graphics and lounge branding for the MSD office in Dubai.",
+     "img": "/img/signage/msd-dubai.jpg",
+     "alt": "MSD Dubai office graphics"
+    },
+    {
+     "tag": "Insurance · Head office · Cairo",
+     "client": "AXA",
+     "text": "The AXA head office in Cairo, branded from reception to meeting rooms: the world-map wall, the “Proud of our history” wall, branded partitions and sustainability graphics.",
+     "img": "/img/signage/axa-reception.jpg",
+     "alt": "AXA reception branding",
+     "metrics": [
+      [
+       "Design",
+       "to installation"
+      ],
+      [
+       "5+",
+       "Branded zones"
+      ]
+     ]
+    },
+    {
+     "tag": "Banking · Facade & branches",
+     "client": "Arab Bank",
+     "text": "Illuminated facade letters and logos for Arab Bank branches, from shop drawings and fabrication to night installation.",
+     "img": "/img/signage/arab-bank-install.jpg",
+     "alt": "Arab Bank letters during installation"
+    }
+   ]
+  }
+ },
+ "ar": {
+  "base": {
+   "crumb": "اللافتات والهوية الداخلية",
+   "stats": [
+    [
+     "+15",
+     "علامة في معرض أعمالنا للافتات"
+    ],
+    [
+     "3",
+     "دول: مصر والسعودية والإمارات"
+    ],
+    [
+     "6",
+     "مراحل من المعاينة للصيانة"
+    ],
+    [
+     "1",
+     "فريق من التصميم للتركيب"
+    ]
+   ],
+   "servicesH": "إيه اللي <em>بنعمله.</em>",
+   "processH": "من المعاينة <em>للتركيب.</em>",
+   "casesH": "شغل <em>على الأرض.</em>",
+   "galleryH": "من <em>المشاريع.</em>",
+   "chipsH": "خامات <em>وتقنيات.</em>"
+  },
+  "eg": {
+   "eyebrow": "اللافتات والهوية الداخلية · القاهرة",
+   "slogan": "لافتات <em>تلفت النظر.</em>",
+   "lead": "من اللافتة على مبناك إلى جدران غرف الاجتماعات، نصمم ونصنّع ونركّب لافتات وهوية داخلية تجعل مكانك يشبه علامتك.",
+   "heroImg": {
+    "src": "/img/signage/arab-bank-night.jpg",
+    "alt": "البنك العربي: حروف وشعار مضيئة على الواجهة",
+    "cap": "البنك العربي: حروف وشعار مضيئة على الواجهة"
+   },
+   "services": [
+    {
+     "t": "لافتات المباني والمحلات",
+     "d": "حروف بارزة، وصناديق مضيئة، ولافتات عمودية، ولافتات واجهات مصنوعة لتتحمل الشمس والأتربة.",
+     "tags": [
+      "خارجي"
+     ]
+    },
+    {
+     "t": "هوية المكاتب",
+     "d": "جدران الاستقبال، والجرافيك الجداري، واستيكر الزجاج المصنفر، وهوية غرف الاجتماعات.",
+     "tags": [
+      "داخلي"
+     ]
+    },
+    {
+     "t": "أنظمة التوجيه",
+     "d": "أدلة الأدوار، ولافتات الغرف، واللافتات الإرشادية للمكاتب والمستشفيات والمولات.",
+     "tags": [
+      "اللافتات الإرشادية"
+     ]
+    },
+    {
+     "t": "لافتات المولات",
+     "d": "واجهات المحلات وأدلة المولات والهوية داخل المتجر، وفق اشتراطات إدارة المول.",
+     "tags": [
+      "التجزئة والمولات"
+     ]
+    },
+    {
+     "t": "لافتات الفنادق",
+     "d": "باقات لافتات للفنادق والمنتجعات، من المدخل حتى أرقام الغرف.",
+     "tags": [
+      "الضيافة"
+     ]
+    },
+    {
+     "t": "برامج متعددة المواقع",
+     "d": "معيار واحد يُطبق على الفروع في مصر والسعودية والإمارات.",
+     "tags": [
+      "التعميم على الفروع"
+     ]
+    }
+   ],
+   "process": [
+    [
+     "معاينة الموقع",
+     "نقيس المكان ونصوره ونراجع نقاط الكهرباء والتثبيت."
+    ],
+    [
+     "التصميم",
+     "تصميمات اللافتات والهوية مع صور تخيلية على جدرانك الحقيقية."
+    ],
+    [
+     "العينات والموافقات",
+     "عينات الخامات واعتمادك، واعتماد المالك والجهات المختصة عند الحاجة."
+    ],
+    [
+     "التصنيع",
+     "إنتاج مع فحص جودة في كل مرحلة، قبل وصول أي شيء لموقعك."
+    ],
+    [
+     "التركيب",
+     "تركيب بمواعيد محددة، وغالبًا بعد ساعات العمل حتى لا يتوقف نشاطك."
+    ],
+    [
+     "ما بعد التسليم",
+     "صيانة واستبدال عند تغير فريقك أو علامتك."
+    ]
+   ],
+   "introH": "فريق واحد من <em>التصميم للتركيب.</em>",
+   "intro": [
+    "عادةً تنتقل اللافتة بين مصمم ومطبعة وفني تركيب، وتضيع الجودة مع كل تسليم. في دورز ندير المهمة كاملة، فتطابق اللافتة المركّبة التصميم الذي اعتمدته.",
+    "نفذنا هوية مقرات رئيسية وبنوك وفنادق ومولات، منها مكاتب سانوفي في جدة والرياض ودبي، ومكتب MSD في دبي."
+   ],
+   "chips": [
+    "حروف بارزة",
+    "صناديق مضيئة",
+    "لافتات عمودية",
+    "أكريليك ومعدن",
+    "جرافيك جداري",
+    "استيكر مصنفر",
+    "لافتات إرشادية",
+    "تركيب"
+   ],
+   "gallery": [
+    {
+     "src": "/img/signage/arab-bank-night.jpg",
+     "alt": "Arab Bank · حروف وشعار مضيئة على الواجهة"
+    },
+    {
+     "src": "/img/signage/axa-reception.jpg",
+     "alt": "AXA · هوية الاستقبال"
+    },
+    {
+     "src": "/img/signage/serenity-alpha-beach.jpg",
+     "alt": "Serenity Alpha Beach · لافتة مدخل المنتجع"
+    },
+    {
+     "src": "/img/signage/trivium-pylon.jpg",
+     "alt": "Trivium Square · لافتة عمودية مضيئة للمول"
+    },
+    {
+     "src": "/img/signage/sanofi-office.jpg",
+     "alt": "Sanofi · هوية المكاتب في جدة والرياض ودبي"
+    },
+    {
+     "src": "/img/signage/mash-manifesto.jpg",
+     "alt": "Mash Premier · جدار المبادئ"
+    },
+    {
+     "src": "/img/signage/sheraton.jpg",
+     "alt": "Sheraton · حروف على واجهة الفندق"
+    },
+    {
+     "src": "/img/signage/gourmet-3d.jpg",
+     "alt": "Gourmet Food Stores · حروف بارزة للشعار"
+    },
+    {
+     "src": "/img/signage/axa-history-wall.jpg",
+     "alt": "AXA · جدار «فخورون بتاريخنا»"
+    },
+    {
+     "src": "/img/signage/marriott-pylon.jpg",
+     "alt": "Marriott Hotels · لافتة إرشادية عمودية"
+    },
+    {
+     "src": "/img/signage/serenity-stardust.jpg",
+     "alt": "Serenity Hotels · لافتة مطعم StarDust"
+    },
+    {
+     "src": "/img/signage/msd-dubai.jpg",
+     "alt": "MSD · جرافيك مكتب دبي"
+    },
+    {
+     "src": "/img/signage/sway-mall.jpg",
+     "alt": "Sway Mall · إضاءة وحروف الواجهة"
+    },
+    {
+     "src": "/img/signage/rsa-wall-of-fame.jpg",
+     "alt": "RSA · جدار إنجازات زجاجي"
+    },
+    {
+     "src": "/img/signage/dina-farms.jpg",
+     "alt": "Dina Farms · هوية المبنى"
+    },
+    {
+     "src": "/img/signage/arab-bank-install.jpg",
+     "alt": "Arab Bank · الحروف أثناء التركيب"
+    },
+    {
+     "src": "/img/signage/meat-moot.jpg",
+     "alt": "Meat Moot · لافتة مطعم بإضاءة خلفية"
+    },
+    {
+     "src": "/img/signage/itsa-wood.jpg",
+     "alt": "ITSA Wood · لافتة واجهة المعرض"
+    }
+   ],
+   "cases": [
+    {
+     "tag": "تأمين · المقر الرئيسي · القاهرة",
+     "client": "AXA",
+     "text": "المقر الرئيسي لـAXA في القاهرة بهوية كاملة من الاستقبال لغرف الاجتماعات: جدار خريطة العالم، وجدار «فخورون بتاريخنا»، وفواصل زجاجية، وجرافيك الاستدامة.",
+     "img": "/img/signage/axa-reception.jpg",
+     "alt": "هوية استقبال AXA",
+     "metrics": [
+      [
+       "من التصميم",
+       "للتركيب"
+      ],
+      [
+       "+5",
+       "مناطق بهوية"
+      ]
+     ]
+    },
+    {
+     "tag": "بنوك · الواجهات والفروع",
+     "client": "البنك العربي",
+     "text": "حروف وشعارات مضيئة لواجهات فروع البنك العربي، من الرسومات التنفيذية والتصنيع لحد التركيب بالليل.",
+     "img": "/img/signage/arab-bank-install.jpg",
+     "alt": "حروف البنك العربي أثناء التركيب"
+    },
+    {
+     "tag": "ضيافة · لافتات المنتجعات",
+     "client": "Serenity Hotels",
+     "text": "باقة لافتات كاملة لمنتجعات سيرينيتي: لافتات المداخل، وأسماء المطاعم، وجدران شعار بإضاءة خلفية، وحروف معدنية مصقولة.",
+     "img": "/img/signage/serenity-alpha-beach.jpg",
+     "alt": "لافتة مدخل سيرينيتي ألفا بيتش"
+    },
+    {
+     "tag": "رعاية صحية · مكاتب · جدة والرياض ودبي",
+     "client": "سانوفي",
+     "text": "هوية مكاتب سانوفي في جدة والرياض ودبي، بمعيار واحد في ثلاث مدن.",
+     "img": "/img/signage/sanofi-office.jpg",
+     "alt": "هوية مكاتب سانوفي",
+     "metrics": [
+      [
+       "3",
+       "مدن"
+      ],
+      [
+       "1",
+       "معيار"
+      ]
+     ]
+    }
+   ]
+  },
+  "ksa": {
+   "eyebrow": "اللافتات والهوية الداخلية · جدة",
+   "slogan": "علامتك <em>على كل جدار.</em>",
+   "lead": "من مكتبنا في جدة نصمم ونصنّع ونركّب لافتات المحلات والمباني وهوية المكاتب في أنحاء السعودية، ونعمم المعيار نفسه على فروعك في الخليج.",
+   "heroImg": {
+    "src": "/img/signage/sanofi-office.jpg",
+    "alt": "سانوفي: هوية المكاتب في جدة والرياض ودبي",
+    "cap": "سانوفي: هوية المكاتب في جدة والرياض ودبي"
+   },
+   "services": [
+    {
+     "t": "لافتات المحلات والمباني",
+     "d": "حروف بارزة مضيئة، وصناديق مضيئة، ولافتات عمودية، ولافتات واجهات مصنوعة لتتحمل حرارة السعودية وشمسها.",
+     "tags": [
+      "خارجي"
+     ]
+    },
+    {
+     "t": "هوية المكاتب",
+     "d": "جدران الاستقبال، والجرافيك الجداري، واستيكر الزجاج المصنفر، وهوية غرف الاجتماعات.",
+     "tags": [
+      "داخلي"
+     ]
+    },
+    {
+     "t": "أنظمة التوجيه",
+     "d": "أدلة الأدوار، ولافتات الغرف، واللافتات الإرشادية للمكاتب والعيادات والمولات.",
+     "tags": [
+      "اللافتات الإرشادية"
+     ]
+    },
+    {
+     "t": "لافتات المولات",
+     "d": "واجهات المحلات والهوية داخل المتجر وفق اشتراطات المول والمالك.",
+     "tags": [
+      "التجزئة والمولات"
+     ]
+    },
+    {
+     "t": "لافتات الفنادق والمنتجعات",
+     "d": "لافتات المداخل وأسماء المرافق واللافتات الإرشادية للفنادق والمنتجعات.",
+     "tags": [
+      "الضيافة"
+     ]
+    },
+    {
+     "t": "برامج متعددة الفروع",
+     "d": "معيار واحد يُطبق على الفروع في السعودية والإمارات ومصر.",
+     "tags": [
+      "التعميم على الفروع"
+     ]
+    }
+   ],
+   "process": [
+    [
+     "معاينة الموقع",
+     "نزور موقعك في جدة أو الرياض ونقيسه ونصوره."
+    ],
+    [
+     "التصميم",
+     "تصميمات اللافتات والهوية مع صور تخيلية على جدرانك وواجهتك الحقيقية."
+    ],
+    [
+     "الموافقات",
+     "الرسومات والمواصفات المطلوبة للمالك والمول وتصاريح البلدية."
+    ],
+    [
+     "التصنيع",
+     "إنتاج مع فحص جودة في كل مرحلة، قبل وصول أي شيء للموقع."
+    ],
+    [
+     "التركيب",
+     "تركيب بمواعيد محددة، وبعد ساعات العمل عند الحاجة حتى لا يتوقف نشاطك."
+    ],
+    [
+     "ما بعد التسليم",
+     "صيانة واستبدال عند تغير فريقك أو فروعك أو علامتك."
+    ]
+   ],
+   "introH": "فريق واحد من <em>التصميم للتركيب.</em>",
+   "intro": [
+    "عادةً تنتقل اللافتة بين مصمم ومطبعة وفني تركيب، وتضيع الجودة مع كل تسليم. في دورز ندير المهمة كاملة، فتطابق اللافتة المركّبة التصميم الذي اعتمدته.",
+    "نفذنا هوية مكاتب سانوفي في جدة والرياض ودبي، والإنتاج لمعرض جدة للدفاع في هيلتون جدة. وفي مصر من عملائنا في اللافتات AXA وBosch والبنك العربي ونستله وماريوت."
+   ],
+   "chips": [
+    "حروف بارزة",
+    "صناديق مضيئة",
+    "لافتات عمودية",
+    "أكريليك ومعدن",
+    "جرافيك جداري",
+    "استيكر مصنفر",
+    "لافتات إرشادية",
+    "تركيب"
+   ],
+   "gallery": [
+    {
+     "src": "/img/signage/arab-bank-night.jpg",
+     "alt": "Arab Bank · حروف وشعار مضيئة على الواجهة"
+    },
+    {
+     "src": "/img/signage/axa-reception.jpg",
+     "alt": "AXA · هوية الاستقبال"
+    },
+    {
+     "src": "/img/signage/serenity-alpha-beach.jpg",
+     "alt": "Serenity Alpha Beach · لافتة مدخل المنتجع"
+    },
+    {
+     "src": "/img/signage/trivium-pylon.jpg",
+     "alt": "Trivium Square · لافتة عمودية مضيئة للمول"
+    },
+    {
+     "src": "/img/signage/sanofi-office.jpg",
+     "alt": "Sanofi · هوية المكاتب في جدة والرياض ودبي"
+    },
+    {
+     "src": "/img/signage/mash-manifesto.jpg",
+     "alt": "Mash Premier · جدار المبادئ"
+    },
+    {
+     "src": "/img/signage/sheraton.jpg",
+     "alt": "Sheraton · حروف على واجهة الفندق"
+    },
+    {
+     "src": "/img/signage/gourmet-3d.jpg",
+     "alt": "Gourmet Food Stores · حروف بارزة للشعار"
+    },
+    {
+     "src": "/img/signage/axa-history-wall.jpg",
+     "alt": "AXA · جدار «فخورون بتاريخنا»"
+    },
+    {
+     "src": "/img/signage/marriott-pylon.jpg",
+     "alt": "Marriott Hotels · لافتة إرشادية عمودية"
+    },
+    {
+     "src": "/img/signage/serenity-stardust.jpg",
+     "alt": "Serenity Hotels · لافتة مطعم StarDust"
+    },
+    {
+     "src": "/img/signage/msd-dubai.jpg",
+     "alt": "MSD · جرافيك مكتب دبي"
+    },
+    {
+     "src": "/img/signage/sway-mall.jpg",
+     "alt": "Sway Mall · إضاءة وحروف الواجهة"
+    },
+    {
+     "src": "/img/signage/rsa-wall-of-fame.jpg",
+     "alt": "RSA · جدار إنجازات زجاجي"
+    },
+    {
+     "src": "/img/signage/dina-farms.jpg",
+     "alt": "Dina Farms · هوية المبنى"
+    },
+    {
+     "src": "/img/signage/arab-bank-install.jpg",
+     "alt": "Arab Bank · الحروف أثناء التركيب"
+    },
+    {
+     "src": "/img/signage/meat-moot.jpg",
+     "alt": "Meat Moot · لافتة مطعم بإضاءة خلفية"
+    },
+    {
+     "src": "/img/signage/itsa-wood.jpg",
+     "alt": "ITSA Wood · لافتة واجهة المعرض"
+    }
+   ],
+   "cases": [
+    {
+     "tag": "رعاية صحية · مكاتب · جدة والرياض ودبي",
+     "client": "سانوفي",
+     "text": "هوية مكاتب سانوفي في جدة والرياض ودبي، بمعيار واحد في ثلاث مدن.",
+     "img": "/img/signage/sanofi-office.jpg",
+     "alt": "هوية مكاتب سانوفي",
+     "metrics": [
+      [
+       "3",
+       "مدن"
+      ],
+      [
+       "1",
+       "معيار"
+      ]
+     ]
+    },
+    {
+     "tag": "رعاية صحية · مكتب · دبي",
+     "client": "MSD",
+     "text": "جرافيك جداري وهوية الاستراحة لمكتب MSD في دبي.",
+     "img": "/img/signage/msd-dubai.jpg",
+     "alt": "جرافيك مكتب MSD في دبي"
+    },
+    {
+     "tag": "تأمين · المقر الرئيسي · القاهرة",
+     "client": "AXA",
+     "text": "المقر الرئيسي لـAXA في القاهرة بهوية كاملة من الاستقبال لغرف الاجتماعات: جدار خريطة العالم، وجدار «فخورون بتاريخنا»، وفواصل زجاجية، وجرافيك الاستدامة.",
+     "img": "/img/signage/axa-reception.jpg",
+     "alt": "هوية استقبال AXA",
+     "metrics": [
+      [
+       "من التصميم",
+       "للتركيب"
+      ],
+      [
+       "+5",
+       "مناطق بهوية"
+      ]
+     ]
+    },
+    {
+     "tag": "بنوك · الواجهات والفروع",
+     "client": "البنك العربي",
+     "text": "حروف وشعارات مضيئة لواجهات فروع البنك العربي، من الرسومات التنفيذية والتصنيع لحد التركيب بالليل.",
+     "img": "/img/signage/arab-bank-install.jpg",
+     "alt": "حروف البنك العربي أثناء التركيب"
+    }
+   ]
+  }
+ }
+}

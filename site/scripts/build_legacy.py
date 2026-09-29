@@ -367,7 +367,7 @@ def copy_fixes(page):
     drop = set(FIXES['drop_p'].get(page['lang'], []))
     for s in page.get('sections', []):
         if s.get('nodes'):
-            s['nodes'] = [n for n in s['nodes'] if not (n.get('t') == 'p' and n.get('html', '').strip() in drop)]
+            s['nodes'] = [n for n in s['nodes'] if not (n.get('t') in ('p', 'h3') and n.get('html', '').strip() in drop)]
     return page
 
 def main():

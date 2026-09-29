@@ -105,7 +105,7 @@
    "nodes": [
     {
      "t": "p",
-     "html": "Since our inception, we’ve covered a wide array of large-scale events, from product launches to virtual events. Our events are all managed to perfection!"
+     "html": "Since our inception, we’ve covered a wide array of large-scale events, from product launches and conferences to sports events. Our events are all managed to perfection!"
     },
     {
      "t": "h3",
@@ -132,14 +132,6 @@
      "html": "From venue selection to registration and logistics to speaker management and audio-visual production, we handle every aspect of the planning process with precision and attention to detail. We also assist in developing marketing and communication plans to reach the right audience. Trust us to make your conference an engaging, informative, and memorable experience for all attendees."
     },
     {
-     "t": "p",
-     "html": "At Doers, we understand the unique challenges and opportunities that come with planning virtual events, and we are dedicated to providing the best virtual event management service in the industry."
-    },
-    {
-     "t": "p",
-     "html": "Our team of experts specializes in creating engaging and interactive virtual experiences that connect attendees regardless of their location. We work toward understanding your goals and objectives and develop a custom plan that utilizes the latest technology to deliver a seamless and impactful event. From live streaming to virtual interactive activities to virtual networking opportunities, we have the expertise and resources to make your virtual event a success. Trust us to bring your virtual event to life and create an immersive experience for your attendees."
-    },
-    {
      "t": "h3",
      "html": "Sports Events"
     },
@@ -154,7 +146,7 @@
    ],
    "img": {
     "t": "img",
-    "alt": "Virtual Events Management",
+    "alt": "Event management by Doers",
     "src": "/img/legacy/2020-06-f40052a8-ccd4-42bc-8e3a-e7a6ceb635ac.jpg",
     "w": 1000,
     "h": 1000

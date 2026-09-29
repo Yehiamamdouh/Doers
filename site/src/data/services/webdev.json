@@ -1,0 +1,1103 @@
+{
+ "id": "webdev",
+ "paths": {
+  "eg": "/website-development-company-egypt/",
+  "ksa": "/ksa/website-development-company-in-jeddah/"
+ },
+ "en": {
+  "base": {
+   "crumb": "Website Development",
+   "stats": [
+    [
+     "80+",
+     "Projects delivered across web, mobile and enterprise platforms"
+    ],
+    [
+     "10",
+     "Service disciplines, from UI/UX to AI agents"
+    ],
+    [
+     "6",
+     "Countries: Egypt, Saudi Arabia, UAE, Kuwait, Jordan, Qatar"
+    ],
+    [
+     "12+",
+     "Industries, including government, real estate, healthcare and retail"
+    ]
+   ],
+   "servicesH": "Ten disciplines. <em>One accountable team.</em>",
+   "servicesP": "From the first idea to maintenance after launch, all under one team.",
+   "services": [
+    {
+     "t": "Website Development",
+     "d": "Corporate, marketing and product websites built from scratch, responsive, bilingual and tuned for Core Web Vitals.",
+     "tags": [
+      "HTML5",
+      "CSS3",
+      "Tailwind",
+      "React",
+      "Next.js",
+      "PHP",
+      "Laravel",
+      "WordPress"
+     ]
+    },
+    {
+     "t": "UI/UX Design",
+     "d": "Research, wireframes, design systems and clickable prototypes, with a WCAG 2.1 accessibility baseline.",
+     "tags": [
+      "Figma",
+      "Adobe XD",
+      "Maze",
+      "Hotjar",
+      "Lottie"
+     ]
+    },
+    {
+     "t": "E-Commerce",
+     "d": "Multi-currency, multi-language stores for GCC and MENA, with checkout flows built to cut abandonment.",
+     "tags": [
+      "Shopify",
+      "WooCommerce",
+      "Magento",
+      "Laravel"
+     ]
+    },
+    {
+     "t": "Web Applications",
+     "d": "CRMs, ERPs, dashboards and SaaS platforms with role-based access, audit logs and real-time features.",
+     "tags": [
+      "Laravel",
+      "Node.js",
+      "NestJS",
+      "Vue",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Docker"
+     ]
+    },
+    {
+     "t": "Mobile Apps",
+     "d": "Cross-platform and native iOS and Android apps, published and maintained on both stores.",
+     "tags": [
+      "React Native",
+      "Flutter",
+      "Swift",
+      "Kotlin",
+      "Firebase"
+     ]
+    },
+    {
+     "t": "Payment Gateways",
+     "d": "Local and global gateways, wallets and Buy Now Pay Later, with tokenization and 3D Secure 2.",
+     "tags": [
+      "HyperPay",
+      "PayTabs",
+      "Tap",
+      "MyFatoorah",
+      "Moyasar",
+      "Stripe"
+     ]
+    },
+    {
+     "t": "Content Management",
+     "d": "Custom and headless CMSs with Arabic editorial tools, roles, approvals and scheduling.",
+     "tags": [
+      "WordPress",
+      "Strapi",
+      "Sanity",
+      "Contentful",
+      "Drupal"
+     ]
+    },
+    {
+     "t": "SEO",
+     "d": "Technical audits, Arabic keyword research, content clusters and monthly reporting tied to business KPIs.",
+     "tags": [
+      "Search Console",
+      "Ahrefs",
+      "SEMrush",
+      "Screaming Frog",
+      "GA4"
+     ]
+    },
+    {
+     "t": "Maintenance",
+     "d": "Security patches, daily backups, uptime monitoring and a named technical contact with SLA response times.",
+     "tags": [
+      "Cloudflare",
+      "UptimeRobot",
+      "New Relic",
+      "Sentry",
+      "Wazuh"
+     ]
+    },
+    {
+     "t": "AI Agents",
+     "d": "Chat and support agents connected to your website, knowledge base and CRM, answering in Arabic and English.",
+     "tags": [
+      "LLM APIs",
+      "RAG",
+      "WhatsApp & web chat"
+     ]
+    }
+   ],
+   "processH": "How we <em>build.</em>",
+   "processP": "Six stages, each ending with a review and your sign-off.",
+   "process": [
+    [
+     "Discovery",
+     "Business goal, audience, KPIs and the scope that really matters."
+    ],
+    [
+     "UX & architecture",
+     "Research, sitemap, wireframes and the technical plan."
+    ],
+    [
+     "Design system",
+     "High-fidelity UI, components and a clickable prototype for sign-off."
+    ],
+    [
+     "Engineering",
+     "Build, integrations and payments, in reviewed, documented code."
+    ],
+    [
+     "Launch",
+     "Security, speed, SEO and analytics checks, then go-live and training."
+    ],
+    [
+     "Grow",
+     "Monitoring, monthly reports, updates and new features under an SLA."
+    ]
+   ],
+   "introH": "Websites from an <em>advertising agency.</em>",
+   "intro": [
+    "Most websites are built by one company and marketed by another. At Doers the same group plans the brand, runs the campaigns and engineers the platform, so the message, the design and the tracking line up.",
+    "We have 15+ years of marketing experience, we're a Google Partner and a HubSpot Partner, and our web team has shipped 80+ projects for government, real estate, healthcare, education, retail and hospitality clients."
+   ],
+   "cases": [
+    {
+     "tag": "Food & beverage · Performance campaign",
+     "client": "Safi",
+     "text": "A campaign that reached more than 6 million unique users on a $20K budget and sent 500K clicks to the site.",
+     "img": "/img/digital/safi-reel.jpg",
+     "metrics": [
+      [
+       "6M+",
+       "Users reached"
+      ],
+      [
+       "500K",
+       "Clicks"
+      ],
+      [
+       "$20K",
+       "Budget"
+      ]
+     ]
+    },
+    {
+     "tag": "Real estate · Lead generation",
+     "client": "Real estate developer",
+     "text": "Fast landing pages wired to paid campaigns and tracked forms, at $7.5 per lead.",
+     "img": "/img/digital/real-estate-post.jpg",
+     "metrics": [
+      [
+       "$7.5",
+       "Cost per lead"
+      ],
+      [
+       "$1.51",
+       "Effective CPC"
+      ]
+     ]
+    }
+   ],
+   "casesH": "Traffic that <em>converts.</em>",
+   "casesP": "Our web team sits next to our performance and SEO teams, so every site is planned around the campaigns that will send people to it.",
+   "lists": [
+    {
+     "h": "The <em>stack.</em>",
+     "rows": [
+      [
+       "Frontend",
+       "HTML5, CSS3, Tailwind, React, Next.js, Vue"
+      ],
+      [
+       "Backend",
+       "PHP, Laravel, Node.js, NestJS, REST & GraphQL APIs"
+      ],
+      [
+       "Data",
+       "PostgreSQL, MySQL, MongoDB, Redis"
+      ],
+      [
+       "Mobile",
+       "React Native, Flutter, Swift, Kotlin, Firebase, TestFlight"
+      ],
+      [
+       "CMS",
+       "WordPress, Strapi, Sanity, Contentful, Drupal"
+      ],
+      [
+       "Commerce",
+       "Shopify, WooCommerce, Magento"
+      ],
+      [
+       "Saudi & GCC payments",
+       "HyperPay, PayTabs, Tap, MyFatoorah, Moyasar"
+      ],
+      [
+       "Global payments",
+       "Stripe, PayPal, Adyen, Checkout.com, 2Checkout"
+      ],
+      [
+       "Wallets & BNPL",
+       "Apple Pay, Google Pay, mada, STC Pay, KNET, Tabby, Tamara"
+      ],
+      [
+       "Cloud & DevOps",
+       "AWS, Cloudflare, Docker, auto-scaling, zero-downtime releases"
+      ],
+      [
+       "Monitoring & security",
+       "Sentry, New Relic, UptimeRobot, Wazuh, SSL, daily backups"
+      ],
+      [
+       "Analytics",
+       "GA4, Tag Manager, Mixpanel, Hotjar, Looker Studio"
+      ]
+     ]
+    },
+    {
+     "h": "Included in <em>every build.</em>",
+     "rows": [
+      "Arabic and English with proper right-to-left layouts",
+      "Responsive on desktop, tablet and mobile",
+      "Core Web Vitals tuning: image optimization, lazy loading, caching",
+      "SEO foundations: meta, schema, sitemap, clean URLs",
+      "SSL, secure hosting setup, daily backups and uptime monitoring",
+      "PCI-aware payments with tokenization and 3D Secure 2",
+      "Analytics and conversion tracking from day one",
+      "Full source code and admin handover documentation",
+      "Training session for your team",
+      "30 days of post-launch support"
+     ]
+    }
+   ],
+   "sites": {
+    "h": "Live <em>work.</em>",
+    "p": "Open them and try them yourself.",
+    "groups": [
+     {
+      "t": "Websites",
+      "items": [
+       [
+        "AMHZ Group",
+        "https://www.amhz-group.com/ar",
+        "amhz-group.com"
+       ],
+       [
+        "Haya Karima",
+        "https://www.hayakarima.com/",
+        "hayakarima.com"
+       ],
+       [
+        "5 Quarters Edu",
+        "https://5quartersedu.com/",
+        "5quartersedu.com"
+       ],
+       [
+        "Spider Bees",
+        "https://spiderbees.com/en",
+        "spiderbees.com"
+       ],
+       [
+        "AMAS Edu",
+        "https://amasedu.com/",
+        "amasedu.com"
+       ],
+       [
+        "Maestros Hoteleros",
+        "https://maestroshoteleros.com/",
+        "maestroshoteleros.com"
+       ],
+       [
+        "Three Egypt",
+        "https://three-egypt.com",
+        "three-egypt.com"
+       ],
+       [
+        "Kafiil",
+        "https://kafiil.com/",
+        "kafiil.com"
+       ],
+       [
+        "Innvii Rent",
+        "https://innvii-rent.com",
+        "innvii-rent.com"
+       ],
+       [
+        "Ziydia",
+        "https://ziydia.com",
+        "ziydia.com"
+       ],
+       [
+        "Sadany Khalifa",
+        "https://sadanykhalifa.com/ar",
+        "sadanykhalifa.com"
+       ],
+       [
+        "Sera Cars",
+        "https://seracars.com/en",
+        "seracars.com"
+       ],
+       [
+        "The Laundry Hub",
+        "https://thelaundryhub.com.eg",
+        "thelaundryhub.com.eg"
+       ],
+       [
+        "Matrix Clouds",
+        "http://matrixclouds.com",
+        "matrixclouds.com"
+       ],
+       [
+        "Tasahel",
+        "http://www.tasahel.net",
+        "tasahel.net"
+       ],
+       [
+        "Fly Aram",
+        "https://flyaram.com",
+        "flyaram.com"
+       ],
+       [
+        "Estedama Plus",
+        "https://estedamaplus.com/en",
+        "estedamaplus.com"
+       ],
+       [
+        "Nile Wise",
+        "https://www.nilewisect.com/",
+        "nilewisect.com"
+       ]
+      ]
+     },
+     {
+      "t": "Apps on Google Play",
+      "items": [
+       [
+        "Innvii Rent",
+        "https://play.google.com/store/apps/details?id=com.Innvii.rent",
+        "Google Play"
+       ],
+       [
+        "Dacktra",
+        "https://play.google.com/store/apps/details?id=com.dacktra.user",
+        "Google Play"
+       ],
+       [
+        "FOF Clinic",
+        "https://play.google.com/store/apps/details?id=com.fofclinic",
+        "Google Play"
+       ],
+       [
+        "Sera Cars",
+        "https://play.google.com/store/apps/details?id=com.sera.cars",
+        "Google Play"
+       ],
+       [
+        "Qanoni",
+        "https://play.google.com/store/apps/details?id=app.qanoniapp.com",
+        "Google Play"
+       ],
+       [
+        "Tomy",
+        "https://play.google.com/store/apps/details?id=com.Tomy",
+        "Google Play"
+       ],
+       [
+        "GCI",
+        "https://play.google.com/store/apps/details?id=com.app.gci",
+        "Google Play"
+       ],
+       [
+        "Shoglana",
+        "https://play.google.com/store/apps/details?id=com.shoglana",
+        "Google Play"
+       ],
+       [
+        "DigEarth",
+        "https://play.google.com/store/apps/details?id=com.app.digearth",
+        "Google Play"
+       ],
+       [
+        "Bkamthis",
+        "https://play.google.com/store/apps/details?id=com.Bkamthis.app",
+        "Google Play"
+       ]
+      ]
+     }
+    ]
+   },
+   "chipsH": "Tools we <em>trust.</em>",
+   "chips": [
+    "React",
+    "Next.js",
+    "Laravel",
+    "Node.js",
+    "Flutter",
+    "Shopify",
+    "WordPress",
+    "AWS",
+    "Cloudflare",
+    "mada",
+    "Apple Pay",
+    "Tabby",
+    "Tamara"
+   ]
+  },
+  "eg": {
+   "eyebrow": "Websites, apps and AI agents · Cairo",
+   "slogan": "We engineer <em>outcomes.</em>",
+   "lead": "Websites, web apps, mobile apps, online stores and AI agents for ambitious organizations across the MENA region. Arabic-first, production-grade, and owned by us after launch.",
+   "heroPanel": {
+    "t": "doers · build checklist",
+    "rows": [
+     [
+      "Arabic & English",
+      "RTL ✓"
+     ],
+     [
+      "Core Web Vitals",
+      "Green ✓"
+     ],
+     [
+      "Payments",
+      "Local & global gateways"
+     ],
+     [
+      "SEO foundations",
+      "Schema · Sitemap ✓"
+     ],
+     [
+      "Security",
+      "SSL · Backups ✓"
+     ],
+     [
+      "Handover",
+      "Source + training"
+     ]
+    ],
+    "foot": "Every launch passes this list before it goes live."
+   }
+  },
+  "ksa": {
+   "eyebrow": "Website development company in Jeddah",
+   "slogan": "Built for <em>the Kingdom.</em>",
+   "lead": "From our Jeddah office we design and build Arabic-first websites, online stores, web apps and mobile apps for Saudi businesses, with mada, Apple Pay, STC Pay, Tabby and Tamara built in.",
+   "introH": "Saudi customers <em>expect more.</em>",
+   "intro": [
+    "Saudi Arabia is one of the most mobile, most online markets in the world. Customers compare you with the best apps they use every day, pay with mada and Apple Pay, and expect Arabic that reads naturally, not a translation.",
+    "We build for that: Arabic-first interfaces, local payment gateways such as HyperPay, Moyasar, PayTabs and Tap, fast hosting close to the Gulf, and the tracking your marketing team needs from day one. The same group runs your campaigns, so launch day comes with traffic."
+   ],
+   "heroPanel": {
+    "t": "doers · KSA build checklist",
+    "rows": [
+     [
+      "Arabic-first UX",
+      "RTL ✓"
+     ],
+     [
+      "mada · Apple Pay · STC Pay",
+      "✓"
+     ],
+     [
+      "Tabby · Tamara",
+      "BNPL ✓"
+     ],
+     [
+      "Gateways",
+      "HyperPay · Moyasar · Tap"
+     ],
+     [
+      "Core Web Vitals",
+      "Green ✓"
+     ],
+     [
+      "Support",
+      "SLA from Jeddah"
+     ]
+    ],
+    "foot": "Payment, language and speed checks for the Saudi market."
+   },
+   "chipsH": "Payments and tools <em>we integrate.</em>",
+   "chips": [
+    "mada",
+    "Apple Pay",
+    "STC Pay",
+    "Tabby",
+    "Tamara",
+    "HyperPay",
+    "Moyasar",
+    "PayTabs",
+    "Tap",
+    "Shopify",
+    "WordPress",
+    "Next.js",
+    "Laravel",
+    "Flutter"
+   ]
+  }
+ },
+ "ar": {
+  "base": {
+   "crumb": "تطوير المواقع",
+   "stats": [
+    [
+     "80+",
+     "مشروع سلّمناه بين مواقع وتطبيقات موبايل وأنظمة للشركات"
+    ],
+    [
+     "10",
+     "تخصصات، من تصميم تجربة المستخدم إلى وكلاء الذكاء الاصطناعي"
+    ],
+    [
+     "6",
+     "دول: مصر والسعودية والإمارات والكويت والأردن وقطر"
+    ],
+    [
+     "12+",
+     "قطاعًا، منها الحكومة والعقارات والرعاية الصحية والتجزئة"
+    ]
+   ],
+   "servicesH": "عشرة تخصصات. <em>وفريق واحد مسؤول.</em>",
+   "servicesP": "من أول فكرة لحد الصيانة بعد الإطلاق، كل حاجة عند فريق واحد.",
+   "services": [
+    {
+     "t": "تطوير المواقع",
+     "d": "مواقع للشركات والحملات والمنتجات نبنيها من الصفر، متجاوبة مع كل الشاشات، بلغتين، ومضبوطة على مؤشرات Core Web Vitals.",
+     "tags": [
+      "HTML5",
+      "CSS3",
+      "Tailwind",
+      "React",
+      "Next.js",
+      "PHP",
+      "Laravel",
+      "WordPress"
+     ]
+    },
+    {
+     "t": "تصميم واجهات وتجربة المستخدم",
+     "d": "بحث، ومخططات أولية، وأنظمة تصميم، ونماذج تفاعلية قابلة للتجربة، مع الالتزام بمعايير الإتاحة WCAG 2.1.",
+     "tags": [
+      "Figma",
+      "Adobe XD",
+      "Maze",
+      "Hotjar",
+      "Lottie"
+     ]
+    },
+    {
+     "t": "التجارة الإلكترونية",
+     "d": "متاجر متعددة العملات واللغات للخليج والشرق الأوسط، بخطوات دفع مصممة لتقليل السلال المتروكة.",
+     "tags": [
+      "Shopify",
+      "WooCommerce",
+      "Magento",
+      "Laravel"
+     ]
+    },
+    {
+     "t": "تطبيقات الويب",
+     "d": "أنظمة CRM وERP ولوحات تحكم ومنصات SaaS، بصلاحيات حسب الدور وسجلات تدقيق وخصائص لحظية.",
+     "tags": [
+      "Laravel",
+      "Node.js",
+      "NestJS",
+      "Vue",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Docker"
+     ]
+    },
+    {
+     "t": "تطبيقات الموبايل",
+     "d": "تطبيقات iOS وأندرويد، أصلية أو متعددة المنصات، ننشرها ونتابع صيانتها على المتجرين.",
+     "tags": [
+      "React Native",
+      "Flutter",
+      "Swift",
+      "Kotlin",
+      "Firebase"
+     ]
+    },
+    {
+     "t": "بوابات الدفع",
+     "d": "بوابات محلية وعالمية ومحافظ إلكترونية وخدمات اشترِ الآن وادفع لاحقًا، مع ترميز البطاقات و3D Secure 2.",
+     "tags": [
+      "HyperPay",
+      "PayTabs",
+      "Tap",
+      "MyFatoorah",
+      "Moyasar",
+      "Stripe"
+     ]
+    },
+    {
+     "t": "أنظمة إدارة المحتوى",
+     "d": "أنظمة مخصصة وHeadless بأدوات تحرير عربية، وصلاحيات، ومراحل موافقة، وجدولة للنشر.",
+     "tags": [
+      "WordPress",
+      "Strapi",
+      "Sanity",
+      "Contentful",
+      "Drupal"
+     ]
+    },
+    {
+     "t": "تحسين محركات البحث (SEO)",
+     "d": "مراجعات تقنية، وبحث كلمات مفتاحية بالعربي، ومجموعات محتوى، وتقارير شهرية مرتبطة بمؤشرات أداء نشاطك.",
+     "tags": [
+      "Search Console",
+      "Ahrefs",
+      "SEMrush",
+      "Screaming Frog",
+      "GA4"
+     ]
+    },
+    {
+     "t": "الصيانة",
+     "d": "تحديثات أمنية، ونسخ احتياطي يومي، ومراقبة لتشغيل الموقع، ومسؤول تقني محدد بأزمنة استجابة ملتزمة باتفاقية مستوى الخدمة.",
+     "tags": [
+      "Cloudflare",
+      "UptimeRobot",
+      "New Relic",
+      "Sentry",
+      "Wazuh"
+     ]
+    },
+    {
+     "t": "وكلاء الذكاء الاصطناعي",
+     "d": "وكلاء محادثة ودعم مرتبطون بموقعك وقاعدة معارفك ونظام CRM، يردون بالعربي والإنجليزي.",
+     "tags": [
+      "LLM APIs",
+      "RAG",
+      "واتساب ومحادثة الموقع"
+     ]
+    }
+   ],
+   "processH": "إزاي <em>بنشتغل.</em>",
+   "processP": "ست مراحل، بمراجعة وموافقة في آخر كل مرحلة.",
+   "process": [
+    [
+     "الاكتشاف",
+     "الهدف التجاري والجمهور ومؤشرات الأداء، ونطاق العمل الذي يهم فعلًا."
+    ],
+    [
+     "تجربة المستخدم والبنية",
+     "البحث وخريطة الموقع والمخططات الأولية والخطة التقنية."
+    ],
+    [
+     "نظام التصميم",
+     "واجهات نهائية ومكونات ونموذج تفاعلي للاعتماد."
+    ],
+    [
+     "التطوير",
+     "البناء والربط مع الأنظمة والمدفوعات، بكود موثق ومُراجع."
+    ],
+    [
+     "الإطلاق",
+     "فحص الأمان والسرعة وSEO والتحليلات، ثم الإطلاق وتدريب فريقك."
+    ],
+    [
+     "النمو",
+     "مراقبة وتقارير شهرية وتحديثات وخصائص جديدة ضمن اتفاقية مستوى خدمة."
+    ]
+   ],
+   "introH": "مواقع من <em>وكالة إعلانات.</em>",
+   "intro": [
+    "أغلب المواقع تبنيها شركة وتسوّق لها شركة أخرى. في دورز، الفريق نفسه يخطط للبراند ويدير الحملات ويبني المنصة، فتتسق الرسالة والتصميم والتتبع.",
+    "لدينا أكثر من 15 عامًا من الخبرة التسويقية، ونحن شريك معتمد لدى جوجل وHubSpot، وسلّم فريق المواقع أكثر من 80 مشروعًا لعملاء في الحكومة والعقارات والرعاية الصحية والتعليم والتجزئة والضيافة."
+   ],
+   "cases": [
+    {
+     "tag": "أغذية · حملة أداء",
+     "client": "Safi",
+     "text": "حملة وصلت لأكثر من 6 مليون مستخدم بميزانية 20 ألف دولار، وودّت 500 ألف نقرة للموقع.",
+     "img": "/img/digital/safi-reel.jpg",
+     "metrics": [
+      [
+       "6M+",
+       "مستخدم"
+      ],
+      [
+       "500K",
+       "نقرة"
+      ],
+      [
+       "$20K",
+       "الميزانية"
+      ]
+     ]
+    },
+    {
+     "tag": "عقارات · توليد عملاء",
+     "client": "عقارات",
+     "text": "صفحات هبوط سريعة مربوطة بحملات مدفوعة ونماذج تتبع، بتكلفة 7.5 دولار للعميل المحتمل.",
+     "img": "/img/digital/real-estate-post.jpg",
+     "metrics": [
+      [
+       "$7.5",
+       "تكلفة العميل"
+      ],
+      [
+       "$1.51",
+       "تكلفة النقرة"
+      ]
+     ]
+    }
+   ],
+   "casesH": "زيارات <em>تتحول لعملاء.</em>",
+   "casesP": "فريق المواقع قاعد جنب فريق الأداء والـSEO، فكل موقع بيتخطط حوالين الحملات اللي هتبعتله الزوار.",
+   "lists": [
+    {
+     "h": "<em>التقنيات.</em>",
+     "rows": [
+      [
+       "الواجهة الأمامية",
+       "HTML5, CSS3, Tailwind, React, Next.js, Vue"
+      ],
+      [
+       "الخوادم",
+       "PHP، Laravel، Node.js، NestJS، وواجهات REST وGraphQL"
+      ],
+      [
+       "قواعد البيانات",
+       "PostgreSQL, MySQL, MongoDB, Redis"
+      ],
+      [
+       "الموبايل",
+       "React Native, Flutter, Swift, Kotlin, Firebase, TestFlight"
+      ],
+      [
+       "إدارة المحتوى",
+       "WordPress, Strapi, Sanity, Contentful, Drupal"
+      ],
+      [
+       "التجارة",
+       "Shopify, WooCommerce, Magento"
+      ],
+      [
+       "مدفوعات السعودية والخليج",
+       "HyperPay, PayTabs, Tap, MyFatoorah, Moyasar"
+      ],
+      [
+       "مدفوعات عالمية",
+       "Stripe, PayPal, Adyen, Checkout.com, 2Checkout"
+      ],
+      [
+       "المحافظ والتقسيط",
+       "Apple Pay, Google Pay, mada, STC Pay, KNET, Tabby, Tamara"
+      ],
+      [
+       "السحابة وDevOps",
+       "AWS، Cloudflare، Docker، توسع تلقائي، وإطلاق تحديثات بلا توقف"
+      ],
+      [
+       "المراقبة والأمان",
+       "Sentry، New Relic، UptimeRobot، Wazuh، SSL، ونسخ احتياطي يومي"
+      ],
+      [
+       "التحليلات",
+       "GA4, Tag Manager, Mixpanel, Hotjar, Looker Studio"
+      ]
+     ]
+    },
+    {
+     "h": "موجود في <em>كل مشروع.</em>",
+     "rows": [
+      "عربي وإنجليزي بتخطيط صحيح من اليمين لليسار",
+      "متجاوب على الكمبيوتر والتابلت والموبايل",
+      "ضبط Core Web Vitals: ضغط الصور، والتحميل عند الحاجة، والتخزين المؤقت",
+      "أساسيات SEO: الوسوم الوصفية، والبيانات المنظمة، وخريطة الموقع، وروابط نظيفة",
+      "SSL، وإعداد استضافة آمنة، ونسخ احتياطي يومي، ومراقبة التشغيل",
+      "مدفوعات متوافقة مع PCI بترميز البطاقات و3D Secure 2",
+      "تحليلات وتتبع للتحويلات من أول يوم",
+      "الكود المصدري كاملًا ودليل استخدام لوحة التحكم",
+      "جلسة تدريب لفريقك",
+      "30 يوم دعم بعد الإطلاق"
+     ]
+    }
+   ],
+   "sites": {
+    "h": "مواقع <em>تعمل الآن.</em>",
+    "p": "افتحها وجرّبها بنفسك.",
+    "groups": [
+     {
+      "t": "مواقع",
+      "items": [
+       [
+        "AMHZ Group",
+        "https://www.amhz-group.com/ar",
+        "amhz-group.com"
+       ],
+       [
+        "Haya Karima",
+        "https://www.hayakarima.com/",
+        "hayakarima.com"
+       ],
+       [
+        "5 Quarters Edu",
+        "https://5quartersedu.com/",
+        "5quartersedu.com"
+       ],
+       [
+        "Spider Bees",
+        "https://spiderbees.com/en",
+        "spiderbees.com"
+       ],
+       [
+        "AMAS Edu",
+        "https://amasedu.com/",
+        "amasedu.com"
+       ],
+       [
+        "Maestros Hoteleros",
+        "https://maestroshoteleros.com/",
+        "maestroshoteleros.com"
+       ],
+       [
+        "Three Egypt",
+        "https://three-egypt.com",
+        "three-egypt.com"
+       ],
+       [
+        "Kafiil",
+        "https://kafiil.com/",
+        "kafiil.com"
+       ],
+       [
+        "Innvii Rent",
+        "https://innvii-rent.com",
+        "innvii-rent.com"
+       ],
+       [
+        "Ziydia",
+        "https://ziydia.com",
+        "ziydia.com"
+       ],
+       [
+        "Sadany Khalifa",
+        "https://sadanykhalifa.com/ar",
+        "sadanykhalifa.com"
+       ],
+       [
+        "Sera Cars",
+        "https://seracars.com/en",
+        "seracars.com"
+       ],
+       [
+        "The Laundry Hub",
+        "https://thelaundryhub.com.eg",
+        "thelaundryhub.com.eg"
+       ],
+       [
+        "Matrix Clouds",
+        "http://matrixclouds.com",
+        "matrixclouds.com"
+       ],
+       [
+        "Tasahel",
+        "http://www.tasahel.net",
+        "tasahel.net"
+       ],
+       [
+        "Fly Aram",
+        "https://flyaram.com",
+        "flyaram.com"
+       ],
+       [
+        "Estedama Plus",
+        "https://estedamaplus.com/en",
+        "estedamaplus.com"
+       ],
+       [
+        "Nile Wise",
+        "https://www.nilewisect.com/",
+        "nilewisect.com"
+       ]
+      ]
+     },
+     {
+      "t": "تطبيقات على Google Play",
+      "items": [
+       [
+        "Innvii Rent",
+        "https://play.google.com/store/apps/details?id=com.Innvii.rent",
+        "Google Play"
+       ],
+       [
+        "Dacktra",
+        "https://play.google.com/store/apps/details?id=com.dacktra.user",
+        "Google Play"
+       ],
+       [
+        "FOF Clinic",
+        "https://play.google.com/store/apps/details?id=com.fofclinic",
+        "Google Play"
+       ],
+       [
+        "Sera Cars",
+        "https://play.google.com/store/apps/details?id=com.sera.cars",
+        "Google Play"
+       ],
+       [
+        "Qanoni",
+        "https://play.google.com/store/apps/details?id=app.qanoniapp.com",
+        "Google Play"
+       ],
+       [
+        "Tomy",
+        "https://play.google.com/store/apps/details?id=com.Tomy",
+        "Google Play"
+       ],
+       [
+        "GCI",
+        "https://play.google.com/store/apps/details?id=com.app.gci",
+        "Google Play"
+       ],
+       [
+        "Shoglana",
+        "https://play.google.com/store/apps/details?id=com.shoglana",
+        "Google Play"
+       ],
+       [
+        "DigEarth",
+        "https://play.google.com/store/apps/details?id=com.app.digearth",
+        "Google Play"
+       ],
+       [
+        "Bkamthis",
+        "https://play.google.com/store/apps/details?id=com.Bkamthis.app",
+        "Google Play"
+       ]
+      ]
+     }
+    ]
+   },
+   "chipsH": "أدوات <em>نثق فيها.</em>",
+   "chips": [
+    "React",
+    "Next.js",
+    "Laravel",
+    "Node.js",
+    "Flutter",
+    "Shopify",
+    "WordPress",
+    "AWS",
+    "Cloudflare",
+    "mada",
+    "Apple Pay",
+    "Tabby",
+    "Tamara"
+   ]
+  },
+  "eg": {
+   "eyebrow": "مواقع وتطبيقات ووكلاء ذكاء اصطناعي · القاهرة",
+   "slogan": "نصنع <em>نتائج.</em>",
+   "lead": "مواقع وتطبيقات ويب وموبايل ومتاجر إلكترونية ووكلاء ذكاء اصطناعي للمؤسسات الطموحة في الشرق الأوسط وشمال أفريقيا. بالعربي أولًا، بجودة إنتاج حقيقية، ونظل مسؤولين عنها بعد الإطلاق.",
+   "heroPanel": {
+    "t": "doers · قائمة الإطلاق",
+    "rows": [
+     [
+      "عربي وإنجليزي",
+      "RTL ✓"
+     ],
+     [
+      "Core Web Vitals",
+      "✓ أخضر"
+     ],
+     [
+      "الدفع",
+      "بوابات محلية وعالمية"
+     ],
+     [
+      "أساسيات SEO",
+      "Schema · Sitemap ✓"
+     ],
+     [
+      "الأمان",
+      "SSL · نسخ احتياطية ✓"
+     ],
+     [
+      "التسليم",
+      "الكود + التدريب"
+     ]
+    ],
+    "foot": "كل موقع بيعدّي على القائمة دي قبل ما يتنشر."
+   }
+  },
+  "ksa": {
+   "eyebrow": "شركة تطوير مواقع في جدة",
+   "slogan": "مبني <em>للسوق السعودي.</em>",
+   "lead": "من مكتبنا في جدة نصمم ونبني مواقع ومتاجر وتطبيقات ويب وموبايل للشركات السعودية بالعربي أولاً، مع مدى وApple Pay وSTC Pay وتابي وتمارا.",
+   "introH": "العميل السعودي <em>يتوقع أكثر.</em>",
+   "intro": [
+    "السعودية من أكثر الأسواق استخداماً للموبايل والإنترنت في العالم. عميلك يقارنك بأفضل التطبيقات اللي يستخدمها كل يوم، ويدفع بمدى وApple Pay، ويتوقع عربي طبيعي مو ترجمة.",
+    "نبني لهذا: واجهات عربية أولاً، وبوابات دفع محلية مثل HyperPay وMoyasar وPayTabs وTap، واستضافة سريعة قريبة من الخليج، وتتبع جاهز لفريق التسويق من أول يوم. ونفس المجموعة تدير حملاتك، فيجي يوم الإطلاق ومعه زوار."
+   ],
+   "heroPanel": {
+    "t": "doers · قائمة السوق السعودي",
+    "rows": [
+     [
+      "تجربة عربية أولاً",
+      "RTL ✓"
+     ],
+     [
+      "مدى · Apple Pay · STC Pay",
+      "✓"
+     ],
+     [
+      "تابي · تمارا",
+      "تقسيط ✓"
+     ],
+     [
+      "بوابات الدفع",
+      "HyperPay · Moyasar · Tap"
+     ],
+     [
+      "Core Web Vitals",
+      "✓ أخضر"
+     ],
+     [
+      "الدعم",
+      "اتفاقية خدمة من جدة"
+     ]
+    ],
+    "foot": "فحص الدفع واللغة والسرعة للسوق السعودي."
+   },
+   "chipsH": "مدفوعات وأدوات <em>نربطها.</em>",
+   "chips": [
+    "مدى",
+    "Apple Pay",
+    "STC Pay",
+    "تابي",
+    "تمارا",
+    "HyperPay",
+    "Moyasar",
+    "PayTabs",
+    "Tap",
+    "Shopify",
+    "WordPress",
+    "Next.js",
+    "Laravel",
+    "Flutter"
+   ]
+  }
+ }
+}

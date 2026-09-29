@@ -1,0 +1,478 @@
+{
+ "id": "reputation",
+ "paths": {
+  "eg": "/listening-and-reputation-management/",
+  "ksa": "/ksa/listening-and-reputation-management-in-jeddah/",
+  "riyadh": "/ksa/listening-and-reputation-management/"
+ },
+ "en": {
+  "base": {
+   "crumb": "Listening & Reputation Management",
+   "heroImg": {
+    "src": "/img/digital/listening-dashboard.jpg",
+    "alt": "Social media analytics and web listening dashboard",
+    "fit": "contain",
+    "cap": "A listening dashboard from our digital credentials: mentions, reach, sentiment and sources in one view."
+   },
+   "stats": [
+    [
+     "7+",
+     "Sources: web, news, Facebook, X, Instagram, YouTube, TripAdvisor"
+    ],
+    [
+     "24/7",
+     "Monitoring with crisis alerts"
+    ],
+    [
+     "4 mo.",
+     "Of historical data at setup"
+    ],
+    [
+     "AR · EN",
+     "Sentiment in both languages"
+    ]
+   ],
+   "servicesH": "Hear everything. <em>Answer well.</em>",
+   "servicesP": "From the first mention to the monthly board report.",
+   "services": [
+    {
+     "t": "Social & web listening",
+     "d": "Every mention of your brand, products, executives and competitors across social media, news, blogs, forums and review sites.",
+     "tags": [
+      "Keywords",
+      "Location filters",
+      "Language filters"
+     ]
+    },
+    {
+     "t": "Sentiment analysis",
+     "d": "Positive, negative and neutral, in Arabic and English, with the topics driving each.",
+     "tags": [
+      "Arabic sentiment",
+      "Topics",
+      "Trends"
+     ]
+    },
+    {
+     "t": "Crisis alerts",
+     "d": "Spikes in negative mentions flagged in real time, with a response plan ready.",
+     "tags": [
+      "Real-time alerts",
+      "Escalation"
+     ]
+    },
+    {
+     "t": "Review management",
+     "d": "Google, TripAdvisor and app store reviews monitored and answered, with a plan to earn more good ones.",
+     "tags": [
+      "Google reviews",
+      "TripAdvisor",
+      "App stores"
+     ]
+    },
+    {
+     "t": "Community management",
+     "d": "Comments and messages from every platform answered from one inbox, in your brand's voice.",
+     "tags": [
+      "One inbox",
+      "Tone of voice",
+      "SLA"
+     ]
+    },
+    {
+     "t": "Competitor benchmarking",
+     "d": "Your share of voice, growth and engagement next to your direct competitors, month by month.",
+     "tags": [
+      "Share of voice",
+      "Engagement"
+     ]
+    },
+    {
+     "t": "Influencer discovery",
+     "d": "The voices that really move your audience, ranked by influence score and relevance.",
+     "tags": [
+      "Influence score",
+      "Audience fit"
+     ]
+    },
+    {
+     "t": "Dashboards & reports",
+     "d": "Live dashboards plus PDF and Excel reports with the insights and the actions they call for.",
+     "tags": [
+      "Live dashboards",
+      "PDF",
+      "Excel"
+     ]
+    }
+   ],
+   "processH": "How we <em>listen.</em>",
+   "processP": "Five steps, running all year.",
+   "process": [
+    [
+     "Setup",
+     "Keywords, sources, languages and competitors, with up to four months of history."
+    ],
+    [
+     "Monitoring",
+     "Round-the-clock tracking and a daily digest."
+    ],
+    [
+     "Alerts",
+     "Negative spikes flagged and escalated in real time."
+    ],
+    [
+     "Response",
+     "Replies, fixes and positive content, agreed with your team."
+    ],
+    [
+     "Monthly insights",
+     "Sentiment, share of voice, topics and recommendations."
+    ]
+   ],
+   "toolsH": "What you <em>see.</em>",
+   "toolsP": "Screens from our listening and analytics work.",
+   "tools": [
+    {
+     "img": "/img/digital/listening-dashboard.jpg",
+     "t": "Listening dashboard",
+     "d": "Mentions, reach, sentiment and sources, live."
+    },
+    {
+     "img": "/img/digital/benchmark-chart.jpg",
+     "t": "Competitor benchmarking",
+     "d": "Growth and engagement next to your competitors, month by month."
+    },
+    {
+     "img": "/img/digital/dff-audience.jpg",
+     "t": "Audience analysis",
+     "d": "Who is talking, where they are and what they care about."
+    }
+   ],
+   "casesH": "Listening that <em>changed the plan.</em>",
+   "cases": [
+    {
+     "tag": "Finance · Listening & media strategy · Dubai",
+     "client": "Dubai Financial Market",
+     "text": "Our listening report showed the web, not social media, was the top source of mentions. We recommended moving half of digital buying to web display and contextual targeting, alongside a full Gen Z research study.",
+     "img": "/img/digital/dfm-genz-research.jpg",
+     "metrics": [
+      [
+       "#1",
+       "Source: the web"
+      ],
+      [
+       "50%",
+       "Budget shifted to web display"
+      ]
+     ]
+    },
+    {
+     "tag": "Government · Social audit · Dubai",
+     "client": "Dubai Future Foundation",
+     "text": "A full audit of the social accounts, influencer measurement and a digital PR roadmap, built on listening data.",
+     "img": "/img/digital/dff-audience.jpg"
+    }
+   ],
+   "chipsH": "Sources <em>we monitor.</em>",
+   "chips": [
+    "News sites",
+    "Blogs & forums",
+    "Facebook",
+    "Instagram",
+    "X (Twitter)",
+    "YouTube",
+    "TikTok",
+    "LinkedIn",
+    "TripAdvisor",
+    "Google reviews",
+    "App stores"
+   ]
+  },
+  "eg": {
+   "eyebrow": "Listening & reputation management in Cairo, Egypt",
+   "slogan": "Know what people say, <em>before it spreads.</em>",
+   "lead": "We monitor what people say about your brand across social media, news, blogs and review sites, in Arabic and English, and help you respond, fix and build a reputation that sells.",
+   "introH": "Your reputation is <em>being written now.</em>",
+   "intro": [
+    "Egyptians talk about brands loudly and fast, in comments, groups, reviews and on TikTok. One unanswered complaint can become a trend by the evening, and one good story can do more than a campaign.",
+    "We set up listening across every platform that matters, track sentiment and topics in Egyptian Arabic, alert you the moment something changes and help your team answer well."
+   ]
+  },
+  "ksa": {
+   "eyebrow": "Listening & reputation management in Jeddah",
+   "slogan": "Trust is <em>the Saudi currency.</em>",
+   "lead": "From our Jeddah office we monitor your brand across X, Snapchat, Instagram, news and Google reviews in Saudi Arabic and English, alert you to issues early and manage your responses.",
+   "introH": "In the Kingdom, <em>word travels on X.</em>",
+   "intro": [
+    "Saudi Arabia has some of the highest social media use in the world, and conversations about brands move fastest on X, Snapchat and in Google reviews. Customers expect a reply, and they expect it in their own dialect.",
+    "We listen in Saudi Arabic, flag spikes before they become crises and manage reviews and community replies for your branches in Jeddah and across the Kingdom."
+   ],
+   "chips": [
+    "X (Twitter)",
+    "Snapchat",
+    "Instagram",
+    "TikTok",
+    "YouTube",
+    "News sites",
+    "Google reviews",
+    "App stores",
+    "LinkedIn"
+   ]
+  },
+  "riyadh": {
+   "eyebrow": "Listening & reputation management in Riyadh, Saudi Arabia",
+   "slogan": "Protect the name <em>you built.</em>",
+   "lead": "We monitor mentions of your brand, products and leaders across social media, news and review platforms in Riyadh and across Saudi Arabia, and help you respond, recover and grow trust.",
+   "introH": "Riyadh decides <em>fast.</em>",
+   "intro": [
+    "In Riyadh's business and government circles, reputation opens doors. A single viral complaint or negative article can reach decision makers within hours.",
+    "We track your brand, your executives and your competitors around the clock, report sentiment every month and build a plan to answer criticism and grow positive coverage."
+   ],
+   "chips": [
+    "X (Twitter)",
+    "Snapchat",
+    "Instagram",
+    "LinkedIn",
+    "YouTube",
+    "News sites",
+    "Google reviews",
+    "App stores"
+   ]
+  }
+ },
+ "ar": {
+  "base": {
+   "crumb": "الرصد وإدارة السمعة",
+   "heroImg": {
+    "src": "/img/digital/listening-dashboard.jpg",
+    "alt": "لوحة رصد السوشيال ميديا والويب",
+    "fit": "contain",
+    "cap": "لوحة رصد من أعمالنا: الإشارات والوصول والانطباع والمصادر في شاشة واحدة."
+   },
+   "stats": [
+    [
+     "+7",
+     "مصادر: الويب والأخبار وفيسبوك وإكس وإنستجرام ويوتيوب وتريب أدفايزر"
+    ],
+    [
+     "24/7",
+     "رصد مع تنبيهات الأزمات"
+    ],
+    [
+     "4 شهور",
+     "بيانات سابقة من أول يوم"
+    ],
+    [
+     "عربي · إنجليزي",
+     "تحليل الانطباع باللغتين"
+    ]
+   ],
+   "servicesH": "اسمع كل حاجة. <em>ورد صح.</em>",
+   "servicesP": "من أول إشارة لحد تقرير الإدارة الشهري.",
+   "services": [
+    {
+     "t": "رصد السوشيال والويب",
+     "d": "كل إشارة لعلامتك ومنتجاتك وقياداتك ومنافسينك على السوشيال والأخبار والمدونات والمنتديات ومواقع التقييم.",
+     "tags": [
+      "كلمات مفتاحية",
+      "فلترة بالمكان",
+      "فلترة باللغة"
+     ]
+    },
+    {
+     "t": "تحليل الانطباع",
+     "d": "إيجابي وسلبي ومحايد، بالعربي والإنجليزي، مع المواضيع اللي وراه.",
+     "tags": [
+      "انطباع عربي",
+      "المواضيع",
+      "الاتجاهات"
+     ]
+    },
+    {
+     "t": "تنبيهات الأزمات",
+     "d": "أي ارتفاع في الإشارات السلبية بيوصلك لحظياً، ومعاه خطة رد جاهزة.",
+     "tags": [
+      "تنبيهات لحظية",
+      "التصعيد"
+     ]
+    },
+    {
+     "t": "إدارة التقييمات",
+     "d": "تقييمات جوجل وتريب أدفايزر ومتاجر التطبيقات، بنتابعها ونرد عليها ونخطط لزيادة الإيجابي منها.",
+     "tags": [
+      "تقييمات جوجل",
+      "تريب أدفايزر",
+      "متاجر التطبيقات"
+     ]
+    },
+    {
+     "t": "إدارة المجتمع",
+     "d": "التعليقات والرسائل من كل المنصات بنرد عليها من صندوق واحد، بصوت علامتك.",
+     "tags": [
+      "صندوق واحد",
+      "نبرة العلامة",
+      "زمن الرد"
+     ]
+    },
+    {
+     "t": "المقارنة بالمنافسين",
+     "d": "حصة صوتك ونموك وتفاعلك جنب منافسينك المباشرين، شهر بشهر.",
+     "tags": [
+      "حصة الصوت",
+      "التفاعل"
+     ]
+    },
+    {
+     "t": "اكتشاف المؤثرين",
+     "d": "الأصوات اللي بتحرك جمهورك فعلاً، مترتبة حسب التأثير والملاءمة.",
+     "tags": [
+      "درجة التأثير",
+      "ملاءمة الجمهور"
+     ]
+    },
+    {
+     "t": "لوحات وتقارير",
+     "d": "لوحات متابعة لحظية وتقارير PDF وExcel بالرؤى والخطوات المطلوبة.",
+     "tags": [
+      "لوحات لحظية",
+      "PDF",
+      "Excel"
+     ]
+    }
+   ],
+   "processH": "إزاي <em>بنسمع.</em>",
+   "processP": "خمس خطوات شغالة طول السنة.",
+   "process": [
+    [
+     "الإعداد",
+     "الكلمات والمصادر واللغات والمنافسين، مع بيانات لحد أربع شهور قبل البداية."
+    ],
+    [
+     "الرصد",
+     "متابعة على مدار الساعة وملخص يومي."
+    ],
+    [
+     "التنبيهات",
+     "أي ارتفاع سلبي بيتبلّغ ويتصعّد لحظياً."
+    ],
+    [
+     "الرد",
+     "ردود وحلول ومحتوى إيجابي، متفق عليه مع فريقك."
+    ],
+    [
+     "التحليلات الشهرية",
+     "الانطباع وحصة الصوت والمواضيع والتوصيات."
+    ]
+   ],
+   "toolsH": "اللي <em>هتشوفه.</em>",
+   "toolsP": "شاشات من شغلنا في الرصد والتحليلات.",
+   "tools": [
+    {
+     "img": "/img/digital/listening-dashboard.jpg",
+     "t": "لوحة الرصد",
+     "d": "الإشارات والوصول والانطباع والمصادر، لحظياً."
+    },
+    {
+     "img": "/img/digital/benchmark-chart.jpg",
+     "t": "المقارنة بالمنافسين",
+     "d": "النمو والتفاعل جنب منافسينك، شهر بشهر."
+    },
+    {
+     "img": "/img/digital/dff-audience.jpg",
+     "t": "تحليل الجمهور",
+     "d": "مين بيتكلم، وفين، وإيه اللي يهمه."
+    }
+   ],
+   "casesH": "رصد <em>غيّر الخطة.</em>",
+   "cases": [
+    {
+     "tag": "مال · رصد واستراتيجية إعلامية · دبي",
+     "client": "سوق دبي المالي",
+     "text": "تقرير الرصد بيّن إن الويب، مش السوشيال، هو أكبر مصدر للإشارات. فنصحنا بتحويل نص ميزانية الديجيتال لإعلانات الويب والاستهداف حسب السياق، جنب دراسة كاملة عن جيل Z.",
+     "img": "/img/digital/dfm-genz-research.jpg",
+     "metrics": [
+      [
+       "#1",
+       "المصدر: الويب"
+      ],
+      [
+       "50%",
+       "من الميزانية لإعلانات الويب"
+      ]
+     ]
+    },
+    {
+     "tag": "جهة حكومية · مراجعة السوشيال · دبي",
+     "client": "مؤسسة دبي للمستقبل",
+     "text": "مراجعة كاملة لحسابات السوشيال، وقياس أداء المؤثرين، وخارطة طريق للعلاقات العامة الرقمية، مبنية على بيانات الرصد.",
+     "img": "/img/digital/dff-audience.jpg"
+    }
+   ],
+   "chipsH": "مصادر <em>بنرصدها.</em>",
+   "chips": [
+    "المواقع الإخبارية",
+    "المدونات والمنتديات",
+    "فيسبوك",
+    "إنستجرام",
+    "إكس (تويتر)",
+    "يوتيوب",
+    "تيك توك",
+    "لينكدإن",
+    "تريب أدفايزر",
+    "تقييمات جوجل",
+    "متاجر التطبيقات"
+   ]
+  },
+  "eg": {
+   "eyebrow": "الرصد وإدارة السمعة في القاهرة، مصر",
+   "slogan": "اعرف الناس بتقول إيه، <em>قبل ما ينتشر.</em>",
+   "lead": "بنرصد اللي الناس بتقوله عن علامتك على السوشيال والأخبار والمدونات ومواقع التقييم، بالعربي والإنجليزي، وبنساعدك ترد وتصلح وتبني سمعة بتبيع.",
+   "introH": "سمعتك <em>بتتكتب دلوقتي.</em>",
+   "intro": [
+    "المصريين بيتكلموا عن العلامات بصوت عالي وبسرعة، في الكومنتات والجروبات والتقييمات وعلى تيك توك. شكوى واحدة من غير رد ممكن تبقى تريند بالليل، وحكاية حلوة واحدة ممكن تعمل أكتر من حملة.",
+    "بنجهز الرصد على كل منصة مهمة، ونتابع الانطباع والمواضيع بالعامية المصرية، وننبّهك أول ما حاجة تتغير، ونساعد فريقك يرد صح."
+   ]
+  },
+  "ksa": {
+   "eyebrow": "الرصد وإدارة السمعة في جدة",
+   "slogan": "الثقة <em>عملة السوق السعودي.</em>",
+   "lead": "من مكتبنا في جدة نرصد علامتك على إكس وسناب شات وإنستجرام والأخبار وتقييمات جوجل باللهجة السعودية والإنجليزي، وننبّهك بدري، وندير الردود.",
+   "introH": "في المملكة، <em>الكلام ينتشر على إكس.</em>",
+   "intro": [
+    "السعودية من أعلى دول العالم في استخدام السوشيال ميديا، والكلام عن العلامات ينتشر أسرع على إكس وسناب شات وفي تقييمات جوجل. والعميل يتوقع رد، وبلهجته.",
+    "نرصد باللهجة السعودية، وننبّهك لأي ارتفاع قبل ما يصير أزمة، وندير التقييمات والردود لفروعك في جدة وفي كل المملكة."
+   ],
+   "chips": [
+    "إكس (تويتر)",
+    "سناب شات",
+    "إنستجرام",
+    "تيك توك",
+    "يوتيوب",
+    "المواقع الإخبارية",
+    "تقييمات جوجل",
+    "متاجر التطبيقات",
+    "لينكدإن"
+   ]
+  },
+  "riyadh": {
+   "eyebrow": "الرصد وإدارة السمعة في الرياض، السعودية",
+   "slogan": "احمِ الاسم <em>اللي بنيته.</em>",
+   "lead": "نرصد الإشارات لعلامتك ومنتجاتك وقياداتك على السوشيال والأخبار ومنصات التقييم في الرياض وكل السعودية، ونساعدك ترد وتتعافى وتبني الثقة.",
+   "introH": "الرياض <em>تقرر بسرعة.</em>",
+   "intro": [
+    "في أوساط الأعمال والجهات الحكومية في الرياض، السمعة تفتح الأبواب. شكوى واحدة منتشرة أو خبر سلبي ممكن يوصل لصناع القرار خلال ساعات.",
+    "نتابع علامتك وقياداتك ومنافسينك على مدار الساعة، ونقدّم تقرير انطباع كل شهر، ونبني خطة للرد على الانتقادات وزيادة التغطية الإيجابية."
+   ],
+   "chips": [
+    "إكس (تويتر)",
+    "سناب شات",
+    "إنستجرام",
+    "لينكدإن",
+    "يوتيوب",
+    "المواقع الإخبارية",
+    "تقييمات جوجل",
+    "متاجر التطبيقات"
+   ]
+  }
+ }
+}

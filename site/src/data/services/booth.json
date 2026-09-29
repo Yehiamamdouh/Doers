@@ -1,0 +1,711 @@
+{
+ "id": "booth",
+ "paths": {
+  "eg": "/booth-production-egypt/",
+  "ksa": "/ksa/booth-production-in-jeddah/"
+ },
+ "en": {
+  "base": {
+   "crumb": "Booth Production",
+   "band": "booth-build",
+   "stats": [
+    [
+     "15+",
+     "Years of experience"
+    ],
+    [
+     "100+",
+     "Exhibition stands built"
+    ],
+    [
+     "8+",
+     "Major exhibitions"
+    ],
+    [
+     "24/7",
+     "On-site support during the show"
+    ]
+   ],
+   "servicesH": "The whole stand, <em>one team.</em>",
+   "servicesP": "From the first 3D sketch to the last panel taken down after the show.",
+   "services": [
+    {
+     "t": "3D design",
+     "d": "Stand concepts built around your brand, your space and your goals at the show, with photoreal renders before anything is built.",
+     "tags": [
+      "Concepts",
+      "Renders",
+      "Floor plans"
+     ]
+    },
+    {
+     "t": "Custom stands",
+     "d": "Stands designed and fabricated for your brand, from arches and hanging rigs to meeting rooms.",
+     "tags": [
+      "Wood",
+      "Metal",
+      "Acrylic"
+     ]
+    },
+    {
+     "t": "Modular stands",
+     "d": "Reusable modular systems for brands that exhibit at several shows a year.",
+     "tags": [
+      "Reusable",
+      "Fast install"
+     ]
+    },
+    {
+     "t": "LED, lighting & AV",
+     "d": "LED screens, video walls, lighting and sound, designed into the stand from the start.",
+     "tags": [
+      "LED screens",
+      "Lighting",
+      "Sound"
+     ]
+    },
+    {
+     "t": "Graphics & print",
+     "d": "Every graphic printed on the right material and matched to your brand colours.",
+     "tags": [
+      "Print",
+      "Vinyl",
+      "3D letters"
+     ]
+    },
+    {
+     "t": "Furniture & fit-out",
+     "d": "Furniture, displays, reception and storage planned around how visitors move.",
+     "tags": [
+      "Furniture",
+      "Counters",
+      "Storage"
+     ]
+    },
+    {
+     "t": "Organiser approvals",
+     "d": "Structural and electrical drawings and specs ready for the organiser's approval.",
+     "tags": [
+      "Drawings",
+      "Safety"
+     ]
+    },
+    {
+     "t": "Installation & dismantling",
+     "d": "On-time build-up, support through the show days, then dismantling, transport and storage.",
+     "tags": [
+      "Build-up",
+      "Support",
+      "Dismantling"
+     ]
+    }
+   ],
+   "processH": "From concept <em>to opening day.</em>",
+   "processP": "Six stages, on a clear timeline from day one.",
+   "process": [
+    [
+     "Brief",
+     "Show, stand size, goals, budget and deadlines."
+    ],
+    [
+     "3D concept",
+     "Design, renders and revisions until sign-off."
+    ],
+    [
+     "Organiser approval",
+     "Technical, electrical and safety drawings for the organiser."
+    ],
+    [
+     "Fabrication",
+     "Built in our workshops, quality-checked before shipping."
+    ],
+    [
+     "Installation",
+     "On-site build-up, handed over before the doors open."
+    ],
+    [
+     "Dismantling",
+     "Support through the show, then dismantling, transport and storage."
+    ]
+   ],
+   "casesH": "Stands <em>we built.</em>",
+   "galleryH": "From <em>the show floor.</em>",
+   "chipsH": "Shows <em>we've built at.</em>"
+  },
+  "eg": {
+   "eyebrow": "Exhibition stand builder in Cairo, Egypt",
+   "heroImg": {
+    "src": "/img/work/technip-egypes-1.jpg",
+    "alt": "Technip Energies stand at EGYPES, Cairo",
+    "cap": "Technip Energies at EGYPES, designed and built by Doers."
+   },
+   "slogan": "Stands that <em>pull a crowd.</em>",
+   "lead": "We design, build and install custom exhibition stands in Egypt: 3D concepts, fabrication in our own workshops, LED and lighting, installation and dismantling, all under one team.",
+   "introH": "Three days to <em>make an impression.</em>",
+   "intro": [
+    "An exhibition is a few days in which your competitors stand a few metres away. A stand has to stop people in the aisle, give your team space to talk and make your brand look like the leader in its field.",
+    "We have built stands at Cairo ICT, EGYPES, AI Everything, Plastex, EgyBeauty Africa and more. We design around how visitors move, fabricate in our own workshops and stay on site from build-up to dismantling."
+   ],
+   "cases": [
+    {
+     "tag": "Energy · EGYPES · Cairo",
+     "client": "Technip Energies",
+     "text": "A stand for Technip Energies at EGYPES, Egypt's energy show, with a suspended ring and screens for the leadership's presentations to visitors.",
+     "img": "/img/work/technip-egypes-2.jpg",
+     "alt": "Technip Energies stand at EGYPES during a presentation"
+    },
+    {
+     "tag": "Technology · AI Everything · Cairo",
+     "client": "ISYS",
+     "text": "A walk-through illuminated arch and demo zones for ISYS at AI Everything, the stand's entrance became the most photographed spot in the hall.",
+     "img": "/img/work/isys-ai-everything-1.jpg",
+     "alt": "The illuminated ISYS arch at AI Everything"
+    },
+    {
+     "tag": "Technology · Cairo ICT",
+     "client": "Dell Technologies",
+     "text": "A technology-focused stand for Dell at Cairo ICT, with product demo zones and a strong brand presence from every aisle.",
+     "img": "/img/legacy/2026-08-picture12-01l-01-scaled.jpg",
+     "alt": "Dell stand at Cairo ICT"
+    },
+    {
+     "tag": "Construction · Cairo",
+     "client": "Alkan CIT",
+     "text": "A futuristic stand with illuminated structures and digital screens for Alkan CIT.",
+     "img": "/img/legacy/2026-08-picture19-01-scaled.jpg",
+     "alt": "Alkan CIT stand"
+    }
+   ],
+   "gallery": [
+    {
+     "src": "/img/legacy/2026-08-picture1-01-01-scaled.jpg",
+     "alt": "GSK"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture1-01-scaled.jpg",
+     "alt": "ISYS"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture12-01l-01-scaled.jpg",
+     "alt": "Dell · Cairo ICT"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture12-01m-01-scaled.jpg",
+     "alt": "Lenovo"
+    },
+    {
+     "src": "/img/legacy/2026-08-as-012-01-scaled.jpg",
+     "alt": "Giesecke+Devrient & Netcetera"
+    },
+    {
+     "src": "/img/legacy/2026-08-is-01-scaled.jpg",
+     "alt": "ISYS · Cairo ICT 2023"
+    },
+    {
+     "src": "/img/work/isys-ai-everything-2.jpg",
+     "alt": "ISYS · AI Everything"
+    },
+    {
+     "src": "/img/work/isys-ai-everything-1.jpg",
+     "alt": "ISYS · AI Everything"
+    },
+    {
+     "src": "/img/work/technip-egypes-1.jpg",
+     "alt": "Technip Energies · EGYPES"
+    },
+    {
+     "src": "/img/work/technip-egypes-2.jpg",
+     "alt": "Technip Energies · EGYPES"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture12-014-01-01-scaled.jpg",
+     "alt": "Novartis"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture1-02-01-scaled.jpg",
+     "alt": "SPG Group · Plastex 2024"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture4-01-scaled.jpg",
+     "alt": "Galaxy · EgyBeauty Africa"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture5-01-scaled.jpg",
+     "alt": "Serenity"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture7-01-scaled.jpg",
+     "alt": "Serenity Sky Fringe"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture10-01-scaled.jpg",
+     "alt": "RAI Group · Plastex 2024"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture11-01-scaled.jpg",
+     "alt": "Link Misr"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture19-01-scaled.jpg",
+     "alt": "Alkan CIT"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture12-012-01-scaled.jpg",
+     "alt": "Knauf"
+    }
+   ],
+   "chips": [
+    "Cairo ICT",
+    "EGYPES",
+    "AI Everything",
+    "Plastex",
+    "EgyBeauty Africa"
+   ],
+   "chipsP": "Shows where our stands have stood."
+  },
+  "ksa": {
+   "eyebrow": "Exhibition stand builder in Jeddah",
+   "heroImg": {
+    "src": "/img/legacy/2026-08-inter-01-scaled.jpg",
+    "alt": "INTRA stand at the Defense Show in Jeddah",
+    "cap": "INTRA at the Defense Show in Jeddah, designed and built by Doers."
+   },
+   "slogan": "Built for <em>Saudi shows.</em>",
+   "lead": "From our Jeddah office we design, build and install exhibition stands across Saudi Arabia, from 3D concept and fabrication to LED, lighting, installation and dismantling.",
+   "introH": "Saudi shows are <em>getting bigger.</em>",
+   "intro": [
+    "Exhibitions in Jeddah and Riyadh now draw international exhibitors and huge crowds. Your stand competes with global brands, so it has to be bold, well built and delivered exactly on time.",
+    "We have built for INTRA, Maarif and Arabian Qudra in the Kingdom, and bring the experience of 100+ stands in Egypt. We handle organiser approvals, build-up and 24/7 support through the show."
+   ],
+   "cases": [
+    {
+     "tag": "Defence · KSA Defense Show · Jeddah",
+     "client": "INTRA",
+     "text": "A futuristic stand for INTRA at the Defense Show in Jeddah, built around a large tilted circular screen.",
+     "img": "/img/legacy/2026-08-inter-01-scaled.jpg",
+     "alt": "INTRA stand at the KSA Defense Show"
+    },
+    {
+     "tag": "Education · Saudi Arabia",
+     "client": "Maarif",
+     "text": "A clean, technology-driven stand for Maarif, with digital screens and open meeting space.",
+     "img": "/img/legacy/2026-08-maa-01-scaled.jpg",
+     "alt": "Maarif stand"
+    },
+    {
+     "tag": "Energy · Saudi Arabia",
+     "client": "Arabian Qudra",
+     "text": "An energy-inspired stand for Arabian Qudra, combining bold structure with the brand's colours.",
+     "img": "/img/legacy/2026-08-picture12-018-01-scaled.jpg",
+     "alt": "Arabian Qudra stand"
+    },
+    {
+     "tag": "Technology · AI Everything · Cairo",
+     "client": "ISYS",
+     "text": "A walk-through illuminated arch and demo zones for ISYS at AI Everything, the stand's entrance became the most photographed spot in the hall.",
+     "img": "/img/work/isys-ai-everything-1.jpg",
+     "alt": "The illuminated ISYS arch at AI Everything"
+    }
+   ],
+   "gallery": [
+    {
+     "src": "/img/legacy/2026-08-maa-01-scaled.jpg",
+     "alt": "Maarif"
+    },
+    {
+     "src": "/img/legacy/2026-08-inter-01-scaled.jpg",
+     "alt": "INTRA · KSA Defense Show"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture12-018-01-scaled.jpg",
+     "alt": "Arabian Qudra"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture12-01l-01-scaled.jpg",
+     "alt": "Dell · Cairo ICT"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture12-01m-01-scaled.jpg",
+     "alt": "Lenovo"
+    },
+    {
+     "src": "/img/work/isys-ai-everything-2.jpg",
+     "alt": "ISYS · AI Everything"
+    },
+    {
+     "src": "/img/work/isys-ai-everything-1.jpg",
+     "alt": "ISYS · AI Everything"
+    },
+    {
+     "src": "/img/work/technip-egypes-1.jpg",
+     "alt": "Technip Energies · EGYPES"
+    },
+    {
+     "src": "/img/work/technip-egypes-2.jpg",
+     "alt": "Technip Energies · EGYPES"
+    }
+   ],
+   "casesP": "In Saudi Arabia, plus a stand from our Cairo team.",
+   "chips": [
+    "Jeddah",
+    "Riyadh",
+    "Dammam & Khobar",
+    "KSA Defense Show"
+   ],
+   "chipsH": "Where <em>we build.</em>",
+   "chipsP": "Stands delivered from our Jeddah office across the Kingdom."
+  }
+ },
+ "ar": {
+  "base": {
+   "crumb": "تصميم وتنفيذ الأجنحة",
+   "band": "booth-build",
+   "stats": [
+    [
+     "+15",
+     "سنة خبرة"
+    ],
+    [
+     "+100",
+     "جناح نفذناه"
+    ],
+    [
+     "+8",
+     "معارض كبرى"
+    ],
+    [
+     "24/7",
+     "دعم في الموقع أثناء المعرض"
+    ]
+   ],
+   "servicesH": "جناح كامل، <em>فريق واحد.</em>",
+   "servicesP": "من أول رسمة ثلاثية الأبعاد لحد ما نفك آخر لوح بعد المعرض.",
+   "services": [
+    {
+     "t": "التصميم ثلاثي الأبعاد",
+     "d": "أفكار أجنحة ثلاثية الأبعاد مبنية على علامتك ومساحتك وأهدافك في المعرض، مع صور واقعية قبل التنفيذ.",
+     "tags": [
+      "أفكار",
+      "صور واقعية",
+      "مخططات"
+     ]
+    },
+    {
+     "t": "الأجنحة المخصصة",
+     "d": "أجنحة مصممة ومصنّعة خصيصاً لعلامتك، من الأقواس والأسقف المعلقة لحد غرف الاجتماعات.",
+     "tags": [
+      "خشب",
+      "معدن",
+      "أكريليك"
+     ]
+    },
+    {
+     "t": "الأجنحة المعيارية",
+     "d": "أنظمة معيارية قابلة لإعادة الاستخدام للشركات اللي بتشارك في أكثر من معرض في السنة.",
+     "tags": [
+      "إعادة استخدام",
+      "تركيب سريع"
+     ]
+    },
+    {
+     "t": "الشاشات والإضاءة والصوت",
+     "d": "شاشات LED وجدران عرض وإضاءة وصوت متكاملة مع التصميم من البداية.",
+     "tags": [
+      "شاشات LED",
+      "إضاءة",
+      "صوت"
+     ]
+    },
+    {
+     "t": "الجرافيك والطباعة",
+     "d": "كل الجرافيك مطبوع على الخامة الصح ومطابق لألوان علامتك.",
+     "tags": [
+      "طباعة",
+      "ستيكرز",
+      "حروف بارزة"
+     ]
+    },
+    {
+     "t": "الأثاث والتجهيزات",
+     "d": "أثاث ومناطق عرض واستقبال وتخزين مصممة لحركة الزوار.",
+     "tags": [
+      "أثاث",
+      "كاونترات",
+      "تخزين"
+     ]
+    },
+    {
+     "t": "موافقات المنظم",
+     "d": "مخططات إنشائية وكهربائية ومواصفات جاهزة لموافقة إدارة المعرض.",
+     "tags": [
+      "مخططات",
+      "سلامة"
+     ]
+    },
+    {
+     "t": "التركيب والفك",
+     "d": "تركيب في الوقت المحدد، ودعم أثناء أيام المعرض، وفك ونقل بعد الختام.",
+     "tags": [
+      "التركيب",
+      "الدعم",
+      "الفك"
+     ]
+    }
+   ],
+   "processH": "من الفكرة <em>ليوم الافتتاح.</em>",
+   "processP": "ست مراحل، بجدول زمني واضح من أول يوم.",
+   "process": [
+    [
+     "الاستلام",
+     "المعرض والمساحة والأهداف والميزانية والمواعيد."
+    ],
+    [
+     "الفكرة ثلاثية الأبعاد",
+     "تصميم وصور واقعية وتعديلات لحد الاعتماد."
+    ],
+    [
+     "موافقة المنظم",
+     "المخططات الفنية والكهرباء والسلامة لإدارة المعرض."
+    ],
+    [
+     "التصنيع",
+     "التصنيع في ورشنا مع مراجعة الجودة قبل النقل."
+    ],
+    [
+     "التركيب",
+     "التركيب في الموقع والتسليم قبل الافتتاح."
+    ],
+    [
+     "الفك",
+     "الدعم أثناء المعرض، ثم الفك والنقل والتخزين."
+    ]
+   ],
+   "casesH": "أجنحة <em>بنيناها.</em>",
+   "galleryH": "من <em>قاعات المعارض.</em>",
+   "chipsH": "معارض <em>شاركنا فيها.</em>"
+  },
+  "eg": {
+   "eyebrow": "تصميم وتنفيذ أجنحة المعارض في القاهرة، مصر",
+   "heroImg": {
+    "src": "/img/work/technip-egypes-1.jpg",
+    "alt": "جناح Technip Energies في إيجبس، القاهرة",
+    "cap": "Technip Energies في معرض إيجبس، من تصميم وتنفيذ دورز."
+   },
+   "slogan": "أجنحة <em>بتجمّع الزوار.</em>",
+   "lead": "بنصمم وننفذ ونركّب أجنحة المعارض في مصر: أفكار ثلاثية الأبعاد، وتصنيع في ورشنا، وشاشات وإضاءة، وتركيب وفك، كله مع فريق واحد.",
+   "introH": "تلات أيام <em>تسيب فيهم أثر.</em>",
+   "intro": [
+    "المعرض كام يوم ومنافسينك واقفين على بعد أمتار منك. الجناح لازم يوقّف الناس في الممر، ويدي فريقك مساحة يتكلم، ويبيّن علامتك كأنها الرائدة في مجالها.",
+    "بنينا أجنحة في Cairo ICT وإيجبس وAI Everything وبلاستكس وEgyBeauty Africa وغيرهم. بنصمم حسب حركة الزوار، وبنصنّع في ورشنا، وبنفضل في الموقع من التركيب للفك."
+   ],
+   "cases": [
+    {
+     "tag": "طاقة · إيجبس · القاهرة",
+     "client": "Technip Energies",
+     "text": "جناح Technip Energies في معرض إيجبس للطاقة، بحلقة معلقة وشاشات لعروض القيادات للزوار.",
+     "img": "/img/work/technip-egypes-2.jpg",
+     "alt": "جناح Technip Energies في إيجبس أثناء عرض"
+    },
+    {
+     "tag": "تكنولوجيا · AI Everything · القاهرة",
+     "client": "ISYS",
+     "text": "قوس مضيء يمشي الزوار من خلاله ومناطق عروض لشركة ISYS في AI Everything، وبقى مدخل الجناح أكثر مكان اتصور في القاعة.",
+     "img": "/img/work/isys-ai-everything-1.jpg",
+     "alt": "قوس ISYS المضيء في AI Everything"
+    },
+    {
+     "tag": "تكنولوجيا · Cairo ICT",
+     "client": "Dell Technologies",
+     "text": "جناح تقني لشركة Dell في Cairo ICT، بمناطق لعرض المنتجات وحضور قوي للعلامة من كل الممرات.",
+     "img": "/img/legacy/2026-08-picture12-01l-01-scaled.jpg",
+     "alt": "جناح Dell في Cairo ICT"
+    },
+    {
+     "tag": "مقاولات · القاهرة",
+     "client": "Alkan CIT",
+     "text": "جناح بمفهوم مستقبلي بهياكل مضيئة وشاشات رقمية لشركة Alkan CIT.",
+     "img": "/img/legacy/2026-08-picture19-01-scaled.jpg",
+     "alt": "جناح Alkan CIT"
+    }
+   ],
+   "gallery": [
+    {
+     "src": "/img/legacy/2026-08-picture1-01-01-scaled.jpg",
+     "alt": "GSK"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture1-01-scaled.jpg",
+     "alt": "ISYS"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture12-01l-01-scaled.jpg",
+     "alt": "Dell · Cairo ICT"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture12-01m-01-scaled.jpg",
+     "alt": "Lenovo"
+    },
+    {
+     "src": "/img/legacy/2026-08-as-012-01-scaled.jpg",
+     "alt": "Giesecke+Devrient & Netcetera"
+    },
+    {
+     "src": "/img/legacy/2026-08-is-01-scaled.jpg",
+     "alt": "ISYS · Cairo ICT 2023"
+    },
+    {
+     "src": "/img/work/isys-ai-everything-2.jpg",
+     "alt": "ISYS · AI Everything"
+    },
+    {
+     "src": "/img/work/isys-ai-everything-1.jpg",
+     "alt": "ISYS · AI Everything"
+    },
+    {
+     "src": "/img/work/technip-egypes-1.jpg",
+     "alt": "Technip Energies · EGYPES"
+    },
+    {
+     "src": "/img/work/technip-egypes-2.jpg",
+     "alt": "Technip Energies · EGYPES"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture12-014-01-01-scaled.jpg",
+     "alt": "Novartis"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture1-02-01-scaled.jpg",
+     "alt": "SPG Group · Plastex 2024"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture4-01-scaled.jpg",
+     "alt": "Galaxy · EgyBeauty Africa"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture5-01-scaled.jpg",
+     "alt": "Serenity"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture7-01-scaled.jpg",
+     "alt": "Serenity Sky Fringe"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture10-01-scaled.jpg",
+     "alt": "RAI Group · Plastex 2024"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture11-01-scaled.jpg",
+     "alt": "Link Misr"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture19-01-scaled.jpg",
+     "alt": "Alkan CIT"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture12-012-01-scaled.jpg",
+     "alt": "Knauf"
+    }
+   ],
+   "chips": [
+    "Cairo ICT",
+    "إيجبس",
+    "AI Everything",
+    "بلاستكس",
+    "EgyBeauty Africa"
+   ],
+   "chipsP": "معارض وقفت فيها أجنحتنا."
+  },
+  "ksa": {
+   "eyebrow": "تصميم وتنفيذ أجنحة المعارض في جدة",
+   "heroImg": {
+    "src": "/img/legacy/2026-08-inter-01-scaled.jpg",
+    "alt": "جناح INTRA في معرض الدفاع بجدة",
+    "cap": "INTRA في معرض الدفاع بجدة، من تصميم وتنفيذ دورز."
+   },
+   "slogan": "مبنية <em>لمعارض السعودية.</em>",
+   "lead": "من مكتبنا في جدة نصمم ونصنّع ونركّب أجنحة المعارض في كل السعودية، من الفكرة ثلاثية الأبعاد والتصنيع لحد الشاشات والإضاءة والتركيب والفك.",
+   "introH": "معارض السعودية <em>تكبر كل سنة.</em>",
+   "intro": [
+    "المعارض في جدة والرياض صارت تجذب عارضين دوليين وأعداد زوار ضخمة. جناحك ينافس علامات عالمية، فلازم يكون جريء ومتقن ويتسلّم في وقته بالضبط.",
+    "نفذنا لـINTRA ومعارف والقدرة العربية في المملكة، ومعنا خبرة أكثر من 100 جناح في مصر. نتولى موافقات المنظم والتركيب والدعم على مدار الساعة أثناء المعرض."
+   ],
+   "cases": [
+    {
+     "tag": "دفاع · معرض الدفاع · جدة",
+     "client": "INTRA",
+     "text": "جناح بمفهوم مستقبلي لشركة INTRA في معرض الدفاع بجدة، مبني حول شاشة دائرية كبيرة مائلة.",
+     "img": "/img/legacy/2026-08-inter-01-scaled.jpg",
+     "alt": "جناح INTRA في معرض الدفاع"
+    },
+    {
+     "tag": "تعليم · السعودية",
+     "client": "معارف",
+     "text": "جناح بتصميم تقني نظيف لشركة معارف، بشاشات رقمية ومساحة اجتماعات مفتوحة.",
+     "img": "/img/legacy/2026-08-maa-01-scaled.jpg",
+     "alt": "جناح معارف"
+    },
+    {
+     "tag": "طاقة · السعودية",
+     "client": "القدرة العربية",
+     "text": "جناح بمفهوم مستوحى من الطاقة لشركة القدرة العربية، يجمع بين هيكل جريء وألوان العلامة.",
+     "img": "/img/legacy/2026-08-picture12-018-01-scaled.jpg",
+     "alt": "جناح القدرة العربية"
+    },
+    {
+     "tag": "تكنولوجيا · AI Everything · القاهرة",
+     "client": "ISYS",
+     "text": "قوس مضيء يمشي الزوار من خلاله ومناطق عروض لشركة ISYS في AI Everything، وبقى مدخل الجناح أكثر مكان اتصور في القاعة.",
+     "img": "/img/work/isys-ai-everything-1.jpg",
+     "alt": "قوس ISYS المضيء في AI Everything"
+    }
+   ],
+   "gallery": [
+    {
+     "src": "/img/legacy/2026-08-maa-01-scaled.jpg",
+     "alt": "Maarif"
+    },
+    {
+     "src": "/img/legacy/2026-08-inter-01-scaled.jpg",
+     "alt": "INTRA · KSA Defense Show"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture12-018-01-scaled.jpg",
+     "alt": "Arabian Qudra"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture12-01l-01-scaled.jpg",
+     "alt": "Dell · Cairo ICT"
+    },
+    {
+     "src": "/img/legacy/2026-08-picture12-01m-01-scaled.jpg",
+     "alt": "Lenovo"
+    },
+    {
+     "src": "/img/work/isys-ai-everything-2.jpg",
+     "alt": "ISYS · AI Everything"
+    },
+    {
+     "src": "/img/work/isys-ai-everything-1.jpg",
+     "alt": "ISYS · AI Everything"
+    },
+    {
+     "src": "/img/work/technip-egypes-1.jpg",
+     "alt": "Technip Energies · EGYPES"
+    },
+    {
+     "src": "/img/work/technip-egypes-2.jpg",
+     "alt": "Technip Energies · EGYPES"
+    }
+   ],
+   "casesP": "في السعودية، ومعها جناح من فريقنا في القاهرة.",
+   "chips": [
+    "جدة",
+    "الرياض",
+    "الدمام والخبر",
+    "معرض الدفاع"
+   ],
+   "chipsH": "وين <em>نبني.</em>",
+   "chipsP": "أجنحة ننفذها من مكتبنا في جدة في كل المملكة."
+  }
+ }
+}

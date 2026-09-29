@@ -1,0 +1,374 @@
+{
+ "id": "media",
+ "paths": {
+  "eg": "/media-production-egypt/"
+ },
+ "en": {
+  "base": {
+   "crumb": "Media Production",
+   "eyebrow": "Video & media production company in Cairo, Egypt",
+   "heroFilm": {
+    "vimeo": "673930542",
+    "img": "/img/films/673930542.jpg",
+    "alt": "Dubai Financial Market: Gen Z investor campaign"
+   },
+   "slogan": "Stories that <em>move.</em>",
+   "lead": "We write, shoot, animate and edit TV commercials, corporate films, explainers, motion graphics, 3D and social reels, for brands from EMS and IBM to the Dubai Financial Market.",
+   "stats": [
+    [
+     "17",
+     "Films in the gallery below"
+    ],
+    [
+     "7",
+     "Social reels"
+    ],
+    [
+     "EN · AR",
+     "Scripts and voice-over"
+    ],
+    [
+     "4K",
+     "Shooting and delivery"
+    ]
+   ],
+   "introH": "One team from <em>idea to final cut.</em>",
+   "intro": [
+    "Animated videos explain complex ideas and create an emotional bond between the audience and the brand. Live action gives a product or a leader a face and a voice. We choose the format that fits the message, then script, storyboard and produce it in-house.",
+    "Because we also plan the media, every film is made for where it will run: a 30-second TV spot, a 6-second YouTube bumper, a vertical reel or a two-minute explainer for a sales team."
+   ],
+   "servicesH": "What we <em>produce.</em>",
+   "servicesP": "From a 6-second bumper to a two-minute brand film.",
+   "services": [
+    {
+     "t": "TV commercials",
+     "d": "Concept, casting, shooting and post for TV and cinema spots, with cut-downs for digital.",
+     "tags": [
+      "30″ / 15″",
+      "Casting",
+      "Celebrities"
+     ],
+     "href": "/tv-advertising/"
+    },
+    {
+     "t": "Corporate films",
+     "d": "Company, product and leadership films for launches, conferences and investors.",
+     "tags": [
+      "Interviews",
+      "B-roll",
+      "Drone"
+     ]
+    },
+    {
+     "t": "Explainers & motion graphics",
+     "d": "Animated explainers that make complex products simple, like our IBM × iSYS series.",
+     "tags": [
+      "2D animation",
+      "Kinetic type",
+      "Infographics"
+     ]
+    },
+    {
+     "t": "3D & VFX",
+     "d": "3D product shots, CGI and visual effects, from fantasy juice worlds to store simulations.",
+     "tags": [
+      "CGI",
+      "Product 3D",
+      "Compositing"
+     ]
+    },
+    {
+     "t": "Social reels",
+     "d": "Vertical reels for Instagram and TikTok, built to stop the scroll in the first second.",
+     "tags": [
+      "9:16",
+      "Food",
+      "Product"
+     ],
+     "href": "/digital-marketing-egypt-cairo/"
+    },
+    {
+     "t": "Event coverage",
+     "d": "Filming and photography for conferences, launches and exhibitions, with same-day highlights.",
+     "tags": [
+      "Highlights",
+      "Photography"
+     ],
+     "href": "/event-management-cairo-egypt/"
+    },
+    {
+     "t": "Radio production",
+     "d": "Scripts, voice talent, music and mixing for radio spots.",
+     "tags": [
+      "Voice-over",
+      "Jingles"
+     ],
+     "href": "/radio-advertising-egypt/"
+    },
+    {
+     "t": "Post-production",
+     "d": "Editing, colour grading, sound design, subtitles and versions for every platform.",
+     "tags": [
+      "Edit",
+      "Colour",
+      "Sound"
+     ]
+    }
+   ],
+   "processH": "How a film <em>gets made.</em>",
+   "processP": "Six stages, with your sign-off at each.",
+   "process": [
+    [
+     "Brief & concept",
+     "Objective, audience, channels and the big idea."
+    ],
+    [
+     "Script & storyboard",
+     "Script in Arabic and English, storyboard or animatic."
+    ],
+    [
+     "Pre-production",
+     "Casting, locations, crew, schedule and shot list."
+    ],
+    [
+     "Shoot or animate",
+     "Live-action shoot, 2D/3D animation, or both."
+    ],
+    [
+     "Post-production",
+     "Edit, grade, motion, sound and voice-over."
+    ],
+    [
+     "Delivery",
+     "Masters and cut-downs for TV, YouTube and social."
+    ]
+   ],
+   "casesH": "Selected <em>productions.</em>",
+   "cases": [
+    {
+     "tag": "Fitness tech · TV commercial",
+     "client": "EMS Revolution",
+     "text": "A one-minute TV and digital ad starring Karim Benzema.",
+     "img": "/img/films/485728474.jpg",
+     "vimeo": "485728474",
+     "alt": "EMS Revolution ad with Karim Benzema"
+    },
+    {
+     "tag": "Technology · Explainer series",
+     "client": "IBM × iSYS",
+     "text": "A series of animated explainers for IBM Cloud Pak for Data, POWER10 and Virtual Server on Cloud, turning complex infrastructure into clear stories.",
+     "img": "/img/films/858592136.jpg",
+     "vimeo": "858592136",
+     "metrics": [
+      [
+       "4",
+       "Explainers"
+      ],
+      [
+       "EN",
+       "Voice-over"
+      ]
+     ]
+    },
+    {
+     "tag": "Government · Awareness campaign",
+     "client": "Ministry of Petroleum",
+     "text": "A corporate film and public awareness spots on natural gas and fuel tips.",
+     "img": "/img/films/662442474.jpg",
+     "vimeo": "662442474",
+     "metrics": [
+      [
+       "3",
+       "Films"
+      ]
+     ]
+    }
+   ],
+   "films": true
+  }
+ },
+ "ar": {
+  "base": {
+   "crumb": "الإنتاج الإعلامي",
+   "eyebrow": "شركة إنتاج فيديو وإعلام في القاهرة، مصر",
+   "heroFilm": {
+    "vimeo": "673930542",
+    "img": "/img/films/673930542.jpg",
+    "alt": "سوق دبي المالي: حملة المستثمرين من جيل Z"
+   },
+   "slogan": "حكايات <em>بتتحرك.</em>",
+   "lead": "بنكتب ونصوّر ونحرّك ونمنتج إعلانات تلفزيون وأفلام مؤسسية وفيديوهات شرح وموشن جرافيك و3D وريلز للسوشيال، لعلامات من EMS وIBM لحد سوق دبي المالي.",
+   "stats": [
+    [
+     "17",
+     "فيلم في المعرض تحت"
+    ],
+    [
+     "7",
+     "ريلز للسوشيال"
+    ],
+    [
+     "عربي · إنجليزي",
+     "سيناريو وتعليق صوتي"
+    ],
+    [
+     "4K",
+     "تصوير وتسليم"
+    ]
+   ],
+   "introH": "فريق واحد من <em>الفكرة للمونتاج.</em>",
+   "intro": [
+    "فيديوهات الأنيميشن بتشرح الأفكار المعقدة وبتبني علاقة بين الجمهور والعلامة. والتصوير الحي بيدّي المنتج أو القائد وش وصوت. بنختار الشكل المناسب للرسالة، وبعدين نكتب ونرسم الستوري بورد وننتج في فريقنا.",
+    "ولأننا كمان بنخطط الميديا، كل فيلم معمول للمكان اللي هيتعرض فيه: إعلان تلفزيون 30 ثانية، أو إعلان يوتيوب 6 ثواني، أو ريل رأسي، أو فيديو شرح دقيقتين لفريق المبيعات."
+   ],
+   "servicesH": "إيه اللي <em>بننتجه.</em>",
+   "servicesP": "من إعلان 6 ثواني لفيلم علامة دقيقتين.",
+   "services": [
+    {
+     "t": "إعلانات التلفزيون",
+     "d": "الفكرة واختيار الممثلين والتصوير والمونتاج لإعلانات التلفزيون والسينما، مع نسخ قصيرة للديجيتال.",
+     "tags": [
+      "30″ / 15″",
+      "اختيار الممثلين",
+      "مشاهير"
+     ],
+     "href": "/tv-advertising/"
+    },
+    {
+     "t": "أفلام مؤسسية",
+     "d": "أفلام للشركات والمنتجات والقيادات للإطلاقات والمؤتمرات والمستثمرين.",
+     "tags": [
+      "مقابلات",
+      "لقطات",
+      "درون"
+     ]
+    },
+    {
+     "t": "فيديوهات شرح وموشن جرافيك",
+     "d": "فيديوهات أنيميشن بتبسّط المنتجات المعقدة، زي سلسلتنا لـIBM × iSYS.",
+     "tags": [
+      "أنيميشن 2D",
+      "كتابة متحركة",
+      "إنفوجرافيك"
+     ]
+    },
+    {
+     "t": "3D ومؤثرات بصرية",
+     "d": "لقطات منتجات ثلاثية الأبعاد وCGI ومؤثرات، من عوالم عصاير خيالية لمحاكاة المحلات.",
+     "tags": [
+      "CGI",
+      "منتجات 3D",
+      "تركيب"
+     ]
+    },
+    {
+     "t": "ريلز السوشيال",
+     "d": "ريلز رأسية لإنستجرام وتيك توك، معمولة توقّف التمرير من أول ثانية.",
+     "tags": [
+      "9:16",
+      "أكل",
+      "منتجات"
+     ],
+     "href": "/digital-marketing-egypt-cairo/"
+    },
+    {
+     "t": "تغطية الفعاليات",
+     "d": "تصوير فيديو وفوتوغرافيا للمؤتمرات والإطلاقات والمعارض، مع ملخص في نفس اليوم.",
+     "tags": [
+      "ملخصات",
+      "تصوير فوتوغرافي"
+     ],
+     "href": "/event-management-cairo-egypt/"
+    },
+    {
+     "t": "إنتاج الراديو",
+     "d": "سيناريو وأصوات وموسيقى ومكساج لإعلانات الراديو.",
+     "tags": [
+      "تعليق صوتي",
+      "جينجلز"
+     ],
+     "href": "/radio-advertising-egypt/"
+    },
+    {
+     "t": "ما بعد الإنتاج",
+     "d": "مونتاج وتصحيح ألوان وتصميم صوت وترجمة ونسخ لكل منصة.",
+     "tags": [
+      "مونتاج",
+      "ألوان",
+      "صوت"
+     ]
+    }
+   ],
+   "processH": "إزاي الفيلم <em>بيتعمل.</em>",
+   "processP": "ست مراحل، وموافقتك في آخر كل واحدة.",
+   "process": [
+    [
+     "الاستلام والفكرة",
+     "الهدف والجمهور والقنوات والفكرة الأساسية."
+    ],
+    [
+     "السيناريو والستوري بورد",
+     "سيناريو بالعربي والإنجليزي، وستوري بورد أو أنيماتيك."
+    ],
+    [
+     "التحضير",
+     "اختيار الممثلين والأماكن والفريق والجدول وقائمة اللقطات."
+    ],
+    [
+     "التصوير أو التحريك",
+     "تصوير حي، أو أنيميشن 2D/3D، أو الاتنين."
+    ],
+    [
+     "ما بعد الإنتاج",
+     "مونتاج وألوان وموشن وصوت وتعليق صوتي."
+    ],
+    [
+     "التسليم",
+     "النسخ النهائية والقصيرة للتلفزيون ويوتيوب والسوشيال."
+    ]
+   ],
+   "casesH": "إنتاجات <em>مختارة.</em>",
+   "cases": [
+    {
+     "tag": "تكنولوجيا اللياقة · إعلان تلفزيوني",
+     "client": "EMS Revolution",
+     "text": "إعلان دقيقة للتلفزيون والديجيتال بطولة كريم بنزيما.",
+     "img": "/img/films/485728474.jpg",
+     "vimeo": "485728474",
+     "alt": "إعلان EMS Revolution مع كريم بنزيما"
+    },
+    {
+     "tag": "تكنولوجيا · سلسلة فيديوهات شرح",
+     "client": "IBM × iSYS",
+     "text": "سلسلة فيديوهات أنيميشن لـIBM Cloud Pak for Data وPOWER10 وVirtual Server on Cloud، بتحوّل البنية التقنية المعقدة لحكايات واضحة.",
+     "img": "/img/films/858592136.jpg",
+     "vimeo": "858592136",
+     "metrics": [
+      [
+       "4",
+       "فيديوهات شرح"
+      ],
+      [
+       "EN",
+       "تعليق صوتي"
+      ]
+     ]
+    },
+    {
+     "tag": "حكومي · حملة توعية",
+     "client": "وزارة البترول",
+     "text": "فيلم مؤسسي وإعلانات توعية عن الغاز الطبيعي ونصايح الوقود.",
+     "img": "/img/films/662442474.jpg",
+     "vimeo": "662442474",
+     "metrics": [
+      [
+       "3",
+       "أفلام"
+      ]
+     ]
+    }
+   ],
+   "films": true
+  }
+ }
+}

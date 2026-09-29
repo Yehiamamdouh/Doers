@@ -3,7 +3,7 @@
 import ServicePage from '../../components/ServicePage.astro';
 import LegacyPage from '../../components/LegacyPage.astro';
 import RichService from '../../components/RichService.astro';
-import { richFor } from '../../lib/rich.js';
+import { richFor, servicePageProps } from '../../lib/rich.js';
 import pages from '../../data/service-pages.ar.json';
 import BlogPost from '../../components/BlogPost.astro';
 import legacy from '../../data/legacy-pages.json';
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
   const [en, ar] = await Promise.all([postsIn('en'), postsIn('ar')]);
   const enSlugs = new Set(en.map(postSlug));
   return [
-    ...pages.map((p) => ({ params: { slug: p.slug }, props: { kind: 'service', p, alt: true } })),
+    ...pages.map((p) => ({ params: { slug: p.slug }, props: servicePageProps(p, 'ar', true) })),
     ...legacy.filter((l) => l.lang === 'ar').map((l) => ({ params: { slug: l.path.slice(4, -1) }, props: { kind: 'legacy', r: richFor(l.path.slice(3), l.lang), p: l, alt: enPaths.has(l.path.slice(3)) } })),
     ...ar.map((post, i) => ({ params: { slug: postSlug(post) }, props: { kind: 'post', post, alt: enSlugs.has(postSlug(post)), more: ar.filter((_, j) => j !== i).slice(Math.max(0, i - 1), Math.max(0, i - 1) + 3) } })),
   ];

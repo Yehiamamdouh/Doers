@@ -134,3 +134,31 @@
 .rs-hero-img.fit-c{background:#3a3a3a;border-radius:24px;padding:clamp(20px,3vw,36px)}
 .rs-hero-img.fit-c img{aspect-ratio:auto;object-fit:contain;border-radius:10px}
 .rs-hero-img figcaption{margin-top:14px;color:var(--smoke);font:600 clamp(14px,1.2vw,16px)/1.4 var(--body)}
+/* Hero panel: a designed card when there is no photo (SEO audit, tech stack) */
+.rs-panel{background:#141414;color:#f4f1ea;border-radius:24px;padding:22px 24px 26px;box-shadow:0 30px 60px -30px rgba(0,0,0,.45);font-size:15px}
+.rs-panel-h{display:flex;align-items:center;gap:7px;margin-bottom:18px}
+.rs-panel-h i{width:11px;height:11px;border-radius:50%;background:#3a3a3a}
+.rs-panel-h i:first-child{background:var(--orange,#f7a21b)}
+.rs-panel-h span{margin-inline-start:10px;font:700 12px var(--body);letter-spacing:.12em;text-transform:uppercase;color:#a9a39a}
+.rs-panel ul{list-style:none;margin:0;padding:0}
+.rs-panel li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #2b2b2b}
+.rs-panel li span{color:#cfc9bf}
+.rs-panel li b{color:var(--orange,#f7a21b);font-weight:700;unicode-bidi:plaintext;text-align:end}
+.rs-panel p{margin:16px 0 0;color:#a9a39a;font-size:13px}
+/* Definition lists (tech stack, what's included) */
+.rs-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 32px;margin:0}
+.rs-list div{padding:16px 0;border-top:1px solid rgba(0,0,0,.12)}
+.rs-list dt{font:700 13px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--smoke);margin-bottom:6px}
+.rs-list dd{margin:0;font-weight:600;unicode-bidi:plaintext}
+.rs-list.ticks dd::before{content:"✓";color:var(--orange,#f7a21b);font-weight:800;margin-inline-end:10px}
+/* Live sites and apps */
+.rs-sites{margin-top:28px}
+.rs-sites h3{margin:0 0 12px}
+.rs-sites ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.rs-sites a{display:flex;flex-direction:column;gap:4px;padding:16px 18px;border:1.5px solid rgba(0,0,0,.14);border-radius:16px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
+.rs-sites a:hover{border-color:var(--ink);transform:translateY(-2px)}
+.rs-sites a span{font-size:13px;color:var(--smoke);unicode-bidi:plaintext}
+.rs-row h3 a{color:inherit;text-decoration:none}
+.rs-row h3 a .arrow{font-size:.6em;vertical-align:super;color:var(--orange,#f7a21b)}
+/* Five steps in a three-column grid: stretch the last card so no empty cell is left */
+@media (min-width:900px){.rs-steps li:last-child:nth-child(3n+2){grid-column:span 2}}

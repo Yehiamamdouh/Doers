@@ -1,5 +1,5 @@
 {
- "note": "Corrections to text carried over from the old site, applied by scripts/build_legacy.py to every page (crawled or hand-written). Meta titles and descriptions are left as they were. replace: [path or '*', find, replace]. drop_p: stray one-word paragraphs left over from Divi section labels.",
+ "note": "Corrections to text carried over from the old site, applied by scripts/build_legacy.py to every page (crawled or hand-written). Meta titles and descriptions are left as they were. replace: [path or '*', find, replace]. drop_p: paragraphs and h3 headings to remove, by exact HTML (stray Divi section labels, and services Doers no longer offers such as virtual events).",
  "replace": [
   [
    "*",
@@ -448,8 +448,13 @@
    "Radio Ads",
    "Merchandising",
    "Activation",
-   "most competitive rates and premium spots."
+   "most competitive rates and premium spots.",
+   "<strong>Virtual Events:</strong>",
+   "In the digital age, virtual events present unique challenges and opportunities, and Doers, being a leading advertising agency in Jeddah, excels in creating immersive virtual experiences. From live streaming to interactive activities and virtual networking, we transform online events into engaging journeys that connect and captivate your audience."
   ],
-  "ar": []
+  "ar": [
+   "<strong>الفعاليات الافتراضية:</strong>",
+   "في العصر الرقمي، تقدم الفعاليات الافتراضية تحديات وفرصًا فريدة، وتتفوق Doers، بصفتها وكالة إعلانات رائدة في جدة، في إنشاء تجارب افتراضية غامرة. من البث المباشر إلى الأنشطة التفاعلية والشبكات الافتراضية، نحول الفعاليات عبر الإنترنت إلى رحلات مشوقة تتواصل وتبهر جمهورك."
+  ]
  }
 }

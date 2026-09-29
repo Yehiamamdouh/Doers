@@ -8,8 +8,8 @@
   },
   {
    "paths": ["/event-management-cairo-egypt/", "/ksa/event-management-agency-in-jeddah/"],
-   "en": ["Product launches", "Conferences", "Corporate events", "Gala dinners", "Brand activations", "Roadshows", "Team building", "Virtual events", "Staging & AV", "Brief", "Concept & 3D", "Venue & suppliers", "Production", "Show day", "Wrap-up report"],
-   "ar": ["إطلاق المنتجات", "المؤتمرات", "فعاليات الشركات", "حفلات العشاء", "التفعيلات التسويقية", "الجولات الترويجية", "بناء الفرق", "الفعاليات الافتراضية", "المسرح والصوت والإضاءة", "الاستلام", "الفكرة والتصميم ثلاثي الأبعاد", "المكان والموردون", "الإنتاج", "يوم الحدث", "تقرير الختام"]
+   "en": ["Product launches", "Conferences", "Corporate events", "Gala dinners", "Brand activations", "Roadshows", "Team building","Staging & AV", "Brief", "Concept & 3D", "Venue & suppliers", "Production", "Show day", "Wrap-up report"],
+   "ar": ["إطلاق المنتجات", "المؤتمرات", "فعاليات الشركات", "حفلات العشاء", "التفعيلات التسويقية", "الجولات الترويجية", "بناء الفرق","المسرح والصوت والإضاءة", "الاستلام", "الفكرة والتصميم ثلاثي الأبعاد", "المكان والموردون", "الإنتاج", "يوم الحدث", "تقرير الختام"]
   },
   {
    "paths": ["/booth-production-egypt/", "/ksa/booth-production-in-jeddah/"],
