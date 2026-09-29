@@ -74,7 +74,7 @@ const schema = {
           </div>
         )}
         {r.heroFilm && <button type="button" class="rs-hero-film" data-vimeo={r.heroFilm.vimeo} aria-label={`${L.play}: ${r.heroFilm.alt}`}><img src={r.heroFilm.img} alt={r.heroFilm.alt} fetchpriority="high"><span class="rs-pl" aria-hidden="true"></span><span class="rs-hero-cap">{r.heroFilm.alt}</span></button>}
-        {r.heroImg && <figure class="rs-hero-img"><img src={r.heroImg.src} alt={r.heroImg.alt} fetchpriority="high"></figure>}
+        {r.heroImg && <figure class={`rs-hero-img${r.heroImg.fit === "contain" ? " fit-c" : ""}`}><img src={r.heroImg.src} alt={r.heroImg.alt} fetchpriority="high">{r.heroImg.cap && <figcaption>{r.heroImg.cap}</figcaption>}</figure>}
       </section>
     </div>
     <ServiceStrip lang={lang} items={r.strip || [...(r.services || []).map((x) => x.t), ...(r.process || []).map((x) => x[0])]} />

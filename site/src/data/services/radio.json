@@ -1,0 +1,164 @@
+{
+ "id": "radio",
+ "paths": { "eg": "/radio-advertising-egypt/", "ksa": "/ksa/radio-advertising-agencies-in-jeddah/" },
+ "en": {
+  "base": {
+   "crumb": "Radio Advertising",
+   "stats": [["Drive time", "Morning and evening commutes, the strongest slots"], ["30″", "Standard spot length, with 20″ and 15″ cut-downs"], ["3+", "Hearings per listener we plan for"], ["Logs", "Broadcast logs checked for every campaign"]],
+   "servicesH": "From script <em>to airtime.</em>",
+   "servicesP": "We plan where and when your spot plays, write and record it, book it and prove it aired.",
+   "services": [
+    { "t": "Listener & station research", "d": "Which stations your audience listens to, when, and in which language, from station reach and format data.", "tags": ["Station reach", "Formats", "Listener profile"] },
+    { "t": "Station & daypart selection", "d": "Stations and time bands chosen for your audience, with drive time weighted for commuters and professionals.", "tags": ["Drive time", "Daytime", "Weekend"] },
+    { "t": "Frequency planning", "d": "Spots per day, days per week and campaign length set so each listener hears the message enough times to act.", "tags": ["Spots per day", "Flighting", "Share of voice"] },
+    { "t": "Geo-targeting", "d": "Regional stations and city-level plans for launches, retail and real estate in specific areas.", "tags": ["Regional stations", "City plans"] },
+    { "t": "Scripts & production", "d": "Scripts in Arabic and English, voice-over artists, MCs and presenters, music and final mix.", "tags": ["Copywriting", "Voice-over", "Jingles", "Mixing"] },
+    { "t": "Sponsorships & live reads", "d": "Programme sponsorships, time checks and presenter live reads that feel native to the station.", "tags": ["Sponsorships", "Live reads", "Time checks"] },
+    { "t": "Booking & negotiation", "d": "Rates, bonus spots and fixed positions negotiated with each station.", "tags": ["Rates", "Bonus spots", "Fixed positions"] },
+    { "t": "Monitoring & reporting", "d": "Broadcast logs checked against the plan, with a report on spots delivered and the effect on calls, search and visits.", "tags": ["Broadcast logs", "Delivery report", "Response tracking"] }
+   ],
+   "processH": "Our radio planning <em>method.</em>",
+   "processP": "Six steps, whether it's a two-week launch burst or a year-round presence.",
+   "process": [
+    ["Brief", "Objective, audience, cities, timing and budget."],
+    ["Listener research", "Stations, formats and time bands your audience actually listens to."],
+    ["The plan", "Stations, dayparts, spots per day, campaign length and expected frequency."],
+    ["Script & recording", "Arabic and English scripts, voices and production, approved before booking."],
+    ["Booking & on air", "Rates and positions secured, spots delivered to each station and aired."],
+    ["Logs & report", "Broadcast logs checked against the plan and results reported."]
+   ],
+   "casesH": "Radio campaigns <em>we ran.</em>",
+   "casesP": "Plans built around the audience's day, not the station list."
+  },
+  "eg": {
+   "eyebrow": "Radio advertising agency in Cairo, Egypt",
+   "heroImg": { "src": "/img/media/luxoft-radio-stations.jpg", "alt": "Nile FM, Nogoum FM, El Radio 9090, Radio Masr 88.7 and NRJ, the stations in our Luxoft campaign", "fit": "contain", "cap": "Luxoft: 60 spots × 30″ over two weeks, 8–10 a.m. on five Cairo stations." },
+   "slogan": "Heard on the way <em>to work.</em>",
+   "lead": "We plan, produce and book radio campaigns on Egypt's leading stations: listener research, drive-time plans, Arabic and English scripts, voice-over and broadcast reports.",
+   "introH": "Radio reaches people <em>where screens can't.</em>",
+   "intro": [
+    "In Cairo, millions of people spend an hour or more in the car every day, and the radio is on. A well-planned radio campaign reaches professionals and decision makers at the moments they are most receptive, at a fraction of the cost of TV.",
+    "We plan radio like a media agency, around listeners and dayparts rather than a station list, and we produce the spots ourselves, with the right voices in Arabic and English."
+   ],
+   "chipsH": "Stations we <em>plan across.</em>",
+   "chipsP": "Egyptian stations, chosen for each campaign by audience and format.",
+   "chips": ["Nogoum FM", "Nile FM", "Mega FM", "Radio Hits 88.2", "El Radio 9090", "Radio Masr 88.7", "NRJ Egypt", "Nagham FM", "Shaabi FM"],
+   "flight": {
+    "h": "The Luxoft <em>plan.</em>",
+    "p": "Luxoft wanted to reach employees and IT professionals. We focused the budget on the 8–10 a.m. commute across five stations, with extra weight on the opening day of each week.",
+    "cols": ["Sun", "Mon", "Tue", "Wed", "Thu", "Sun", "Mon", "Tue", "Wed", "Thu"],
+    "levels": ["1", "2", "3"],
+    "rows": [["Nile FM 104.2", [2, 1, 1, 1, 1, 2, 1, 1, 1, 1]], ["Nogoum FM 100.6", [2, 1, 1, 1, 1, 2, 1, 1, 1, 1]], ["El Radio 9090", [2, 1, 1, 1, 1, 2, 1, 1, 1, 1]], ["Radio Masr 88.7", [2, 1, 1, 1, 1, 2, 1, 1, 1, 1]], ["NRJ 92.1", [2, 1, 1, 1, 1, 2, 1, 1, 1, 1]]],
+    "note": "Spots per morning between 8 and 10 a.m.: 60 thirty-second spots over two weeks. The daily split shown is illustrative."
+   },
+   "cases": [
+    { "tag": "Technology · Recruitment awareness", "client": "Luxoft", "text": "A two-week drive-time campaign on Nile FM, Nogoum FM, El Radio 9090, Radio Masr and NRJ, with Arabic and English spots, alongside Luxoft's outdoor screens and guest posts.", "img": "/img/ooh/luxoft-street-poles.jpg", "metrics": [["60", "Spots × 30″"], ["5", "Stations"], ["2", "Weeks"], ["8–10", "a.m. drive time"]] }
+   ]
+  },
+  "ksa": {
+   "eyebrow": "Radio advertising agency in Jeddah",
+   "heroImg": { "src": "/img/media/luxoft-radio-stations.jpg", "alt": "Radio stations from one of our drive-time campaigns", "fit": "contain", "cap": "A drive-time plan: 60 spots × 30″ over two weeks, 8–10 a.m., five stations." },
+   "slogan": "Built for <em>the Saudi commute.</em>",
+   "lead": "From our Jeddah office we plan, produce and book radio campaigns on Saudi stations: listener research, drive-time plans, scripts in Saudi Arabic, voice-over and broadcast reports.",
+   "introH": "The car is <em>Saudi Arabia's radio.</em>",
+   "intro": [
+    "Most radio listening in Saudi Arabia happens in the car, which makes morning and evening drive time the most valuable minutes on air. We plan around those commutes in Jeddah, Riyadh and the Eastern Province.",
+    "We write and record spots with Saudi voice-over artists so they sound local, book them with the stations and check the broadcast logs against the plan."
+   ],
+   "chipsH": "Stations we <em>plan across.</em>",
+   "chipsP": "Saudi stations, chosen for each campaign by audience and format.",
+   "chips": ["MBC FM", "Rotana FM", "Mix FM", "Alif Alif FM", "UFM", "Panorama FM"],
+   "flight": {
+    "h": "A drive-time <em>plan.</em>",
+    "p": "The shape of a two-week commuter campaign: the morning drive every working day, with extra weight at the start of each week.",
+    "cols": ["Sun", "Mon", "Tue", "Wed", "Thu", "Sun", "Mon", "Tue", "Wed", "Thu"],
+    "levels": ["1", "2", "3"],
+    "rows": [["Station A, 7–10 a.m.", [2, 1, 1, 1, 1, 2, 1, 1, 1, 1]], ["Station B, 7–10 a.m.", [2, 1, 1, 1, 1, 2, 1, 1, 1, 1]], ["Station C, 4–7 p.m.", [1, 1, 1, 1, 2, 1, 1, 1, 1, 2]], ["Station D, 4–7 p.m.", [1, 1, 1, 1, 2, 1, 1, 1, 1, 2]]],
+    "note": "Illustrative: spots per day per station. Real plans are built around your audience, cities and budget."
+   },
+   "cases": [
+    { "tag": "Technology · Recruitment awareness · Cairo", "client": "Luxoft", "text": "A two-week drive-time campaign on five stations with Arabic and English spots, alongside outdoor screens and guest posts.", "img": "/img/ooh/luxoft-street-poles.jpg", "metrics": [["60", "Spots × 30″"], ["5", "Stations"], ["2", "Weeks"]] }
+   ]
+  }
+ },
+ "ar": {
+  "base": {
+   "crumb": "إعلانات الراديو",
+   "stats": [["أوقات الذروة", "رحلات الصباح والمساء، أقوى أوقات البث"], ["30 ث", "مدة الإعلان الأساسية، مع نسخ 20 و15 ثانية"], ["+3", "مرات استماع لكل مستمع نخطط لها"], ["السجلات", "نراجع سجلات البث في كل حملة"]],
+   "servicesH": "من السيناريو <em>حتى البث.</em>",
+   "servicesP": "نخطط أين ومتى يُذاع إعلانك، ونكتبه ونسجله، ونحجزه ونثبت أنه أُذيع.",
+   "services": [
+    { "t": "دراسة المستمعين والمحطات", "d": "أي المحطات يستمع إليها جمهورك ومتى وبأي لغة، من بيانات الوصول وطبيعة المحطات.", "tags": ["وصول المحطات", "طبيعة المحطة", "ملف المستمع"] },
+    { "t": "اختيار المحطات والفترات", "d": "محطات وفترات مختارة لجمهورك، مع تركيز على أوقات التنقل للموظفين والمهنيين.", "tags": ["أوقات الذروة", "النهار", "عطلة نهاية الأسبوع"] },
+    { "t": "تخطيط التكرار", "d": "عدد الإعلانات يوميًا والأيام أسبوعيًا ومدة الحملة، ليسمع كل مستمع الرسالة بما يكفي ليتصرف.", "tags": ["الإعلانات يوميًا", "توزيع الحملة", "الحصة من الإعلانات"] },
+    { "t": "الاستهداف الجغرافي", "d": "محطات إقليمية وخطط على مستوى المدن للإطلاقات والتجزئة والعقارات في مناطق محددة.", "tags": ["المحطات الإقليمية", "خطط المدن"] },
+    { "t": "السيناريو والإنتاج", "d": "سيناريوهات بالعربي والإنجليزي، ومعلقون صوتيون ومذيعون، وموسيقى ومكساج نهائي.", "tags": ["كتابة الإعلان", "التعليق الصوتي", "الجينجل", "المكساج"] },
+    { "t": "الرعايات والقراءة على الهواء", "d": "رعاية البرامج وفقرات الوقت وقراءة المذيع على الهواء بأسلوب طبيعي للمحطة.", "tags": ["الرعايات", "القراءة على الهواء", "فقرات الوقت"] },
+    { "t": "الحجز والتفاوض", "d": "الأسعار والإعلانات المجانية والمواقع الثابتة نتفاوض عليها مع كل محطة.", "tags": ["الأسعار", "إعلانات مجانية", "مواقع ثابتة"] },
+    { "t": "المتابعة والتقارير", "d": "مراجعة سجلات البث مقابل الخطة، وتقرير عن الإعلانات المذاعة وأثرها على الاتصالات والبحث والزيارات.", "tags": ["سجلات البث", "تقرير التنفيذ", "تتبع الاستجابة"] }
+   ],
+   "processH": "منهجية تخطيط <em>الراديو.</em>",
+   "processP": "ست خطوات، سواء كانت حملة إطلاق لأسبوعين أو حضورًا طوال العام.",
+   "process": [
+    ["الاستلام", "الهدف والجمهور والمدن والتوقيت والميزانية."],
+    ["دراسة المستمعين", "المحطات وطبيعتها والفترات التي يستمع إليها جمهورك فعلًا."],
+    ["الخطة", "المحطات والفترات وعدد الإعلانات يوميًا ومدة الحملة والتكرار المتوقع."],
+    ["السيناريو والتسجيل", "سيناريوهات بالعربي والإنجليزي وأصوات وإنتاج، تُعتمد قبل الحجز."],
+    ["الحجز والبث", "تأمين الأسعار والمواقع، وتسليم الإعلانات لكل محطة وإذاعتها."],
+    ["السجلات والتقرير", "مراجعة سجلات البث مقابل الخطة وتقديم النتائج."]
+   ],
+   "casesH": "حملات راديو <em>نفذناها.</em>",
+   "casesP": "خطط مبنية على يوم الجمهور، لا على قائمة المحطات."
+  },
+  "eg": {
+   "eyebrow": "وكالة إعلانات راديو في القاهرة، مصر",
+   "heroImg": { "src": "/img/media/luxoft-radio-stations.jpg", "alt": "نايل إف إم ونجوم إف إم والراديو 9090 وراديو مصر 88.7 وNRJ، محطات حملة Luxoft", "fit": "contain", "cap": "Luxoft: ‏60 إعلانًا × 30 ثانية على مدى أسبوعين، من 8 إلى 10 صباحًا على خمس محطات." },
+   "slogan": "مسموع في الطريق <em>إلى العمل.</em>",
+   "lead": "نخطط وننتج ونحجز حملات الراديو على أهم المحطات المصرية: دراسة المستمعين وخطط أوقات الذروة وسيناريوهات بالعربي والإنجليزي والتعليق الصوتي وتقارير البث.",
+   "introH": "الراديو يصل حيث <em>لا تصل الشاشات.</em>",
+   "intro": [
+    "في القاهرة يقضي الملايين ساعة أو أكثر في السيارة يوميًا، والراديو يعمل. حملة راديو مخططة جيدًا تصل إلى المهنيين وصناع القرار في اللحظات التي يكونون فيها أكثر تقبلًا، بجزء من تكلفة التلفزيون.",
+    "نخطط للراديو كما تفعل وكالات الميديا، حول المستمعين والفترات لا حول قائمة المحطات، وننتج الإعلانات بأنفسنا بالأصوات المناسبة بالعربي والإنجليزي."
+   ],
+   "chipsH": "محطات <em>نخطط عليها.</em>",
+   "chipsP": "محطات مصرية نختارها لكل حملة حسب الجمهور وطبيعة المحطة.",
+   "chips": ["نجوم إف إم", "نايل إف إم", "ميجا إف إم", "راديو هيتس 88.2", "الراديو 9090", "راديو مصر 88.7", "NRJ مصر", "نغم إف إم", "شعبي إف إم"],
+   "flight": {
+    "h": "خطة <em>Luxoft.</em>",
+    "p": "أرادت Luxoft الوصول إلى الموظفين والمهنيين في مجال التكنولوجيا. ركزنا الميزانية على رحلة الصباح من 8 إلى 10 على خمس محطات، مع ثقل إضافي في أول يوم من كل أسبوع.",
+    "cols": ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس"],
+    "levels": ["1", "2", "3"],
+    "rows": [["نايل إف إم 104.2", [2, 1, 1, 1, 1, 2, 1, 1, 1, 1]], ["نجوم إف إم 100.6", [2, 1, 1, 1, 1, 2, 1, 1, 1, 1]], ["الراديو 9090", [2, 1, 1, 1, 1, 2, 1, 1, 1, 1]], ["راديو مصر 88.7", [2, 1, 1, 1, 1, 2, 1, 1, 1, 1]], ["NRJ 92.1", [2, 1, 1, 1, 1, 2, 1, 1, 1, 1]]],
+    "note": "عدد الإعلانات كل صباح بين 8 و10: ‏60 إعلانًا مدة كل منها 30 ثانية على مدى أسبوعين. التوزيع اليومي المعروض للتوضيح."
+   },
+   "cases": [
+    { "tag": "تكنولوجيا · توعية بالتوظيف", "client": "Luxoft", "text": "حملة لمدة أسبوعين في أوقات الذروة على نايل إف إم ونجوم إف إم والراديو 9090 وراديو مصر وNRJ، بإعلانات عربية وإنجليزية، بالتوازي مع شاشات الطرق والمقالات الضيفة لـ Luxoft.", "img": "/img/ooh/luxoft-street-poles.jpg", "metrics": [["60", "إعلانًا × 30 ث"], ["5", "محطات"], ["2", "أسبوعان"], ["8–10", "صباحًا"]] }
+   ]
+  },
+  "ksa": {
+   "eyebrow": "وكالة إعلانات راديو في جدة",
+   "heroImg": { "src": "/img/media/luxoft-radio-stations.jpg", "alt": "محطات راديو من إحدى حملاتنا في أوقات الذروة", "fit": "contain", "cap": "خطة لأوقات الذروة: ‏60 إعلانًا × 30 ثانية على مدى أسبوعين، من 8 إلى 10 صباحًا، على خمس محطات." },
+   "slogan": "مصمم <em>لرحلة التنقل السعودية.</em>",
+   "lead": "من مكتبنا في جدة نخطط وننتج ونحجز حملات الراديو على المحطات السعودية: دراسة المستمعين وخطط أوقات الذروة وسيناريوهات باللهجة السعودية والتعليق الصوتي وتقارير البث.",
+   "introH": "السيارة هي <em>راديو السعودية.</em>",
+   "intro": [
+    "أغلب الاستماع للراديو في السعودية يحدث في السيارة، ما يجعل رحلات الصباح والمساء أثمن دقائق البث. نخطط حول هذه الرحلات في جدة والرياض والمنطقة الشرقية.",
+    "نكتب الإعلانات ونسجلها بأصوات سعودية لتبدو محلية، ونحجزها مع المحطات ونراجع سجلات البث مقابل الخطة."
+   ],
+   "chipsH": "محطات <em>نخطط عليها.</em>",
+   "chipsP": "محطات سعودية نختارها لكل حملة حسب الجمهور وطبيعة المحطة.",
+   "chips": ["MBC FM", "روتانا FM", "ميكس FM", "ألف ألف FM", "UFM", "بانوراما FM"],
+   "flight": {
+    "h": "خطة <em>لأوقات الذروة.</em>",
+    "p": "شكل حملة لمدة أسبوعين للمتنقلين: رحلة الصباح في كل يوم عمل، مع ثقل إضافي في بداية كل أسبوع.",
+    "cols": ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس"],
+    "levels": ["1", "2", "3"],
+    "rows": [["محطة أ، 7–10 صباحًا", [2, 1, 1, 1, 1, 2, 1, 1, 1, 1]], ["محطة ب، 7–10 صباحًا", [2, 1, 1, 1, 1, 2, 1, 1, 1, 1]], ["محطة ج، 4–7 مساءً", [1, 1, 1, 1, 2, 1, 1, 1, 1, 2]], ["محطة د، 4–7 مساءً", [1, 1, 1, 1, 2, 1, 1, 1, 1, 2]]],
+    "note": "للتوضيح: عدد الإعلانات يوميًا لكل محطة. الخطط الحقيقية تُبنى حول جمهورك ومدنك وميزانيتك."
+   },
+   "cases": [
+    { "tag": "تكنولوجيا · توعية بالتوظيف · القاهرة", "client": "Luxoft", "text": "حملة لمدة أسبوعين في أوقات الذروة على خمس محطات بإعلانات عربية وإنجليزية، بالتوازي مع شاشات الطرق والمقالات الضيفة.", "img": "/img/ooh/luxoft-street-poles.jpg", "metrics": [["60", "إعلانًا × 30 ث"], ["5", "محطات"], ["2", "أسبوعان"]] }
+   ]
+  }
+ }
+}
