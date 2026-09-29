@@ -22,7 +22,10 @@ def patch(sid, **blocks):
     base = ar.get('base', {})
     for name, new in blocks.items():
         if name == 'base_ksa':
-            ar['base_ksa'] = {k: merge(base.get(k), v) for k, v in new.items()}
+            layer = ar.get('base_ksa', {})
+            for k, v in new.items():
+                layer[k] = merge(layer.get(k, base.get(k)), v)
+            ar['base_ksa'] = layer
         else:
             ar[name] = merge(ar.get(name, {}), new)
     json.dump(d, open(p, 'w'), ensure_ascii=False, indent=1)

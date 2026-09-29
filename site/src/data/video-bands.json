@@ -45,7 +45,7 @@
    "sub": "Dell Technologies Customer Experience Day, produced by Doers."
   },
   "ar": {
-   "label": "تنظيم الفعاليات",
+   "label": "تنظيم الإيفنتات",
    "title": "ليالٍ لا تُنسى.",
    "sub": "يوم تجربة العملاء لـ Dell Technologies، من تنفيذ دورز."
   },
@@ -61,9 +61,9 @@
    "sub": "ISYS: registration, branded entrance arch, exhibition zone and main stage."
   },
   "ar": {
-   "label": "فعاليات الشركات",
+   "label": "إيفنتات الشركات",
    "title": "مؤتمرات تسير بدقة الساعة.",
-   "sub": "فعالية ISYS: التسجيل، وبوابة الدخول، ومنطقة العرض، والمسرح الرئيسي."
+   "sub": "إيفنت ISYS: التسجيل، وبوابة الدخول، ومنطقة العرض، والمسرح الرئيسي."
   },
   "pages": [
    "/event-management-cairo-egypt/"
@@ -77,8 +77,8 @@
    "sub": "EDIOV by ISYS and IBM: talks, a garden dinner and a gala night facing the Pyramids."
   },
   "ar": {
-   "label": "تنظيم الفعاليات",
-   "title": "فعاليات تستاهل المشوار.",
+   "label": "تنظيم الإيفنتات",
+   "title": "إيفنتات تستاهل المشوار.",
    "sub": "EDIOV من ISYS وIBM: جلسات وعشا في الجنينة وسهرة قدام الأهرامات."
   },
   "pages": [],

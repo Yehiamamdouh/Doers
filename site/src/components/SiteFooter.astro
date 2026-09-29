@@ -12,7 +12,7 @@ const L = ar ? { tag: ksa ? 'دورز<br><em>تنجز كل شيء.</em>' : 'دو
   <div class="wrap">
     <div class="fgrid">
       <div><p class="ftag" set:html={L.tag} /></div>
-      <div><span class="label">{L.what}</span><ul>{menu.map((s) => <li><a href={link(s.eg || s.ksa)}>{ar ? s.ar : s.name}</a></li>)}</ul></div>
+      <div><span class="label">{L.what}</span><ul>{menu.map((s) => <li><a href={link(s.eg || s.ksa)}>{ar ? (ksa && s.ar_ksa) || s.ar : s.name}</a></li>)}</ul></div>
       <div><span class="label">{L.cairo}</span><p>{L.cAddr}</p><p dir="ltr" style="margin-top:8px"><a href="tel:+201101000255">+20 110 1000 255</a></p></div>
       <div><span class="label">{L.jeddah}</span><p>{L.jAddr}</p><p dir="ltr" style="margin-top:8px"><a href="tel:+966509881646">+966 50 988 1646</a></p></div>
       <div><span class="label">{L.follow}</span><ul><li><a href="https://www.facebook.com/DoersAdv/">Facebook</a></li><li><a href="https://www.instagram.com/doersadvertising/">Instagram</a></li><li><a href="https://www.linkedin.com/company/doers-advertising">LinkedIn</a></li><li><a href="https://vimeo.com/doersadvertising">Vimeo</a></li></ul></div>

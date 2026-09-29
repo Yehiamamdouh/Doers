@@ -28,7 +28,7 @@ const L = ar
 const reelTitle = (id) => { const x = media.reels.find((m) => m.id === id) || media.films.find((m) => m.id === id); return x ? (ar ? x.ar : x.en) : ''; };
 const faq = (faqs[enPath] && faqs[enPath][lang]) || r.faq || [];
 const oldCopy = (p.sections || []).filter((s) => !s.kind && (s.nodes || []).some((n) => n.t === 'p'));
-const related = menu.filter((s) => (ksa ? s.ksa : s.eg)).map((s) => ({ href: loc(ksa ? s.ksa : s.eg, lang), name: ar ? s.ar : s.name })).filter((x) => x.href !== p.path);
+const related = menu.filter((s) => (ksa ? s.ksa : s.eg)).map((s) => ({ href: loc(ksa ? s.ksa : s.eg, lang), name: ar ? (ksa && s.ar_ksa) || s.ar : s.name })).filter((x) => x.href !== p.path);
 const crumb = r.crumb || p.eyebrow || p.h1;
 const schema = {
   '@context': 'https://schema.org',
@@ -42,7 +42,7 @@ const schema = {
 };
 ---
 <Base title={p.title} description={p.description} path={p.path} lang={lang} alternates={alternates} ogImage={r.og || p.og || undefined} schema={schema} styles={['/css/site.css', '/css/legacy.css', '/css/rich.css']} ogType="article">
-  <SiteHeader lang={lang} altHref={alt ? (ar ? enPath : '/ar' + enPath) : undefined} />
+  <SiteHeader lang={lang} altHref={alt ? (ar ? enPath : '/ar' + enPath) : undefined} ksa={ksa} />
   <main class="rs">
     <div class="wrap">
       <nav class="crumbs label" aria-label={L.crumbs}>

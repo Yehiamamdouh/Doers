@@ -1,14 +1,15 @@
 ---
 import menu from '../data/services-menu.json';
 import { loc } from '../lib/links.js';
-const { lang = 'en', altHref } = Astro.props;
+const { lang = 'en', altHref, ksa = false } = Astro.props;
 const ar = lang === 'ar';
 const home = ar ? '/ar/' : '/';
 const link = (p) => loc(p, lang);
 const L = ar
   ? { work: 'أعمالنا', services: 'الخدمات', ksa: 'السعودية', blog: 'المدونة', contact: 'تواصل', cairo: 'القاهرة', jeddah: 'جدة', start: 'ابدأ مشروعك', other: 'English' }
   : { work: 'Work', services: 'Services', ksa: 'KSA', blog: 'Blog', contact: 'Contact', cairo: 'Cairo', jeddah: 'Jeddah', start: 'Start a project', other: 'عربي' };
-const name = (s) => (ar ? s.ar : s.name);
+// Arabic names are Egyptian on Cairo pages; Saudi pages use ar_ksa (Modern Standard Arabic) where it differs.
+const name = (s) => (ar ? (ksa && s.ar_ksa) || s.ar : s.name);
 ---
 <header class="nav">
   <div class="wrap">
