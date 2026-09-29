@@ -54,7 +54,9 @@ const fontFaces = readFileSync('public/css/fonts.css', 'utf8');
   <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var c=null;try{c=localStorage.getItem('doers-consent')}catch(e){}gtag('consent','default',{analytics_storage:c==='yes'?'granted':'denied',ad_storage:c==='yes'?'granted':'denied',ad_user_data:c==='yes'?'granted':'denied',ad_personalization:c==='yes'?'granted':'denied',wait_for_update:500});`} />
 )}
 {!staging && (
-  <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtm}');`} />
+  <!-- Tag Manager loads once the page has painted (on the first tap, scroll or key press, or 1.5 s after load),
+       so tracking tags never compete with the page's text, fonts and images for a phone's bandwidth. -->
+  <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var done=false,ev=['pointerdown','scroll','keydown','touchstart'];function go(){if(done)return;done=true;ev.forEach(function(e){w.removeEventListener(e,go,{passive:true})});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)}ev.forEach(function(e){w.addEventListener(e,go,{passive:true,once:true})});if(d.readyState==='complete')setTimeout(go,1500);else w.addEventListener('load',function(){setTimeout(go,1500)})})(window,document,'script','dataLayer','${gtm}');`} />
 )}
 <link rel="preload" href={lang === 'ar' ? '/fonts/alexandria-arabic.woff2' : '/fonts/bricolage-grotesque-latin.woff2'} as="font" type="font/woff2" crossorigin>
 <Fragment set:html={`<style>${fontFaces}</style>`} />
