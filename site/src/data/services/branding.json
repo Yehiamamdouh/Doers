@@ -8,8 +8,9 @@
   "base": {
    "crumb": "Branding",
    "heroImg": {
-    "src": "/img/branding/eas-sign.jpg",
-    "alt": "Egyptian Aviation Services identity on an illuminated sign, designed by Doers"
+    "src": "/img/branding/serenity-hero.jpg",
+    "alt": "Serenity Hospitality Group brand book, designed by Doers",
+    "cap": "Serenity Hospitality Group: strategy, identity and a family of eight sub-brands."
    },
    "stats": [
     [
@@ -150,48 +151,68 @@
    "galleryH": "From the <em>brand books.</em>",
    "gallery": [
     {
-     "src": "/img/branding/mahfouz-bags.jpg",
-     "alt": "Mahfouz Bake: branded takeaway bags"
+     "src": "/img/branding/serenity-skyfringe.jpg",
+     "alt": "Serenity Sky Fringe: sub-brand logo and colours"
     },
     {
-     "src": "/img/branding/eas-airport.jpg",
-     "alt": "Egyptian Aviation Services: airport display"
+     "src": "/img/branding/serenity-alpha.jpg",
+     "alt": "Serenity Alpha Beach: sub-brand logo and colours"
     },
     {
-     "src": "/img/branding/mahfouz-apron.jpg",
-     "alt": "Mahfouz Bake: staff apron"
+     "src": "/img/branding/serenity-ross.jpg",
+     "alt": "Serenity Ross Park: sub-brand logo and colours"
     },
     {
-     "src": "/img/branding/lama-farm-character.jpg",
-     "alt": "Lama Farm: character and logo lockups"
+     "src": "/img/branding/serenity-gourmet.jpg",
+     "alt": "Serenity Gourmet: sub-brand logo and colours"
     },
     {
-     "src": "/img/branding/mahfouz-cup.jpg",
-     "alt": "Mahfouz Bake: cup and cookie packaging"
+     "src": "/img/branding/serenity-patterns.jpg",
+     "alt": "Serenity: brand patterns"
     },
     {
-     "src": "/img/branding/ignite-logo.jpg",
-     "alt": "Ignite Arcadenation: logotype"
+     "src": "/img/branding/zas-homepage.jpg",
+     "alt": "ZAS: the new homepage"
     },
     {
-     "src": "/img/branding/hero-characters.jpg",
-     "alt": "Character design for a gaming brand"
+     "src": "/img/branding/zas-legacy.jpg",
+     "alt": "ZAS: 50 years of aviation"
     },
     {
-     "src": "/img/branding/dfm-logo.jpg",
-     "alt": "Dubai Financial Market: logo lockup"
+     "src": "/img/branding/ignite-essence.jpg",
+     "alt": "Ignite Park: the essence of the brand"
     },
     {
-     "src": "/img/branding/brand-essence.jpg",
-     "alt": "Brand strategy: the essence of the brand"
+     "src": "/img/branding/ignite-values.jpg",
+     "alt": "Ignite Park: brand values"
     },
     {
-     "src": "/img/branding/upscale-logo.jpg",
-     "alt": "Upscale: logo construction"
+     "src": "/img/branding/tuya-hoarding.jpg",
+     "alt": "Tuya Home: site hoarding"
     },
     {
-     "src": "/img/branding/mahfouz-uniform.jpg",
-     "alt": "Mahfouz Bake: team uniform"
+     "src": "/img/branding/tuya-book.jpg",
+     "alt": "Tuya Home: brand book"
+    },
+    {
+     "src": "/img/branding/tuya-cards.jpg",
+     "alt": "Tuya Home: business cards"
+    },
+    {
+     "src": "/img/branding/tuya-posters.jpg",
+     "alt": "Tuya Home: posters"
+    },
+    {
+     "src": "/img/branding/tuya-stationery.jpg",
+     "alt": "Tuya Home: stationery"
+    },
+    {
+     "src": "/img/branding/tuya-u.jpg",
+     "alt": "Tuya Home: U for sustainability"
+    },
+    {
+     "src": "/img/branding/tuya-crew.jpg",
+     "alt": "Tuya Home: crew uniform"
     }
    ]
   },
@@ -206,43 +227,54 @@
    ],
    "cases": [
     {
-     "tag": "Aviation · Logo & identity",
-     "client": "Egyptian Aviation Services",
-     "text": "A new identity for EAS built on safety, structure and aviation precision: a runway-inspired A, a secure capsule shape and a colour flow that leads the eye from E to A to S, applied to signs, displays and uniforms.",
-     "img": "/img/branding/eas-uniform.jpg"
-    },
-    {
-     "tag": "Hospitality · Brand architecture",
+     "tag": "Hospitality · Group identity & brand architecture",
      "client": "Serenity Hospitality Group",
-     "text": "A refreshed group identity and a family of sub-brands for Serenity's hotels, resorts and restaurants, from Serenity Alma and Alpha to SkyFringe and Ross, focused on elegance, warmth and premium consistency.",
-     "img": "/img/branding/serenity-family.jpg",
-     "fit": "contain"
+     "img": "/img/signage/serenity-alpha-beach.jpg",
+     "text": "A full brand system for Serenity's hotels, resorts and restaurants: strategy, positioning and persona, a refined group mark, and a family of sub-brands, from Sky Fringe and Alpha Beach to Alma Heights, Ross Park and Gourmet, each with its own palette, plus typography, photography style and patterns.",
+     "metrics": [
+      [
+       "70",
+       "Page brand book"
+      ],
+      [
+       "8",
+       "Sub-brands"
+      ],
+      [
+       "1",
+       "Group system"
+      ]
+     ],
+     "alt": "Serenity Alpha Beach entrance sign"
     },
     {
-     "tag": "Food · Identity, packaging & uniforms",
-     "client": "Mahfouz Bake",
-     "text": "A friendly baker character, a bold logotype and a full set of applications: takeaway bags, cups, aprons and team uniforms that make the brand feel fresh from the family oven.",
-     "img": "/img/branding/mahfouz-logo.jpg"
+     "tag": "Aviation · Logo, identity & website",
+     "client": "ZAS · Z-Aviation Services",
+     "img": "/img/branding/zas-logo.jpg",
+     "fit": "contain",
+     "text": "The ZAS logo and identity, then a new digital experience built on it: brand colours and typography for the web, a homepage that leads with 50 years of aviation, and sections for its specialised brands, leadership and regional network across Egypt, Sudan and South Sudan.",
+     "metrics": [
+      [
+       "50",
+       "Years of legacy"
+      ],
+      [
+       "3",
+       "Countries"
+      ]
+     ]
     },
     {
-     "tag": "Food · Fleet branding",
-     "client": "Boulevard Vie Bakery",
-     "text": "Delivery trucks that show freshness and craftsmanship with bold visuals, bilingual layouts and scannable QR codes, turning every route into a moving brand experience.",
-     "img": "/img/branding/boulevard-vie-truck.jpg"
+     "tag": "Entertainment · Brand strategy book",
+     "client": "Ignite Park",
+     "img": "/img/branding/ignite-hero.jpg",
+     "text": "A strategy book for an entertainment park built to amuse and inspire young people: positioning platform, core message framework, the essence and values of the brand, key strengths and a tone of voice for every communication."
     },
     {
-     "tag": "Industrial B2B · Brand strategy & logo",
-     "client": "Emdad",
-     "text": "A strategic brand framework emphasising innovation, reliability and digital leadership to structure an industrial B2B ecosystem, with the logo developed from a range of explorations.",
-     "img": "/img/branding/emdad-logos.jpg",
-     "fit": "contain"
-    },
-    {
-     "tag": "Chemicals · Sub-brand system",
-     "client": "WME Group",
-     "text": "A cohesive sub-logo system for WME's companies, including Pioneer Specialty Chemicals, so the group reads as one family.",
-     "img": "/img/branding/wme-psc.jpg",
-     "fit": "contain"
+     "tag": "Interiors & architecture · Brand identity",
+     "client": "Tuya Home Innovations",
+     "img": "/img/branding/tuya-hoarding.jpg",
+     "text": "An identity that balances structure and experience: a logo built letter by letter from materials (T for structure, U for sustainability, Y for light and space, A for craft), with typography, palettes, stationery, site hoardings, posters and a digital presence."
     }
    ]
   },
@@ -257,43 +289,54 @@
    ],
    "cases": [
     {
-     "tag": "Industrial B2B · Brand strategy & logo",
-     "client": "Emdad",
-     "text": "A strategic brand framework emphasising innovation, reliability and digital leadership to structure an industrial B2B ecosystem, with the logo developed from a range of explorations.",
-     "img": "/img/branding/emdad-logos.jpg",
-     "fit": "contain"
-    },
-    {
-     "tag": "Hospitality · Brand architecture",
+     "tag": "Hospitality · Group identity & brand architecture",
      "client": "Serenity Hospitality Group",
-     "text": "A group identity and a family of sub-brands for hotels, resorts and restaurants, focused on elegance, warmth and premium consistency.",
-     "img": "/img/branding/serenity-family.jpg",
-     "fit": "contain"
+     "img": "/img/signage/serenity-alpha-beach.jpg",
+     "text": "A full brand system for Serenity's hotels, resorts and restaurants: strategy, positioning and persona, a refined group mark, and a family of sub-brands, from Sky Fringe and Alpha Beach to Alma Heights, Ross Park and Gourmet, each with its own palette, plus typography, photography style and patterns.",
+     "metrics": [
+      [
+       "70",
+       "Page brand book"
+      ],
+      [
+       "8",
+       "Sub-brands"
+      ],
+      [
+       "1",
+       "Group system"
+      ]
+     ],
+     "alt": "Serenity Alpha Beach entrance sign"
     },
     {
-     "tag": "Aviation · Logo & identity",
-     "client": "Egyptian Aviation Services",
-     "text": "An identity built on safety and aviation precision, applied to signs, airport displays and uniforms.",
-     "img": "/img/branding/eas-uniform.jpg"
+     "tag": "Aviation · Logo, identity & website",
+     "client": "ZAS · Z-Aviation Services",
+     "img": "/img/branding/zas-logo.jpg",
+     "fit": "contain",
+     "text": "The ZAS logo and identity, then a new digital experience built on it: brand colours and typography for the web, a homepage that leads with 50 years of aviation, and sections for its specialised brands, leadership and regional network across Egypt, Sudan and South Sudan.",
+     "metrics": [
+      [
+       "50",
+       "Years of legacy"
+      ],
+      [
+       "3",
+       "Countries"
+      ]
+     ]
     },
     {
-     "tag": "Food · Fleet branding",
-     "client": "Boulevard Vie Bakery",
-     "text": "Delivery trucks with bold visuals, bilingual layouts and QR codes that turn every route into a moving brand experience.",
-     "img": "/img/branding/boulevard-vie-truck.jpg"
+     "tag": "Entertainment · Brand strategy book",
+     "client": "Ignite Park",
+     "img": "/img/branding/ignite-hero.jpg",
+     "text": "A strategy book for an entertainment park built to amuse and inspire young people: positioning platform, core message framework, the essence and values of the brand, key strengths and a tone of voice for every communication."
     },
     {
-     "tag": "Food · Identity, packaging & uniforms",
-     "client": "Mahfouz Bake",
-     "text": "A baker character, a bold logotype and takeaway bags, cups, aprons and uniforms designed as one system.",
-     "img": "/img/branding/mahfouz-logo.jpg"
-    },
-    {
-     "tag": "Chemicals · Sub-brand system",
-     "client": "WME Group",
-     "text": "A cohesive sub-logo system so a group of companies reads as one family.",
-     "img": "/img/branding/wme-psc.jpg",
-     "fit": "contain"
+     "tag": "Interiors & architecture · Brand identity",
+     "client": "Tuya Home Innovations",
+     "img": "/img/branding/tuya-hoarding.jpg",
+     "text": "An identity that balances structure and experience: a logo built letter by letter from materials (T for structure, U for sustainability, Y for light and space, A for craft), with typography, palettes, stationery, site hoardings, posters and a digital presence."
     }
    ]
   }
@@ -302,8 +345,9 @@
   "base": {
    "crumb": "الهوية والبراندنج",
    "heroImg": {
-    "src": "/img/branding/eas-sign.jpg",
-    "alt": "هوية الخدمات الجوية المصرية على لافتة مضيئة، من تصميم دورز"
+    "src": "/img/branding/serenity-hero.jpg",
+    "alt": "دليل هوية مجموعة سيرينيتي للضيافة، من تصميم دورز",
+    "cap": "مجموعة سيرينيتي للضيافة: استراتيجية وهوية وعيلة من تمن علامات فرعية."
    },
    "stats": [
     [
@@ -444,48 +488,68 @@
    "galleryH": "من <em>أدلة الهوية.</em>",
    "gallery": [
     {
-     "src": "/img/branding/mahfouz-bags.jpg",
-     "alt": "محفوظ بيك: أكياس تيك أواي بهوية العلامة"
+     "src": "/img/branding/serenity-skyfringe.jpg",
+     "alt": "سيرينيتي سكاي فرينج: لوجو العلامة الفرعية وألوانها"
     },
     {
-     "src": "/img/branding/eas-airport.jpg",
-     "alt": "الخدمات الجوية المصرية: شاشة في المطار"
+     "src": "/img/branding/serenity-alpha.jpg",
+     "alt": "سيرينيتي ألفا بيتش: لوجو العلامة الفرعية وألوانها"
     },
     {
-     "src": "/img/branding/mahfouz-apron.jpg",
-     "alt": "محفوظ بيك: مريلة فريق العمل"
+     "src": "/img/branding/serenity-ross.jpg",
+     "alt": "سيرينيتي روس بارك: لوجو العلامة الفرعية وألوانها"
     },
     {
-     "src": "/img/branding/lama-farm-character.jpg",
-     "alt": "لاما فارم: الشخصية ونسخ الشعار"
+     "src": "/img/branding/serenity-gourmet.jpg",
+     "alt": "سيرينيتي جورميه: لوجو العلامة الفرعية وألوانها"
     },
     {
-     "src": "/img/branding/mahfouz-cup.jpg",
-     "alt": "محفوظ بيك: تغليف الكوب والكوكيز"
+     "src": "/img/branding/serenity-patterns.jpg",
+     "alt": "سيرينيتي: باترن العلامة"
     },
     {
-     "src": "/img/branding/ignite-logo.jpg",
-     "alt": "إجنايت أركيدنيشن: الشعار"
+     "src": "/img/branding/zas-homepage.jpg",
+     "alt": "ZAS: الصفحة الرئيسية الجديدة"
     },
     {
-     "src": "/img/branding/hero-characters.jpg",
-     "alt": "تصميم شخصيات لعلامة ألعاب"
+     "src": "/img/branding/zas-legacy.jpg",
+     "alt": "ZAS: خمسين سنة طيران"
     },
     {
-     "src": "/img/branding/dfm-logo.jpg",
-     "alt": "سوق دبي المالي: الشعار"
+     "src": "/img/branding/ignite-essence.jpg",
+     "alt": "إجنايت بارك: جوهر العلامة"
     },
     {
-     "src": "/img/branding/brand-essence.jpg",
-     "alt": "استراتيجية العلامة: جوهر العلامة"
+     "src": "/img/branding/ignite-values.jpg",
+     "alt": "إجنايت بارك: قيم العلامة"
     },
     {
-     "src": "/img/branding/upscale-logo.jpg",
-     "alt": "أبسكيل: بناء الشعار"
+     "src": "/img/branding/tuya-hoarding.jpg",
+     "alt": "Tuya Home: لافتة موقع المشروع"
     },
     {
-     "src": "/img/branding/mahfouz-uniform.jpg",
-     "alt": "محفوظ بيك: زي فريق العمل"
+     "src": "/img/branding/tuya-book.jpg",
+     "alt": "Tuya Home: دليل العلامة"
+    },
+    {
+     "src": "/img/branding/tuya-cards.jpg",
+     "alt": "Tuya Home: كروت البيزنس"
+    },
+    {
+     "src": "/img/branding/tuya-posters.jpg",
+     "alt": "Tuya Home: بوسترات"
+    },
+    {
+     "src": "/img/branding/tuya-stationery.jpg",
+     "alt": "Tuya Home: المطبوعات"
+    },
+    {
+     "src": "/img/branding/tuya-u.jpg",
+     "alt": "Tuya Home: حرف U للاستدامة"
+    },
+    {
+     "src": "/img/branding/tuya-crew.jpg",
+     "alt": "Tuya Home: يونيفورم فريق العمل"
     }
    ]
   },
@@ -500,43 +564,54 @@
    ],
    "cases": [
     {
-     "tag": "طيران · لوجو وهوية",
-     "client": "Egyptian Aviation Services",
-     "text": "هوية جديدة لـEAS مبنية على الأمان والنظام ودقة الطيران: حرف A مستوحى من الممر، وشكل كبسولة آمن، وتدرج ألوان بيمشّي العين من E لـA لـS، ومطبقة على اللافتات والشاشات واليونيفورم.",
-     "img": "/img/branding/eas-uniform.jpg"
+     "tag": "ضيافة · هوية المجموعة وبنية العلامات",
+     "client": "مجموعة سيرينيتي للضيافة",
+     "text": "نظام علامة كامل لفنادق ومنتجعات ومطاعم سيرينيتي: الاستراتيجية والتموضع والشخصية، ولوجو راقي للمجموعة، وعيلة علامات فرعية من سكاي فرينج وألفا بيتش لحد ألما هايتس وروس بارك وجورميه، كل واحدة بألوانها، ومعاهم الخطوط وأسلوب التصوير والباترن.",
+     "metrics": [
+      [
+       "70",
+       "صفحة في دليل الهوية"
+      ],
+      [
+       "8",
+       "علامات فرعية"
+      ],
+      [
+       "1",
+       "نظام للمجموعة"
+      ]
+     ],
+     "img": "/img/signage/serenity-alpha-beach.jpg",
+     "alt": "لافتة مدخل سيرينيتي ألفا بيتش"
     },
     {
-     "tag": "ضيافة · بنية العلامة",
-     "client": "Serenity Hospitality Group",
-     "text": "تجديد هوية المجموعة وعيلة علامات فرعية لفنادق ومنتجعات ومطاعم سيرينيتي، من Serenity Alma وAlpha لحد SkyFringe وRoss، بتركيز على الأناقة والدفا والمستوى الواحد.",
-     "img": "/img/branding/serenity-family.jpg",
+     "tag": "طيران · لوجو وهوية وموقع",
+     "client": "ZAS · Z-Aviation Services",
+     "text": "لوجو وهوية ZAS، وبعدين تجربة ديجيتال جديدة مبنية عليهم: ألوان وخطوط العلامة للويب، وصفحة رئيسية بتبدأ بخمسين سنة طيران، وأقسام للعلامات المتخصصة والقيادات والشبكة في مصر والسودان وجنوب السودان.",
+     "metrics": [
+      [
+       "50",
+       "سنة تاريخ"
+      ],
+      [
+       "3",
+       "دول"
+      ]
+     ],
+     "img": "/img/branding/zas-logo.jpg",
      "fit": "contain"
     },
     {
-     "tag": "أكل · هوية وتغليف ويونيفورم",
-     "client": "Mahfouz Bake",
-     "text": "شخصية خبّاز لطيفة ولوجو قوي ومجموعة تطبيقات كاملة: شنط تيك أواي وأكواب ومرايل ويونيفورم للفريق، بتحسّس الناس إن العلامة طالعة سخنة من فرن العيلة.",
-     "img": "/img/branding/mahfouz-logo.jpg"
+     "tag": "ترفيه · كتاب استراتيجية العلامة",
+     "client": "إجنايت بارك",
+     "text": "كتاب استراتيجية لمدينة ترفيهية معمولة تبسط وتلهم الشباب: منصة التموضع، وإطار الرسالة الأساسية، وجوهر العلامة وقيمها، ونقط قوتها، ونبرة صوت لكل تواصل.",
+     "img": "/img/branding/ignite-hero.jpg"
     },
     {
-     "tag": "أكل · تغليف العربيات",
-     "client": "Boulevard Vie Bakery",
-     "text": "عربيات توصيل بتبيّن الطزاجة والحرفة بصور جريئة وتصميم بلغتين وQR كود، فكل مشوار بقى تجربة للعلامة ماشية في الشارع.",
-     "img": "/img/branding/boulevard-vie-truck.jpg"
-    },
-    {
-     "tag": "صناعي B2B · استراتيجية ولوجو",
-     "client": "Emdad",
-     "text": "إطار استراتيجي للعلامة بيركّز على الابتكار والاعتمادية والريادة الرقمية لتنظيم منظومة صناعية B2B، ولوجو اتطوّر من مجموعة استكشافات.",
-     "img": "/img/branding/emdad-logos.jpg",
-     "fit": "contain"
-    },
-    {
-     "tag": "كيماويات · نظام علامات فرعية",
-     "client": "WME Group",
-     "text": "نظام لوجوهات فرعية موحّد لشركات WME، منها Pioneer Specialty Chemicals، عشان المجموعة تبان عيلة واحدة.",
-     "img": "/img/branding/wme-psc.jpg",
-     "fit": "contain"
+     "tag": "تصميم داخلي وعمارة · هوية العلامة",
+     "client": "Tuya Home Innovations",
+     "text": "هوية بتوازن بين الهيكل والتجربة: لوجو متبني حرف حرف من الخامات (T للهيكل، وU للاستدامة، وY للنور والمساحة، وA للحرفة)، ومعاه الخطوط والألوان والمطبوعات ولافتات المواقع والبوسترات والحضور الديجيتال.",
+     "img": "/img/branding/tuya-hoarding.jpg"
     }
    ]
   },
@@ -551,43 +626,54 @@
    ],
    "cases": [
     {
-     "tag": "صناعي B2B · استراتيجية وشعار",
-     "client": "Emdad",
-     "text": "إطار استراتيجي للعلامة يركّز على الابتكار والاعتمادية والريادة الرقمية لتنظيم منظومة صناعية B2B، مع شعار طُوّر من عدة استكشافات.",
-     "img": "/img/branding/emdad-logos.jpg",
+     "tag": "ضيافة · هوية المجموعة وبنية العلامات",
+     "client": "مجموعة سيرينيتي للضيافة",
+     "text": "نظام علامة متكامل لفنادق ومنتجعات ومطاعم سيرينيتي: الاستراتيجية والتموضع والشخصية، وشعار راقٍ للمجموعة، وعائلة من العلامات الفرعية من سكاي فرينج وألفا بيتش إلى ألما هايتس وروس بارك وجورميه، لكل منها ألوانها، إلى جانب الخطوط وأسلوب التصوير والأنماط.",
+     "metrics": [
+      [
+       "70",
+       "صفحة في دليل الهوية"
+      ],
+      [
+       "8",
+       "علامات فرعية"
+      ],
+      [
+       "1",
+       "نظام للمجموعة"
+      ]
+     ],
+     "img": "/img/signage/serenity-alpha-beach.jpg",
+     "alt": "لافتة مدخل سيرينيتي ألفا بيتش"
+    },
+    {
+     "tag": "طيران · شعار وهوية وموقع",
+     "client": "ZAS · Z-Aviation Services",
+     "text": "شعار ZAS وهويتها، ثم تجربة رقمية جديدة مبنية عليهما: ألوان العلامة وخطوطها للويب، وصفحة رئيسية تنطلق من خمسين عاماً في الطيران، وأقسام للعلامات المتخصصة والقيادات والشبكة الإقليمية في مصر والسودان وجنوب السودان.",
+     "metrics": [
+      [
+       "50",
+       "عاماً من الإرث"
+      ],
+      [
+       "3",
+       "دول"
+      ]
+     ],
+     "img": "/img/branding/zas-logo.jpg",
      "fit": "contain"
     },
     {
-     "tag": "ضيافة · بنية العلامة",
-     "client": "Serenity Hospitality Group",
-     "text": "هوية للمجموعة وعائلة من العلامات الفرعية للفنادق والمنتجعات والمطاعم، تركّز على الأناقة والدفء والمستوى الموحّد.",
-     "img": "/img/branding/serenity-family.jpg",
-     "fit": "contain"
+     "tag": "ترفيه · كتاب استراتيجية العلامة",
+     "client": "إجنايت بارك",
+     "text": "كتاب استراتيجية لمدينة ترفيهية صُممت لإمتاع الشباب وإلهامهم: منصة التموضع، وإطار الرسالة الأساسية، وجوهر العلامة وقيمها، ونقاط قوتها، ونبرة صوت لكل تواصل.",
+     "img": "/img/branding/ignite-hero.jpg"
     },
     {
-     "tag": "طيران · شعار وهوية",
-     "client": "Egyptian Aviation Services",
-     "text": "هوية مبنية على الأمان ودقة الطيران، مطبقة على اللافتات وشاشات المطار والأزياء الموحدة.",
-     "img": "/img/branding/eas-uniform.jpg"
-    },
-    {
-     "tag": "أغذية · تغليف المركبات",
-     "client": "Boulevard Vie Bakery",
-     "text": "شاحنات توصيل بصور جريئة وتصميم ثنائي اللغة ورموز QR تحوّل كل مسار إلى تجربة متنقلة للعلامة.",
-     "img": "/img/branding/boulevard-vie-truck.jpg"
-    },
-    {
-     "tag": "أغذية · هوية وتغليف وأزياء",
-     "client": "Mahfouz Bake",
-     "text": "شخصية خبّاز وشعار قوي وأكياس وأكواب ومرايل وأزياء موحدة مصممة كنظام واحد.",
-     "img": "/img/branding/mahfouz-logo.jpg"
-    },
-    {
-     "tag": "كيماويات · نظام علامات فرعية",
-     "client": "WME Group",
-     "text": "نظام شعارات فرعية موحّد يجعل مجموعة الشركات تبدو عائلة واحدة.",
-     "img": "/img/branding/wme-psc.jpg",
-     "fit": "contain"
+     "tag": "تصميم داخلي وعمارة · هوية العلامة",
+     "client": "Tuya Home Innovations",
+     "text": "هوية توازن بين البنية والتجربة: شعار مبني حرفاً حرفاً من الخامات (T للبنية، وU للاستدامة، وY للضوء والمساحة، وA للحرفة)، مع الخطوط والألوان والمطبوعات ولافتات المواقع والملصقات والحضور الرقمي.",
+     "img": "/img/branding/tuya-hoarding.jpg"
     }
    ]
   },
@@ -728,7 +814,12 @@
    ],
    "casesH": "علامات <em>بنيناها.</em>",
    "casesP": "هويات مختارة من أعمالنا.",
-   "galleryH": "من <em>أدلة الهوية.</em>"
+   "galleryH": "من <em>أدلة الهوية.</em>",
+   "heroImg": {
+    "src": "/img/branding/serenity-hero.jpg",
+    "alt": "دليل هوية مجموعة سيرينيتي للضيافة، من تصميم دورز",
+    "cap": "مجموعة سيرينيتي للضيافة: استراتيجية وهوية وعائلة من ثماني علامات فرعية."
+   }
   }
  }
 }
