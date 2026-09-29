@@ -11,6 +11,7 @@ import LegacySection from './LegacySection.astro';
 import VideoBand from './VideoBand.astro';
 import FilmGallery from './FilmGallery.astro';
 import bands from '../data/video-bands.json';
+import faqs from '../data/faqs.json';
 import { loc } from '../lib/links.js';
 const { p, alt } = Astro.props;
 const ar = p.lang === 'ar';
@@ -35,6 +36,11 @@ for (const s of p.sections) {
   pending = null;
 }
 // Video bands for this page: the first opens the page, a second one breaks up the middle.
+// Questions and answers for pages that don't have their own (src/data/faqs.json, keyed by the English path).
+const faq = faqs[enPath]?.[p.lang];
+if (faq && !sections.some((s) => s.kind === 'faq')) {
+  sections.push({ kind: 'faq', h2: ar ? 'أسئلة شائعة' : 'Frequently asked questions', items: faq.map(([q, a]) => ({ q, a })) });
+}
 const [band, band2] = Object.keys(bands).filter((k) => bands[k].pages.includes(enPath));
 const mid = Math.floor(sections.length / 2);
 const schema = {
@@ -44,7 +50,7 @@ const schema = {
     { '@type': 'Service', name: crumb, serviceType: crumb, areaServed: ksa ? { '@type': 'Country', name: 'Saudi Arabia' } : { '@type': 'Country', name: 'Egypt' }, provider: { '@id': `${site}/#organization` }, url: site + p.path },
     { '@type': 'BreadcrumbList', '@id': site + p.path + '#breadcrumb', itemListElement: [{ '@type': 'ListItem', position: 1, name: L.home, item: site + (ar ? '/ar/' : '/') }, ...(ksa && enPath !== '/ksa/' ? [{ '@type': 'ListItem', position: 2, name: L.ksa, item: site + loc('/ksa/', p.lang) }] : []), { '@type': 'ListItem', position: ksa && enPath !== '/ksa/' ? 3 : 2, name: crumb }] },
     { '@type': 'Organization', '@id': `${site}/#organization`, name: 'Doers Advertising Agency', url: site + '/' },
-    ...p.sections.filter((s) => s.kind === 'faq').map((s) => ({ '@type': 'FAQPage', mainEntity: s.items.map((it) => ({ '@type': 'Question', name: it.q, acceptedAnswer: { '@type': 'Answer', text: it.a.replace(/<[^>]+>/g, '') } })) })),
+    ...sections.filter((s) => s.kind === 'faq').map((s) => ({ '@type': 'FAQPage', mainEntity: s.items.map((it) => ({ '@type': 'Question', name: it.q, acceptedAnswer: { '@type': 'Answer', text: it.a.replace(/<[^>]+>/g, '') } })) })),
   ],
 };
 ---
