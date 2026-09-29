@@ -352,6 +352,24 @@ def final_links(pages):
         if n != t: f.write_text(n)
     return [json.loads(fix(json.dumps(p, ensure_ascii=False), p['lang'])) for p in pages]
 
+FIXES = json.loads((ROOT / 'scripts/copy_fixes.json').read_text())
+
+def copy_fixes(page):
+    """Corrections to carried-over copy (scripts/copy_fixes.json). Meta title and description stay as they were."""
+    keep = {k: page[k] for k in ('title', 'description') if k in page}
+    text = json.dumps(page, ensure_ascii=False)
+    for where, find, repl in FIXES['replace']:
+        if where in ('*', page['path']):
+            text = text.replace(json.dumps(find, ensure_ascii=False)[1:-1] if not find.startswith('"') else find,
+                                json.dumps(repl, ensure_ascii=False)[1:-1] if not repl.startswith('"') else repl)
+    page = json.loads(text)
+    page.update(keep)
+    drop = set(FIXES['drop_p'].get(page['lang'], []))
+    for s in page.get('sections', []):
+        if s.get('nodes'):
+            s['nodes'] = [n for n in s['nodes'] if not (n.get('t') == 'p' and n.get('html', '').strip() in drop)]
+    return page
+
 def main():
     recs = load()
     untranslated = {path_of(r['url'])[3:] for r in recs if r['lang'] == 'ar' and arabic_share(r) < 0.5 and path_of(r['url'])[3:] not in SKIP_PAGES}
@@ -391,6 +409,7 @@ def main():
             m = re.match(r'(\d{4})-(\d{2})-(.+)$', src.name) if src else None
             if m:
                 local_img(f'{SITE}/wp-content/uploads/{m.group(1)}/{m.group(2)}/{m.group(3)}', used)
+    pages = [copy_fixes(p) for p in pages]
     pages = final_links(pages)
     (ROOT / 'src/data/legacy-pages.json').write_text(json.dumps(pages, ensure_ascii=False, indent=1))
     for f in IMG_DIR.glob('*'):
