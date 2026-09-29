@@ -77,5 +77,19 @@
    "sub": "EDIOV من ISYS وIBM: جلسات وعشاء في الحديقة وأمسية أمام الأهرامات."
   },
   "pages": []
+ },
+ "ooh-dw": {
+  "source": "Drive: OOH / WhatsApp video (DW Arabic digital screen at night)",
+  "en": {
+   "label": "Outdoor advertising",
+   "title": "Seen across the city.",
+   "sub": "DW Arabic's “Building bridges” campaign on digital screens across Cairo and Giza."
+  },
+  "ar": {
+   "label": "إعلانات الطرق",
+   "title": "حاضرين في كل شارع.",
+   "sub": "حملة DW عربية «نبني جسور التواصل» على الشاشات الرقمية في القاهرة والجيزة."
+  },
+  "pages": []
  }
 }

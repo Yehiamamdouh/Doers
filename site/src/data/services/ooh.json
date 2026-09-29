@@ -1,0 +1,637 @@
+{
+ "id": "ooh",
+ "paths": {
+  "eg": "/outdoor-advertising-egypt/",
+  "ksa": "/ksa/ooh-outdoor-agency-in-jeddah/"
+ },
+ "en": {
+  "base": {
+   "crumb": "Outdoor Advertising",
+   "band": "ooh-dw",
+   "stats": [
+    [
+     "15+",
+     "Locations in a single Luxoft campaign"
+    ],
+    [
+     "6",
+     "Formats: walls, facades, poles, lightboxes, screens, unipoles"
+    ],
+    [
+     "24/7",
+     "Digital screens that never switch off"
+    ],
+    [
+     "PoP",
+     "Photo proof of performance for every site"
+    ]
+   ],
+   "servicesH": "Every format, <em>one plan.</em>",
+   "servicesP": "We choose the sites, book them, produce the artwork, install it and prove it's up.",
+   "services": [
+    {
+     "t": "Site selection",
+     "d": "Locations chosen for traffic, visibility and audience, from site visits, traffic counts and the routes your customers actually take.",
+     "tags": [
+      "Site visits",
+      "Traffic",
+      "Visibility"
+     ]
+    },
+    {
+     "t": "Billboards & unipoles",
+     "d": "Large-format billboards, bridge banners and unipoles on the main roads and highways.",
+     "tags": [
+      "Billboards",
+      "Unipoles",
+      "Bridge banners"
+     ]
+    },
+    {
+     "t": "Digital screens",
+     "d": "Digital OOH on roadside and city-centre screens, with loops, dayparting and quick creative changes.",
+     "tags": [
+      "DOOH",
+      "Loops",
+      "Dayparting"
+     ]
+    },
+    {
+     "t": "Walls & building facades",
+     "d": "Building wraps and large walls, printed and installed to the landlord's and the authority's specs.",
+     "tags": [
+      "Wraps",
+      "Walls",
+      "Facades"
+     ]
+    },
+    {
+     "t": "Street poles & lightboxes",
+     "d": "Street-pole runs and lightboxes on key avenues, toll stations and compounds.",
+     "tags": [
+      "Street poles",
+      "Lightboxes",
+      "Toll stations"
+     ]
+    },
+    {
+     "t": "Malls, campuses & transit",
+     "d": "Mall media, university campuses, airports and transit, where your audience spends time on foot.",
+     "tags": [
+      "Malls",
+      "Universities",
+      "Airports"
+     ]
+    },
+    {
+     "t": "Creative & production",
+     "d": "Artwork adapted to every size and format, printed on the right material and installed by our crews.",
+     "tags": [
+      "Adaptation",
+      "Printing",
+      "Installation"
+     ]
+    },
+    {
+     "t": "Proof of performance",
+     "d": "Day and night photos of every site, with a report on dates, sizes and locations.",
+     "tags": [
+      "Day/night photos",
+      "PoP report"
+     ]
+    }
+   ],
+   "processH": "How we plan <em>outdoor.</em>",
+   "processP": "Six steps, from the first map to the last photo.",
+   "process": [
+    [
+     "Brief",
+     "Objective, audience, cities, dates and budget."
+    ],
+    [
+     "Map & sites",
+     "The routes your audience takes, with shortlisted sites, sizes and visibility checked on the ground."
+    ],
+    [
+     "Plan & booking",
+     "Formats, durations and rates negotiated and sites reserved."
+    ],
+    [
+     "Creative",
+     "Artwork adapted for each size, distance and viewing time."
+    ],
+    [
+     "Print & install",
+     "Printing, permits and installation, or upload to digital screens."
+    ],
+    [
+     "Proof & report",
+     "Day and night photos and a proof-of-performance report."
+    ]
+   ],
+   "casesH": "Outdoor campaigns <em>we ran.</em>",
+   "casesP": "Real sites, real photos, from the proof-of-performance reports.",
+   "gallery": [
+    {
+     "src": "/img/ooh/luxoft-agouza-bridge.jpg",
+     "alt": "Luxoft unipole screen by the 6th of October Bridge, Agouza"
+    },
+    {
+     "src": "/img/ooh/luxoft-maadi-wall.jpg",
+     "alt": "Luxoft 8 × 4 m wall, Maadi"
+    },
+    {
+     "src": "/img/ooh/luxoft-festival-city.jpg",
+     "alt": "Luxoft 7.45 × 5.35 m facade at Cairo Festival City Mall"
+    },
+    {
+     "src": "/img/ooh/luxoft-ain-shams.jpg",
+     "alt": "Luxoft 3 × 4 m unit at Ain Shams University"
+    },
+    {
+     "src": "/img/ooh/luxoft-alex-toll.jpg",
+     "alt": "Luxoft lightboxes at the Alex Desert Road toll station"
+    },
+    {
+     "src": "/img/ooh/luxoft-90th-street.jpg",
+     "alt": "Luxoft street poles on North 90th Street, New Cairo"
+    },
+    {
+     "src": "/img/ooh/dw-bridge-screen.jpg",
+     "alt": "DW Arabic digital screen over the road"
+    },
+    {
+     "src": "/img/ooh/dw-screen-day.jpg",
+     "alt": "DW Arabic on a roadside digital screen, Sheikh Zayed"
+    },
+    {
+     "src": "/img/ooh/dw-unipole.jpg",
+     "alt": "DW Arabic on a vertical digital unipole"
+    },
+    {
+     "src": "/img/ooh/upmount-dokki.jpg",
+     "alt": "Upmount on the Dokki Street digital screen"
+    }
+   ],
+   "galleryH": "From <em>the street.</em>"
+  },
+  "eg": {
+   "eyebrow": "Outdoor advertising agency in Cairo, Egypt",
+   "heroImg": {
+    "src": "/img/ooh/luxoft-maadi-wall.jpg",
+    "alt": "Luxoft 8 × 4 m wall in Maadi, Cairo",
+    "cap": "Luxoft: an 8 × 4 m wall in Maadi, one of 15+ sites in the campaign."
+   },
+   "slogan": "Big, bright <em>and hard to miss.</em>",
+   "lead": "We plan, book and install outdoor campaigns across Egypt: billboards, unipoles, digital screens, building walls, street poles, mall media and campuses, with photo proof for every site.",
+   "introH": "The city is <em>the medium.</em>",
+   "intro": [
+    "Cairo's ring road, bridges and new-city corridors carry millions of people every day, most of them stuck in traffic long enough to read. Outdoor puts your brand on those routes, around the clock, at a size nothing else matches.",
+    "We plan outdoor like media, not like real estate: we start from where your audience lives, works and drives, check every site on the ground, and report with photos, day and night."
+   ],
+   "chipsH": "Where we <em>place campaigns.</em>",
+   "chipsP": "Egyptian locations from recent plans.",
+   "chips": [
+    "Ring Road",
+    "6th of October Bridge",
+    "North 90th Street",
+    "Maadi",
+    "Dokki",
+    "Agouza",
+    "Sheikh Zayed",
+    "Palm Hills",
+    "Cairo Festival City",
+    "Mall of Egypt",
+    "Ain Shams University",
+    "Alex Desert Road",
+    "New Capital"
+   ],
+   "cases": [
+    {
+     "tag": "Technology · Employer branding · Cairo & Alexandria",
+     "client": "Luxoft",
+     "text": "An employer-branding campaign across Cairo and Alexandria: an 8 × 4 m wall in Maadi, a 7.45 × 5.35 m facade at Cairo Festival City, units at Ain Shams University, street poles on North 90th Street, lightboxes at the Alex Desert Road toll station, screens in Agouza by the 6th of October Bridge and Mall of Egypt. Every site is documented in the proof-of-performance report.",
+     "img": "/img/ooh/luxoft-festival-city.jpg",
+     "alt": "Luxoft facade at Cairo Festival City Mall",
+     "metrics": [
+      [
+       "15+",
+       "Locations"
+      ],
+      [
+       "6",
+       "Formats"
+      ],
+      [
+       "3",
+       "Cities"
+      ],
+      [
+       "1",
+       "Month on air"
+      ]
+     ]
+    },
+    {
+     "tag": "Media · Digital OOH · Cairo & Giza",
+     "client": "DW Arabic",
+     "text": "DW Arabic's “Building bridges” (نبني جسور التواصل) campaign on digital screens and unipoles in Dokki, Sheikh Zayed and Palm Hills, running day and night.",
+     "img": "/img/ooh/dw-bridge-screen.jpg",
+     "alt": "DW Arabic digital screen"
+    },
+    {
+     "tag": "Real estate · Digital screen · Dokki",
+     "client": "Upmount",
+     "text": "Upmount's launch on the Dokki Street digital screen, one of Giza's busiest corridors.",
+     "img": "/img/ooh/upmount-dokki.jpg",
+     "alt": "Upmount on the Dokki Street screen"
+    }
+   ]
+  },
+  "ksa": {
+   "eyebrow": "OOH advertising agency in Jeddah",
+   "heroImg": {
+    "src": "/img/ooh/dw-screen-day.jpg",
+    "alt": "A roadside digital screen from one of our outdoor campaigns",
+    "cap": "From our proof-of-performance reports: a roadside digital screen."
+   },
+   "slogan": "Own <em>the Corniche.</em>",
+   "lead": "From our Jeddah office we plan, book and install outdoor campaigns in Saudi Arabia: billboards and unipoles, digital screens, mall media, airport and transit, with photo proof for every site.",
+   "introH": "Saudi cities are <em>built for the car.</em>",
+   "intro": [
+    "In Jeddah, Riyadh and Dammam most journeys happen by car, on wide roads lined with large-format screens and unipoles. Outdoor is the medium that meets people on Prince Sultan Road, the Corniche and King Abdulaziz Road every day.",
+    "We work with Saudi media owners on digital and static formats, check each site's visibility, adapt artwork to local rules and report with day and night photos."
+   ],
+   "chipsH": "Where we <em>place campaigns.</em>",
+   "chipsP": "Saudi roads and venues we plan across.",
+   "chips": [
+    "Jeddah Corniche",
+    "Prince Sultan Road",
+    "King Abdulaziz Road",
+    "Tahlia Street",
+    "Madinah Road",
+    "Red Sea Mall",
+    "Mall of Arabia",
+    "King Abdulaziz Airport",
+    "Riyadh",
+    "Dammam & Khobar"
+   ],
+   "cases": [
+    {
+     "tag": "Technology · Employer branding · Cairo & Alexandria",
+     "client": "Luxoft",
+     "text": "An employer-branding campaign across Cairo and Alexandria: an 8 × 4 m wall in Maadi, a 7.45 × 5.35 m facade at Cairo Festival City, units at Ain Shams University, street poles on North 90th Street, lightboxes at the Alex Desert Road toll station, screens in Agouza by the 6th of October Bridge and Mall of Egypt. Every site is documented in the proof-of-performance report.",
+     "img": "/img/ooh/luxoft-festival-city.jpg",
+     "alt": "Luxoft facade at Cairo Festival City Mall",
+     "metrics": [
+      [
+       "15+",
+       "Locations"
+      ],
+      [
+       "6",
+       "Formats"
+      ],
+      [
+       "3",
+       "Cities"
+      ],
+      [
+       "1",
+       "Month on air"
+      ]
+     ]
+    },
+    {
+     "tag": "Media · Digital OOH · Cairo & Giza",
+     "client": "DW Arabic",
+     "text": "DW Arabic's “Building bridges” (نبني جسور التواصل) campaign on digital screens and unipoles in Dokki, Sheikh Zayed and Palm Hills, running day and night.",
+     "img": "/img/ooh/dw-bridge-screen.jpg",
+     "alt": "DW Arabic digital screen"
+    },
+    {
+     "tag": "Real estate · Digital screen · Dokki",
+     "client": "Upmount",
+     "text": "Upmount's launch on the Dokki Street digital screen, one of Giza's busiest corridors.",
+     "img": "/img/ooh/upmount-dokki.jpg",
+     "alt": "Upmount on the Dokki Street screen"
+    }
+   ]
+  }
+ },
+ "ar": {
+  "base": {
+   "crumb": "إعلانات الطرق",
+   "band": "ooh-dw",
+   "stats": [
+    [
+     "+15",
+     "موقع في حملة Luxoft واحدة"
+    ],
+    [
+     "6",
+     "أشكال: جداريات، واجهات، أعمدة، صناديق مضيئة، شاشات، يونيبول"
+    ],
+    [
+     "24/7",
+     "شاشات رقمية لا تتوقف"
+    ],
+    [
+     "PoP",
+     "صور إثبات عرض لكل موقع"
+    ]
+   ],
+   "servicesH": "كل الأشكال، <em>خطة واحدة.</em>",
+   "servicesP": "نختار المواقع ونحجزها وننفذ التصميم ونركّبه ونثبت إنه موجود.",
+   "services": [
+    {
+     "t": "اختيار المواقع",
+     "d": "مواقع مختارة حسب الحركة والرؤية والجمهور، من زيارات ميدانية وأعداد المرور والطرق اللي عملاؤك بيمشوا فيها فعلاً.",
+     "tags": [
+      "زيارات ميدانية",
+      "الحركة",
+      "الرؤية"
+     ]
+    },
+    {
+     "t": "اللوحات واليونيبول",
+     "d": "لوحات كبيرة ولافتات كباري ويونيبول على الطرق الرئيسية والسريعة.",
+     "tags": [
+      "لوحات",
+      "يونيبول",
+      "لافتات الكباري"
+     ]
+    },
+    {
+     "t": "الشاشات الرقمية",
+     "d": "إعلانات رقمية على شاشات الطرق ووسط المدينة، مع تكرار وتوقيتات وتغيير سريع للتصميم.",
+     "tags": [
+      "DOOH",
+      "التكرار",
+      "التوقيتات"
+     ]
+    },
+    {
+     "t": "الجداريات والواجهات",
+     "d": "تغليف المباني والجداريات الكبيرة، مطبوعة ومركّبة حسب مواصفات المالك والجهات المختصة.",
+     "tags": [
+      "تغليف",
+      "جداريات",
+      "واجهات"
+     ]
+    },
+    {
+     "t": "الأعمدة والصناديق المضيئة",
+     "d": "أعمدة الإنارة والصناديق المضيئة على المحاور الرئيسية وبوابات الرسوم والكمباوندات.",
+     "tags": [
+      "أعمدة",
+      "صناديق مضيئة",
+      "بوابات الرسوم"
+     ]
+    },
+    {
+     "t": "المولات والجامعات والمواصلات",
+     "d": "وسائط المولات والجامعات والمطارات والمواصلات، حيث يقضي جمهورك وقته.",
+     "tags": [
+      "مولات",
+      "جامعات",
+      "مطارات"
+     ]
+    },
+    {
+     "t": "التصميم والتنفيذ",
+     "d": "تصميم مُعدّ لكل مقاس وشكل، مطبوع على الخامة المناسبة ومركّب بفرقنا.",
+     "tags": [
+      "تعديل المقاسات",
+      "الطباعة",
+      "التركيب"
+     ]
+    },
+    {
+     "t": "إثبات العرض",
+     "d": "صور نهارية وليلية لكل موقع، مع تقرير بالتواريخ والمقاسات والمواقع.",
+     "tags": [
+      "صور نهار وليل",
+      "تقرير الإثبات"
+     ]
+    }
+   ],
+   "processH": "إزاي بنخطط <em>إعلانات الطرق.</em>",
+   "processP": "ست خطوات، من أول خريطة لآخر صورة.",
+   "process": [
+    [
+     "الاستلام",
+     "الهدف والجمهور والمدن والتواريخ والميزانية."
+    ],
+    [
+     "الخريطة والمواقع",
+     "الطرق اللي جمهورك بيمشي فيها، ومواقع مرشحة بمقاساتها ورؤيتها متأكد منها على الأرض."
+    ],
+    [
+     "الخطة والحجز",
+     "الأشكال والمدد والأسعار متفاوض عليها والمواقع محجوزة."
+    ],
+    [
+     "التصميم",
+     "تصميم معدّ لكل مقاس ومسافة ووقت مشاهدة."
+    ],
+    [
+     "الطباعة والتركيب",
+     "الطباعة والتصاريح والتركيب، أو الرفع على الشاشات الرقمية."
+    ],
+    [
+     "الإثبات والتقرير",
+     "صور نهارية وليلية وتقرير إثبات العرض."
+    ]
+   ],
+   "casesH": "حملات طرق <em>نفذناها.</em>",
+   "casesP": "مواقع حقيقية وصور حقيقية، من تقارير إثبات العرض.",
+   "gallery": [
+    {
+     "src": "/img/ooh/luxoft-agouza-bridge.jpg",
+     "alt": "شاشة Luxoft بجوار كوبري 6 أكتوبر، العجوزة"
+    },
+    {
+     "src": "/img/ooh/luxoft-maadi-wall.jpg",
+     "alt": "جدارية Luxoft مقاس 8 × 4 م، المعادي"
+    },
+    {
+     "src": "/img/ooh/luxoft-festival-city.jpg",
+     "alt": "واجهة Luxoft مقاس 7.45 × 5.35 م في كايرو فستيفال سيتي"
+    },
+    {
+     "src": "/img/ooh/luxoft-ain-shams.jpg",
+     "alt": "لوحة Luxoft مقاس 3 × 4 م في جامعة عين شمس"
+    },
+    {
+     "src": "/img/ooh/luxoft-alex-toll.jpg",
+     "alt": "صناديق Luxoft المضيئة عند بوابة رسوم طريق الإسكندرية الصحراوي"
+    },
+    {
+     "src": "/img/ooh/luxoft-90th-street.jpg",
+     "alt": "أعمدة Luxoft في شارع التسعين الشمالي، القاهرة الجديدة"
+    },
+    {
+     "src": "/img/ooh/dw-bridge-screen.jpg",
+     "alt": "شاشة DW عربية الرقمية فوق الطريق"
+    },
+    {
+     "src": "/img/ooh/dw-screen-day.jpg",
+     "alt": "DW عربية على شاشة رقمية في الشيخ زايد"
+    },
+    {
+     "src": "/img/ooh/dw-unipole.jpg",
+     "alt": "DW عربية على شاشة رقمية رأسية"
+    },
+    {
+     "src": "/img/ooh/upmount-dokki.jpg",
+     "alt": "Upmount على شاشة شارع الدقي"
+    }
+   ],
+   "galleryH": "من <em>الشارع.</em>"
+  },
+  "eg": {
+   "eyebrow": "شركة إعلانات طرق في القاهرة، مصر",
+   "heroImg": {
+    "src": "/img/ooh/luxoft-maadi-wall.jpg",
+    "alt": "جدارية Luxoft مقاس 8 × 4 م في المعادي",
+    "cap": "Luxoft: جدارية 8 × 4 م في المعادي، من أكثر من 15 موقع في الحملة."
+   },
+   "slogan": "كبير ومنوّر <em>ومستحيل يتفوّت.</em>",
+   "lead": "بنخطط ونحجز ونركّب حملات الطرق في كل مصر: لوحات ويونيبول وشاشات رقمية وجداريات وأعمدة ووسائط مولات وجامعات، مع صور إثبات لكل موقع.",
+   "introH": "المدينة هي <em>الوسيلة.</em>",
+   "intro": [
+    "الدائري والكباري ومحاور المدن الجديدة بيعدّي عليها ملايين الناس كل يوم، ومعظمهم واقف في الزحمة وقت كافي إنه يقرا. إعلانات الطرق بتحط علامتك على الطرق دي، طول اليوم، بحجم مفيش حاجة تانية توصله.",
+    "بنخطط الطرق زي الميديا، مش زي العقارات: بنبدأ من المكان اللي جمهورك ساكن وشغال وسايق فيه، وبنعاين كل موقع على الأرض، وبنسلّم تقرير بالصور نهار وليل."
+   ],
+   "chipsH": "فين بنحط <em>الحملات.</em>",
+   "chipsP": "مواقع في مصر من خطط حديثة.",
+   "chips": [
+    "الدائري",
+    "كوبري 6 أكتوبر",
+    "شارع التسعين الشمالي",
+    "المعادي",
+    "الدقي",
+    "العجوزة",
+    "الشيخ زايد",
+    "بالم هيلز",
+    "كايرو فستيفال سيتي",
+    "مول مصر",
+    "جامعة عين شمس",
+    "طريق الإسكندرية الصحراوي",
+    "العاصمة الإدارية"
+   ],
+   "cases": [
+    {
+     "tag": "تكنولوجيا · العلامة التوظيفية · القاهرة والإسكندرية",
+     "client": "Luxoft",
+     "text": "حملة للعلامة التوظيفية في القاهرة والإسكندرية: جدارية 8 × 4 م في المعادي، وواجهة 7.45 × 5.35 م في كايرو فستيفال سيتي، ولوحات في جامعة عين شمس، وأعمدة في شارع التسعين الشمالي، وصناديق مضيئة عند بوابة رسوم طريق الإسكندرية الصحراوي، وشاشات في العجوزة بجوار كوبري 6 أكتوبر ومول مصر. كل موقع موثّق في تقرير إثبات العرض.",
+     "img": "/img/ooh/luxoft-festival-city.jpg",
+     "alt": "واجهة Luxoft في كايرو فستيفال سيتي",
+     "metrics": [
+      [
+       "+15",
+       "موقع"
+      ],
+      [
+       "6",
+       "أشكال إعلانية"
+      ],
+      [
+       "3",
+       "مدن"
+      ],
+      [
+       "1",
+       "شهر عرض"
+      ]
+     ]
+    },
+    {
+     "tag": "إعلام · شاشات رقمية · القاهرة والجيزة",
+     "client": "DW عربية",
+     "text": "حملة DW عربية «نبني جسور التواصل» على الشاشات الرقمية واليونيبول في الدقي والشيخ زايد وبالم هيلز، ليل ونهار.",
+     "img": "/img/ooh/dw-bridge-screen.jpg",
+     "alt": "شاشة DW عربية الرقمية"
+    },
+    {
+     "tag": "عقارات · شاشة رقمية · الدقي",
+     "client": "Upmount",
+     "text": "إطلاق Upmount على شاشة شارع الدقي، من أكثر محاور الجيزة حركة.",
+     "img": "/img/ooh/upmount-dokki.jpg",
+     "alt": "Upmount على شاشة شارع الدقي"
+    }
+   ]
+  },
+  "ksa": {
+   "eyebrow": "وكالة إعلانات طرق في جدة",
+   "heroImg": {
+    "src": "/img/ooh/dw-screen-day.jpg",
+    "alt": "شاشة رقمية على الطريق من إحدى حملاتنا",
+    "cap": "من تقارير إثبات العرض: شاشة رقمية على الطريق."
+   },
+   "slogan": "خلّ علامتك <em>على الكورنيش.</em>",
+   "lead": "من مكتبنا في جدة نخطط ونحجز وننفذ حملات الطرق في السعودية: لوحات ويونيبول وشاشات رقمية ووسائط المولات والمطارات والمواصلات، مع صور إثبات لكل موقع.",
+   "introH": "المدن السعودية <em>مبنية للسيارة.</em>",
+   "intro": [
+    "في جدة والرياض والدمام أغلب التنقلات بالسيارة، على طرق واسعة مليانة شاشات ويونيبول. إعلانات الطرق هي الوسيلة اللي تقابل الناس كل يوم على طريق الأمير سلطان والكورنيش وطريق الملك عبدالعزيز.",
+    "نشتغل مع ملاك الوسائط في السعودية على الشاشات الرقمية واللوحات الثابتة، ونتأكد من رؤية كل موقع، ونعدّل التصاميم حسب الاشتراطات المحلية، ونسلّم تقرير بالصور نهار وليل."
+   ],
+   "chipsH": "فين نحط <em>الحملات.</em>",
+   "chipsP": "طرق ومواقع سعودية نخطط عليها.",
+   "chips": [
+    "كورنيش جدة",
+    "طريق الأمير سلطان",
+    "طريق الملك عبدالعزيز",
+    "شارع التحلية",
+    "طريق المدينة",
+    "رد سي مول",
+    "مول العرب",
+    "مطار الملك عبدالعزيز",
+    "الرياض",
+    "الدمام والخبر"
+   ],
+   "cases": [
+    {
+     "tag": "تكنولوجيا · العلامة التوظيفية · القاهرة والإسكندرية",
+     "client": "Luxoft",
+     "text": "حملة للعلامة التوظيفية في القاهرة والإسكندرية: جدارية 8 × 4 م في المعادي، وواجهة 7.45 × 5.35 م في كايرو فستيفال سيتي، ولوحات في جامعة عين شمس، وأعمدة في شارع التسعين الشمالي، وصناديق مضيئة عند بوابة رسوم طريق الإسكندرية الصحراوي، وشاشات في العجوزة بجوار كوبري 6 أكتوبر ومول مصر. كل موقع موثّق في تقرير إثبات العرض.",
+     "img": "/img/ooh/luxoft-festival-city.jpg",
+     "alt": "واجهة Luxoft في كايرو فستيفال سيتي",
+     "metrics": [
+      [
+       "+15",
+       "موقع"
+      ],
+      [
+       "6",
+       "أشكال إعلانية"
+      ],
+      [
+       "3",
+       "مدن"
+      ],
+      [
+       "1",
+       "شهر عرض"
+      ]
+     ]
+    },
+    {
+     "tag": "إعلام · شاشات رقمية · القاهرة والجيزة",
+     "client": "DW عربية",
+     "text": "حملة DW عربية «نبني جسور التواصل» على الشاشات الرقمية واليونيبول في الدقي والشيخ زايد وبالم هيلز، ليل ونهار.",
+     "img": "/img/ooh/dw-bridge-screen.jpg",
+     "alt": "شاشة DW عربية الرقمية"
+    },
+    {
+     "tag": "عقارات · شاشة رقمية · الدقي",
+     "client": "Upmount",
+     "text": "إطلاق Upmount على شاشة شارع الدقي، من أكثر محاور الجيزة حركة.",
+     "img": "/img/ooh/upmount-dokki.jpg",
+     "alt": "Upmount على شاشة شارع الدقي"
+    }
+   ]
+  }
+ }
+}
