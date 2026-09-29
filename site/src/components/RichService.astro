@@ -123,7 +123,7 @@ const schema = {
                 <div class="rs-case-m">
                   {c.vimeo
                     ? <button type="button" class="rs-case-v" data-vimeo={c.vimeo} data-tall={c.tall ? '1' : undefined} aria-label={`${L.play}: ${c.client}`}><img src={c.img} alt={c.alt || c.client} loading="lazy"><span class="rs-pl" aria-hidden="true"></span></button>
-                    : <img src={c.img} alt={c.alt || c.client} loading="lazy">}
+                    : <img src={c.img} alt={c.alt || c.client} loading="lazy" class={c.fit === "contain" ? "fit-c" : undefined}>}
                 </div>
                 <div class="rs-case-t">
                   <span class="label">{c.tag}</span>

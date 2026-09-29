@@ -1,0 +1,595 @@
+{
+ "id": "branding",
+ "paths": {
+  "eg": "/branding-agency-egypt/",
+  "ksa": "/ksa/branding-agency-in-jeddah/"
+ },
+ "en": {
+  "base": {
+   "crumb": "Branding",
+   "heroImg": {
+    "src": "/img/branding/eas-sign.jpg",
+    "alt": "Egyptian Aviation Services identity on an illuminated sign, designed by Doers"
+   },
+   "stats": [
+    [
+     "2022",
+     "TechBehemoths award, branding in Egypt"
+    ],
+    [
+     "2013",
+     "Building brands for large clients since"
+    ],
+    [
+     "12",
+     "Parts in every brand book"
+    ],
+    [
+     "6",
+     "Countries our brands live in"
+    ]
+   ],
+   "servicesH": "What a brand <em>needs.</em>",
+   "servicesP": "Everything from the strategy behind the name to the apron on the counter, designed as one system.",
+   "services": [
+    {
+     "t": "Brand strategy",
+     "d": "Brand essence, positioning, core message framework and tone of voice, built in workshops with your team.",
+     "tags": [
+      "Positioning",
+      "Brand essence",
+      "Core message",
+      "Tone of voice"
+     ]
+    },
+    {
+     "t": "Naming",
+     "d": "Names for companies, products and sub-brands, checked for meaning in Arabic and English.",
+     "tags": [
+      "Company names",
+      "Product names",
+      "Sub-brands"
+     ]
+    },
+    {
+     "t": "Logo development",
+     "d": "Logo marks and custom logotypes developed from sketches to a final morphology with clear space and minimum sizes.",
+     "tags": [
+      "Logo mark",
+      "Custom logotype",
+      "Bilingual lockups"
+     ]
+    },
+    {
+     "t": "Visual identity system",
+     "d": "Colour palette, typography, icons, graphic elements and patterns that make every asset recognisable.",
+     "tags": [
+      "Colour",
+      "Typography",
+      "Icons",
+      "Patterns"
+     ]
+    },
+    {
+     "t": "Brand architecture",
+     "d": "Parent and sub-brand systems for groups with several hotels, companies or product lines.",
+     "tags": [
+      "Sub-logos",
+      "Endorsed brands",
+      "Brand families"
+     ]
+    },
+    {
+     "t": "Packaging design",
+     "d": "Bags, boxes, cups and labels that sell on the shelf and look good in the customer's hand.",
+     "tags": [
+      "Packaging",
+      "Labels",
+      "Takeaway"
+     ]
+    },
+    {
+     "t": "Character design",
+     "d": "Mascots and characters that give a brand a face for campaigns, packaging and social media.",
+     "tags": [
+      "Mascots",
+      "Illustration",
+      "3D characters"
+     ]
+    },
+    {
+     "t": "Brand applications",
+     "d": "Stationery, uniforms, fleet, signage, presentation templates and websites, all designed to the guidelines.",
+     "tags": [
+      "Stationery",
+      "Uniforms",
+      "Fleet branding",
+      "Templates"
+     ]
+    },
+    {
+     "t": "Brand guidelines",
+     "d": "A complete brand book: logo, colour, type, photography direction and graphic system, so any supplier gets it right.",
+     "tags": [
+      "Brand book",
+      "Photography direction",
+      "Usage rules"
+     ]
+    }
+   ],
+   "processH": "How we build <em>a brand.</em>",
+   "processP": "The same framework our branding team uses for every client, from a single café to a group of hotels.",
+   "process": [
+    [
+     "Discovery",
+     "Brand history, objectives, audience and competitors, and what the brand needs to achieve."
+    ],
+    [
+     "Strategy",
+     "Brand essence, positioning, core message framework and the voice the brand speaks in."
+    ],
+    [
+     "Logo development",
+     "Sketches and concepts, then one direction refined into its final morphology."
+    ],
+    [
+     "Identity system",
+     "Colour, typography, photography, icons, graphic elements and patterns."
+    ],
+    [
+     "Applications",
+     "Stationery, packaging, uniforms, fleet, signage, templates and the website."
+    ],
+    [
+     "Guidelines & roll-out",
+     "The brand book, files for every supplier and support as the brand goes live."
+    ]
+   ],
+   "casesH": "Brands we <em>built.</em>",
+   "casesP": "Selected identities from our branding portfolio.",
+   "galleryH": "From the <em>brand books.</em>",
+   "gallery": [
+    {
+     "src": "/img/branding/mahfouz-bags.jpg",
+     "alt": "Mahfouz Bake: branded takeaway bags"
+    },
+    {
+     "src": "/img/branding/eas-airport.jpg",
+     "alt": "Egyptian Aviation Services: airport display"
+    },
+    {
+     "src": "/img/branding/mahfouz-apron.jpg",
+     "alt": "Mahfouz Bake: staff apron"
+    },
+    {
+     "src": "/img/branding/lama-farm-character.jpg",
+     "alt": "Lama Farm: character and logo lockups"
+    },
+    {
+     "src": "/img/branding/mahfouz-cup.jpg",
+     "alt": "Mahfouz Bake: cup and cookie packaging"
+    },
+    {
+     "src": "/img/branding/ignite-logo.jpg",
+     "alt": "Ignite Arcadenation: logotype"
+    },
+    {
+     "src": "/img/branding/hero-characters.jpg",
+     "alt": "Character design for a gaming brand"
+    },
+    {
+     "src": "/img/branding/dfm-logo.jpg",
+     "alt": "Dubai Financial Market: logo lockup"
+    },
+    {
+     "src": "/img/branding/brand-essence.jpg",
+     "alt": "Brand strategy: the essence of the brand"
+    },
+    {
+     "src": "/img/branding/upscale-logo.jpg",
+     "alt": "Upscale: logo construction"
+    },
+    {
+     "src": "/img/branding/mahfouz-uniform.jpg",
+     "alt": "Mahfouz Bake: team uniform"
+    }
+   ]
+  },
+  "eg": {
+   "eyebrow": "Branding agency in Cairo, Egypt",
+   "slogan": "Named one of Egypt's best <em>branding companies.</em>",
+   "lead": "We build brands from the strategy up: positioning, names, logos, identity systems, packaging and brand books, for companies, hotels, restaurants and groups across Egypt and the Gulf.",
+   "introH": "More than <em>a logo.</em>",
+   "intro": [
+    "A brand is your story, your heritage and the experience people have with you. Our branding framework covers what you do, why you matter and how you should be perceived, then turns it into a visual system that works on every screen, sign and bag.",
+    "Doers won the TechBehemoths award for branding in Egypt in 2022. Our branding team combines brand strategists, a marketing communication consultant, design leads and illustrators who work with you from the first workshop to the final guidelines."
+   ],
+   "cases": [
+    {
+     "tag": "Aviation · Logo & identity",
+     "client": "Egyptian Aviation Services",
+     "text": "A new identity for EAS built on safety, structure and aviation precision: a runway-inspired A, a secure capsule shape and a colour flow that leads the eye from E to A to S, applied to signs, displays and uniforms.",
+     "img": "/img/branding/eas-uniform.jpg"
+    },
+    {
+     "tag": "Hospitality · Brand architecture",
+     "client": "Serenity Hospitality Group",
+     "text": "A refreshed group identity and a family of sub-brands for Serenity's hotels, resorts and restaurants, from Serenity Alma and Alpha to SkyFringe and Ross, focused on elegance, warmth and premium consistency.",
+     "img": "/img/branding/serenity-family.jpg",
+     "fit": "contain"
+    },
+    {
+     "tag": "Food · Identity, packaging & uniforms",
+     "client": "Mahfouz Bake",
+     "text": "A friendly baker character, a bold logotype and a full set of applications: takeaway bags, cups, aprons and team uniforms that make the brand feel fresh from the family oven.",
+     "img": "/img/branding/mahfouz-logo.jpg"
+    },
+    {
+     "tag": "Food · Fleet branding",
+     "client": "Boulevard Vie Bakery",
+     "text": "Delivery trucks that show freshness and craftsmanship with bold visuals, bilingual layouts and scannable QR codes, turning every route into a moving brand experience.",
+     "img": "/img/branding/boulevard-vie-truck.jpg"
+    },
+    {
+     "tag": "Industrial B2B · Brand strategy & logo",
+     "client": "Emdad",
+     "text": "A strategic brand framework emphasising innovation, reliability and digital leadership to structure an industrial B2B ecosystem, with the logo developed from a range of explorations.",
+     "img": "/img/branding/emdad-logos.jpg",
+     "fit": "contain"
+    },
+    {
+     "tag": "Chemicals · Sub-brand system",
+     "client": "WME Group",
+     "text": "A cohesive sub-logo system for WME's companies, including Pioneer Specialty Chemicals, so the group reads as one family.",
+     "img": "/img/branding/wme-psc.jpg",
+     "fit": "contain"
+    }
+   ]
+  },
+  "ksa": {
+   "eyebrow": "Branding agency in Jeddah",
+   "slogan": "Brands built for <em>the Saudi market.</em>",
+   "lead": "From our Jeddah office we build brands for Saudi companies: strategy, naming, bilingual logos, identity systems, packaging and brand books, then apply them to shops, fleets and uniforms.",
+   "introH": "Bilingual <em>by design.</em>",
+   "intro": [
+    "A Saudi brand has to work in Arabic and English, on a shopfront on Tahlia Street and in an Instagram feed. We design Arabic and Latin logotypes together, and build identity systems that stay consistent across every branch and supplier.",
+    "Our branding team, awarded by TechBehemoths for branding in 2022, works with you in Jeddah or online from the first workshop to the guidelines, and our production teams apply the brand to signage, stands and fleets."
+   ],
+   "cases": [
+    {
+     "tag": "Industrial B2B · Brand strategy & logo",
+     "client": "Emdad",
+     "text": "A strategic brand framework emphasising innovation, reliability and digital leadership to structure an industrial B2B ecosystem, with the logo developed from a range of explorations.",
+     "img": "/img/branding/emdad-logos.jpg",
+     "fit": "contain"
+    },
+    {
+     "tag": "Hospitality · Brand architecture",
+     "client": "Serenity Hospitality Group",
+     "text": "A group identity and a family of sub-brands for hotels, resorts and restaurants, focused on elegance, warmth and premium consistency.",
+     "img": "/img/branding/serenity-family.jpg",
+     "fit": "contain"
+    },
+    {
+     "tag": "Aviation · Logo & identity",
+     "client": "Egyptian Aviation Services",
+     "text": "An identity built on safety and aviation precision, applied to signs, airport displays and uniforms.",
+     "img": "/img/branding/eas-uniform.jpg"
+    },
+    {
+     "tag": "Food · Fleet branding",
+     "client": "Boulevard Vie Bakery",
+     "text": "Delivery trucks with bold visuals, bilingual layouts and QR codes that turn every route into a moving brand experience.",
+     "img": "/img/branding/boulevard-vie-truck.jpg"
+    },
+    {
+     "tag": "Food · Identity, packaging & uniforms",
+     "client": "Mahfouz Bake",
+     "text": "A baker character, a bold logotype and takeaway bags, cups, aprons and uniforms designed as one system.",
+     "img": "/img/branding/mahfouz-logo.jpg"
+    },
+    {
+     "tag": "Chemicals · Sub-brand system",
+     "client": "WME Group",
+     "text": "A cohesive sub-logo system so a group of companies reads as one family.",
+     "img": "/img/branding/wme-psc.jpg",
+     "fit": "contain"
+    }
+   ]
+  }
+ },
+ "ar": {
+  "base": {
+   "crumb": "الهوية والبراندنج",
+   "heroImg": {
+    "src": "/img/branding/eas-sign.jpg",
+    "alt": "هوية الخدمات الجوية المصرية على لافتة مضيئة، من تصميم دورز"
+   },
+   "stats": [
+    [
+     "2022",
+     "جائزة TechBehemoths للبراندنج في مصر"
+    ],
+    [
+     "2013",
+     "نبني علامات لكبار العملاء منذ"
+    ],
+    [
+     "12",
+     "جزءًا في كل دليل هوية"
+    ],
+    [
+     "6",
+     "دول تعيش فيها علاماتنا"
+    ]
+   ],
+   "servicesH": "ما تحتاجه <em>العلامة.</em>",
+   "servicesP": "كل شيء من الاستراتيجية وراء الاسم حتى المريلة على الكاونتر، مصمم كنظام واحد.",
+   "services": [
+    {
+     "t": "استراتيجية العلامة",
+     "d": "جوهر العلامة وموقعها وإطار رسالتها الأساسية ونبرة صوتها، تُبنى في ورش عمل مع فريقك.",
+     "tags": [
+      "التموضع",
+      "جوهر العلامة",
+      "الرسالة الأساسية",
+      "نبرة الصوت"
+     ]
+    },
+    {
+     "t": "اختيار الاسم",
+     "d": "أسماء للشركات والمنتجات والعلامات الفرعية، مع مراجعة معناها بالعربي والإنجليزي.",
+     "tags": [
+      "أسماء الشركات",
+      "أسماء المنتجات",
+      "العلامات الفرعية"
+     ]
+    },
+    {
+     "t": "تطوير الشعار",
+     "d": "شعارات وخطوط مخصصة تُطوَّر من الاسكتشات حتى شكلها النهائي، مع المساحة الآمنة وأصغر مقاس.",
+     "tags": [
+      "رمز الشعار",
+      "خط مخصص",
+      "نسخ ثنائية اللغة"
+     ]
+    },
+    {
+     "t": "نظام الهوية البصرية",
+     "d": "الألوان والخطوط والأيقونات والعناصر الجرافيكية والأنماط التي تجعل كل مادة مميزة.",
+     "tags": [
+      "الألوان",
+      "الخطوط",
+      "الأيقونات",
+      "الأنماط"
+     ]
+    },
+    {
+     "t": "هيكلة العلامات",
+     "d": "أنظمة العلامة الأم والعلامات الفرعية للمجموعات التي تضم عدة فنادق أو شركات أو خطوط منتجات.",
+     "tags": [
+      "الشعارات الفرعية",
+      "العلامات المدعومة",
+      "عائلات العلامات"
+     ]
+    },
+    {
+     "t": "تصميم التغليف",
+     "d": "أكياس وعلب وأكواب وملصقات تبيع على الرف وتبدو جميلة في يد العميل.",
+     "tags": [
+      "التغليف",
+      "الملصقات",
+      "التيك أواي"
+     ]
+    },
+    {
+     "t": "تصميم الشخصيات",
+     "d": "شخصيات وتمائم تمنح العلامة وجهًا للحملات والتغليف والسوشيال ميديا.",
+     "tags": [
+      "التمائم",
+      "الرسم التوضيحي",
+      "شخصيات 3D"
+     ]
+    },
+    {
+     "t": "تطبيقات الهوية",
+     "d": "المطبوعات والزي الموحد وأسطول السيارات واللافتات وقوالب العروض والمواقع، كلها وفق الدليل.",
+     "tags": [
+      "المطبوعات",
+      "الزي الموحد",
+      "تغليف الأسطول",
+      "القوالب"
+     ]
+    },
+    {
+     "t": "دليل الهوية",
+     "d": "كتاب علامة كامل: الشعار والألوان والخطوط وتوجيه التصوير والنظام الجرافيكي، ليطبقه أي مورد بدقة.",
+     "tags": [
+      "كتاب العلامة",
+      "توجيه التصوير",
+      "قواعد الاستخدام"
+     ]
+    }
+   ],
+   "processH": "كيف نبني <em>العلامة.</em>",
+   "processP": "الإطار نفسه الذي يستخدمه فريق البراندنج مع كل عميل، من مقهى واحد إلى مجموعة فنادق.",
+   "process": [
+    [
+     "الاستكشاف",
+     "تاريخ العلامة وأهدافها وجمهورها ومنافسوها، وما تحتاج إلى تحقيقه."
+    ],
+    [
+     "الاستراتيجية",
+     "جوهر العلامة وتموضعها وإطار رسالتها الأساسية والصوت الذي تتحدث به."
+    ],
+    [
+     "تطوير الشعار",
+     "اسكتشات وأفكار، ثم اتجاه واحد يُطوَّر حتى شكله النهائي."
+    ],
+    [
+     "نظام الهوية",
+     "الألوان والخطوط والتصوير والأيقونات والعناصر الجرافيكية والأنماط."
+    ],
+    [
+     "التطبيقات",
+     "المطبوعات والتغليف والزي الموحد والأسطول واللافتات والقوالب والموقع."
+    ],
+    [
+     "الدليل والإطلاق",
+     "كتاب العلامة وملفات لكل مورد ودعم أثناء إطلاق العلامة."
+    ]
+   ],
+   "casesH": "علامات <em>بنيناها.</em>",
+   "casesP": "مختارات من أعمالنا في الهوية.",
+   "galleryH": "من <em>كتب الهوية.</em>",
+   "gallery": [
+    {
+     "src": "/img/branding/mahfouz-bags.jpg",
+     "alt": "محفوظ بيك: أكياس تيك أواي بهوية العلامة"
+    },
+    {
+     "src": "/img/branding/eas-airport.jpg",
+     "alt": "الخدمات الجوية المصرية: شاشة في المطار"
+    },
+    {
+     "src": "/img/branding/mahfouz-apron.jpg",
+     "alt": "محفوظ بيك: مريلة فريق العمل"
+    },
+    {
+     "src": "/img/branding/lama-farm-character.jpg",
+     "alt": "لاما فارم: الشخصية ونسخ الشعار"
+    },
+    {
+     "src": "/img/branding/mahfouz-cup.jpg",
+     "alt": "محفوظ بيك: تغليف الكوب والكوكيز"
+    },
+    {
+     "src": "/img/branding/ignite-logo.jpg",
+     "alt": "إجنايت أركيدنيشن: الشعار"
+    },
+    {
+     "src": "/img/branding/hero-characters.jpg",
+     "alt": "تصميم شخصيات لعلامة ألعاب"
+    },
+    {
+     "src": "/img/branding/dfm-logo.jpg",
+     "alt": "سوق دبي المالي: الشعار"
+    },
+    {
+     "src": "/img/branding/brand-essence.jpg",
+     "alt": "استراتيجية العلامة: جوهر العلامة"
+    },
+    {
+     "src": "/img/branding/upscale-logo.jpg",
+     "alt": "أبسكيل: بناء الشعار"
+    },
+    {
+     "src": "/img/branding/mahfouz-uniform.jpg",
+     "alt": "محفوظ بيك: زي فريق العمل"
+    }
+   ]
+  },
+  "eg": {
+   "eyebrow": "وكالة براندنج في القاهرة، مصر",
+   "slogan": "من أفضل <em>شركات البراندنج في مصر.</em>",
+   "lead": "نبني العلامات من الاستراتيجية: التموضع والأسماء والشعارات وأنظمة الهوية والتغليف وأدلة الهوية، للشركات والفنادق والمطاعم والمجموعات في مصر والخليج.",
+   "introH": "أكثر من <em>مجرد شعار.</em>",
+   "intro": [
+    "علامتك هي قصتك وتاريخك والتجربة التي يعيشها الناس معك. يغطي إطار البراندنج لدينا ما تفعله ولماذا تهم وكيف يجب أن تُرى، ثم يحوّل ذلك إلى نظام بصري يعمل على كل شاشة ولافتة وكيس.",
+    "فازت دورز بجائزة TechBehemoths للبراندنج في مصر عام 2022. ويضم فريق البراندنج استراتيجيين ومستشار اتصال تسويقي وقادة تصميم ورسامين يعملون معك من أول ورشة عمل حتى الدليل النهائي."
+   ],
+   "cases": [
+    {
+     "tag": "طيران · الشعار والهوية",
+     "client": "الخدمات الجوية المصرية",
+     "text": "هوية جديدة لـ EAS مبنية على الأمان والانضباط ودقة الطيران: حرف A مستوحى من المدرج، وشكل كبسولة آمنة، وتدرج لوني يقود العين من E إلى A إلى S، مطبقة على اللافتات والشاشات والزي.",
+     "img": "/img/branding/eas-uniform.jpg"
+    },
+    {
+     "tag": "ضيافة · هيكلة العلامات",
+     "client": "مجموعة سيرينيتي للضيافة",
+     "text": "هوية محدّثة للمجموعة وعائلة من العلامات الفرعية لفنادق سيرينيتي ومنتجعاتها ومطاعمها، من ألما وألفا إلى سكاي فرينج وروس، بتركيز على الأناقة والدفء والاتساق الفاخر.",
+     "img": "/img/branding/serenity-family.jpg",
+     "fit": "contain"
+    },
+    {
+     "tag": "أغذية · الهوية والتغليف والزي",
+     "client": "محفوظ بيك",
+     "text": "شخصية خباز ودودة وشعار جريء ومجموعة كاملة من التطبيقات: أكياس التيك أواي والأكواب والمرايل وزي الفريق، لتبدو العلامة طازجة من فرن العائلة.",
+     "img": "/img/branding/mahfouz-logo.jpg"
+    },
+    {
+     "tag": "أغذية · هوية الأسطول",
+     "client": "مخبز بوليفارد في",
+     "text": "شاحنات توصيل تعكس الطزاجة والحرفية بتصميمات جريئة وتخطيط ثنائي اللغة ورموز QR، فيصبح كل خط سير تجربة متحركة للعلامة.",
+     "img": "/img/branding/boulevard-vie-truck.jpg"
+    },
+    {
+     "tag": "صناعة B2B · الاستراتيجية والشعار",
+     "client": "إمداد",
+     "text": "إطار استراتيجي للعلامة يركز على الابتكار والموثوقية والريادة الرقمية لتنظيم منظومة صناعية بين الشركات، مع تطوير الشعار من مجموعة من المحاولات.",
+     "img": "/img/branding/emdad-logos.jpg",
+     "fit": "contain"
+    },
+    {
+     "tag": "كيماويات · نظام العلامات الفرعية",
+     "client": "مجموعة WME",
+     "text": "نظام متماسك للشعارات الفرعية لشركات WME، منها Pioneer Specialty Chemicals، لتظهر المجموعة كعائلة واحدة.",
+     "img": "/img/branding/wme-psc.jpg",
+     "fit": "contain"
+    }
+   ]
+  },
+  "ksa": {
+   "eyebrow": "وكالة براندنج في جدة",
+   "slogan": "علامات مبنية <em>للسوق السعودي.</em>",
+   "lead": "من مكتبنا في جدة نبني العلامات للشركات السعودية: الاستراتيجية والأسماء والشعارات ثنائية اللغة وأنظمة الهوية والتغليف وأدلة الهوية، ثم نطبقها على المحلات والأساطيل والزي الموحد.",
+   "introH": "ثنائية اللغة <em>من التصميم.</em>",
+   "intro": [
+    "العلامة السعودية يجب أن تعمل بالعربي والإنجليزي، على واجهة محل في شارع التحلية وفي فيد إنستجرام. نصمم الشعار العربي واللاتيني معًا، ونبني أنظمة هوية تبقى متسقة في كل فرع ومع كل مورد.",
+    "فريق البراندنج لدينا، الحاصل على جائزة TechBehemoths للبراندنج عام 2022، يعمل معك في جدة أو عن بُعد من أول ورشة عمل حتى الدليل، وفرق الإنتاج تطبق العلامة على اللافتات والأجنحة والأساطيل."
+   ],
+   "cases": [
+    {
+     "tag": "صناعة B2B · الاستراتيجية والشعار",
+     "client": "إمداد",
+     "text": "إطار استراتيجي للعلامة يركز على الابتكار والموثوقية والريادة الرقمية لتنظيم منظومة صناعية بين الشركات، مع تطوير الشعار من مجموعة من المحاولات.",
+     "img": "/img/branding/emdad-logos.jpg",
+     "fit": "contain"
+    },
+    {
+     "tag": "ضيافة · هيكلة العلامات",
+     "client": "مجموعة سيرينيتي للضيافة",
+     "text": "هوية للمجموعة وعائلة من العلامات الفرعية للفنادق والمنتجعات والمطاعم، بتركيز على الأناقة والدفء والاتساق الفاخر.",
+     "img": "/img/branding/serenity-family.jpg",
+     "fit": "contain"
+    },
+    {
+     "tag": "طيران · الشعار والهوية",
+     "client": "الخدمات الجوية المصرية",
+     "text": "هوية مبنية على الأمان ودقة الطيران، مطبقة على اللافتات وشاشات المطار والزي.",
+     "img": "/img/branding/eas-uniform.jpg"
+    },
+    {
+     "tag": "أغذية · هوية الأسطول",
+     "client": "مخبز بوليفارد في",
+     "text": "شاحنات توصيل بتصميمات جريئة وتخطيط ثنائي اللغة ورموز QR تحوّل كل خط سير إلى تجربة متحركة للعلامة.",
+     "img": "/img/branding/boulevard-vie-truck.jpg"
+    },
+    {
+     "tag": "أغذية · الهوية والتغليف والزي",
+     "client": "محفوظ بيك",
+     "text": "شخصية خباز وشعار جريء وأكياس وأكواب ومرايل وزي موحد مصممة كنظام واحد.",
+     "img": "/img/branding/mahfouz-logo.jpg"
+    },
+    {
+     "tag": "كيماويات · نظام العلامات الفرعية",
+     "client": "مجموعة WME",
+     "text": "نظام متماسك للشعارات الفرعية لتظهر مجموعة الشركات كعائلة واحدة.",
+     "img": "/img/branding/wme-psc.jpg",
+     "fit": "contain"
+    }
+   ]
+  }
+ }
+}
