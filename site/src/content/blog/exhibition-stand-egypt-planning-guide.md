@@ -10,7 +10,7 @@ category: "Booth production"
 service: /booth-production-egypt/
 ---
 
-<p>An exhibition gives you three or four days in a hall full of buyers, with your competitors a few metres away. The stand is what turns that footfall into conversations: it has to stop people in the aisle, give your team room to talk and make your brand look like the leader in its field. Most of that is decided weeks before the show opens, in the plan.</p>
+<p>An exhibition gives you three or four days in a hall full of buyers, with your competitors a few metres away. The stand is what turns that footfall into conversations: it has to stop people in the aisle, give your team room to talk and make your brand look like the leader in its field. Most of that is decided before the show opens, in the plan.</p>
 
 <p>This guide is what our <a href="/booth-production-egypt/">booth production</a> team walks new clients through before shows like Cairo ICT, EGYPES, AI Everything, Plastex and EgyBeauty Africa.</p>
 
@@ -20,20 +20,20 @@ service: /booth-production-egypt/
 
 <p>Write down three things and share them with your stand builder: the main goal, the visitors you want to attract, and what your team will actually do on the stand each day. Every design decision follows from those answers.</p>
 
-<h2>2. The timeline that works</h2>
+<h2>2. The stages, and why timing is our job</h2>
 
-<p>For a custom stand in Egypt, we plan backwards from the opening day:</p>
+<p>Every custom stand goes through the same stages, working back from the opening day:</p>
 
 <ul>
-<li><strong>10–12 weeks before:</strong> book the space with the organiser, confirm the stand size and position, and brief your stand builder.</li>
-<li><strong>8–10 weeks before:</strong> 3D concept, photoreal renders and revisions until the design is signed off.</li>
-<li><strong>6–8 weeks before:</strong> technical, electrical and safety drawings submitted to the organiser for approval.</li>
-<li><strong>3–6 weeks before:</strong> fabrication in the workshop, graphics printed, screens, lighting and furniture ordered.</li>
-<li><strong>Build-up days:</strong> installation on site and handover before the doors open.</li>
+<li><strong>Space and brief:</strong> the space booked with the organiser, the stand size and position confirmed, and the brief shared with your stand builder.</li>
+<li><strong>3D concept:</strong> design, photoreal renders and revisions until you sign off.</li>
+<li><strong>Organiser approval:</strong> technical, electrical and safety drawings submitted and approved.</li>
+<li><strong>Fabrication:</strong> the stand built in the workshop, graphics printed, screens, lighting and furniture prepared.</li>
+<li><strong>Build-up:</strong> installation on site and handover before the doors open.</li>
 <li><strong>After the show:</strong> dismantling, transport and, for reusable stands, storage.</li>
 </ul>
 
-<p>Four weeks is the practical minimum for a custom stand. It can be done faster, but every week you save comes out of design time or organiser approvals, and that is where mistakes happen.</p>
+<p>How long each stage takes depends on your show and your date, not on a template. Some clients come to us months ahead; others come when the show is almost here. Either way, we adapt the plan to the time available, take responsibility for every deadline, from organiser approvals to build-up, and hit the ground running from the first call.</p>
 
 <h2>3. What drives the cost of a stand</h2>
 

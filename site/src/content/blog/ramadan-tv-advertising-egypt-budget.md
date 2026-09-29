@@ -51,7 +51,7 @@ service: /tv-advertising/
 
 <h2>5. Produce for the plan, not the other way round</h2>
 
-<p>Ramadan inventory is sold in slots of different lengths and prices. Shoot once and cut 30, 20, 15 and 10-second versions, so the plan can use a long spot where the story needs it and short reminders to build frequency cheaply. Production takes time: from an approved concept, a TV commercial usually needs three to six weeks, so the idea should be signed off well before Ramadan, not during it. Our <a href="/media-production-egypt/">media production</a> team handles the concept, script, casting, shooting and post-production.</p>
+<p>Ramadan inventory is sold in slots of different lengths and prices. Shoot once and cut 30, 20, 15 and 10-second versions, so the plan can use a long spot where the story needs it and short reminders to build frequency cheaply. Whatever your deadline, our <a href="/media-production-egypt/">media production</a> team adapts to it and hits the ground running: concept, script, casting, shooting and post-production, delivered in every version the plan needs.</p>
 
 <h2>6. Book early and negotiate as a package</h2>
 
