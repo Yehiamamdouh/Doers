@@ -34,7 +34,9 @@ for (const s of p.sections) {
   sections.push(pending ? { ...s, label: pending } : s);
   pending = null;
 }
-const band = Object.keys(bands).find((k) => bands[k].pages.includes(enPath));
+// Video bands for this page: the first opens the page, a second one breaks up the middle.
+const [band, band2] = Object.keys(bands).filter((k) => bands[k].pages.includes(enPath));
+const mid = Math.floor(sections.length / 2);
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -71,7 +73,7 @@ const schema = {
     {band && <VideoBand id={band} lang={p.lang} />}
     {enPath === '/media-production-egypt/' && <div class="wrap"><FilmGallery lang={p.lang} /></div>}
     <div class="wrap">
-      {sections.map((s) => s.kind ? <LegacySection s={s} /> : (
+      {sections.map((s, i) => <>{band2 && i === mid && <div class="lg-band2"><VideoBand id={band2} lang={p.lang} /></div>}{s.kind ? <LegacySection s={s} /> : (
         <section class={`p-sec lg-sec${s.cards ? ' is-cards' : ''}`}>
           {s.label && <span class="label eyebrow">{s.label}</span>}
           {s.h2 && (s.img && !s.cards
@@ -110,7 +112,7 @@ const schema = {
             </div>
           )}
         </section>
-      ))}
+      )}</>)}
       {related.length > 0 && (
         <section class="p-sec">
           <h2>{L.more}</h2>

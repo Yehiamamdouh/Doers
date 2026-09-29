@@ -74,7 +74,7 @@
   {
    "kind": "gallery",
    "h2": "Our portfolio",
-   "intro": "Stands we designed and built for exhibitions in Egypt, from Cairo ICT and Plastex to EgyBeauty Africa.",
+   "intro": "Stands we designed and built for exhibitions in Egypt, from Cairo ICT, AI Everything and EGYPES to Plastex and EgyBeauty Africa.",
    "items": [
     {
      "src": "/img/legacy/2026-08-picture1-01-01-scaled.jpg",
@@ -123,6 +123,38 @@
      "alt": "ISYS · Cairo ICT 2023 exhibition stand by Doers",
      "client": "ISYS · Cairo ICT 2023",
      "caption": "Custom exhibition stand created for ISYS at Cairo ICT 2023. A futuristic booth combining immersive digital displays, strong brand visibility, and an engaging technology-focused experience."
+    },
+    {
+     "src": "/img/work/isys-ai-everything-2.jpg",
+     "w": 1600,
+     "h": 900,
+     "alt": "ISYS exhibition stand at AI Everything, Cairo, by Doers",
+     "client": "ISYS · AI Everything",
+     "caption": "Exhibition stand designed and built for ISYS at AI Everything in Cairo. A walk-through arch with LED lines, demo zones and meeting lounges that kept the stand full for both days."
+    },
+    {
+     "src": "/img/work/isys-ai-everything-1.jpg",
+     "w": 1600,
+     "h": 900,
+     "alt": "Illuminated arch of the ISYS stand at AI Everything, Cairo",
+     "client": "ISYS · AI Everything",
+     "caption": "The illuminated ISYS arch at AI Everything, Cairo: the stand's entrance and its most photographed spot."
+    },
+    {
+     "src": "/img/work/technip-egypes-1.jpg",
+     "w": 1600,
+     "h": 900,
+     "alt": "Technip Energies exhibition stand at EGYPES, Cairo, by Doers",
+     "client": "Technip Energies · EGYPES",
+     "caption": "Exhibition stand designed and built for Technip Energies at EGYPES in Cairo, with a suspended circular screen, a reception counter and meeting areas."
+    },
+    {
+     "src": "/img/work/technip-egypes-2.jpg",
+     "w": 1600,
+     "h": 900,
+     "alt": "Visitors at the Technip Energies stand at EGYPES, Cairo",
+     "client": "Technip Energies · EGYPES",
+     "caption": "The Technip Energies stand at EGYPES during a presentation, with visitors gathered around the screens."
     },
     {
      "src": "/img/legacy/2026-08-as-01-scaled.jpg",

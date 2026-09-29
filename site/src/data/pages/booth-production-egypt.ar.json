@@ -74,7 +74,7 @@
   {
    "kind": "gallery",
    "h2": "من أعمالنا",
-   "intro": "أجنحة صممناها ونفذناها في معارض مصر، من Cairo ICT وبلاستكس إلى EgyBeauty Africa.",
+   "intro": "أجنحة صممناها ونفذناها في معارض مصر، من Cairo ICT وAI Everything وإيجبس إلى بلاستكس وEgyBeauty Africa.",
    "items": [
     {
      "src": "/img/legacy/2026-08-picture1-01-01-scaled.jpg",
@@ -123,6 +123,38 @@
      "alt": "جناح ISYS · Cairo ICT 2023",
      "client": "ISYS · Cairo ICT 2023",
      "caption": "جناح لشركة ISYS في Cairo ICT 2023؛ تصميم مستقبلي يجمع بين الشاشات الرقمية الغامرة وحضور قوي للعلامة وتجربة تقنية جذابة."
+    },
+    {
+     "src": "/img/work/isys-ai-everything-2.jpg",
+     "w": 1600,
+     "h": 900,
+     "alt": "جناح ISYS في معرض AI Everything بالقاهرة من تنفيذ دورز",
+     "client": "ISYS · AI Everything",
+     "caption": "جناح صممناه ونفذناه لشركة ISYS في معرض AI Everything بالقاهرة: قوس للدخول بخطوط إضاءة LED، ومناطق عرض، وجلسات اجتماعات، وظل الجناح مزدحمًا طوال يومي المعرض."
+    },
+    {
+     "src": "/img/work/isys-ai-everything-1.jpg",
+     "w": 1600,
+     "h": 900,
+     "alt": "القوس المضيء لجناح ISYS في معرض AI Everything بالقاهرة",
+     "client": "ISYS · AI Everything",
+     "caption": "قوس ISYS المضيء في معرض AI Everything بالقاهرة: مدخل الجناح وأكثر أركانه تصويرًا."
+    },
+    {
+     "src": "/img/work/technip-egypes-1.jpg",
+     "w": 1600,
+     "h": 900,
+     "alt": "جناح Technip Energies في معرض إيجبس بالقاهرة من تنفيذ دورز",
+     "client": "Technip Energies · إيجبس",
+     "caption": "جناح صممناه ونفذناه لشركة Technip Energies في معرض إيجبس (EGYPES) بالقاهرة، بشاشة دائرية معلقة وكاونتر استقبال ومساحات للاجتماعات."
+    },
+    {
+     "src": "/img/work/technip-egypes-2.jpg",
+     "w": 1600,
+     "h": 900,
+     "alt": "زوار جناح Technip Energies في معرض إيجبس بالقاهرة",
+     "client": "Technip Energies · إيجبس",
+     "caption": "جناح Technip Energies في معرض إيجبس أثناء أحد العروض، والزوار حول الشاشات."
     },
     {
      "src": "/img/legacy/2026-08-as-01-scaled.jpg",

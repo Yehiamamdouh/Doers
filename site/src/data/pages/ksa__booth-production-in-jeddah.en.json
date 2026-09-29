@@ -62,7 +62,7 @@
   {
    "kind": "gallery",
    "h2": "Our portfolio",
-   "intro": "Stands we designed and built for clients across Saudi Arabia and the region.",
+   "intro": "Stands we designed and built in Saudi Arabia, including INTRA at the KSA Defense Show in Jeddah. For more of our stands, see <a href=\"/booth-production-egypt/\">our Cairo booth portfolio</a>.",
    "items": [
     {
      "src": "/img/legacy/2026-08-maa-01-scaled.jpg",
@@ -79,62 +79,6 @@
      "alt": "INTRA · KSA Defense Show exhibition stand by Doers",
      "client": "INTRA · KSA Defense Show",
      "caption": "Custom exhibition stand designed for INTRA at the KSA Defense Show in Jeddah. A futuristic experience combining immersive displays, curved architecture, and a strong technology-driven presence."
-    },
-    {
-     "src": "/img/legacy/2026-08-as-01-scaled.jpg",
-     "w": 1600,
-     "h": 856,
-     "alt": "Asfour Crystal exhibition stand by Doers",
-     "client": "Asfour Crystal",
-     "caption": "A premium exhibition space created for Asfour Crystal, combining artistic display, dramatic lighting, and distinctive brand presentation."
-    },
-    {
-     "src": "/img/legacy/2026-08-picture12-014-01-01-scaled.jpg",
-     "w": 1600,
-     "h": 856,
-     "alt": "Novartis exhibition stand by Doers",
-     "client": "Novartis",
-     "caption": "A clean, professional exhibition booth designed for Novartis, combining strong brand visibility, functional meeting areas, and a modern corporate experience."
-    },
-    {
-     "src": "/img/legacy/2026-08-picture10-01-scaled.jpg",
-     "w": 1600,
-     "h": 856,
-     "alt": "RAI Group · Plastex 2024 exhibition stand by Doers",
-     "client": "RAI Group · Plastex 2024",
-     "caption": "Custom exhibition stand designed and produced for RAI Group at Plastex 2024. A modern, functional space combining strong brand visibility, digital displays, and comfortable meeting areas."
-    },
-    {
-     "src": "/img/legacy/2026-08-picture11-01-scaled.jpg",
-     "w": 1600,
-     "h": 856,
-     "alt": "Link Misr exhibition stand by Doers",
-     "client": "Link Misr",
-     "caption": "Custom exhibition stand created for Link Misr with a bold, technology-focused concept. A contemporary space combining illuminated structures, digital displays, and an engaging visitor experience."
-    },
-    {
-     "src": "/img/legacy/2026-08-picture1-02-01-scaled.jpg",
-     "w": 1600,
-     "h": 856,
-     "alt": "SPG Group · Plastex 2024 exhibition stand by Doers",
-     "client": "SPG Group · Plastex 2024",
-     "caption": "Custom exhibition stand designed and produced for SPG Group at Plastex 2024. A functional, high-impact space combining brand visibility, visitor engagement, and premium execution."
-    },
-    {
-     "src": "/img/legacy/2026-08-picture4-01-scaled.jpg",
-     "w": 1600,
-     "h": 856,
-     "alt": "Galaxy · EgyBeauty Africa exhibition stand by Doers",
-     "client": "Galaxy · EgyBeauty Africa",
-     "caption": "Custom exhibition stand created for Galaxy at EgyBeauty Africa. A modern booth concept combining strong visual identity, lighting, and an engaging visitor experience."
-    },
-    {
-     "src": "/img/legacy/2026-08-picture16-01-scaled.jpg",
-     "w": 1600,
-     "h": 856,
-     "alt": "Technip Energies exhibition stand by Doers",
-     "client": "Technip Energies",
-     "caption": "Custom exhibition stand designed for Technip Energies. A modern, clean space combining digital displays, brand visibility, and comfortable meeting areas."
     },
     {
      "src": "/img/legacy/2026-08-picture19-01-scaled.jpg",

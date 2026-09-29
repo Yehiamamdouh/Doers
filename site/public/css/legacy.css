@@ -104,3 +104,5 @@
 .lg-sec>.eyebrow{display:block;grid-column:1/-1;color:var(--orange-d);margin-bottom:14px}
 [dir=rtl] .lg-sec>.eyebrow{letter-spacing:0}
 .lg-bq{margin:0 0 28px;font:500 clamp(20px,2.2vw,26px)/1.5 var(--body);border-inline-start:3px solid var(--orange);padding-inline-start:22px}
+/* A second video band sits inside the page column: let it run full width. */
+.lg-band2{margin:clamp(40px,6vw,80px) calc(50% - 50vw)}
