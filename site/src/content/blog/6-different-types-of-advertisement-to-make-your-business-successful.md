@@ -44,7 +44,7 @@ service: /outdoor-advertising-egypt/
 
 <p>Pay per click is a different type of advertisement strategy in which when the user clicks on the advertisement the advertiser has to pay for that specific click.</p>
 
-<p>This type of advertisement usually works through search engine optimization and it is also very successful.</p>
+<p>This type of advertisement usually works through <a class="auto-link" href="/seo/">search engine optimization</a> and it is also very successful.</p>
 
 <p>When the advertisement of your business is shown in front of people but if they do not click on it you will not have to pay for it.</p>
 

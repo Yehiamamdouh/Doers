@@ -162,3 +162,8 @@
 .rs-row h3 a .arrow{font-size:.6em;vertical-align:super;color:var(--orange,#f7a21b)}
 /* Five steps in a three-column grid: stretch the last card so no empty cell is left */
 @media (min-width:900px){.rs-steps li:last-child:nth-child(3n+2){grid-column:span 2}}
+/* "Often planned together with" line under the services list */
+.rs-pair{margin-top:-24px;padding:18px 22px;border-radius:16px;background:rgba(247,162,27,.09);font-size:16px}
+.rs-pair p{margin:0}
+.rs-pair p+p{margin-top:6px}
+.rs-pair a{font-weight:700;color:inherit;text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:3px}

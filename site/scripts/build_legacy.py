@@ -9,6 +9,7 @@ from wp-content once, resized and served locally so the WordPress uploads can go
 """
 import collections, html, io, json, pathlib, re, subprocess
 import rank_claims
+import link_posts
 
 from PIL import Image
 
@@ -414,6 +415,7 @@ def main():
     pages = [copy_fixes(p) for p in pages]
     pages = final_links(pages)
     (ROOT / 'src/data/legacy-pages.json').write_text(json.dumps(pages, ensure_ascii=False, indent=1))
+    link_posts.run(BLOG)  # contextual links from posts to under-linked service pages
     for f in IMG_DIR.glob('*'):
         if f.name not in used: f.unlink()
     print(f'{len(pages)} pages, posts {dict(posts)}, {len(used)} images, {len(untranslated)} untranslated Arabic URLs redirected')

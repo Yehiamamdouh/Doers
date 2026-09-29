@@ -23,11 +23,37 @@ const enPath = ar ? p.path.slice(3) : p.path;
 const alternates = alt ? { en: enPath, ar: '/ar' + enPath } : ar ? { ar: p.path } : { en: p.path };
 const ksa = r.city !== 'eg';
 const L = ar
-  ? { home: 'الرئيسية', ksa: 'السعودية', crumbs: 'مسار الصفحة', start: 'ابدأ مشروعك', wa: 'واتساب', cairo: 'القاهرة', jeddah: 'جدة', riyadh: 'الرياض', city: 'اختر المدينة', faq: 'أسئلة <em>شائعة.</em>', more: ksa ? 'خدماتنا في جدة' : 'خدماتنا في القاهرة', play: 'تشغيل', readMore: 'اقرأ المزيد عن الخدمة', ctaH: ksa ? 'لنبدأ <em>العمل.</em>' : 'يلا <em>نشتغل.</em>', ctaP: ksa ? 'حدّثنا عن مشروعك، وسنرد عليك خلال يوم عمل واحد بخطة وتكلفة واضحة.' : 'احكيلنا عن مشروعك، وهنرد عليك خلال يوم عمل واحد بخطة وتكلفة واضحة.' }
-  : { home: 'Home', ksa: 'KSA', crumbs: 'Breadcrumb', start: 'Start a project', wa: 'WhatsApp us', cairo: 'Cairo', jeddah: 'Jeddah', riyadh: 'Riyadh', city: 'Choose a city', faq: 'Questions, <em>answered.</em>', more: ksa ? 'More from our Jeddah team' : 'More from our Cairo team', play: 'Play', readMore: 'Read more about this service', ctaH: 'Let’s <em>talk.</em>', ctaP: 'Tell us about the project. We reply within one working day with a plan and a clear quote.' };
+  ? { home: 'الرئيسية', ksa: 'السعودية', crumbs: 'مسار الصفحة', start: 'ابدأ مشروعك', wa: 'واتساب', cairo: 'القاهرة', jeddah: 'جدة', riyadh: 'الرياض', city: 'اختر المدينة', faq: 'أسئلة <em>شائعة.</em>', more: ksa ? 'خدماتنا في جدة' : 'خدماتنا في القاهرة', play: 'تشغيل', readMore: 'اقرأ المزيد عن الخدمة', pair: ksa ? 'غالباً ما تُخطط مع' : 'بتتخطط غالباً مع', hubs: 'المزيد من دورز في السعودية:', ctaH: ksa ? 'لنبدأ <em>العمل.</em>' : 'يلا <em>نشتغل.</em>', ctaP: ksa ? 'حدّثنا عن مشروعك، وسنرد عليك خلال يوم عمل واحد بخطة وتكلفة واضحة.' : 'احكيلنا عن مشروعك، وهنرد عليك خلال يوم عمل واحد بخطة وتكلفة واضحة.' }
+  : { home: 'Home', ksa: 'KSA', crumbs: 'Breadcrumb', start: 'Start a project', wa: 'WhatsApp us', cairo: 'Cairo', jeddah: 'Jeddah', riyadh: 'Riyadh', city: 'Choose a city', faq: 'Questions, <em>answered.</em>', more: ksa ? 'More from our Jeddah team' : 'More from our Cairo team', play: 'Play', readMore: 'Read more about this service', pair: 'Often planned together with', hubs: 'More from Doers in Saudi Arabia:', ctaH: 'Let’s <em>talk.</em>', ctaP: 'Tell us about the project. We reply within one working day with a plan and a clear quote.' };
 const reelTitle = (id) => { const x = media.reels.find((m) => m.id === id) || media.films.find((m) => m.id === id); return x ? (ar ? x.ar : x.en) : ''; };
 const faq = (faqs[enPath] && faqs[enPath][lang]) || r.faq || [];
 const oldCopy = (p.sections || []).filter((s) => !s.kind && (s.nodes || []).some((n) => n.t === 'p'));
+// Contextual links to the services most often planned together with this one (same city and language),
+// and, on Saudi pages, to the Jeddah and Riyadh agency pages.
+const PAIRS = {
+  branding: ['Signage & Internal Branding', 'Digital Marketing', 'Booth Production'],
+  events: ['Booth Production', 'Media Production', 'Signage & Internal Branding'],
+  booth: ['Event Management', 'Signage & Internal Branding', 'Media Production'],
+  signage: ['Branding', 'Booth Production', 'Outdoor (OOH)'],
+  'digital-marketing': ['SEO', 'Web Development', 'Media Production'],
+  seo: ['Web Development', 'Digital Marketing', 'Reputation Management'],
+  webdev: ['SEO', 'Digital Marketing', 'Branding'],
+  media: ['TV Advertising', 'Radio Advertising', 'Digital Marketing'],
+  ooh: ['TV Advertising', 'Radio Advertising', 'Branding'],
+  tv: ['Media Production', 'Radio Advertising', 'Outdoor (OOH)'],
+  radio: ['TV Advertising', 'Media Production', 'Outdoor (OOH)'],
+  reputation: ['Digital Marketing', 'SEO', 'Media Production'],
+};
+const pairs = (PAIRS[r.id] || [])
+  .map((n) => menu.find((m) => m.name === n))
+  .filter((m) => m && (ksa ? m.ksa : m.eg))
+  .map((m) => ({ href: loc(ksa ? m.ksa : m.eg, lang), name: ar ? (ksa && m.ar_ksa) || m.ar : m.name }))
+  .filter((x) => x.href !== p.path);
+const hubs = ksa && r.id !== 'ksa-hub'
+  ? [{ href: loc('/ksa/advertising-agency-in-jeddah/', lang), name: ar ? 'وكالة دورز في جدة' : 'Doers, advertising agency in Jeddah' },
+     { href: loc('/ksa/', lang), name: ar ? 'خدماتنا في الرياض' : 'our services in Riyadh' }]
+  : [];
+const and = ar ? ' و' : ' and ';
 const related = menu.filter((s) => (ksa ? s.ksa : s.eg)).map((s) => ({ href: loc(ksa ? s.ksa : s.eg, lang), name: ar ? (ksa && s.ar_ksa) || s.ar : s.name })).filter((x) => x.href !== p.path);
 const crumb = r.crumb || p.eyebrow || p.h1;
 const schema = {
@@ -117,6 +143,13 @@ const schema = {
             ))}
           </div>
         </section>
+      )}
+
+      {(pairs.length > 0 || hubs.length > 0) && (
+        <div class="rs-pair">
+          {pairs.length > 0 && <p>{L.pair} {pairs.map((x, i) => <>{i > 0 && (i === pairs.length - 1 ? and : ar ? '، ' : ', ')}<a href={x.href}>{x.name}</a></>)}.</p>}
+          {hubs.length > 0 && <p>{L.hubs} <a href={hubs[0].href}>{hubs[0].name}</a>{ar ? '، ' : ' · '}<a href={hubs[1].href}>{hubs[1].name}</a>.</p>}
+        </div>
       )}
 
       {r.process && (

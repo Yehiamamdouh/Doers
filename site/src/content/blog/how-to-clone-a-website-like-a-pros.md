@@ -12,7 +12,7 @@ service: /website-development-company-egypt/
 
 <p>Cloning a website can be daunting to start, but with the right tools and knowledge, you too can clone websites like pros. Cloning a website can be done by anyone looking for a time-saving alternative to starting from scratch. We’re going to walk you through the process of cloning your existing site so that you can get started quickly and with less work.</p>
 
-<p>Cloning websites is an important skill in web design, and we’ll cover all aspects of it so that you know exactly what’s involved and whether or not the pros outweigh the cons.</p>
+<p>Cloning websites is an important skill in <a class="auto-link" href="/website-development-company-egypt/">web design</a>, and we’ll cover all aspects of it so that you know exactly what’s involved and whether or not the pros outweigh the cons.</p>
 
 <h2>What Is Cloning:</h2>
 

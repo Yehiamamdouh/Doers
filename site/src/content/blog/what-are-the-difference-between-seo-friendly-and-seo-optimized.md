@@ -80,7 +80,7 @@ service: /seo/
 
 <p>16) Social Media Management: It includes managing social media accounts for a business which helps a business to get more likes and followers on various platforms including Facebook, twitter etc.</p>
 
-<p>17) Website Maintenance: An SEO friendly website is maintained by the <strong>website development company in Egypt</strong> from time to time which makes it easy for the site owners to concentrate on other areas.</p>
+<p>17) Website Maintenance: An SEO friendly website is maintained by the <strong><a class="auto-link" href="/website-development-company-egypt/">website development</a> company in Egypt</strong> from time to time which makes it easy for the site owners to concentrate on other areas.</p>
 
 <p>18) Social Media Marketing: It includes managing social media accounts for a business which helps a business to get more likes and followers on various platforms including Facebook, twitter etc. And your <strong>social media agency</strong> job is also handle by SEO company</p>
 

@@ -42,7 +42,7 @@ service: /digital-marketing-egypt-cairo/
 
 <h3>6. Don’t forget about SEO</h3>
 
-<p>SEO should be a key part of your social media strategy, as social media platforms like Facebook and Twitter are now focusing on social signals to rank content. These social signals show that people like your content and social media posts – which is important for SEO success.</p>
+<p><a class="auto-link" href="/seo/">SEO</a> should be a key part of your social media strategy, as social media platforms like Facebook and Twitter are now focusing on social signals to rank content. These social signals show that people like your content and social media posts – which is important for SEO success.</p>
 
 <h2>Influencer and social Brands</h2>
 

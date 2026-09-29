@@ -52,7 +52,7 @@ service: /website-development-company-egypt/
 
 <h2>Robust Standard Library:</h2>
 
-<p>Python is mainly used to create a robust standard library. There are bundles of modules in this library that you use for multiple things in web development and software applications. With the help of this library, you can pick the most suitable and precise module for your needs.</p>
+<p>Python is mainly used to create a robust standard library. There are bundles of modules in this library that you use for multiple things in <a class="auto-link" href="/website-development-company-egypt/">web development</a> and software applications. With the help of this library, you can pick the most suitable and precise module for your needs.</p>
 
 <p>The best thing about this standard library and modules is the easy access and availability. You get the chance to choose the module according to your needs.</p>
 

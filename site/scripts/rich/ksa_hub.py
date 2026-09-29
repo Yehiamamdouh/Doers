@@ -79,6 +79,14 @@ ar = {
             "heroImg": {"src": "/img/legacy/2026-08-inter-01-scaled.jpg", "alt": "جناح INTRA في معرض الدفاع، من تصميم وتنفيذ دورز", "cap": "INTRA في معرض الدفاع، من تصميم وتنفيذ دورز."},
             "introH": "الرياض <em>مكان القرار.</em>", "intro": ["الرياض فيها الوزارات والمشاريع الكبرى والمقرات الرئيسية، وأكبر المؤتمرات والمعارض. النجاح هنا يعني إنك تظهر بمستوى عالمي، وتتكلم لغة السوق، وتسلّم في الوقت.", "نجمع أكثر من 15 سنة خبرة في التسويق مع فريق يخطط ويصمم وينتج داخلياً، فالحملة والإطلاق والجناح يحكوا نفس القصة."],
             "cases": [C[k][1] for k in ['sanofi', 'intra', 'maarif', 'argan']]}}
+# The Riyadh page's reputation row points to the Riyadh reputation page.
+def riyadh(ar):
+    out = services(ar)
+    for x in out:
+        if x['href'] == '/ksa/listening-and-reputation-management-in-jeddah/':
+            x['href'] = '/ksa/listening-and-reputation-management/'
+    return out
+en['riyadh']['services'] = riyadh(False); ar['riyadh']['services'] = riyadh(True)
 d = {"id": "ksa-hub", "paths": {"eg": "/", "ksa": "/ksa/advertising-agency-in-jeddah/", "riyadh": "/ksa/"},
      "en": {"base": base(False), **en}, "ar": {"base": base(True), **ar}}
 json.dump(d, open('src/data/services/ksa-hub.json', 'w'), ensure_ascii=False, indent=1)
