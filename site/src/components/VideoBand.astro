@@ -16,7 +16,7 @@ const film = films.find((f) => f.key === id && f.vimeo);
 import VimeoLightbox from './VimeoLightbox.astro';
 ---
 <section class="vband" aria-label={t.title}>
-  <video class="vband-v" muted playsinline loop preload="none" poster={`/video/${id}.jpg`}
+  <video class="vband-v" muted playsinline loop preload="none" data-poster={`/video/${id}.jpg`}
     data-base={`/video/${id}`} aria-hidden="true"></video>
   <div class="vband-in">
     <span class="vband-l">{t.label}</span>
@@ -50,7 +50,12 @@ import VimeoLightbox from './VimeoLightbox.astro';
   // WebM (VP9) where supported, MP4 (H.264) for Safari and older browsers.
   var ext=document.createElement("video").canPlayType('video/webm; codecs="vp9"')?".webm":".mp4";
   function start(){
+    // Posters load only near the viewport, so they never compete with the hero text and fonts on first paint.
+    var near=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){ var v=e.target; if(v.dataset.poster&&!v.poster)v.poster=v.dataset.poster; near.unobserve(v); }
+    })},{rootMargin:"300px 0px"});
     document.querySelectorAll(".vband-v").forEach(function(v){
+      near.observe(v);
       if(still)return;
       var io=new IntersectionObserver(function(es){es.forEach(function(e){
         if(e.isIntersecting){ if(!v.src){v.src=v.dataset.base+(small?"-sm":"")+ext;} var p=v.play(); if(p&&p.catch)p.catch(function(){}); }
