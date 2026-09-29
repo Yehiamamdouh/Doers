@@ -3,14 +3,13 @@
  * Contact form handler for Namecheap shared hosting (PHP mail()).
  * Returns JSON for the page's fetch() and redirects plain form posts.
  */
-declare(strict_types=1);
 
 const TO_EMAIL = 'yehia@doersadv.com';
 const FROM_EMAIL = 'website@doersadv.com';
 const MAX_PER_HOUR = 5;
 
-$wantsJson = str_contains($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json');
-function respond(bool $ok, int $code = 200): void {
+$wantsJson = strpos($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json') !== false;
+function respond($ok, $code = 200) {
     global $wantsJson;
     http_response_code($code);
     if ($wantsJson) { header('Content-Type: application/json'); echo json_encode(['ok' => $ok]); }
@@ -40,16 +39,18 @@ if ($secret !== '') {
     if (empty($check['success'])) respond(false, 403);
 }
 
-$clean = fn(string $k, int $max) => trim(mb_substr(str_replace(["\r", "\n"], ' ', (string)($_POST[$k] ?? '')), 0, $max));
+// Works on PHP 7 and 8, with or without the mbstring extension.
+function cut($s, $max) { return function_exists('mb_substr') ? mb_substr($s, 0, $max) : substr($s, 0, $max); }
+$clean = function ($k, $max) { return trim(cut(str_replace(["\r", "\n"], ' ', (string)($_POST[$k] ?? '')), $max)); };
 $name = $clean('name', 120);
 $email = filter_var(trim((string)($_POST['email'] ?? '')), FILTER_VALIDATE_EMAIL) ?: '';
-$message = trim(mb_substr((string)($_POST['message'] ?? ''), 0, 5000));
+$message = trim(cut((string)($_POST['message'] ?? ''), 5000));
 if ($name === '' || $email === '' || $message === '') respond(false, 422);
 
 // Simple per-IP rate limit stored in the system temp folder.
 $ip = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? 'unknown';  // behind Cloudflare, REMOTE_ADDR is Cloudflare's
 $bucket = sys_get_temp_dir() . '/doers_contact_' . md5($ip);
-$hits = array_filter(explode(',', (string)@file_get_contents($bucket)), fn($t) => (int)$t > time() - 3600);
+$hits = array_filter(explode(',', (string)@file_get_contents($bucket)), function ($t) { return (int)$t > time() - 3600; });
 if (count($hits) >= MAX_PER_HOUR) respond(false, 429);
 $hits[] = (string)time();
 @file_put_contents($bucket, implode(',', $hits));
@@ -68,5 +69,13 @@ $headers = [
     'Content-Type: text/plain; charset=UTF-8',
 ];
 $subject = '=?UTF-8?B?' . base64_encode('New enquiry: ' . ($fields['Service'] ?: 'General') . ' – ' . $name) . '?=';
-$sent = mail(TO_EMAIL, $subject, $body, implode("\r\n", $headers));
-respond($sent, $sent ? 200 : 500);
+// Keep a copy of every enquiry outside the web root, so none is lost if email sending fails.
+$row = array_merge([date('c')], array_values($fields), [str_replace(["\r", "\n"], ' ', $message)]);
+$store = dirname($_SERVER['DOCUMENT_ROOT']) . '/doers-leads.csv';
+$saved = false;
+if ($fh = @fopen($store, 'a')) { $saved = fputcsv($fh, $row) !== false; fclose($fh); }
+
+$sent = @mail(TO_EMAIL, $subject, $body, implode("\r\n", $headers), '-f' . FROM_EMAIL);
+if (!$sent) $sent = @mail(TO_EMAIL, $subject, $body, implode("\r\n", $headers));
+if (!$sent) error_log('contact.php: mail() failed; enquiry saved to doers-leads.csv: ' . ($saved ? 'yes' : 'no'));
+respond($sent || $saved, ($sent || $saved) ? 200 : 500);
