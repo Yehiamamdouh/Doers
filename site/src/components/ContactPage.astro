@@ -28,7 +28,7 @@ const schema = {
   '@context': 'https://schema.org',
   '@graph': [
     { '@type': 'ContactPage', '@id': site + path, url: site + path, name: t.title, inLanguage: ar ? 'ar' : 'en-US' },
-    { '@type': 'LocalBusiness', '@id': `${site}/#cairo`, name: 'Doers Advertising Agency, Cairo', parentOrganization: { '@id': `${site}/#organization` }, telephone: '+201101000255', email: 'info@doersadv.com', address: { '@type': 'PostalAddress', streetAddress: 'Raslan St, 9th Area, Block 23, Tower 3', addressLocality: 'Nasr City, Cairo', addressCountry: 'EG' }, openingHours: 'Su-Th 10:00-18:00', url: site + '/' },
+    { '@type': 'LocalBusiness', '@id': `${site}/#cairo`, name: 'Doers Advertising Agency, Cairo', parentOrganization: { '@id': `${site}/#organization` }, telephone: '+201101000255', address: { '@type': 'PostalAddress', streetAddress: 'Raslan St, 9th Area, Block 23, Tower 3', addressLocality: 'Nasr City, Cairo', addressCountry: 'EG' }, openingHours: 'Su-Th 10:00-18:00', url: site + '/' },
     { '@type': 'LocalBusiness', '@id': `${site}/#jeddah`, name: 'Doers Advertising Agency, Jeddah', parentOrganization: { '@id': `${site}/#organization` }, telephone: '+966509881646', address: { '@type': 'PostalAddress', streetAddress: 'Zahran Building Center, Tower B, 12th Floor', addressLocality: 'Jeddah', postalCode: '21491', addressCountry: 'SA' }, openingHours: 'Su-Th 10:00-18:00', url: site + '/ksa/' },
   ],
 };
@@ -46,7 +46,7 @@ import turnstile from '../data/turnstile.json';
         <div class="offices">
           <div><span class="label">{t.cairo}</span><p>{t.cairoAddr}</p><p dir="ltr"><a href="tel:+201101000255">+20 110 1000 255</a></p><a class="map" href="https://www.google.com/maps/search/?api=1&query=Doers+Advertising+Nasr+City+Cairo" target="_blank" rel="noopener">{t.map} ↗</a></div>
           <div><span class="label">{t.jeddah}</span><p>{t.jeddahAddr}</p><p dir="ltr"><a href="tel:+966509881646">+966 50 988 1646</a></p><a class="map" href="https://www.google.com/maps/search/?api=1&query=Zahran+Building+Center+Jeddah" target="_blank" rel="noopener">{t.map} ↗</a></div>
-          <div><span class="label">Email</span><p><a href="mailto:info@doersadv.com">info@doersadv.com</a></p><p>{t.hours}</p><a class="btn btn-o wa-btn" href="https://wa.me/201101000255">WhatsApp ↗</a></div>
+          <div><span class="label">{ar ? "واتساب" : "WhatsApp"}</span><p><a href="https://wa.me/201101000255" dir="ltr">+20 110 100 0255</a></p><p>{t.hours}</p><a class="btn btn-o wa-btn" href="https://wa.me/201101000255">WhatsApp ↗</a></div>
         </div>
       </div>
       <form class="cform" id="cform" action="/contact.php" method="post" novalidate>
