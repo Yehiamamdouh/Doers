@@ -1,0 +1,202 @@
+---
+/**
+ * Homepage-style service page: hero with media and a city switch, the sub-services strip, stats, what we do,
+ * how we work, real work with results, reels, tools, FAQ, the old page copy (kept for search), related services and a CTA.
+ * Content: src/data/services/<id>.json via richFor(). Meta and H1: the legacy page `p` (unchanged URLs and titles).
+ */
+import Base from '../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import ServiceStrip from './ServiceStrip.astro';
+import VideoBand from './VideoBand.astro';
+import VimeoLightbox from './VimeoLightbox.astro';
+import menu from '../data/services-menu.json';
+import faqs from '../data/faqs.json';
+import media from '../data/media-films.json';
+import { loc } from '../lib/links.js';
+const { p, alt, r } = Astro.props;
+const ar = p.lang === 'ar';
+const lang = p.lang;
+const site = 'https://doersadv.com';
+const enPath = ar ? p.path.slice(3) : p.path;
+const alternates = alt ? { en: enPath, ar: '/ar' + enPath } : ar ? { ar: p.path } : { en: p.path };
+const ksa = r.city === 'ksa';
+const L = ar
+  ? { home: 'الرئيسية', ksa: 'السعودية', crumbs: 'مسار الصفحة', start: 'ابدأ مشروعك', wa: 'واتساب', cairo: 'القاهرة', jeddah: 'جدة', city: 'اختر المدينة', faq: 'أسئلة <em>شائعة.</em>', more: ksa ? 'خدماتنا في جدة' : 'خدماتنا في القاهرة', play: 'شغّل', readMore: 'اقرأ المزيد عن الخدمة', ctaH: 'يلا <em>نشتغل.</em>', ctaP: 'احكيلنا عن مشروعك، وهنرد عليك خلال يوم عمل واحد بخطة وتكلفة واضحة.' }
+  : { home: 'Home', ksa: 'KSA', crumbs: 'Breadcrumb', start: 'Start a project', wa: 'WhatsApp us', cairo: 'Cairo', jeddah: 'Jeddah', city: 'Choose a city', faq: 'Questions, <em>answered.</em>', more: ksa ? 'More from our Jeddah team' : 'More from our Cairo team', play: 'Play', readMore: 'Read more about this service', ctaH: 'Let’s <em>talk.</em>', ctaP: 'Tell us about the project. We reply within one working day with a plan and a clear quote.' };
+const reelTitle = (id) => { const x = media.reels.find((m) => m.id === id) || media.films.find((m) => m.id === id); return x ? (ar ? x.ar : x.en) : ''; };
+const faq = (faqs[enPath] && faqs[enPath][lang]) || [];
+const oldCopy = p.sections.filter((s) => !s.kind && (s.nodes || []).some((n) => n.t === 'p'));
+const related = menu.filter((s) => (ksa ? s.ksa : s.eg)).map((s) => ({ href: loc(ksa ? s.ksa : s.eg, lang), name: ar ? s.ar : s.name })).filter((x) => x.href !== p.path);
+const crumb = r.crumb || p.eyebrow || p.h1;
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebPage', '@id': site + p.path, url: site + p.path, name: p.title, description: p.description, inLanguage: ar ? 'ar' : 'en-US', isPartOf: { '@id': `${site}/#website` }, breadcrumb: { '@id': site + p.path + '#breadcrumb' } },
+    { '@type': 'Service', name: crumb, serviceType: crumb, areaServed: { '@type': 'Country', name: ksa ? 'Saudi Arabia' : 'Egypt' }, provider: { '@id': `${site}/#organization` }, url: site + p.path, ...(r.services && { hasOfferCatalog: { '@type': 'OfferCatalog', name: crumb, itemListElement: r.services.map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s.t } })) } }) },
+    { '@type': 'BreadcrumbList', '@id': site + p.path + '#breadcrumb', itemListElement: [{ '@type': 'ListItem', position: 1, name: L.home, item: site + (ar ? '/ar/' : '/') }, ...(ksa ? [{ '@type': 'ListItem', position: 2, name: L.ksa, item: site + loc('/ksa/', lang) }] : []), { '@type': 'ListItem', position: ksa ? 3 : 2, name: crumb }] },
+    ...(faq.length ? [{ '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+    { '@type': 'Organization', '@id': `${site}/#organization`, name: 'Doers Advertising Agency', url: site + '/' },
+  ],
+};
+---
+<Base title={p.title} description={p.description} path={p.path} lang={lang} alternates={alternates} ogImage={r.og || p.og || undefined} schema={schema} styles={['/css/site.css', '/css/legacy.css', '/css/rich.css']} ogType="article">
+  <SiteHeader lang={lang} altHref={alt ? (ar ? enPath : '/ar' + enPath) : undefined} />
+  <main class="rs">
+    <div class="wrap">
+      <nav class="crumbs label" aria-label={L.crumbs}>
+        <a href={ar ? '/ar/' : '/'}>{L.home}</a>
+        {ksa && <><span>/</span><a href={loc('/ksa/', lang)}>{L.ksa}</a></>}
+        <span>/</span><span>{crumb}</span>
+      </nav>
+      <section class="rs-hero">
+        <div class="rs-hero-t">
+          <nav class="rs-city" aria-label={L.city}>
+            {r.paths.eg && <a href={loc(r.paths.eg, lang)} aria-current={!ksa ? 'page' : undefined}>{L.cairo}</a>}
+            {r.paths.ksa && <a href={loc(r.paths.ksa, lang)} aria-current={ksa ? 'page' : undefined}>{L.jeddah}</a>}
+          </nav>
+          <span class="label eyebrow">{r.eyebrow}</span>
+          <h1 class="rs-h1">{p.h1}</h1>
+          {r.slogan && <p class="rs-slogan" set:html={r.slogan} />}
+          <p class="rs-lead" set:html={r.lead} />
+          <div class="cta-row">
+            <a class="btn btn-o" href={loc('/contact-us/', lang)}>{L.start} <span class="arrow">↗</span></a>
+            <a class="btn btn-line" href="https://wa.me/201101000255">{L.wa}</a>
+          </div>
+        </div>
+        {r.heroReels && (
+          <div class="rs-phones">
+            {r.heroReels.map((id, i) => (
+              <button type="button" class={`rs-phone p${i}`} data-vimeo={id} data-tall="1" aria-label={`${L.play}: ${reelTitle(id)}`}>
+                <img src={`/img/films/${id}.jpg`} alt="" width="640" height="1138" loading={i ? 'lazy' : 'eager'}><span class="rs-pl" aria-hidden="true"></span>
+              </button>
+            ))}
+          </div>
+        )}
+        {r.heroImg && <figure class="rs-hero-img"><img src={r.heroImg.src} alt={r.heroImg.alt} fetchpriority="high"></figure>}
+      </section>
+    </div>
+    <ServiceStrip lang={lang} />
+    {r.band && <VideoBand id={r.band} lang={lang} />}
+    <div class="wrap">
+      {r.stats && (
+        <div class="rs-stats">
+          {r.stats.map(([v, l]) => <div><b>{v}</b><span>{l}</span></div>)}
+        </div>
+      )}
+
+      {r.intro && (
+        <section class="rs-sec rs-intro">
+          <h2 class="rs-h2" set:html={r.introH} />
+          <div>{r.intro.map((x) => <p set:html={x} />)}</div>
+        </section>
+      )}
+
+      {r.services && (
+        <section class="rs-sec" id="services">
+          <div class="rs-head"><h2 class="rs-h2" set:html={r.servicesH} />{r.servicesP && <p>{r.servicesP}</p>}</div>
+          <div class="rs-svc">
+            {r.services.map((s, i) => (
+              <div class="rs-row">
+                <span class="n">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{s.t}</h3>
+                <div><p>{s.d}</p>{s.tags && <div class="rs-tags">{s.tags.map((t) => <span>{t}</span>)}</div>}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {r.process && (
+        <section class="rs-sec">
+          <div class="rs-head"><h2 class="rs-h2" set:html={r.processH} />{r.processP && <p>{r.processP}</p>}</div>
+          <ol class="rs-steps">{r.process.map(([t, d]) => <li><h3>{t}</h3><p>{d}</p></li>)}</ol>
+        </section>
+      )}
+
+      {r.cases && (
+        <section class="rs-sec" id="work">
+          <div class="rs-head"><h2 class="rs-h2" set:html={r.casesH} />{r.casesP && <p>{r.casesP}</p>}</div>
+          <div class="rs-cases">
+            {r.cases.map((c) => (
+              <article class="rs-case">
+                <div class="rs-case-m">
+                  {c.vimeo
+                    ? <button type="button" class="rs-case-v" data-vimeo={c.vimeo} data-tall={c.tall ? '1' : undefined} aria-label={`${L.play}: ${c.client}`}><img src={c.img} alt={c.alt || c.client} loading="lazy"><span class="rs-pl" aria-hidden="true"></span></button>
+                    : <img src={c.img} alt={c.alt || c.client} loading="lazy">}
+                </div>
+                <div class="rs-case-t">
+                  <span class="label">{c.tag}</span>
+                  <h3>{c.client}</h3>
+                  <p>{c.text}</p>
+                  {c.metrics && <div class="rs-metrics">{c.metrics.map(([v, l]) => <div><b>{v}</b><span>{l}</span></div>)}</div>}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {r.reels && (
+        <section class="rs-sec">
+          <div class="rs-head"><h2 class="rs-h2" set:html={r.reelsH} />{r.reelsP && <p>{r.reelsP}</p>}</div>
+          <div class="rs-reels">
+            {r.reels.map((id) => (
+              <button type="button" class="rs-reel" data-vimeo={id} data-tall="1" aria-label={`${L.play}: ${reelTitle(id)}`}>
+                <span class="rs-reel-f"><img src={`/img/films/${id}.jpg`} alt="" loading="lazy"><span class="rs-pl" aria-hidden="true"></span></span>
+                <span class="rs-reel-c">{reelTitle(id)}</span>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {r.tools && (
+        <section class="rs-sec">
+          <div class="rs-head"><h2 class="rs-h2" set:html={r.toolsH} />{r.toolsP && <p>{r.toolsP}</p>}</div>
+          <div class="rs-tools">
+            {r.tools.map((t) => <figure><img src={t.img} alt={t.t} loading="lazy"><figcaption><b>{t.t}</b><span>{t.d}</span></figcaption></figure>)}
+          </div>
+        </section>
+      )}
+
+      {r.chips && (
+        <section class="rs-sec">
+          <div class="rs-head"><h2 class="rs-h2" set:html={r.chipsH} />{r.chipsP && <p>{r.chipsP}</p>}</div>
+          <div class="rs-chips">{r.chips.map((c) => <span>{c}</span>)}</div>
+        </section>
+      )}
+
+      {faq.length > 0 && (
+        <section class="rs-sec faq">
+          <h2 class="rs-h2" set:html={L.faq} />
+          {faq.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+        </section>
+      )}
+
+      {oldCopy.length > 0 && (
+        <details class="rs-more">
+          <summary>{L.readMore}</summary>
+          <div class="rs-more-in">
+            {oldCopy.map((s) => <>{s.h2 && <h2>{s.h2}</h2>}{s.nodes.filter((n) => n.t === 'p' || n.t === 'h3').map((n) => n.t === 'h3' ? <h3 set:html={n.html} /> : <p set:html={n.html} />)}</>)}
+          </div>
+        </details>
+      )}
+
+      {related.length > 0 && (
+        <section class="rs-sec">
+          <span class="label">{L.more}</span>
+          <div class="folio" style="margin-top:18px">{related.map((x) => <a href={x.href}><b>{x.name}</b><span class="arrow">↗</span></a>)}</div>
+        </section>
+      )}
+    </div>
+    <section class="cta">
+      <div class="wrap">
+        <h2 set:html={r.ctaH || L.ctaH} />
+        <div class="row2"><p>{r.ctaP || L.ctaP}</p><a class="btn" href={loc('/contact-us/', lang)}>{L.start} <span class="arrow">↗</span></a></div>
+      </div>
+    </section>
+  </main>
+  <VimeoLightbox />
+  <SiteFooter lang={lang} strip={false} />
+</Base>

@@ -1,0 +1,158 @@
+{
+ "id": "digital-marketing",
+ "paths": { "eg": "/digital-marketing-egypt-cairo/", "ksa": "/ksa/digital-marketing-agency-in-jeddah/" },
+ "en": {
+  "base": {
+   "crumb": "Digital Marketing",
+   "heroReels": ["1065803522", "1075554730", "1075555297"],
+   "stats": [["6M+", "Unique users reached for Safi"], ["27M+", "Video views across Meta and TikTok"], ["500K", "Clicks from one Safi campaign"], ["$7.5", "Cost per lead, real estate campaign"]],
+   "servicesH": "What we <em>run.</em>",
+   "servicesP": "One team plans the strategy, makes the content and buys the media, so the message, the creative and the numbers line up.",
+   "services": [
+    { "t": "Digital strategy", "d": "Audience research, positioning, channel mix and a KPI plan before any money is spent.", "tags": ["Audience research", "Channel mix", "KPIs", "Digital transformation"] },
+    { "t": "Social media management", "d": "Calendars, community management and always-on content that keeps the brand in the feed.", "tags": ["Instagram", "Facebook", "TikTok", "LinkedIn", "X"] },
+    { "t": "Content & reels", "d": "Vertical video, product shoots, motion graphics and 3D made by our own production team.", "tags": ["Reels", "Food & product", "Motion graphics", "3D"] },
+    { "t": "Paid social", "d": "Meta, TikTok, Snapchat and LinkedIn campaigns built around leads, sales and cost per result.", "tags": ["Lead generation", "Retargeting", "Lookalikes"] },
+    { "t": "Google Ads & search", "d": "Search, Performance Max, YouTube and display, planned and optimised by a Google Partner.", "tags": ["SEM", "YouTube", "Display", "Dynamic search"] },
+    { "t": "Influencer marketing", "d": "Micro and macro creators matched to the audience, briefed, contracted and measured.", "tags": ["Micro-influencers", "UGC", "Collaborations"] },
+    { "t": "Programmatic & publishers", "d": "Native ads and deals with local and global publishers for reach beyond the social platforms.", "tags": ["Native ads", "Publisher deals", "Programmatic"] },
+    { "t": "Listening & analytics", "d": "Social listening, competitor benchmarking and dashboards that show what's working every week.", "tags": ["Social listening", "Benchmarking", "GA4", "Dashboards"] }
+   ],
+   "processH": "How we <em>grow</em> a brand.",
+   "processP": "The same loop runs every campaign: reach the right people, earn their attention, turn it into leads and sales, then learn and repeat.",
+   "process": [
+    ["Research & plan", "Audience, competitors and goals, then a media plan and a content calendar with clear KPIs."],
+    ["Broadcast", "Build reach with Reels, Stories, TikTok in-feed and display, aimed at the audiences that matter."],
+    ["Engage", "Turn reach into interaction with content, calls to action, community management and influencers."],
+    ["Activate", "Retargeting, lead forms and messaging campaigns that bring people into the funnel."],
+    ["Convert", "Search, offers and follow-up that turn prospects into customers, tracked to the sale."],
+    ["Learn & repeat", "Listening, analytics and testing feed the next round, so results keep improving."]
+   ],
+   "casesH": "Work that <em>performed.</em>",
+   "casesP": "A few of the campaigns behind the numbers. Tap a video to play it.",
+   "reelsH": "Made for the <em>feed.</em>",
+   "reelsP": "Vertical content we produced for Instagram and TikTok: food, product and 3D that stops the scroll.",
+   "reels": ["1065803522", "1075554730", "1075555297", "1065229727", "1075555043", "1075555689", "662447882"],
+   "toolsH": "Tools and <em>research.</em>",
+   "toolsP": "Every campaign is backed by data we collect and read ourselves.",
+   "tools": [
+    { "t": "Social listening", "d": "Mentions, sentiment and reach across social and web, in Arabic and English.", "img": "/img/digital/listening-dashboard.jpg" },
+    { "t": "Competitor benchmarking", "d": "How your pages grow and engage next to your direct competitors, month by month.", "img": "/img/digital/benchmark-chart.jpg" },
+    { "t": "Audience research", "d": "Segments, media habits and personas, like our Gen Z study for the Dubai Financial Market.", "img": "/img/digital/dfm-genz-research.jpg" }
+   ]
+  },
+  "eg": {
+   "eyebrow": "Digital marketing agency in Cairo, Egypt",
+   "slogan": "Content people stop for. <em>Campaigns that sell.</em>",
+   "lead": "We plan, produce and run digital campaigns for brands across Egypt and the Gulf: strategy, social media, reels, paid ads, search and influencers, measured against leads and sales.",
+   "introH": "Digital that <em>earns its budget.</em>",
+   "intro": [
+    "Most digital budgets are split between an agency that plans, a studio that shoots and a media buyer who spends. At Doers the same team does all three, so the content is made for the channel and every pound is tracked.",
+    "We're a Google Partner and a HubSpot Partner with more than 15 years in marketing, working in Arabic and English for food and FMCG brands, real estate developers, technology companies and government."
+   ],
+   "cases": [
+    { "tag": "FMCG · Meta & TikTok", "client": "Safi", "text": "Always-on content and paid social for Safi, with Ramadan and Kahk content and a campaign with Ahmed Saad driving the strongest paid and organic results.", "img": "/img/films/1065803522.jpg", "vimeo": "1065803522", "tall": true, "metrics": [["6M+", "Unique users"], ["26M", "Impressions"], ["500K", "Clicks"], ["11K+", "Messages"]] },
+    { "tag": "Real estate · Lead generation", "client": "Archstone", "text": "Lead generation campaigns for Archstone's projects with Misr Italia, Kai Sokhna and Il Monte Galala, on Instagram, TikTok and search.", "img": "/img/digital/archstone-kai-sokhna.jpg", "metrics": [["$1.51", "Effective CPC"], ["$7.5", "Cost per lead"]] },
+    { "tag": "B2B technology · LinkedIn & search", "client": "ISYS Intelligent Systems", "text": "A full-funnel B2B strategy on LinkedIn and Meta, with dynamic search ads connected to display for the first time, plus video, event and theme production.", "img": "/img/digital/isys-methodology.jpg", "metrics": [["30", "Qualified leads"], ["100K", "Reach"], ["10K", "Clicks"], ["1,000", "Search clicks"]] },
+    { "tag": "Financial services · Gen Z", "client": "Dubai Financial Market", "text": "Research into how Gen Z consumes media, and a strategy to educate, gamify and turn them into investors, with the campaign film we produced.", "img": "/img/films/673930542.jpg", "vimeo": "673930542" },
+    { "tag": "Real estate · Social media", "client": "Boulevard Vie", "text": "Lifestyle content with a consistent premium look that built Boulevard Vie's Instagram presence and brand perception.", "img": "/img/digital/boulevard-vie.jpg" },
+    { "tag": "Healthcare · Campaign localisation", "client": "Novartis & AstraZeneca", "text": "Localising global campaigns for the region, from Novartis photoshoots to AstraZeneca's breast cancer awareness campaign.", "img": "/img/digital/novartis-localization.jpg" }
+   ]
+  },
+  "ksa": {
+   "eyebrow": "Digital marketing agency in Jeddah",
+   "slogan": "Built for how Saudi Arabia <em>scrolls.</em>",
+   "lead": "From our Jeddah office we run digital campaigns for Saudi brands: strategy, content, Snapchat, TikTok, Meta, X and Google, in Arabic that sounds local and measured against leads and sales.",
+   "introH": "Saudi audiences, <em>Saudi platforms.</em>",
+   "intro": [
+    "Saudi Arabia is one of the most mobile-first markets in the world, and Snapchat, TikTok and X carry more weight here than in most places. We plan the channel mix around where your customers actually spend their time, not habit.",
+    "The same team plans the strategy, produces the content and buys the media, so campaigns launch fast and stay on brand. We're a Google Partner and a HubSpot Partner, working across Jeddah, Riyadh and the Gulf."
+   ],
+   "cases": [
+    { "tag": "FMCG · Brand launch in Saudi Arabia", "client": "Argan", "text": "Launch creative for Argan's hair colour range in Saudi Arabia, with Arabic product visuals made for social and retail.", "img": "/img/digital/argan-launch-sa.jpg" },
+    { "tag": "Real estate · Instagram & TikTok", "client": "Real estate lead generation", "text": "Instagram and TikTok lead campaigns for property projects, optimised for cost per lead rather than reach.", "img": "/img/digital/real-estate-post.jpg", "metrics": [["$1.51", "Effective CPC"], ["$7.5", "Cost per lead"]] },
+    { "tag": "Government · Media strategy", "client": "Dubai Future Foundation", "text": "An annual media and growth strategy, a full audit of the social accounts, influencer measurement and a digital PR roadmap.", "img": "/img/digital/dff-audience.jpg" },
+    { "tag": "Financial services · Gen Z", "client": "Dubai Financial Market", "text": "Gen Z research and a strategy to educate, gamify and turn young audiences into investors, with the campaign film we produced.", "img": "/img/films/673930542.jpg", "vimeo": "673930542" },
+    { "tag": "FMCG · Meta & TikTok", "client": "Safi", "text": "Always-on content and paid social, with Ramadan and Kahk content driving the strongest paid and organic results.", "img": "/img/films/1065803522.jpg", "vimeo": "1065803522", "tall": true, "metrics": [["6M+", "Unique users"], ["27M+", "Views"], ["500K", "Clicks"]] },
+    { "tag": "B2B technology · LinkedIn & search", "client": "ISYS Intelligent Systems", "text": "A full-funnel B2B strategy on LinkedIn and Meta with dynamic search ads, video and event production.", "img": "/img/digital/isys-methodology.jpg", "metrics": [["30", "Qualified leads"], ["100K", "Reach"], ["10K", "Clicks"]] }
+   ]
+  }
+ },
+ "ar": {
+  "base": {
+   "crumb": "التسويق الرقمي",
+   "heroReels": ["1065803522", "1075554730", "1075555297"],
+   "stats": [["+6 مليون", "مستخدم وصلنا لهم لصالح صافي"], ["+27 مليون", "مشاهدة على ميتا وتيك توك"], ["500 ألف", "نقرة من حملة واحدة لصافي"], ["7.5$", "تكلفة العميل المحتمل في حملة عقارية"]],
+   "servicesH": "ماذا <em>نقدم.</em>",
+   "servicesP": "فريق واحد يضع الاستراتيجية وينتج المحتوى ويشتري المساحات الإعلانية، فتتسق الرسالة والإبداع والأرقام.",
+   "services": [
+    { "t": "الاستراتيجية الرقمية", "d": "دراسة الجمهور والموقع التنافسي ومزيج القنوات وخطة مؤشرات الأداء قبل صرف أي ميزانية.", "tags": ["دراسة الجمهور", "مزيج القنوات", "مؤشرات الأداء", "التحول الرقمي"] },
+    { "t": "إدارة السوشيال ميديا", "d": "خطط المحتوى وإدارة المجتمع ومحتوى مستمر يُبقي العلامة حاضرة أمام جمهورها.", "tags": ["إنستجرام", "فيسبوك", "تيك توك", "لينكدإن", "إكس"] },
+    { "t": "المحتوى والريلز", "d": "فيديو رأسي وتصوير منتجات وموشن جرافيك و3D ينتجها فريق الإنتاج لدينا.", "tags": ["ريلز", "أكل ومنتجات", "موشن جرافيك", "3D"] },
+    { "t": "الإعلانات المدفوعة على السوشيال", "d": "حملات على ميتا وتيك توك وسناب شات ولينكدإن مبنية على العملاء المحتملين والمبيعات وتكلفة النتيجة.", "tags": ["جذب العملاء", "إعادة الاستهداف", "الجماهير المشابهة"] },
+    { "t": "إعلانات جوجل والبحث", "d": "إعلانات البحث وPerformance Max ويوتيوب والشبكة الإعلانية، بتخطيط وتحسين من شريك معتمد لدى جوجل.", "tags": ["SEM", "يوتيوب", "الإعلانات المصورة", "البحث الديناميكي"] },
+    { "t": "التسويق بالمؤثرين", "d": "صناع محتوى صغار وكبار مناسبون للجمهور، بتوجيه وتعاقد وقياس للنتائج.", "tags": ["المؤثرون الصغار", "محتوى المستخدمين", "التعاونات"] },
+    { "t": "الإعلانات البرمجية والناشرون", "d": "إعلانات أصلية واتفاقات مع ناشرين محليين وعالميين للوصول إلى ما هو أبعد من منصات السوشيال.", "tags": ["الإعلانات الأصلية", "اتفاقات الناشرين", "Programmatic"] },
+    { "t": "الرصد والتحليلات", "d": "رصد اجتماعي ومقارنة بالمنافسين ولوحات متابعة توضح ما ينجح كل أسبوع.", "tags": ["الرصد الاجتماعي", "المقارنة بالمنافسين", "GA4", "لوحات المتابعة"] }
+   ],
+   "processH": "كيف <em>ننمّي</em> العلامة.",
+   "processP": "الدورة نفسها تتكرر في كل حملة: نصل إلى الجمهور المناسب، ونكسب انتباهه، ونحوّله إلى عملاء ومبيعات، ثم نتعلم ونكرر.",
+   "process": [
+    ["البحث والتخطيط", "الجمهور والمنافسون والأهداف، ثم خطة إعلامية وخطة محتوى بمؤشرات أداء واضحة."],
+    ["الانتشار", "بناء الوصول بالريلز والستوري وتيك توك والإعلانات المصورة، موجهة للجماهير المهمة."],
+    ["التفاعل", "تحويل الوصول إلى تفاعل بالمحتوى ودعوات الإجراء وإدارة المجتمع والمؤثرين."],
+    ["التفعيل", "إعادة الاستهداف ونماذج العملاء المحتملين وحملات الرسائل التي تُدخل الناس في مسار الشراء."],
+    ["التحويل", "البحث والعروض والمتابعة التي تحوّل المهتمين إلى عملاء، مع تتبع حتى البيع."],
+    ["التعلم والتكرار", "الرصد والتحليلات والاختبارات تغذي الجولة التالية، فتتحسن النتائج باستمرار."]
+   ],
+   "casesH": "أعمال <em>حققت نتائج.</em>",
+   "casesP": "بعض الحملات وراء هذه الأرقام. اضغط على أي فيديو لتشغيله.",
+   "reelsH": "مصنوع <em>للفيد.</em>",
+   "reelsP": "محتوى رأسي أنتجناه لإنستجرام وتيك توك: أكل ومنتجات و3D يوقف التمرير.",
+   "reels": ["1065803522", "1075554730", "1075555297", "1065229727", "1075555043", "1075555689", "662447882"],
+   "toolsH": "أدوات <em>وأبحاث.</em>",
+   "toolsP": "كل حملة مدعومة ببيانات نجمعها ونقرأها بأنفسنا.",
+   "tools": [
+    { "t": "الرصد الاجتماعي", "d": "الإشارات والانطباع العام والوصول على السوشيال والويب، بالعربي والإنجليزي.", "img": "/img/digital/listening-dashboard.jpg" },
+    { "t": "المقارنة بالمنافسين", "d": "نمو صفحاتك وتفاعلها مقارنةً بمنافسيك المباشرين، شهرًا بشهر.", "img": "/img/digital/benchmark-chart.jpg" },
+    { "t": "دراسة الجمهور", "d": "الشرائح وعادات استهلاك الإعلام والشخصيات، مثل دراستنا لجيل Z لصالح سوق دبي المالي.", "img": "/img/digital/dfm-genz-research.jpg" }
+   ]
+  },
+  "eg": {
+   "eyebrow": "وكالة تسويق رقمي في القاهرة، مصر",
+   "slogan": "محتوى يوقف التمرير. <em>وحملات تبيع.</em>",
+   "lead": "نخطط وننتج وندير الحملات الرقمية لعلامات في مصر والخليج: الاستراتيجية والسوشيال ميديا والريلز والإعلانات المدفوعة والبحث والمؤثرون، مع قياس النتائج بالعملاء المحتملين والمبيعات.",
+   "introH": "تسويق رقمي <em>يستحق ميزانيته.</em>",
+   "intro": [
+    "أغلب الميزانيات الرقمية تتوزع بين وكالة تخطط، واستوديو يصور، ومشترٍ للمساحات الإعلانية يصرف. في دورز يقوم فريق واحد بالثلاثة، فيُصنع المحتوى للقناة المناسبة وتُتابع كل جنيه.",
+    "نحن شريك معتمد لدى جوجل وHubSpot، ولدينا أكثر من 15 عامًا في التسويق، ونعمل بالعربي والإنجليزي لعلامات الأغذية والسلع الاستهلاكية والتطوير العقاري والتكنولوجيا والجهات الحكومية."
+   ],
+   "cases": [
+    { "tag": "سلع استهلاكية · ميتا وتيك توك", "client": "صافي", "text": "محتوى مستمر وإعلانات مدفوعة لصافي، وكان محتوى رمضان والكحك وحملة أحمد سعد الأعلى أداءً في الإعلانات والنمو العضوي.", "img": "/img/films/1065803522.jpg", "vimeo": "1065803522", "tall": true, "metrics": [["+6 مليون", "مستخدم"], ["26 مليون", "ظهور"], ["500 ألف", "نقرة"], ["+11 ألف", "رسالة"]] },
+    { "tag": "عقارات · جذب العملاء", "client": "Archstone", "text": "حملات لجذب العملاء لمشروعات Archstone مع مصر إيطاليا، كاي السخنة وإل مونتي جلالة، على إنستجرام وتيك توك والبحث.", "img": "/img/digital/archstone-kai-sokhna.jpg", "metrics": [["1.51$", "تكلفة النقرة الفعلية"], ["7.5$", "تكلفة العميل المحتمل"]] },
+    { "tag": "تكنولوجيا للشركات · لينكدإن والبحث", "client": "ISYS Intelligent Systems", "text": "استراتيجية B2B متكاملة على لينكدإن وميتا، مع ربط إعلانات البحث الديناميكية بالإعلانات المصورة لأول مرة، إلى جانب إنتاج الفيديو والفعاليات والهوية.", "img": "/img/digital/isys-methodology.jpg", "metrics": [["30", "عميلًا محتملًا مؤهلًا"], ["100 ألف", "وصول"], ["10 آلاف", "نقرة"], ["1,000", "نقرة من البحث"]] },
+    { "tag": "خدمات مالية · جيل Z", "client": "سوق دبي المالي", "text": "دراسة لعادات استهلاك جيل Z للإعلام، واستراتيجية لتثقيفهم وتحويل الاستثمار إلى لعبة وتحويلهم إلى مستثمرين، مع فيلم الحملة الذي أنتجناه.", "img": "/img/films/673930542.jpg", "vimeo": "673930542" },
+    { "tag": "عقارات · سوشيال ميديا", "client": "Boulevard Vie", "text": "محتوى لايف ستايل بطابع فاخر ثابت بنى حضور Boulevard Vie على إنستجرام ورسّخ صورة العلامة.", "img": "/img/digital/boulevard-vie.jpg" },
+    { "tag": "رعاية صحية · توطين الحملات", "client": "Novartis وAstraZeneca", "text": "توطين الحملات العالمية للمنطقة، من جلسات تصوير Novartis إلى حملة AstraZeneca للتوعية بسرطان الثدي.", "img": "/img/digital/novartis-localization.jpg" }
+   ]
+  },
+  "ksa": {
+   "eyebrow": "وكالة تسويق رقمي في جدة",
+   "slogan": "مصمم لطريقة تصفح <em>السعودية.</em>",
+   "lead": "من مكتبنا في جدة ندير الحملات الرقمية للعلامات السعودية: الاستراتيجية والمحتوى وسناب شات وتيك توك وميتا وإكس وجوجل، بعربية قريبة من الجمهور، مع قياس النتائج بالعملاء المحتملين والمبيعات.",
+   "introH": "جمهور سعودي، <em>ومنصات سعودية.</em>",
+   "intro": [
+    "السعودية من أكثر الأسواق اعتمادًا على الموبايل في العالم، وسناب شات وتيك توك وإكس لها وزن أكبر هنا من أغلب الأسواق. نخطط مزيج القنوات حسب المكان الذي يقضي فيه عملاؤك وقتهم فعلًا، لا حسب العادة.",
+    "الفريق نفسه يضع الاستراتيجية وينتج المحتوى ويشتري المساحات الإعلانية، فتنطلق الحملات بسرعة وتبقى متسقة مع العلامة. نحن شريك معتمد لدى جوجل وHubSpot، ونعمل في جدة والرياض ودول الخليج."
+   ],
+   "cases": [
+    { "tag": "سلع استهلاكية · إطلاق في السعودية", "client": "Argan", "text": "تصميمات إطلاق مجموعة صبغات Argan في السعودية، بصور منتجات عربية مصممة للسوشيال ومنافذ البيع.", "img": "/img/digital/argan-launch-sa.jpg" },
+    { "tag": "عقارات · إنستجرام وتيك توك", "client": "حملة عقارية لجذب العملاء", "text": "حملات لجذب العملاء لمشروعات عقارية على إنستجرام وتيك توك، محسّنة على تكلفة العميل المحتمل لا على الوصول.", "img": "/img/digital/real-estate-post.jpg", "metrics": [["1.51$", "تكلفة النقرة الفعلية"], ["7.5$", "تكلفة العميل المحتمل"]] },
+    { "tag": "جهة حكومية · استراتيجية إعلامية", "client": "مؤسسة دبي للمستقبل", "text": "استراتيجية إعلامية ونمو سنوية، ومراجعة كاملة لحسابات السوشيال، وقياس أداء المؤثرين، وخارطة طريق للعلاقات العامة الرقمية.", "img": "/img/digital/dff-audience.jpg" },
+    { "tag": "خدمات مالية · جيل Z", "client": "سوق دبي المالي", "text": "دراسة لجيل Z واستراتيجية لتثقيف الجمهور الشاب وتحويل الاستثمار إلى لعبة، مع فيلم الحملة الذي أنتجناه.", "img": "/img/films/673930542.jpg", "vimeo": "673930542" },
+    { "tag": "سلع استهلاكية · ميتا وتيك توك", "client": "صافي", "text": "محتوى مستمر وإعلانات مدفوعة، وكان محتوى رمضان والكحك الأعلى أداءً في الإعلانات والنمو العضوي.", "img": "/img/films/1065803522.jpg", "vimeo": "1065803522", "tall": true, "metrics": [["+6 مليون", "مستخدم"], ["+27 مليون", "مشاهدة"], ["500 ألف", "نقرة"]] },
+    { "tag": "تكنولوجيا للشركات · لينكدإن والبحث", "client": "ISYS Intelligent Systems", "text": "استراتيجية B2B متكاملة على لينكدإن وميتا مع إعلانات البحث الديناميكية وإنتاج الفيديو والفعاليات.", "img": "/img/digital/isys-methodology.jpg", "metrics": [["30", "عميلًا محتملًا مؤهلًا"], ["100 ألف", "وصول"], ["10 آلاف", "نقرة"]] }
+   ]
+  }
+ }
+}

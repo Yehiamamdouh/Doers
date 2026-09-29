@@ -1,0 +1,113 @@
+/* Rich service pages (RichService.astro): the homepage's editorial look for every service. */
+.rs .wrap{position:relative}
+.rs-hero{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(28px,5vw,64px) clamp(40px,6vw,80px)}
+.rs-city{display:inline-flex;border:1.5px solid var(--ink);border-radius:99px;padding:3px;margin-bottom:22px}
+.rs-city a{padding:7px 16px;border-radius:99px;font:700 13px var(--body);letter-spacing:.02em}
+.rs-city a[aria-current]{background:var(--ink);color:#fff}
+.rs-city a:not([aria-current]):hover{background:var(--night-2)}
+.rs-h1{font:800 clamp(40px,5.6vw,84px)/.98 var(--display);letter-spacing:-.04em;margin:14px 0 18px;text-wrap:balance}
+[dir=rtl] .rs-h1{letter-spacing:0;line-height:1.15}
+.rs-slogan{font:800 clamp(22px,2.4vw,32px)/1.15 var(--display);color:var(--orange-d);margin-bottom:14px}
+.rs-slogan em{font-style:normal;color:var(--ink)}
+.rs-lead{font-size:clamp(17px,1.4vw,20px);color:#3a3a3a;max-width:600px;margin-bottom:28px}
+.rs-hero-img img{width:100%;border-radius:24px;aspect-ratio:4/3;object-fit:cover}
+/* three phones with reels */
+.rs-phones{position:relative;height:clamp(380px,42vw,560px)}
+.rs-phone{all:unset;cursor:pointer;position:absolute;width:44%;aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:#111;box-shadow:0 30px 60px rgba(0,0,0,.28);border:6px solid #111;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.rs-phone img{width:100%;height:100%;object-fit:cover}
+.rs-phone.p0{inset-inline-start:28%;top:0;z-index:2}
+.rs-phone.p1{inset-inline-start:0;top:12%;transform:rotate(-7deg)}
+.rs-phone.p2{inset-inline-end:0;top:14%;transform:rotate(7deg)}
+.rs-phone:hover{transform:translateY(-8px) rotate(0);z-index:3}
+.rs-phone:focus-visible,.rs-reel:focus-visible,.rs-case-v:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+.rs-pl{position:absolute;inset:0;margin:auto;width:56px;height:56px;border-radius:50%;background:rgba(247,162,27,.95)}
+.rs-pl::after{content:"";position:absolute;inset:0;margin:auto;width:0;height:0;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #141414;transform:translateX(2px)}
+/* stats */
+.rs-stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);margin-top:clamp(28px,4vw,56px)}
+.rs-stats div{padding:28px 20px 30px;border-inline-end:1px solid var(--line)}
+.rs-stats div:last-child{border:0}
+.rs-stats b{display:block;font:800 clamp(40px,5vw,72px)/1 var(--display);letter-spacing:-.04em;color:var(--ink)}
+.rs-stats span{display:block;margin-top:8px;color:var(--smoke);font-size:14px;max-width:24ch}
+/* sections */
+.rs-sec{padding-block:clamp(56px,8vw,110px) 0}
+.rs-head{display:flex;justify-content:space-between;align-items:end;gap:20px 40px;margin-bottom:44px;flex-wrap:wrap}
+.rs-head p{max-width:420px;color:#555}
+.rs-h2{font:800 clamp(38px,5.4vw,80px)/.98 var(--display);letter-spacing:-.04em;max-width:900px}
+.rs-h2 em{font-style:normal;color:var(--orange)}
+[dir=rtl] .rs-h2{letter-spacing:0;line-height:1.2}
+.rs-intro{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(28px,6vw,96px)}
+.rs-intro .rs-h2{font-size:clamp(32px,4vw,56px);position:sticky;top:110px;align-self:start}
+.rs-intro p{font-size:18px;color:#444;margin-bottom:18px}
+/* services list, like the homepage */
+.rs-svc{border-top:1px solid var(--ink)}
+.rs-row{display:grid;grid-template-columns:56px minmax(0,1fr) minmax(0,1.15fr);gap:24px;align-items:start;padding-block:28px;border-bottom:1px solid var(--line)}
+.rs-row .n{font:700 15px var(--display);color:var(--orange-d);padding-top:8px}
+.rs-row h3{font:800 clamp(24px,2.6vw,38px)/1.05 var(--display);letter-spacing:-.03em;transition:color .3s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.rs-row:hover h3{color:var(--orange-d);transform:translateX(8px)}
+[dir=rtl] .rs-row:hover h3{transform:translateX(-8px)}
+.rs-row p{color:#555;font-size:16px}
+.rs-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.rs-tags span{font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--night-2)}
+/* process */
+.rs-steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden;counter-reset:s;padding:0}
+.rs-steps li{background:#fff;padding:28px 24px 30px;counter-increment:s}
+.rs-steps li::before{content:counter(s,decimal-leading-zero);display:block;font:800 44px/1 var(--display);color:var(--orange);margin-bottom:16px}
+.rs-steps h3{font:800 22px/1.15 var(--display);margin-bottom:8px}
+.rs-steps p{color:#555;font-size:15px}
+/* case studies */
+.rs-cases{display:grid;gap:clamp(40px,6vw,80px)}
+.rs-case{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.rs-case:nth-child(even) .rs-case-m{order:2}
+.rs-case-m img,.rs-case-v{display:block;width:100%;border-radius:22px;aspect-ratio:4/3;object-fit:cover;background:#111}
+.rs-case-v{all:unset;cursor:pointer;position:relative;display:block;width:100%;border-radius:22px;overflow:hidden}
+.rs-case-v img{border-radius:0}
+.rs-case h3{font:800 clamp(30px,3.4vw,48px)/1 var(--display);letter-spacing:-.03em;margin:10px 0 14px}
+.rs-case .label{color:var(--orange-d)}
+.rs-case p{color:#444;font-size:17px}
+.rs-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:18px;margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
+.rs-metrics b{display:block;font:800 clamp(28px,3vw,42px)/1 var(--display);color:var(--ink)}
+.rs-metrics span{display:block;margin-top:6px;font-size:13px;color:var(--smoke)}
+/* reels */
+.rs-reels{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;margin-inline:calc(-1 * var(--pad));padding-inline:var(--pad)}
+.rs-reel{all:unset;cursor:pointer;flex:0 0 clamp(170px,17vw,240px);scroll-snap-align:start}
+.rs-reel-f{position:relative;display:block;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#111}
+.rs-reel-f img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.rs-reel:hover img{transform:scale(1.05)}
+.rs-reel-c{display:block;margin-top:10px;font-size:14px;font-weight:600}
+/* tools */
+.rs-tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.rs-tools figure{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}
+.rs-tools img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;background:#111}
+.rs-tools figcaption{padding:18px 20px 22px}
+.rs-tools b{display:block;font:800 20px/1.2 var(--display);margin-bottom:6px}
+.rs-tools span{color:#555;font-size:15px}
+/* chips (networks, platforms) */
+.rs-chips{display:flex;flex-wrap:wrap;gap:10px}
+.rs-chips span{padding:12px 20px;border:1.5px solid var(--ink);border-radius:99px;font:700 16px var(--body)}
+/* the old page copy, kept for search */
+.rs-more{margin-top:clamp(56px,8vw,100px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rs-more summary{cursor:pointer;padding:22px 0;font:800 22px var(--display);list-style:none;display:flex;justify-content:space-between}
+.rs-more summary::after{content:"+";color:var(--orange-d)}
+.rs-more[open] summary::after{content:"–"}
+.rs-more-in{columns:2 360px;column-gap:48px;padding-bottom:28px;color:#555;font-size:15px}
+.rs-more-in h2{font:800 20px/1.2 var(--display);color:var(--ink);margin:18px 0 8px;break-after:avoid}
+.rs-more-in h3{font:700 16px/1.3 var(--body);color:var(--ink);margin:12px 0 6px}
+.rs-more-in p{margin-bottom:12px}
+.rs .faq{max-width:900px}
+@media (max-width:900px){
+  .rs-hero,.rs-intro,.rs-case{grid-template-columns:1fr}
+  .rs-case:nth-child(even) .rs-case-m{order:0}
+  .rs-stats{grid-template-columns:1fr 1fr}
+  .rs-stats div:nth-child(2){border-inline-end:0}
+  .rs-stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .rs-row{grid-template-columns:40px 1fr}
+  .rs-row>div{grid-column:2}
+  .rs-intro .rs-h2{position:static}
+  .rs-steps{grid-template-columns:1fr 1fr}
+  .rs-stats b{font-size:clamp(30px,8vw,44px)}
+  .rs-stats div{padding:22px 14px}
+}
+@media (max-width:560px){
+  .rs-steps{grid-template-columns:1fr}
+  .rs-phones{height:clamp(360px,100vw,520px);max-width:520px;margin-inline:auto;width:100%}
+}
