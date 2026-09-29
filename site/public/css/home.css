@@ -382,3 +382,5 @@ footer a:hover{color:var(--orange)}
   .line>span{transform:none}.ring path{stroke-dashoffset:0}
   .js .rv{opacity:1;transform:none}.w .frame{clip-path:none}
 }
+.w .w-v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.w .frame .tag{z-index:1}
