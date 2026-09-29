@@ -384,3 +384,9 @@ footer a:hover{color:var(--orange)}
 }
 .w .w-v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .w .frame .tag{z-index:1}
+.mega-1{grid-template-columns:1fr 1fr;gap:0 36px;min-width:720px}
+.mrow{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:7px 0;border-bottom:1px solid var(--line)}
+.mrow .mname{font-weight:600;padding:0}
+.mcity{display:flex;gap:6px;flex-shrink:0}
+.mcity a{font-size:11px !important;font-weight:700;padding:3px 8px !important;border:1px solid var(--line);border-radius:99px;transform:none !important}
+.mcity a:hover{border-color:var(--orange)}

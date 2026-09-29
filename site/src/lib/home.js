@@ -36,8 +36,7 @@ export function renderHome(lang = 'en') {
   const U = (p) => loc(p.startsWith('*') ? '/' + p.slice(1).replace(/^\//, '') : p, lang);
   const S = data.services;
   $('#svc').html(S.map((s, i) => `<div class="row"${s.img ? ` data-img="/${s.img}"` : ''}><span class="n">${String(i + 1).padStart(2, '0')}</span><h3><a href="${U(s.eg || s.ksa)}">${nm(s)}</a></h3><p>${isAr ? s.da : s.d}</p><span class="cities">${s.eg ? `<a href="${U(s.eg)}">${city(1)}</a>` : ''}${s.ksa ? `<a href="${U(s.ksa)}">${city(0)}</a>` : ''}</span></div>`).join(''));
-  $('#menu-eg').html(S.filter((s) => s.eg).map((s) => `<a href="${U(s.eg)}">${nm(s)}</a>`).join(''));
-  $('#menu-ksa').html(S.filter((s) => s.ksa).map((s) => `<a href="${U(s.ksa)}">${nm(s)}</a>`).join(''));
+  $('#menu-all').html(S.map((s) => `<div class="mrow"><a class="mname" href="${U(s.eg || s.ksa)}">${nm(s)}</a><span class="mcity">${s.eg ? `<a href="${U(s.eg)}">${city(1)}</a>` : ''}${s.ksa ? `<a href="${U(s.ksa)}">${city(0)}</a>` : ''}</span></div>`).join(''));
   $('#fsvc').html(S.map((s) => `<li><a href="${U(s.eg || s.ksa)}">${nm(s)}</a></li>`).join(''));
   const items = subservices[isAr ? 'ar' : 'en'].map((s) => `<span>${s}</span>`).join('');
   $('#track').html(items + items);

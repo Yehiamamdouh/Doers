@@ -16,9 +16,13 @@ const name = (s) => (ar ? s.ar : s.name);
     <ul class="menu">
       <li><a href={home + '#work'}>{L.work}</a></li>
       <li class="dd"><a href={home + '#services'}>{L.services}</a>
-        <div class="mega">
-          <div><div class="label">{L.cairo}</div>{menu.filter((s) => s.eg).map((s) => <a href={link(s.eg)}>{name(s)}</a>)}</div>
-          <div><div class="label">{L.jeddah}</div>{menu.filter((s) => s.ksa).map((s) => <a href={link(s.ksa)}>{name(s)}</a>)}</div>
+        <div class="mega mega-1">
+          {menu.map((s) => (
+            <div class="mrow">
+              <a class="mname" href={link(s.eg || s.ksa)}>{name(s)}</a>
+              <span class="mcity">{s.eg && <a href={link(s.eg)}>{L.cairo}</a>}{s.ksa && <a href={link(s.ksa)}>{L.jeddah}</a>}</span>
+            </div>
+          ))}
         </div>
       </li>
       <li><a href={link('/ksa/')}>{L.ksa}</a></li>
