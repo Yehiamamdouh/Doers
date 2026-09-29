@@ -76,7 +76,7 @@ const schema = {
         {r.heroImg && <figure class="rs-hero-img"><img src={r.heroImg.src} alt={r.heroImg.alt} fetchpriority="high"></figure>}
       </section>
     </div>
-    <ServiceStrip lang={lang} />
+    <ServiceStrip lang={lang} items={r.strip || [...(r.services || []).map((x) => x.t), ...(r.process || []).map((x) => x[0])]} />
     {r.band && <VideoBand id={r.band} lang={lang} />}
     <div class="wrap">
       {r.stats && (

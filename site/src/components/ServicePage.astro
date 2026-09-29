@@ -43,7 +43,7 @@ const schema = {
         </div>
       </section>
     </div>
-    <ServiceStrip lang={ar ? 'ar' : 'en'} />
+    <ServiceStrip lang={ar ? 'ar' : 'en'} items={[...p.feats.map((f) => f[1]), ...p.steps.map((x) => x[0])]} />
     {p.mosaic_html && <div class="wrap" set:html={p.mosaic_html} />}
     <div class="wrap">
       <section class="p-sec">

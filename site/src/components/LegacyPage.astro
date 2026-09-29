@@ -77,7 +77,7 @@ const schema = {
         {p.hero && <figure class="lg-fig"><img src={p.hero.src} alt={p.hero.alt} width={p.hero.w} height={p.hero.h} fetchpriority="high"></figure>}
       </section>
     </div>
-    <ServiceStrip lang={p.lang} />
+    <ServiceStrip lang={p.lang} path={enPath} />
     {band && <VideoBand id={band} lang={p.lang} />}
     {enPath === '/media-production-egypt/' && <div class="wrap"><FilmGallery lang={p.lang} /></div>}
     <div class="wrap">

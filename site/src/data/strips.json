@@ -1,0 +1,60 @@
+{
+ "note": "The rotating strip on each service page: that service's sub-services, then its stages of work. Keyed by the Cairo and Jeddah English paths. Pages built from src/data/services/*.json take theirs from the services and process lists instead.",
+ "strips": [
+  {
+   "paths": ["/branding-agency-egypt/", "/ksa/branding-agency-in-jeddah/"],
+   "en": ["Brand strategy", "Naming", "Logo design", "Visual identity", "Brand guidelines", "Typography", "Packaging design", "Brand publications", "Discovery", "Workshops", "Concepts", "Refinement", "Guidelines", "Roll-out"],
+   "ar": ["استراتيجية العلامة", "اختيار الاسم", "تصميم الشعار", "الهوية البصرية", "دليل الهوية", "الخطوط", "تصميم التغليف", "المطبوعات", "الاستكشاف", "ورش العمل", "الأفكار", "التطوير", "دليل الهوية", "التطبيق"]
+  },
+  {
+   "paths": ["/event-management-cairo-egypt/", "/ksa/event-management-agency-in-jeddah/"],
+   "en": ["Product launches", "Conferences", "Corporate events", "Gala dinners", "Brand activations", "Roadshows", "Team building", "Virtual events", "Staging & AV", "Brief", "Concept & 3D", "Venue & suppliers", "Production", "Show day", "Wrap-up report"],
+   "ar": ["إطلاق المنتجات", "المؤتمرات", "فعاليات الشركات", "حفلات العشاء", "التفعيلات التسويقية", "الجولات الترويجية", "بناء الفرق", "الفعاليات الافتراضية", "المسرح والصوت والإضاءة", "الاستلام", "الفكرة والتصميم ثلاثي الأبعاد", "المكان والموردون", "الإنتاج", "يوم الحدث", "تقرير الختام"]
+  },
+  {
+   "paths": ["/booth-production-egypt/", "/ksa/booth-production-in-jeddah/"],
+   "en": ["Custom stands", "Modular stands", "Pavilions", "3D design", "Fabrication", "Graphics & print", "LED screens", "Lighting", "Furniture", "Brief", "3D concept", "Organiser approval", "Production", "Installation", "Dismantling"],
+   "ar": ["أجنحة مخصصة", "أجنحة معيارية", "أجنحة الدول", "التصميم ثلاثي الأبعاد", "التصنيع", "الجرافيك والطباعة", "شاشات LED", "الإضاءة", "الأثاث", "الاستلام", "الفكرة ثلاثية الأبعاد", "موافقة المنظم", "الإنتاج", "التركيب", "الفك"]
+  },
+  {
+   "paths": ["/signage-internal-branding-egypt/", "/ksa/signage-internal-branding-in-jeddah/"],
+   "en": ["3D letters", "Lightboxes", "Pylons", "Facade signs", "Wayfinding", "Office branding", "Wall graphics", "Frosted film", "Site survey", "Design", "Samples & approvals", "Fabrication", "Installation", "Aftercare"],
+   "ar": ["حروف بارزة", "صناديق مضيئة", "لافتات عمودية", "لافتات الواجهات", "لافتات إرشادية", "هوية المكاتب", "جرافيك جداري", "استيكر مصنفر", "معاينة الموقع", "التصميم", "العينات والموافقات", "التصنيع", "التركيب", "ما بعد التسليم"]
+  },
+  {
+   "paths": ["/seo/", "/ksa/seo-agency-in-jeddah/"],
+   "en": ["Technical SEO", "Keyword research", "On-page SEO", "Content writing", "Local SEO", "Google Business Profile", "Link building", "Arabic SEO", "Audit", "Strategy", "Fixes", "Content", "Authority", "Monthly reporting"],
+   "ar": ["SEO التقني", "بحث الكلمات المفتاحية", "تحسين الصفحات", "كتابة المحتوى", "SEO المحلي", "ملف جوجل للأنشطة", "بناء الروابط", "SEO بالعربي", "المراجعة", "الاستراتيجية", "الإصلاحات", "المحتوى", "بناء الثقة", "التقارير الشهرية"]
+  },
+  {
+   "paths": ["/website-development-company-egypt/", "/ksa/website-development-company-in-jeddah/"],
+   "en": ["Websites", "UI/UX design", "E-commerce", "Web apps", "Mobile apps", "Payment gateways", "CMS", "AI agents", "Maintenance", "Discovery", "UX & architecture", "Design system", "Engineering", "Launch", "Grow"],
+   "ar": ["المواقع", "تصميم تجربة المستخدم", "المتاجر الإلكترونية", "تطبيقات الويب", "تطبيقات الموبايل", "بوابات الدفع", "أنظمة إدارة المحتوى", "وكلاء الذكاء الاصطناعي", "الصيانة", "الاكتشاف", "تجربة المستخدم والبنية", "نظام التصميم", "التطوير", "الإطلاق", "النمو"]
+  },
+  {
+   "paths": ["/media-production-egypt/"],
+   "en": ["TV commercials", "Corporate films", "Product videos", "Motion graphics", "Animation", "3D & VFX", "Reels", "Radio ads", "Concept", "Script & storyboard", "Casting", "Shooting", "Post-production", "Delivery"],
+   "ar": ["إعلانات التلفزيون", "أفلام مؤسسية", "فيديوهات المنتجات", "موشن جرافيك", "أنيميشن", "3D ومؤثرات بصرية", "ريلز", "إعلانات الراديو", "الفكرة", "السيناريو والستوري بورد", "اختيار الممثلين", "التصوير", "المونتاج", "التسليم"]
+  },
+  {
+   "paths": ["/outdoor-advertising-egypt/", "/ksa/ooh-outdoor-agency-in-jeddah/"],
+   "en": ["Billboards", "Digital screens", "Bridge banners", "Mall media", "Bus shelters", "Transit ads", "Vehicle branding", "Street poles", "Site selection", "Media plan", "Booking", "Creative", "Printing & install", "Proof of posting"],
+   "ar": ["اللوحات الإعلانية", "الشاشات الرقمية", "لافتات الكباري", "وسائط المولات", "مظلات الأتوبيس", "إعلانات المواصلات", "تغليف السيارات", "أعمدة الإنارة", "اختيار المواقع", "الخطة الإعلامية", "الحجز", "التصميم", "الطباعة والتركيب", "إثبات التركيب"]
+  },
+  {
+   "paths": ["/tv-advertising/", "/ksa/tv-advertising-in-jeddah/"],
+   "en": ["Media planning", "Channel selection", "Airtime buying", "Sponsorships", "Ramadan campaigns", "TV commercials", "Post-campaign analysis", "Brief", "Audience research", "Plan & reach targets", "Negotiation", "Production", "On-air monitoring", "Reporting"],
+   "ar": ["التخطيط الإعلامي", "اختيار القنوات", "شراء المساحات", "الرعايات", "حملات رمضان", "إعلانات التلفزيون", "تحليل ما بعد الحملة", "الاستلام", "دراسة الجمهور", "الخطة وأهداف الوصول", "التفاوض", "الإنتاج", "متابعة البث", "التقارير"]
+  },
+  {
+   "paths": ["/radio-advertising-egypt/", "/ksa/radio-advertising-agencies-in-jeddah/"],
+   "en": ["Station selection", "Airtime buying", "Drive-time spots", "Sponsorships", "Live reads", "Radio ads", "Voice-over", "Brief", "Listener research", "Plan", "Script", "Recording", "On-air", "Reporting"],
+   "ar": ["اختيار المحطات", "شراء المساحات", "أوقات الذروة", "الرعايات", "القراءة على الهواء", "إعلانات الراديو", "التعليق الصوتي", "الاستلام", "دراسة المستمعين", "الخطة", "السيناريو", "التسجيل", "البث", "التقارير"]
+  },
+  {
+   "paths": ["/listening-and-reputation-management/", "/ksa/listening-and-reputation-management-in-jeddah/", "/ksa/listening-and-reputation-management/"],
+   "en": ["Social listening", "Sentiment analysis", "Competitor benchmarking", "Crisis alerts", "Community management", "Review management", "Dashboards", "Setup", "Monitoring", "Alerts", "Response", "Monthly insights"],
+   "ar": ["الرصد الاجتماعي", "تحليل الانطباع", "المقارنة بالمنافسين", "تنبيهات الأزمات", "إدارة المجتمع", "إدارة التقييمات", "لوحات المتابعة", "الإعداد", "الرصد", "التنبيهات", "الرد", "التحليلات الشهرية"]
+  }
+ ]
+}

@@ -1,11 +1,15 @@
 ---
-// The orange rotating strip of sub-services, shared by every page (the homepage has its own copy in home.html).
+// The orange rotating strip. On a service page it lists that service's sub-services and stages of work
+// (`items`, or src/data/strips.json by English path); elsewhere the general list in subservices.json.
 import list from '../data/subservices.json';
-const { lang = 'en' } = Astro.props;
-const items = list[lang === 'ar' ? 'ar' : 'en'];
+import strips from '../data/strips.json';
+const { lang = 'en', items, path } = Astro.props;
+const key = lang === 'ar' ? 'ar' : 'en';
+const own = path && strips.strips.find((s) => s.paths.includes(path));
+const shown = items || (own ? own[key] : list[key]);
 ---
 <div class="sstrip" aria-hidden="true">
-  <div class="sstrip-t">{[...items, ...items].map((s) => <span>{s}</span>)}</div>
+  <div class="sstrip-t">{[...shown, ...shown].map((s) => <span>{s}</span>)}</div>
 </div>
 <style is:global>
 .sstrip{background:var(--orange,#F7A21B);color:var(--ink,#161718);overflow:hidden;padding:16px 0;border-block:2px solid var(--ink,#161718)}
