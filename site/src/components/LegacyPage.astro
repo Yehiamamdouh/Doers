@@ -10,6 +10,7 @@ import menu from '../data/services-menu.json';
 import LegacySection from './LegacySection.astro';
 import VideoBand from './VideoBand.astro';
 import FilmGallery from './FilmGallery.astro';
+import ServiceStrip from './ServiceStrip.astro';
 import bands from '../data/video-bands.json';
 import faqs from '../data/faqs.json';
 import { loc } from '../lib/links.js';
@@ -76,6 +77,7 @@ const schema = {
         {p.hero && <figure class="lg-fig"><img src={p.hero.src} alt={p.hero.alt} width={p.hero.w} height={p.hero.h} fetchpriority="high"></figure>}
       </section>
     </div>
+    <ServiceStrip lang={p.lang} />
     {band && <VideoBand id={band} lang={p.lang} />}
     {enPath === '/media-production-egypt/' && <div class="wrap"><FilmGallery lang={p.lang} /></div>}
     <div class="wrap">
@@ -133,5 +135,5 @@ const schema = {
       </div>
     </section>
   </main>
-  <SiteFooter lang={p.lang} />
+  <SiteFooter lang={p.lang} strip={false} />
 </Base>

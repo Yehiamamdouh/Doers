@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
+import ServiceStrip from './ServiceStrip.astro';
 import { loc } from '../lib/links.js';
 const { p, alt = false } = Astro.props;
 const ar = p.lang === 'ar';
@@ -42,6 +43,7 @@ const schema = {
         </div>
       </section>
     </div>
+    <ServiceStrip lang={ar ? 'ar' : 'en'} />
     {p.mosaic_html && <div class="wrap" set:html={p.mosaic_html} />}
     <div class="wrap">
       <section class="p-sec">
@@ -76,5 +78,5 @@ const schema = {
       </div>
     </section>
   </main>
-  <SiteFooter />
+  <SiteFooter lang={ar ? 'ar' : 'en'} strip={false} />
 </Base>

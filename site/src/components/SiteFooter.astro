@@ -1,11 +1,13 @@
 ---
 import menu from '../data/services-menu.json';
 import { loc } from '../lib/links.js';
-const { lang = 'en' } = Astro.props;
+import ServiceStrip from './ServiceStrip.astro';
+const { lang = 'en', strip = true } = Astro.props;
 const ar = lang === 'ar';
 const link = (p) => loc(p, lang);
 const L = ar ? { tag: 'دورز<br><em>بتعمل كل حاجة.</em>', what: 'خدماتنا', cairo: 'القاهرة', jeddah: 'جدة', follow: 'تابعنا', cAddr: 'شارع رسلان، مدينة نصر، المنطقة التاسعة، بلوك 23، برج 3', jAddr: 'مركز زهران، برج B، الدور 12', hours: 'الأحد–الخميس · 10:00–18:00' } : { tag: 'Doers<br><em>do it all.</em>', what: 'What we do', cairo: 'Cairo', jeddah: 'Jeddah', follow: 'Follow', cAddr: 'Raslan St, Nasr City, 9th Area, Block 23, Tower 3', jAddr: 'Zahran Building Center, Tower B, 12th Floor', hours: 'Sun–Thu · 10:00–18:00' };
 ---
+{strip && <ServiceStrip lang={lang} />}
 <footer>
   <div class="wrap">
     <div class="fgrid">

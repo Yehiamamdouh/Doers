@@ -4,6 +4,7 @@ import ar from '../i18n/home.ar.json';
 import { hasArabic, loc } from './links.js';
 import data from '../data/home-services.json';
 import films from '../data/films.json';
+import subservices from '../data/subservices.json';
 
 function localPath(href, lang) {
   let path = href.replace(/^https:\/\/doersadv\.com/, '');
@@ -38,7 +39,7 @@ export function renderHome(lang = 'en') {
   $('#menu-eg').html(S.filter((s) => s.eg).map((s) => `<a href="${U(s.eg)}">${nm(s)}</a>`).join(''));
   $('#menu-ksa').html(S.filter((s) => s.ksa).map((s) => `<a href="${U(s.ksa)}">${nm(s)}</a>`).join(''));
   $('#fsvc').html(S.map((s) => `<li><a href="${U(s.eg || s.ksa)}">${nm(s)}</a></li>`).join(''));
-  const items = S.map((s) => `<span>${nm(s)}</span>`).join('');
+  const items = subservices[isAr ? 'ar' : 'en'].map((s) => `<span>${s}</span>`).join('');
   $('#track').html(items + items);
   $('#citylist').html(data.cities.map((c) => `<span>${isAr ? c[1] : c[0]}</span>`).join('<i>·</i>'));
   // The "Play reel" sticker plays the showreel once it's on Vimeo (src/data/films.json), the EMS ad until then.

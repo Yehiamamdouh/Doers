@@ -1,0 +1,19 @@
+---
+// The orange rotating strip of sub-services, shared by every page (the homepage has its own copy in home.html).
+import list from '../data/subservices.json';
+const { lang = 'en' } = Astro.props;
+const items = list[lang === 'ar' ? 'ar' : 'en'];
+---
+<div class="sstrip" aria-hidden="true">
+  <div class="sstrip-t">{[...items, ...items].map((s) => <span>{s}</span>)}</div>
+</div>
+<style is:global>
+.sstrip{background:var(--orange,#F7A21B);color:var(--ink,#161718);overflow:hidden;padding:16px 0;border-block:2px solid var(--ink,#161718)}
+.sstrip-t{display:flex;gap:40px;width:max-content;font:800 clamp(20px,2.4vw,34px)/1.1 "Bricolage Grotesque","Alexandria",system-ui,sans-serif;letter-spacing:-.02em;white-space:nowrap;animation:sstrip 90s linear infinite}
+.sstrip-t span::after{content:"✦";margin-inline-start:40px;font-size:.6em;vertical-align:middle}
+.sstrip:hover .sstrip-t{animation-play-state:paused}
+[dir=rtl] .sstrip-t{animation-name:sstrip-rtl;letter-spacing:0}
+@keyframes sstrip{to{transform:translateX(-50%)}}
+@keyframes sstrip-rtl{to{transform:translateX(50%)}}
+@media (prefers-reduced-motion:reduce){.sstrip-t{animation:none}}
+</style>
