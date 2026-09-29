@@ -73,6 +73,7 @@ const schema = {
             ))}
           </div>
         )}
+        {r.heroFilm && <button type="button" class="rs-hero-film" data-vimeo={r.heroFilm.vimeo} aria-label={`${L.play}: ${r.heroFilm.alt}`}><img src={r.heroFilm.img} alt={r.heroFilm.alt} fetchpriority="high"><span class="rs-pl" aria-hidden="true"></span><span class="rs-hero-cap">{r.heroFilm.alt}</span></button>}
         {r.heroImg && <figure class="rs-hero-img"><img src={r.heroImg.src} alt={r.heroImg.alt} fetchpriority="high"></figure>}
       </section>
     </div>
@@ -164,6 +165,19 @@ const schema = {
           <div class="rs-tools">
             {r.tools.map((t) => <figure><img src={t.img} alt={t.t} loading="lazy"><figcaption><b>{t.t}</b><span>{t.d}</span></figcaption></figure>)}
           </div>
+        </section>
+      )}
+
+      {r.flight && (
+        <section class="rs-sec">
+          <div class="rs-head"><h2 class="rs-h2" set:html={r.flight.h} />{r.flight.p && <p>{r.flight.p}</p>}</div>
+          <div class="rs-flight-w">
+            <table class="rs-flight">
+              <thead><tr><th></th>{r.flight.cols.map((c) => <th>{c}</th>)}</tr></thead>
+              <tbody>{r.flight.rows.map(([name, cells]) => <tr><th>{name}</th>{cells.map((v) => <td class={`l${v}`}><span>{v ? r.flight.levels[v - 1] : ''}</span></td>)}</tr>)}</tbody>
+            </table>
+          </div>
+          <p class="rs-flight-n">{r.flight.note}</p>
         </section>
       )}
 
