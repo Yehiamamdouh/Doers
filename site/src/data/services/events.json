@@ -1,0 +1,491 @@
+{
+ "id": "events",
+ "paths": {
+  "eg": "/event-management-cairo-egypt/",
+  "ksa": "/ksa/event-management-agency-in-jeddah/"
+ },
+ "en": {
+  "base": {
+   "crumb": "Event Management",
+   "band": "events-ediov",
+   "stats": [
+    [
+     "2013",
+     "Delivering large-scale events since"
+    ],
+    [
+     "15+",
+     "Years of marketing experience"
+    ],
+    [
+     "6",
+     "Countries we've produced in"
+    ],
+    [
+     "1",
+     "Team from concept to show day"
+    ]
+   ],
+   "servicesH": "Events we <em>produce.</em>",
+   "servicesP": "From a hundred guests to a few thousand, we design the experience, build it and run it on the day.",
+   "services": [
+    {
+     "t": "Product launches",
+     "d": "Reveal moments, stage shows and press days that give a launch the impact it needs.",
+     "tags": [
+      "Reveals",
+      "Press days",
+      "Dealer launches"
+     ]
+    },
+    {
+     "t": "Conferences & summits",
+     "d": "Registration, stage, speakers, breakouts and AV for technology and corporate conferences.",
+     "tags": [
+      "Registration",
+      "Speaker management",
+      "Breakouts",
+      "Live streaming"
+     ]
+    },
+    {
+     "t": "Gala dinners & corporate nights",
+     "d": "Themed dinners, Ramadan nights, awards and celebrations with entertainment and hospitality.",
+     "tags": [
+      "Ramadan nights",
+      "Awards",
+      "Entertainment"
+     ]
+    },
+    {
+     "t": "Brand activations & roadshows",
+     "d": "Mall activations, sampling and roadshows that take the brand to its customers.",
+     "tags": [
+      "Sampling",
+      "Mall activations",
+      "Roadshows"
+     ]
+    },
+    {
+     "t": "Staging, AV & lighting",
+     "d": "LED walls, stage builds, sound, lighting and show control, run by our own technical crew.",
+     "tags": [
+      "LED walls",
+      "Stage builds",
+      "Show control"
+     ]
+    },
+    {
+     "t": "Merchandising & fleet branding",
+     "d": "Shelf talkers, promotion tables, danglers and branded vehicles that sell on the spot.",
+     "tags": [
+      "In-store branding",
+      "Promotion tables",
+      "Fleet branding"
+     ]
+    },
+    {
+     "t": "Virtual & hybrid events",
+     "d": "Live streams, virtual stages and interactive sessions for audiences who can't attend in person.",
+     "tags": [
+      "Live streaming",
+      "Hybrid",
+      "Virtual networking"
+     ]
+    },
+    {
+     "t": "Coverage & content",
+     "d": "Photography, highlight films and social content filmed on the day and edited overnight.",
+     "tags": [
+      "Highlight films",
+      "Photography",
+      "Social content"
+     ]
+    }
+   ],
+   "processH": "From brief <em>to show day.</em>",
+   "processP": "Every event runs through the same six stages, with one producer accountable from the first call to the wrap-up report.",
+   "process": [
+    [
+     "Brief",
+     "Objectives, audience, location, budget and the agenda you have in mind."
+    ],
+    [
+     "Concept & 3D",
+     "Creative direction, 2D concept and 3D simulation of the space before anything is built."
+    ],
+    [
+     "Venue & suppliers",
+     "Venue, permits, catering, talent and every supplier booked and contracted."
+    ],
+    [
+     "Production",
+     "Stage, AV, branding and décor produced and checked at each step."
+    ],
+    [
+     "Show day",
+     "Our crew runs registration, stage and backstage so you can host your guests."
+    ],
+    [
+     "Wrap-up",
+     "Photos, highlight film and a report on attendance and results."
+    ]
+   ],
+   "casesH": "Recent <em>events.</em>",
+   "casesP": "Tap a video to watch the highlights.",
+   "galleryH": "From the <em>floor.</em>",
+   "gallery": [
+    {
+     "src": "/img/work/ediov-dinner.jpg",
+     "alt": "EDIOV by ISYS & IBM: garden dinner facing the Pyramids"
+    },
+    {
+     "src": "/img/work/ediov-stage.jpg",
+     "alt": "EDIOV: keynote on the main stage"
+    },
+    {
+     "src": "/img/work/ediov-guests.jpg",
+     "alt": "EDIOV: guests at the ISYS × IBM demos"
+    },
+    {
+     "src": "/img/work/alfa-ramadan-hall.jpg",
+     "alt": "Alfa Medical City: the Ramadan night hall"
+    },
+    {
+     "src": "/img/work/alfa-gifts.jpg",
+     "alt": "Alfa Medical City: branded gift display"
+    },
+    {
+     "src": "/img/work/alfa-ritz-terrace.jpg",
+     "alt": "Alfa Medical City: terrace lounge at the Nile Ritz-Carlton"
+    }
+   ],
+   "heroImg": {
+    "src": "/img/work/ediov-dinner.jpg",
+    "alt": "EDIOV by ISYS and IBM: garden dinner facing the Pyramids, produced by Doers"
+   }
+  },
+  "eg": {
+   "eyebrow": "Event management agency in Cairo, Egypt",
+   "slogan": "Nights people remember. <em>Launches people talk about.</em>",
+   "lead": "We design, produce and run corporate events, launches, conferences and gala nights across Egypt, from 3D concept and staging to logistics and show-day management.",
+   "introH": "One team, <em>every detail.</em>",
+   "intro": [
+    "Planning an event usually means juggling a creative agency, a production house, an AV supplier and a venue. At Doers one team handles all of it, so the event on the day matches the concept you approved.",
+    "Since 2013 we have produced events for technology, healthcare and FMCG brands, from intimate executive dinners to multi-day conferences with thousands of guests."
+   ],
+   "cases": [
+    {
+     "tag": "Technology · Conference & gala · Giza",
+     "client": "EDIOV by ISYS & IBM",
+     "text": "A full day for ISYS and IBM: talks and demos in a historic hall, a garden dinner facing the Pyramids and an evening with the EDIOV arch, stage and LED walls.",
+     "img": "/img/work/ediov-arch.jpg",
+     "alt": "The EDIOV arch by ISYS and IBM facing the Pyramids"
+    },
+    {
+     "tag": "Healthcare · Ramadan night · Nile Ritz-Carlton",
+     "client": "Alfa Medical City",
+     "text": "A Ramadan gathering for Alfa Medical City at the Nile Ritz-Carlton: branded lounge, LED stage, live band and gift displays for guests.",
+     "img": "/img/work/alfa-live-band.jpg",
+     "alt": "Live band on stage at the Alfa Medical City Ramadan night"
+    },
+    {
+     "tag": "Technology · Customer event",
+     "client": "Dell Technologies",
+     "text": "Dell Technologies Customer Experience Day: registration, stage, demos and hospitality for Dell's customers and partners.",
+     "img": "/img/films/1231075395.jpg",
+     "vimeo": "1231075395"
+    },
+    {
+     "tag": "Technology · Corporate event",
+     "client": "ISYS",
+     "text": "Registration, a branded entrance arch, an exhibition zone and the main stage for an ISYS event.",
+     "img": "/img/films/1231076338.jpg",
+     "vimeo": "1231076338"
+    }
+   ]
+  },
+  "ksa": {
+   "eyebrow": "Event management agency in Jeddah",
+   "slogan": "Events that match <em>the ambition of the Kingdom.</em>",
+   "lead": "From our Jeddah office we plan and run corporate events, conferences, launches and activations across Saudi Arabia, with the permits, venues and suppliers handled for you.",
+   "introH": "Local know-how, <em>regional scale.</em>",
+   "intro": [
+    "Events in Saudi Arabia move fast and come with their own venue rules and permits. Our Jeddah team handles approvals, venues and suppliers locally, and brings in our Cairo production crew for large builds.",
+    "We produced for the Jeddah Defense Show at Hilton Jeddah and deliver launches, conferences and corporate nights for clients across Jeddah, Riyadh and the Gulf. Below are some of the events our teams produced recently."
+   ],
+   "cases": [
+    {
+     "tag": "Technology · Conference & gala · Cairo",
+     "client": "EDIOV by ISYS & IBM",
+     "text": "Talks and demos, a garden dinner facing the Pyramids and an evening with the EDIOV arch, stage and LED walls, all produced by our team.",
+     "img": "/img/work/ediov-arch.jpg",
+     "alt": "The EDIOV arch by ISYS and IBM facing the Pyramids"
+    },
+    {
+     "tag": "Technology · Customer event · Cairo",
+     "client": "Dell Technologies",
+     "text": "Dell Technologies Customer Experience Day: registration, stage, demos and hospitality for customers and partners.",
+     "img": "/img/films/1231075395.jpg",
+     "vimeo": "1231075395"
+    },
+    {
+     "tag": "Healthcare · Ramadan night · Cairo",
+     "client": "Alfa Medical City",
+     "text": "A Ramadan gathering with a branded lounge, LED stage, live band and gift displays for guests.",
+     "img": "/img/work/alfa-live-band.jpg",
+     "alt": "Live band on stage at the Alfa Medical City Ramadan night"
+    },
+    {
+     "tag": "Technology · Corporate event · Cairo",
+     "client": "ISYS",
+     "text": "Registration, a branded entrance arch, an exhibition zone and the main stage.",
+     "img": "/img/films/1231076338.jpg",
+     "vimeo": "1231076338"
+    }
+   ]
+  }
+ },
+ "ar": {
+  "base": {
+   "crumb": "تنظيم الفعاليات",
+   "band": "events-ediov",
+   "stats": [
+    [
+     "2013",
+     "ننظم فعاليات كبيرة منذ"
+    ],
+    [
+     "+15",
+     "عامًا من الخبرة التسويقية"
+    ],
+    [
+     "6",
+     "دول نفذنا فيها"
+    ],
+    [
+     "1",
+     "فريق من الفكرة حتى يوم الحدث"
+    ]
+   ],
+   "servicesH": "فعاليات <em>ننفذها.</em>",
+   "servicesP": "من مئة ضيف إلى بضعة آلاف، نصمم التجربة وننفذها وندير الحدث يوم التنفيذ.",
+   "services": [
+    {
+     "t": "إطلاق المنتجات",
+     "d": "لحظات كشف وعروض على المسرح وأيام إعلامية تمنح الإطلاق التأثير الذي يستحقه.",
+     "tags": [
+      "لحظات الكشف",
+      "الأيام الإعلامية",
+      "إطلاق للموزعين"
+     ]
+    },
+    {
+     "t": "المؤتمرات والقمم",
+     "d": "التسجيل والمسرح والمتحدثون والجلسات الجانبية والصوت والصورة لمؤتمرات التكنولوجيا والشركات.",
+     "tags": [
+      "التسجيل",
+      "إدارة المتحدثين",
+      "الجلسات الجانبية",
+      "البث المباشر"
+     ]
+    },
+    {
+     "t": "حفلات العشاء وأمسيات الشركات",
+     "d": "عشاءات بطابع خاص وليالٍ رمضانية وحفلات تكريم واحتفالات بالترفيه والضيافة.",
+     "tags": [
+      "ليالي رمضان",
+      "حفلات التكريم",
+      "الترفيه"
+     ]
+    },
+    {
+     "t": "التفعيلات والجولات الترويجية",
+     "d": "تفعيلات في المولات وتوزيع عينات وجولات ترويجية تصل بالعلامة إلى عملائها.",
+     "tags": [
+      "توزيع العينات",
+      "تفعيلات المولات",
+      "الجولات الترويجية"
+     ]
+    },
+    {
+     "t": "المسرح والصوت والإضاءة",
+     "d": "شاشات LED وبناء المسارح والصوت والإضاءة وإدارة العرض بفريقنا الفني.",
+     "tags": [
+      "شاشات LED",
+      "بناء المسارح",
+      "إدارة العرض"
+     ]
+    },
+    {
+     "t": "الترويج في المتاجر وتغليف السيارات",
+     "d": "ملصقات الأرفف وطاولات العرض والمعلقات والسيارات المغلفة التي تبيع في مكانها.",
+     "tags": [
+      "هوية داخل المتجر",
+      "طاولات العرض",
+      "تغليف السيارات"
+     ]
+    },
+    {
+     "t": "الفعاليات الافتراضية والهجينة",
+     "d": "بث مباشر ومسارح افتراضية وجلسات تفاعلية للجمهور الذي لا يستطيع الحضور.",
+     "tags": [
+      "البث المباشر",
+      "الفعاليات الهجينة",
+      "التواصل الافتراضي"
+     ]
+    },
+    {
+     "t": "التغطية والمحتوى",
+     "d": "تصوير فوتوغرافي وأفلام مختصرة ومحتوى للسوشيال يُصور يوم الحدث ويُجهز في الليلة نفسها.",
+     "tags": [
+      "أفلام مختصرة",
+      "التصوير",
+      "محتوى السوشيال"
+     ]
+    }
+   ],
+   "processH": "من الفكرة <em>حتى يوم الحدث.</em>",
+   "processP": "كل فعالية تمر بست مراحل، مع منتج واحد مسؤول من أول مكالمة حتى تقرير الختام.",
+   "process": [
+    [
+     "الاستلام",
+     "الأهداف والجمهور والمكان والميزانية والبرنامج الذي تتصوره."
+    ],
+    [
+     "الفكرة والتصميم ثلاثي الأبعاد",
+     "التوجه الإبداعي والفكرة ثنائية الأبعاد ومحاكاة ثلاثية الأبعاد للمكان قبل أي تنفيذ."
+    ],
+    [
+     "المكان والموردون",
+     "حجز المكان والتصاريح والضيافة والفنانين وكل الموردين والتعاقد معهم."
+    ],
+    [
+     "الإنتاج",
+     "تنفيذ المسرح والصوت والصورة والهوية والديكور مع فحص كل مرحلة."
+    ],
+    [
+     "يوم الحدث",
+     "فريقنا يدير التسجيل والمسرح والكواليس لتتفرغ لضيوفك."
+    ],
+    [
+     "الختام",
+     "الصور والفيلم المختصر وتقرير عن الحضور والنتائج."
+    ]
+   ],
+   "casesH": "فعاليات <em>حديثة.</em>",
+   "casesP": "اضغط على أي فيديو لمشاهدة أبرز اللقطات.",
+   "galleryH": "من <em>قلب الحدث.</em>",
+   "gallery": [
+    {
+     "src": "/img/work/ediov-dinner.jpg",
+     "alt": "EDIOV من ISYS وIBM: عشاء في الحديقة أمام الأهرامات"
+    },
+    {
+     "src": "/img/work/ediov-stage.jpg",
+     "alt": "EDIOV: كلمة رئيسية على المسرح"
+    },
+    {
+     "src": "/img/work/ediov-guests.jpg",
+     "alt": "EDIOV: الضيوف في عروض ISYS وIBM"
+    },
+    {
+     "src": "/img/work/alfa-ramadan-hall.jpg",
+     "alt": "مدينة ألفا الطبية: قاعة الأمسية الرمضانية"
+    },
+    {
+     "src": "/img/work/alfa-gifts.jpg",
+     "alt": "مدينة ألفا الطبية: عرض الهدايا بهوية العلامة"
+    },
+    {
+     "src": "/img/work/alfa-ritz-terrace.jpg",
+     "alt": "مدينة ألفا الطبية: جلسات التراس في نايل ريتز كارلتون"
+    }
+   ],
+   "heroImg": {
+    "src": "/img/work/ediov-dinner.jpg",
+    "alt": "EDIOV من ISYS وIBM: عشاء في الحديقة أمام الأهرامات من تنفيذ دورز"
+   }
+  },
+  "eg": {
+   "eyebrow": "شركة تنظيم فعاليات في القاهرة، مصر",
+   "slogan": "ليالٍ لا تُنسى. <em>وإطلاقات يتحدث عنها الجميع.</em>",
+   "lead": "نصمم وننتج وندير فعاليات الشركات وإطلاق المنتجات والمؤتمرات والحفلات في أنحاء مصر، من الفكرة ثلاثية الأبعاد والمسرح إلى اللوجستيات وإدارة يوم الحدث.",
+   "introH": "فريق واحد <em>لكل التفاصيل.</em>",
+   "intro": [
+    "تنظيم فعالية يعني عادةً التعامل مع وكالة إبداعية وشركة إنتاج ومورد للصوت والصورة ومكان. في دورز يتولى فريق واحد كل ذلك، فتأتي الفعالية يوم التنفيذ مطابقة للفكرة التي اعتمدتها.",
+    "منذ 2013 ننتج فعاليات لعلامات التكنولوجيا والرعاية الصحية والسلع الاستهلاكية، من عشاءات تنفيذية صغيرة إلى مؤتمرات لعدة أيام بآلاف الضيوف."
+   ],
+   "cases": [
+    {
+     "tag": "تكنولوجيا · مؤتمر وأمسية · الجيزة",
+     "client": "EDIOV من ISYS وIBM",
+     "text": "يوم كامل لـ ISYS وIBM: جلسات وعروض في قاعة تاريخية، وعشاء في حديقة أمام الأهرامات، وأمسية مع قوس EDIOV والمسرح وشاشات LED.",
+     "img": "/img/work/ediov-arch.jpg",
+     "alt": "قوس EDIOV من ISYS وIBM أمام الأهرامات"
+    },
+    {
+     "tag": "رعاية صحية · ليلة رمضانية · نايل ريتز كارلتون",
+     "client": "مدينة ألفا الطبية",
+     "text": "أمسية رمضانية لمدينة ألفا الطبية في نايل ريتز كارلتون: جلسات بهوية العلامة ومسرح LED وفرقة موسيقية وعروض للهدايا.",
+     "img": "/img/work/alfa-live-band.jpg",
+     "alt": "فرقة موسيقية على المسرح في أمسية ألفا الرمضانية"
+    },
+    {
+     "tag": "تكنولوجيا · فعالية للعملاء",
+     "client": "Dell Technologies",
+     "text": "يوم تجربة العملاء لـ Dell Technologies: التسجيل والمسرح والعروض والضيافة لعملاء Dell وشركائها.",
+     "img": "/img/films/1231075395.jpg",
+     "vimeo": "1231075395"
+    },
+    {
+     "tag": "تكنولوجيا · فعالية شركات",
+     "client": "ISYS",
+     "text": "التسجيل وقوس دخول بهوية العلامة ومنطقة عرض والمسرح الرئيسي لفعالية ISYS.",
+     "img": "/img/films/1231076338.jpg",
+     "vimeo": "1231076338"
+    }
+   ]
+  },
+  "ksa": {
+   "eyebrow": "شركة تنظيم فعاليات في جدة",
+   "slogan": "فعاليات بحجم <em>طموح المملكة.</em>",
+   "lead": "من مكتبنا في جدة نخطط وندير فعاليات الشركات والمؤتمرات وإطلاق المنتجات والتفعيلات في أنحاء السعودية، ونتولى التصاريح والأماكن والموردين نيابةً عنك.",
+   "introH": "خبرة محلية <em>بحجم إقليمي.</em>",
+   "intro": [
+    "الفعاليات في السعودية تتحرك بسرعة، ولها اشتراطات خاصة للأماكن والتصاريح. فريقنا في جدة يتولى الموافقات والأماكن والموردين محليًا، ويستعين بفريق الإنتاج في القاهرة للتنفيذات الكبيرة.",
+    "نفذنا الإنتاج لمعرض جدة للدفاع في هيلتون جدة، وننفذ إطلاقات ومؤتمرات وأمسيات للشركات لعملاء في جدة والرياض والخليج. وفيما يلي بعض الفعاليات التي نفذتها فرقنا مؤخرًا."
+   ],
+   "cases": [
+    {
+     "tag": "تكنولوجيا · مؤتمر وأمسية · القاهرة",
+     "client": "EDIOV من ISYS وIBM",
+     "text": "جلسات وعروض، وعشاء في حديقة أمام الأهرامات، وأمسية مع قوس EDIOV والمسرح وشاشات LED، كلها من تنفيذ فريقنا.",
+     "img": "/img/work/ediov-arch.jpg",
+     "alt": "قوس EDIOV من ISYS وIBM أمام الأهرامات"
+    },
+    {
+     "tag": "تكنولوجيا · فعالية للعملاء · القاهرة",
+     "client": "Dell Technologies",
+     "text": "يوم تجربة العملاء لـ Dell Technologies: التسجيل والمسرح والعروض والضيافة للعملاء والشركاء.",
+     "img": "/img/films/1231075395.jpg",
+     "vimeo": "1231075395"
+    },
+    {
+     "tag": "رعاية صحية · ليلة رمضانية · القاهرة",
+     "client": "مدينة ألفا الطبية",
+     "text": "أمسية رمضانية بجلسات بهوية العلامة ومسرح LED وفرقة موسيقية وعروض للهدايا.",
+     "img": "/img/work/alfa-live-band.jpg",
+     "alt": "فرقة موسيقية على المسرح في أمسية ألفا الرمضانية"
+    },
+    {
+     "tag": "تكنولوجيا · فعالية شركات · القاهرة",
+     "client": "ISYS",
+     "text": "التسجيل وقوس دخول بهوية العلامة ومنطقة عرض والمسرح الرئيسي.",
+     "img": "/img/films/1231076338.jpg",
+     "vimeo": "1231076338"
+    }
+   ]
+  }
+ }
+}

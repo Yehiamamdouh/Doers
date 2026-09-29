@@ -63,5 +63,19 @@
   "pages": [
    "/event-management-cairo-egypt/"
   ]
+ },
+ "events-ediov": {
+  "source": "Drive: BTL videos and files / Copy of EDIOV 5.mov (1:03–1:12)",
+  "en": {
+   "label": "Event management",
+   "title": "Events worth the trip.",
+   "sub": "EDIOV by ISYS and IBM: talks, a garden dinner and a gala night facing the Pyramids."
+  },
+  "ar": {
+   "label": "تنظيم الفعاليات",
+   "title": "فعاليات تستحق الحضور.",
+   "sub": "EDIOV من ISYS وIBM: جلسات وعشاء في الحديقة وأمسية أمام الأهرامات."
+  },
+  "pages": []
  }
 }

@@ -137,6 +137,13 @@ const schema = {
         </section>
       )}
 
+      {r.gallery && (
+        <section class="rs-sec">
+          {r.galleryH && <div class="rs-head"><h2 class="rs-h2" set:html={r.galleryH} /></div>}
+          <div class="rs-gal">{r.gallery.map((g) => <figure><img src={g.src} alt={g.alt} loading="lazy"><figcaption>{g.alt}</figcaption></figure>)}</div>
+        </section>
+      )}
+
       {r.reels && (
         <section class="rs-sec">
           <div class="rs-head"><h2 class="rs-h2" set:html={r.reelsH} />{r.reelsP && <p>{r.reelsP}</p>}</div>

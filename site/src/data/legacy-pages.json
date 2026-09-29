@@ -683,7 +683,8 @@
     "text": "We have been delivering large-scale events to our partners since our launch in 2013. We take great pride in standing out as a market leader, and we keep working to excel and to keep delighting our partners. I look forward to working with you soon.",
     "name": "Anas Dessouki",
     "role": "Head of Events",
-    "img": "/img/legacy/2020-03-anas.jpg"
+    "img": "/img/legacy/2020-03-anas.jpg",
+    "nodes": []
    },
    {
     "h2": "— Project",
@@ -791,18 +792,6 @@
      {
       "t": "p",
       "html": "From venue selection and logistics to player and team management to spectator experience and security, we handle every aspect of the planning process with precision and attention to detail."
-     },
-     {
-      "t": "h3",
-      "html": "Exhibitions"
-     },
-     {
-      "t": "p",
-      "html": "We understand the importance of showcasing your brand, products, and services to the right audience. That’s why we are dedicated to providing the best exhibition event management service in the industry."
-     },
-     {
-      "t": "p",
-      "html": "We have extensive experience in planning and executing exhibitions of all sizes and types. Whether it is venue selection and logistics or booth design and setup to guest management and marketing, we handle all aspects of the planning process with great care and attention to detail."
      }
     ],
     "img": {
@@ -4600,7 +4589,8 @@
     "text": "ننظم فعاليات كبيرة لشركائنا منذ انطلاقنا في 2013، ونفخر بأننا نميز أنفسنا كرواد في السوق، مع حرصنا الدائم على التطور والتفوق لنواصل إسعاد شركائنا. أتطلع للتعاون معكم قريبًا.",
     "name": "أنس دسوقي",
     "role": "رئيس قسم الفعاليات",
-    "img": "/img/legacy/2020-03-anas.jpg"
+    "img": "/img/legacy/2020-03-anas.jpg",
+    "nodes": []
    },
    {
     "h2": "— مشروعات",
@@ -4708,22 +4698,6 @@
      {
       "t": "p",
       "html": "نتعامل مع كل جانب من جوانب عملية التخطيط بدقة واهتمام بالتفاصيل، بدءاً من اختيار مكان إقامة البطولة والخدمات اللوجستية إلى إدارة اللاعبين والفرق إلى تجربة المتفرجين والأمن."
-     },
-     {
-      "t": "h3",
-      "html": "المعارض"
-     },
-     {
-      "t": "p",
-      "html": "نحن ندرك أهمية عرض علامتك التجارية ومنتجاتك وخدماتك للجمهور المناسب. لهذا السبب نحن ملتزمون بتقديم أفضل خدمات إدارة فعاليات المعارض في هذا المجال."
-     },
-     {
-      "t": "p",
-      "html": "لدينا خبرة واسعة في تخطيط وتنفيذ المعارض من جميع الأحجام والأنواع. وسواء كان الأمر يتعلق باختيار المكان والخدمات اللوجستية أو تصميم المقصورة وإعدادها إلى إدارة الضيوف والتسويق، فإننا نتعامل مع جميع جوانب عملية التخطيط بعناية فائقة واهتمام بالغ بالتفاصيل."
-     },
-     {
-      "t": "p",
-      "html": "التسويق"
      }
     ],
     "img": {
