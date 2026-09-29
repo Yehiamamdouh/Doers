@@ -48,7 +48,8 @@ jobs:
           STAGING: ${{ (github.event.inputs.target || 'staging') == 'staging' && '1' || '0' }}
       - name: Block search engines on staging
         if: ${{ (github.event.inputs.target || 'staging') == 'staging' }}
-        run: printf 'User-agent: *\nDisallow: /\n' > dist/robots.txt
+        run: |
+          printf 'User-agent: *\nDisallow: /\n' > dist/robots.txt
       - name: Upload over FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
