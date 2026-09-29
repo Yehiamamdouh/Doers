@@ -1,7 +1,7 @@
 ---
-title: "Exhibition Stand in Egypt: Timeline, Costs & Checklist (2026) | Doers"
-h1: "How to plan an exhibition stand in Egypt: timeline, cost drivers and a checklist"
-description: "Planning a stand for Cairo ICT, EGYPES or another Egyptian show? The timeline to follow, what drives the cost of a custom stand, and a checklist from our booth production team."
+title: "Exhibition Stand in Egypt: Stages, Costs & Checklist (2026) | Doers"
+h1: "How to plan an exhibition stand in Egypt: the stages, cost drivers and a checklist"
+description: "Planning a stand for Cairo ICT, EGYPES or another Egyptian show? The stages to plan, what drives the cost of a custom stand, and a checklist from our booth production team."
 lang: en
 date: 2026-09-29T09:00:00+00:00
 cover: /img/work/technip-egypes-1.jpg
