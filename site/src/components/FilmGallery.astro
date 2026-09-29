@@ -6,7 +6,7 @@
 import media from '../data/media-films.json';
 import films from '../data/films.json';
 import VimeoLightbox from './VimeoLightbox.astro';
-const { lang = 'en' } = Astro.props;
+const { lang = 'en', reelsFirst = false } = Astro.props;
 const ar = lang === 'ar';
 const reel = films.find((f) => f.key === 'showreel' && f.vimeo);
 const L = ar
@@ -14,7 +14,19 @@ const L = ar
   : { h: 'Films we <em>produced.</em>', p: 'Ads, corporate films, explainers and motion graphics we scripted, shot and animated, for brands from EMS to the Dubai Financial Market.', reels: 'Reels for <em>social.</em>', rp: 'Vertical reels for Instagram and TikTok: food, product and 3D content that stops thumbs.', play: 'Play', showreel: 'Doers showreel' };
 ---
 <section class="p-sec fg" id="films">
-  <h2 set:html={L.h} />
+  {reelsFirst ? <>
+  <h2 class={reelsFirst ? undefined : 'fg-h2'} set:html={L.reels} />
+  <p class="fg-p">{L.rp}</p>
+  <div class="fg-reels">
+    {media.reels.map((r) => (
+      <button type="button" class="fg-film" data-vimeo={r.id} data-tall="1" aria-label={`${L.play}: ${ar ? r.ar : r.en}`}>
+        <span class="fg-fr tall"><img src={`/img/films/${r.id}.jpg`} alt="" loading="lazy"><span class="fg-pl" aria-hidden="true"></span></span>
+        <span class="fg-cap"><span>{ar ? r.ar : r.en}</span></span>
+      </button>
+    ))}
+  </div>
+  </> : null}
+  <h2 class={reelsFirst ? 'fg-h2' : undefined} set:html={L.h} />
   <p class="fg-p">{L.p}</p>
   {reel && (
     <button type="button" class="fg-film fg-reel" data-vimeo={reel.vimeo}>
@@ -33,7 +45,8 @@ const L = ar
       );
     })}
   </div>
-  <h2 class="fg-h2" set:html={L.reels} />
+  {!reelsFirst ? <>
+  <h2 class={reelsFirst ? undefined : 'fg-h2'} set:html={L.reels} />
   <p class="fg-p">{L.rp}</p>
   <div class="fg-reels">
     {media.reels.map((r) => (
@@ -43,6 +56,7 @@ const L = ar
       </button>
     ))}
   </div>
+  </> : null}
 </section>
 <VimeoLightbox />
 <style is:global>

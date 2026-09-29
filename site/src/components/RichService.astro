@@ -89,6 +89,8 @@ const schema = {
     <ServiceStrip lang={lang} items={r.strip || [...(r.services || []).map((x) => x.t), ...(r.process || []).map((x) => x[0])]} />
     {r.band && <VideoBand id={r.band} lang={lang} ksa={ksa} />}
     <div class="wrap">
+      {r.films === 'top' && <FilmGallery lang={lang} reelsFirst />}
+
       {r.stats && (
         <div class="rs-stats">
           {r.stats.map(([v, l]) => <div><b>{v}</b><span>{l}</span></div>)}
@@ -147,7 +149,7 @@ const schema = {
         </section>
       )}
 
-      {r.films && <FilmGallery lang={lang} />}
+      {r.films && r.films !== 'top' && <FilmGallery lang={lang} />}
 
       {r.gallery && (
         <section class="rs-sec">

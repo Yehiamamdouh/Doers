@@ -184,7 +184,7 @@
      ]
     }
    ],
-   "films": true
+   "films": "top"
   }
  },
  "ar": {
@@ -350,7 +350,7 @@
      ]
     }
    ],
-   "films": true
+   "films": "top"
   }
  }
 }

@@ -23,7 +23,7 @@ en = {"crumb": "Media Production", "eyebrow": "Video & media production company 
   {"tag": "Fitness tech · TV commercial", "client": "EMS Revolution", "text": "A one-minute TV and digital ad starring Karim Benzema.", "img": F("485728474"), "vimeo": "485728474", "alt": "EMS Revolution ad with Karim Benzema"},
   {"tag": "Technology · Explainer series", "client": "IBM × iSYS", "text": "A series of animated explainers for IBM Cloud Pak for Data, POWER10 and Virtual Server on Cloud, turning complex infrastructure into clear stories.", "img": F("858592136"), "vimeo": "858592136", "metrics": [["4", "Explainers"], ["EN", "Voice-over"]]},
   {"tag": "Government · Awareness campaign", "client": "Ministry of Petroleum", "text": "A corporate film and public awareness spots on natural gas and fuel tips.", "img": F("662442474"), "vimeo": "662442474", "metrics": [["3", "Films"]]}],
- "films": True}
+ "films": "top"}
 ar = {"crumb": "الإنتاج الإعلامي", "eyebrow": "شركة إنتاج فيديو وإعلام في القاهرة، مصر",
  "heroFilm": {"vimeo": "673930542", "img": F("673930542"), "alt": "سوق دبي المالي: حملة المستثمرين من جيل Z"},
  "slogan": "حكايات <em>بتتحرك.</em>", "lead": "بنكتب ونصوّر ونحرّك ونمنتج إعلانات تلفزيون وأفلام مؤسسية وفيديوهات شرح وموشن جرافيك و3D وريلز للسوشيال، لعلامات من EMS وIBM لحد سوق دبي المالي.",
@@ -46,7 +46,7 @@ ar = {"crumb": "الإنتاج الإعلامي", "eyebrow": "شركة إنتا�
   {"tag": "تكنولوجيا اللياقة · إعلان تلفزيوني", "client": "EMS Revolution", "text": "إعلان دقيقة للتلفزيون والديجيتال بطولة كريم بنزيما.", "img": F("485728474"), "vimeo": "485728474", "alt": "إعلان EMS Revolution مع كريم بنزيما"},
   {"tag": "تكنولوجيا · سلسلة فيديوهات شرح", "client": "IBM × iSYS", "text": "سلسلة فيديوهات أنيميشن لـIBM Cloud Pak for Data وPOWER10 وVirtual Server on Cloud، بتحوّل البنية التقنية المعقدة لحكايات واضحة.", "img": F("858592136"), "vimeo": "858592136", "metrics": [["4", "فيديوهات شرح"], ["EN", "تعليق صوتي"]]},
   {"tag": "حكومي · حملة توعية", "client": "وزارة البترول", "text": "فيلم مؤسسي وإعلانات توعية عن الغاز الطبيعي ونصايح الوقود.", "img": F("662442474"), "vimeo": "662442474", "metrics": [["3", "أفلام"]]}],
- "films": True}
+ "films": "top"}
 d = {"id": "media", "paths": {"eg": "/media-production-egypt/"}, "en": {"base": en}, "ar": {"base": ar}}
 json.dump(d, open('src/data/services/media.json', 'w'), ensure_ascii=False, indent=1)
 print('ok')
