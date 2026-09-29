@@ -32,6 +32,7 @@ const schema = {
     { '@type': 'LocalBusiness', '@id': `${site}/#jeddah`, name: 'Doers Advertising Agency, Jeddah', parentOrganization: { '@id': `${site}/#organization` }, telephone: '+966509881646', address: { '@type': 'PostalAddress', streetAddress: 'Zahran Building Center, Tower B, 12th Floor', addressLocality: 'Jeddah', postalCode: '21491', addressCountry: 'SA' }, openingHours: 'Su-Th 10:00-18:00', url: site + '/ksa/' },
   ],
 };
+import turnstile from '../data/turnstile.json';
 ---
 <Base title={t.title} description={t.desc} path={path} lang={lang} alternates={{ en: '/contact-us/', ar: '/ar/contact-us/' }} schema={schema} styles={['/css/site.css', '/css/contact.css']}>
   <SiteHeader lang={lang} altHref={ar ? '/contact-us/' : '/ar/contact-us/'} />
@@ -50,6 +51,7 @@ const schema = {
       </div>
       <form class="cform" id="cform" action="/contact.php" method="post" novalidate>
         <input type="hidden" name="lang" value={lang}>
+        <input type="hidden" name="t" id="cf-t" value="">
         <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" id="cf-website" tabindex="-1" autocomplete="off"></label></div>
         <div class="row">
           <label for="cf-name">{t.name} <small>({t.required})</small><input id="cf-name" name="name" required autocomplete="name"></label>
@@ -64,6 +66,7 @@ const schema = {
           <label for="cf-city">{t.city}<select id="cf-city" name="city"><option>{t.cairo}</option><option>{t.jeddah}</option><option>Riyadh</option><option>Dubai</option><option>{t.other}</option></select></label>
         </div>
         <label for="cf-message">{t.message} <small>({t.required})</small><textarea id="cf-message" name="message" rows="6" required></textarea></label>
+        {turnstile.siteKey && <div class="cf-turnstile" data-sitekey={turnstile.siteKey} data-language={lang} data-size="flexible" data-appearance="interaction-only"></div>}
         <button class="btn btn-o" type="submit" id="cf-send">{t.send} <span class="arrow">↗</span></button>
         <p class="status" id="cf-status" role="status" aria-live="polite"></p>
       </form>
@@ -72,18 +75,21 @@ const schema = {
   <SiteFooter lang={lang} />
   <script is:inline define:vars={{ okMsg: t.ok, errMsg: t.err, sending: t.sending, sendTxt: t.send }}>
     const f = document.getElementById('cform'), st = document.getElementById('cf-status'), btn = document.getElementById('cf-send');
+    const loaded = Date.now(); // how long the visitor spent on the form is sent with it; bots post within a second or two
     f.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!f.checkValidity()) { f.reportValidity(); return; }
+      document.getElementById('cf-t').value = Date.now() - loaded;
       btn.disabled = true; btn.firstChild.textContent = sending + ' ';
       try {
         const r = await fetch(f.action, { method: 'POST', body: new FormData(f), headers: { Accept: 'application/json' } });
         const j = await r.json().catch(() => ({}));
         if (!r.ok || !j.ok) throw new Error();
-        f.reset(); st.textContent = okMsg; st.className = 'status ok';
+        f.reset(); window.turnstile && turnstile.reset(); st.textContent = okMsg; st.className = 'status ok';
         window.dataLayer && window.dataLayer.push({ event: 'generate_lead', form: 'contact' });
       } catch { st.textContent = errMsg; st.className = 'status err'; }
       finally { btn.disabled = false; btn.firstChild.textContent = sendTxt + ' '; }
     });
   </script>
+  {turnstile.siteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
 </Base>

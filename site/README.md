@@ -63,3 +63,14 @@ Full-length films belong on Vimeo, not on the hosting.
 `python3 scripts/vimeo_upload.py` sends each one to Vimeo straight from Drive and writes the Vimeo id back into the file;
 the matching video band then shows a "Watch the full film" button. It needs a Vimeo personal access token with the
 upload, edit and private scopes in the `VIMEO_TOKEN` environment variable, and network access to `api.vimeo.com`.
+
+## Contact form spam protection
+
+- Always on: a hidden honeypot field, a timing check (bots that submit within 3 seconds get a fake success) and 5 messages per hour per visitor.
+- Cloudflare Turnstile (off until keys exist): Cloudflare dashboard → Turnstile → Add widget for `doersadv.com` (and `staging.doersadv.com`).
+  1. Put the **site key** in `src/data/turnstile.json` (it's public).
+  2. Put the **secret key** on the server, one level above `public_html`, in `doers-site-config.php`:
+     ```php
+     <?php return ['turnstile_secret' => '…'];
+     ```
+  The form checks the token only when the secret is set, so the two steps can happen in either order.

@@ -20,6 +20,25 @@ function respond(bool $ok, int $code = 200): void {
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') respond(false, 405);
 if (!empty($_POST['website'])) respond(true);           // honeypot: pretend success to bots
+// Timing trap: the page sends how many milliseconds the visitor spent on the form (measured in their browser).
+// A person needs more than 3 seconds; bots that post instantly get a fake success. No value (no JavaScript) is allowed.
+$t = $_POST['t'] ?? '';
+if ($t !== '' && (int)$t < 3000) respond(true);
+
+// Cloudflare Turnstile, once the secret key is set in doers-site-config.php (one level above public_html):
+//   <?php return ['turnstile_secret' => '...'];
+$config = @include dirname($_SERVER['DOCUMENT_ROOT']) . '/doers-site-config.php';
+$secret = is_array($config) ? ($config['turnstile_secret'] ?? '') : '';
+if ($secret !== '') {
+    $token = (string)($_POST['cf-turnstile-response'] ?? '');
+    $ctx = stream_context_create(['http' => [
+        'method' => 'POST', 'timeout' => 8,
+        'header' => 'Content-Type: application/x-www-form-urlencoded',
+        'content' => http_build_query(['secret' => $secret, 'response' => $token, 'remoteip' => $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? '']),
+    ]]);
+    $check = json_decode((string)@file_get_contents('https://challenges.cloudflare.com/turnstile/v0/siteverify', false, $ctx), true);
+    if (empty($check['success'])) respond(false, 403);
+}
 
 $clean = fn(string $k, int $max) => trim(mb_substr(str_replace(["\r", "\n"], ' ', (string)($_POST[$k] ?? '')), 0, $max));
 $name = $clean('name', 120);
@@ -28,7 +47,7 @@ $message = trim(mb_substr((string)($_POST['message'] ?? ''), 0, 5000));
 if ($name === '' || $email === '' || $message === '') respond(false, 422);
 
 // Simple per-IP rate limit stored in the system temp folder.
-$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$ip = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? 'unknown';  // behind Cloudflare, REMOTE_ADDR is Cloudflare's
 $bucket = sys_get_temp_dir() . '/doers_contact_' . md5($ip);
 $hits = array_filter(explode(',', (string)@file_get_contents($bucket)), fn($t) => (int)$t > time() - 3600);
 if (count($hits) >= MAX_PER_HOUR) respond(false, 429);
