@@ -6,10 +6,11 @@
  */
 import bands from '../data/video-bands.json';
 import films from '../data/films.json';
-const { id, lang = 'en' } = Astro.props;
+const { id, lang = 'en', ksa = false } = Astro.props;
 const b = bands[id];
 const ar = lang === 'ar';
-const t = ar ? b.ar : b.en;
+// Arabic: Egyptian for Cairo pages, Modern Standard Arabic (ar_ksa) for Saudi pages.
+const t = ar ? (ksa && b.ar_ksa) || b.ar : b.en;
 // Full film on Vimeo, once scripts/vimeo_upload.py has uploaded it.
 const film = films.find((f) => f.key === id && f.vimeo);
 import VimeoLightbox from './VimeoLightbox.astro';

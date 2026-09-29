@@ -13,7 +13,9 @@ export function richFor(enPath, lang) {
     const city = Object.keys(s.paths).find((c) => s.paths[c] === enPath);
     if (!city) continue;
     const t = s[lang] || s.en;
-    return { id: s.id, city, paths: s.paths, ...(t.base || {}), ...(t[city] || {}) };
+    // Arabic: Cairo pages are in Egyptian Arabic (base), Saudi pages in Modern Standard Arabic (base_ksa over base).
+    const ksaBase = lang === 'ar' && city !== 'eg' ? t.base_ksa || {} : {};
+    return { id: s.id, city, paths: s.paths, ...(t.base || {}), ...ksaBase, ...(t[city] || {}) };
   }
   return null;
 }

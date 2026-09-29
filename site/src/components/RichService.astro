@@ -23,7 +23,7 @@ const enPath = ar ? p.path.slice(3) : p.path;
 const alternates = alt ? { en: enPath, ar: '/ar' + enPath } : ar ? { ar: p.path } : { en: p.path };
 const ksa = r.city !== 'eg';
 const L = ar
-  ? { home: 'الرئيسية', ksa: 'السعودية', crumbs: 'مسار الصفحة', start: 'ابدأ مشروعك', wa: 'واتساب', cairo: 'القاهرة', jeddah: 'جدة', riyadh: 'الرياض', city: 'اختر المدينة', faq: 'أسئلة <em>شائعة.</em>', more: ksa ? 'خدماتنا في جدة' : 'خدماتنا في القاهرة', play: 'شغّل', readMore: 'اقرأ المزيد عن الخدمة', ctaH: 'يلا <em>نشتغل.</em>', ctaP: 'احكيلنا عن مشروعك، وهنرد عليك خلال يوم عمل واحد بخطة وتكلفة واضحة.' }
+  ? { home: 'الرئيسية', ksa: 'السعودية', crumbs: 'مسار الصفحة', start: 'ابدأ مشروعك', wa: 'واتساب', cairo: 'القاهرة', jeddah: 'جدة', riyadh: 'الرياض', city: 'اختر المدينة', faq: 'أسئلة <em>شائعة.</em>', more: ksa ? 'خدماتنا في جدة' : 'خدماتنا في القاهرة', play: 'تشغيل', readMore: 'اقرأ المزيد عن الخدمة', ctaH: ksa ? 'لنبدأ <em>العمل.</em>' : 'يلا <em>نشتغل.</em>', ctaP: ksa ? 'حدّثنا عن مشروعك، وسنرد عليك خلال يوم عمل واحد بخطة وتكلفة واضحة.' : 'احكيلنا عن مشروعك، وهنرد عليك خلال يوم عمل واحد بخطة وتكلفة واضحة.' }
   : { home: 'Home', ksa: 'KSA', crumbs: 'Breadcrumb', start: 'Start a project', wa: 'WhatsApp us', cairo: 'Cairo', jeddah: 'Jeddah', riyadh: 'Riyadh', city: 'Choose a city', faq: 'Questions, <em>answered.</em>', more: ksa ? 'More from our Jeddah team' : 'More from our Cairo team', play: 'Play', readMore: 'Read more about this service', ctaH: 'Let’s <em>talk.</em>', ctaP: 'Tell us about the project. We reply within one working day with a plan and a clear quote.' };
 const reelTitle = (id) => { const x = media.reels.find((m) => m.id === id) || media.films.find((m) => m.id === id); return x ? (ar ? x.ar : x.en) : ''; };
 const faq = (faqs[enPath] && faqs[enPath][lang]) || r.faq || [];
@@ -87,7 +87,7 @@ const schema = {
       </section>
     </div>
     <ServiceStrip lang={lang} items={r.strip || [...(r.services || []).map((x) => x.t), ...(r.process || []).map((x) => x[0])]} />
-    {r.band && <VideoBand id={r.band} lang={lang} />}
+    {r.band && <VideoBand id={r.band} lang={lang} ksa={ksa} />}
     <div class="wrap">
       {r.stats && (
         <div class="rs-stats">
@@ -251,5 +251,5 @@ const schema = {
     </section>
   </main>
   <VimeoLightbox />
-  <SiteFooter lang={lang} strip={false} />
+  <SiteFooter lang={lang} strip={false} ksa={ksa} />
 </Base>

@@ -1,10 +1,10 @@
 ---
 // Asks once for analytics/ads cookies; the answer updates Google Consent Mode (defaults set in Base.astro).
-const { lang = 'en' } = Astro.props;
+const { lang = 'en', ksa = false } = Astro.props;
 const ar = lang === 'ar';
 ---
 <div class="ck" id="ck" role="region" aria-label={ar ? 'ملفات تعريف الارتباط' : 'Cookies'} hidden>
-  <p>{ar ? 'بنستخدم ملفات تعريف الارتباط عشان نفهم إزاي الموقع بيتستخدم ونحسّن إعلاناتنا.' : 'We use cookies to understand how the site is used and to improve our ads.'} <a href={ar ? '/ar/privacy-policy/' : '/privacy-policy/'}>{ar ? 'سياسة الخصوصية' : 'Privacy policy'}</a></p>
+  <p>{ar ? (ksa ? 'نستخدم ملفات تعريف الارتباط لفهم طريقة استخدام الموقع وتحسين إعلاناتنا.' : 'بنستخدم ملفات تعريف الارتباط عشان نفهم إزاي الموقع بيتستخدم ونحسّن إعلاناتنا.') : 'We use cookies to understand how the site is used and to improve our ads.'} <a href={ar ? '/ar/privacy-policy/' : '/privacy-policy/'}>{ar ? 'سياسة الخصوصية' : 'Privacy policy'}</a></p>
   <div class="ck-row"><button class="ck-ok" type="button" data-c="yes">{ar ? 'موافق' : 'Accept'}</button><button class="ck-no" type="button" data-c="no">{ar ? 'رفض' : 'Decline'}</button></div>
 </div>
 <style is:global>

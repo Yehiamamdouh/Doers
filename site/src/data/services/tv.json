@@ -1,43 +1,243 @@
 {
  "id": "tv",
- "paths": { "eg": "/tv-advertising/", "ksa": "/ksa/tv-advertising-in-jeddah/" },
+ "paths": {
+  "eg": "/tv-advertising/",
+  "ksa": "/ksa/tv-advertising-in-jeddah/"
+ },
  "en": {
   "base": {
    "crumb": "TV Advertising",
-   "heroFilm": { "vimeo": "485728474", "img": "/img/films/485728474.jpg", "alt": "EMS Revolution: TV ad with Karim Benzema" },
-   "stats": [["GRPs", "Plans built on rating points, not spot counts"], ["3+", "Effective frequency we plan every campaign for"], ["CPRP", "Cost per rating point negotiated channel by channel"], ["Post-buy", "Audit of what actually aired, for every campaign"]],
+   "heroFilm": {
+    "vimeo": "485728474",
+    "img": "/img/films/485728474.jpg",
+    "alt": "EMS Revolution: TV ad with Karim Benzema"
+   },
+   "stats": [
+    [
+     "GRPs",
+     "Plans built on rating points, not spot counts"
+    ],
+    [
+     "3+",
+     "Effective frequency we plan every campaign for"
+    ],
+    [
+     "CPRP",
+     "Cost per rating point negotiated channel by channel"
+    ],
+    [
+     "Post-buy",
+     "Audit of what actually aired, for every campaign"
+    ]
+   ],
    "servicesH": "Planning, buying <em>and airtime.</em>",
    "servicesP": "A TV campaign is only as good as its plan. We decide where, when and how often your ad runs before a single spot is booked.",
    "services": [
-    { "t": "Audience & ratings analysis", "d": "Who you need to reach, what they watch and when, using ratings and viewership data for your target group.", "tags": ["Target group", "Ratings data", "Viewing habits"] },
-    { "t": "Channel & programme selection", "d": "Channels and programmes ranked by affinity with your audience and cost per rating point, not by habit.", "tags": ["Affinity index", "CPRP", "Programme selection"] },
-    { "t": "Reach & frequency planning", "d": "GRP and TRP targets, reach 1+ and effective frequency 3+ set against your objective and budget.", "tags": ["GRPs", "TRPs", "Reach 1+", "Frequency 3+"] },
-    { "t": "Dayparts & flighting", "d": "Prime time, daytime and late-night mixed across burst, continuity or pulsing schedules.", "tags": ["Prime time", "Burst", "Pulsing", "Continuity"] },
-    { "t": "Spot lengths & versions", "d": "30, 20, 15 and 10-second versions cut from one production, so the plan can use the right length in each slot.", "tags": ["30″", "20″", "15″", "10″"] },
-    { "t": "Negotiation & buying", "d": "Packages, bonus spots, placement premiums and sponsorships negotiated with the channels on your behalf.", "tags": ["Packages", "Bonus spots", "Sponsorships"] },
-    { "t": "Ramadan & seasonal campaigns", "d": "Plans for the most expensive and most watched weeks of the year, booked early and weighed against cost.", "tags": ["Ramadan", "Eid", "Football tournaments"] },
-    { "t": "TV commercial production", "d": "Concept, script, casting, shooting and post-production by our media production team.", "tags": ["Concept", "Script", "Shooting", "Post-production"] },
-    { "t": "Monitoring & post-buy analysis", "d": "Spot verification, planned versus delivered GRPs and the effect on search, traffic and sales.", "tags": ["Spot verification", "Delivered GRPs", "Brand lift"] }
+    {
+     "t": "Audience & ratings analysis",
+     "d": "Who you need to reach, what they watch and when, using ratings and viewership data for your target group.",
+     "tags": [
+      "Target group",
+      "Ratings data",
+      "Viewing habits"
+     ]
+    },
+    {
+     "t": "Channel & programme selection",
+     "d": "Channels and programmes ranked by affinity with your audience and cost per rating point, not by habit.",
+     "tags": [
+      "Affinity index",
+      "CPRP",
+      "Programme selection"
+     ]
+    },
+    {
+     "t": "Reach & frequency planning",
+     "d": "GRP and TRP targets, reach 1+ and effective frequency 3+ set against your objective and budget.",
+     "tags": [
+      "GRPs",
+      "TRPs",
+      "Reach 1+",
+      "Frequency 3+"
+     ]
+    },
+    {
+     "t": "Dayparts & flighting",
+     "d": "Prime time, daytime and late-night mixed across burst, continuity or pulsing schedules.",
+     "tags": [
+      "Prime time",
+      "Burst",
+      "Pulsing",
+      "Continuity"
+     ]
+    },
+    {
+     "t": "Spot lengths & versions",
+     "d": "30, 20, 15 and 10-second versions cut from one production, so the plan can use the right length in each slot.",
+     "tags": [
+      "30″",
+      "20″",
+      "15″",
+      "10″"
+     ]
+    },
+    {
+     "t": "Negotiation & buying",
+     "d": "Packages, bonus spots, placement premiums and sponsorships negotiated with the channels on your behalf.",
+     "tags": [
+      "Packages",
+      "Bonus spots",
+      "Sponsorships"
+     ]
+    },
+    {
+     "t": "Ramadan & seasonal campaigns",
+     "d": "Plans for the most expensive and most watched weeks of the year, booked early and weighed against cost.",
+     "tags": [
+      "Ramadan",
+      "Eid",
+      "Football tournaments"
+     ]
+    },
+    {
+     "t": "TV commercial production",
+     "d": "Concept, script, casting, shooting and post-production by our media production team.",
+     "tags": [
+      "Concept",
+      "Script",
+      "Shooting",
+      "Post-production"
+     ]
+    },
+    {
+     "t": "Monitoring & post-buy analysis",
+     "d": "Spot verification, planned versus delivered GRPs and the effect on search, traffic and sales.",
+     "tags": [
+      "Spot verification",
+      "Delivered GRPs",
+      "Brand lift"
+     ]
+    }
    ],
    "processH": "Our TV planning <em>method.</em>",
    "processP": "Seven steps, the same for a two-week burst or a full Ramadan campaign.",
    "process": [
-    ["Brief & objectives", "Awareness, consideration or sales, with reach and frequency targets and a budget range."],
-    ["Audience definition", "The target group, its viewing habits and the ratings data we plan against."],
-    ["Channel & daypart mix", "Channels, programmes and dayparts ranked by affinity and cost per rating point."],
-    ["The plan", "GRPs, reach 1+, frequency 3+, flighting and spot lengths, with share of voice against competitors."],
-    ["Negotiation & booking", "Rates, packages, bonus spots and positions secured with each channel."],
-    ["Production & delivery", "The commercial produced, versioned and delivered to every channel on time."],
-    ["On air & post-buy", "Every spot verified, delivered versus planned GRPs reported, and learnings for the next flight."]
+    [
+     "Brief & objectives",
+     "Awareness, consideration or sales, with reach and frequency targets and a budget range."
+    ],
+    [
+     "Audience definition",
+     "The target group, its viewing habits and the ratings data we plan against."
+    ],
+    [
+     "Channel & daypart mix",
+     "Channels, programmes and dayparts ranked by affinity and cost per rating point."
+    ],
+    [
+     "The plan",
+     "GRPs, reach 1+, frequency 3+, flighting and spot lengths, with share of voice against competitors."
+    ],
+    [
+     "Negotiation & booking",
+     "Rates, packages, bonus spots and positions secured with each channel."
+    ],
+    [
+     "Production & delivery",
+     "The commercial produced, versioned and delivered to every channel on time."
+    ],
+    [
+     "On air & post-buy",
+     "Every spot verified, delivered versus planned GRPs reported, and learnings for the next flight."
+    ]
    ],
    "casesH": "Commercials we <em>produced.</em>",
    "casesP": "Tap a film to play it.",
    "flight": {
     "h": "What a plan <em>looks like.</em>",
     "p": "An example Ramadan burst: heavy weight in the first two weeks and around Eid, lighter continuity in between.",
-    "cols": ["Wk −2", "Wk −1", "R 1", "R 2", "R 3", "R 4", "Eid", "Wk +1"],
-    "levels": ["Light", "Medium", "Heavy"],
-    "rows": [["Pan-Arab entertainment, prime", [0, 1, 3, 3, 2, 2, 3, 1]], ["Local general, prime", [0, 1, 3, 2, 2, 2, 3, 0]], ["Local general, daytime", [1, 1, 2, 2, 1, 1, 2, 1]], ["News & talk", [1, 1, 1, 1, 1, 1, 1, 1]], ["YouTube & connected TV", [2, 2, 2, 2, 2, 2, 2, 1]]],
+    "cols": [
+     "Wk −2",
+     "Wk −1",
+     "R 1",
+     "R 2",
+     "R 3",
+     "R 4",
+     "Eid",
+     "Wk +1"
+    ],
+    "levels": [
+     "Light",
+     "Medium",
+     "Heavy"
+    ],
+    "rows": [
+     [
+      "Pan-Arab entertainment, prime",
+      [
+       0,
+       1,
+       3,
+       3,
+       2,
+       2,
+       3,
+       1
+      ]
+     ],
+     [
+      "Local general, prime",
+      [
+       0,
+       1,
+       3,
+       2,
+       2,
+       2,
+       3,
+       0
+      ]
+     ],
+     [
+      "Local general, daytime",
+      [
+       1,
+       1,
+       2,
+       2,
+       1,
+       1,
+       2,
+       1
+      ]
+     ],
+     [
+      "News & talk",
+      [
+       1,
+       1,
+       1,
+       1,
+       1,
+       1,
+       1,
+       1
+      ]
+     ],
+     [
+      "YouTube & connected TV",
+      [
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       1
+      ]
+     ]
+    ],
     "note": "Illustrative only. Real plans are built from ratings data for your target group, your objective and your budget."
    }
   },
@@ -52,12 +252,51 @@
    ],
    "chipsH": "Channels we <em>plan across.</em>",
    "chipsP": "Egyptian and pan-Arab networks, chosen for each campaign by audience and cost.",
-   "chips": ["MBC Masr", "MBC Masr 2", "MBC 1", "ON", "CBC", "DMC", "Al Hayah", "Al Nahar", "Sada El Balad", "Al Kahera Wal Nas", "Egyptian TV", "Rotana", "Shahid", "YouTube & connected TV"],
+   "chips": [
+    "MBC Masr",
+    "MBC Masr 2",
+    "MBC 1",
+    "ON",
+    "CBC",
+    "DMC",
+    "Al Hayah",
+    "Al Nahar",
+    "Sada El Balad",
+    "Al Kahera Wal Nas",
+    "Egyptian TV",
+    "Rotana",
+    "Shahid",
+    "YouTube & connected TV"
+   ],
    "cases": [
-    { "tag": "Health & fitness · TV & digital ad", "client": "EMS Revolution", "text": "An awareness ad for EMS Egypt featuring Karim Benzema, produced for TV and digital.", "img": "/img/films/485728474.jpg", "vimeo": "485728474" },
-    { "tag": "Government · Awareness campaign", "client": "Ministry of Petroleum", "text": "A national awareness campaign on natural gas for cars, with motion graphics and a clear call to action.", "img": "/img/films/662447404.jpg", "vimeo": "662447404" },
-    { "tag": "Government · Corporate film", "client": "Ministry of Petroleum", "text": "A film showcasing the Ministry's milestones and its vision for Egypt's energy future.", "img": "/img/films/662442474.jpg", "vimeo": "662442474" },
-    { "tag": "Automotive services · Launch film", "client": "Ecocare", "text": "The launch film for Ecocare's eco-friendly car wash service.", "img": "/img/films/485723684.jpg", "vimeo": "485723684" }
+    {
+     "tag": "Health & fitness · TV & digital ad",
+     "client": "EMS Revolution",
+     "text": "An awareness ad for EMS Egypt featuring Karim Benzema, produced for TV and digital.",
+     "img": "/img/films/485728474.jpg",
+     "vimeo": "485728474"
+    },
+    {
+     "tag": "Government · Awareness campaign",
+     "client": "Ministry of Petroleum",
+     "text": "A national awareness campaign on natural gas for cars, with motion graphics and a clear call to action.",
+     "img": "/img/films/662447404.jpg",
+     "vimeo": "662447404"
+    },
+    {
+     "tag": "Government · Corporate film",
+     "client": "Ministry of Petroleum",
+     "text": "A film showcasing the Ministry's milestones and its vision for Egypt's energy future.",
+     "img": "/img/films/662442474.jpg",
+     "vimeo": "662442474"
+    },
+    {
+     "tag": "Automotive services · Launch film",
+     "client": "Ecocare",
+     "text": "The launch film for Ecocare's eco-friendly car wash service.",
+     "img": "/img/films/485723684.jpg",
+     "vimeo": "485723684"
+    }
    ]
   },
   "ksa": {
@@ -71,92 +310,630 @@
    ],
    "chipsH": "Channels we <em>plan across.</em>",
    "chipsP": "Saudi and pan-Arab networks, chosen for each campaign by audience and cost.",
-   "chips": ["MBC 1", "MBC Action", "MBC Drama", "SBC", "Saudi TV", "Rotana Khalijia", "Rotana Cinema", "Al Arabiya", "SSC Sports", "Shahid", "YouTube & connected TV"],
+   "chips": [
+    "MBC 1",
+    "MBC Action",
+    "MBC Drama",
+    "SBC",
+    "Saudi TV",
+    "Rotana Khalijia",
+    "Rotana Cinema",
+    "Al Arabiya",
+    "SSC Sports",
+    "Shahid",
+    "YouTube & connected TV"
+   ],
    "cases": [
-    { "tag": "Health & fitness · TV & digital ad", "client": "EMS Revolution", "text": "An awareness ad featuring Karim Benzema, produced for TV and digital.", "img": "/img/films/485728474.jpg", "vimeo": "485728474" },
-    { "tag": "Government · Awareness campaign", "client": "Ministry of Petroleum", "text": "A national awareness campaign with motion graphics and a clear call to action.", "img": "/img/films/662447404.jpg", "vimeo": "662447404" },
-    { "tag": "Financial services · Campaign film", "client": "Dubai Financial Market", "text": "A campaign film for DFM's Gen Z investor programme, made for TV and social.", "img": "/img/films/673930542.jpg", "vimeo": "673930542" },
-    { "tag": "Automotive services · Launch film", "client": "Ecocare", "text": "A launch film for an eco-friendly car wash service.", "img": "/img/films/485723684.jpg", "vimeo": "485723684" }
+    {
+     "tag": "Health & fitness · TV & digital ad",
+     "client": "EMS Revolution",
+     "text": "An awareness ad featuring Karim Benzema, produced for TV and digital.",
+     "img": "/img/films/485728474.jpg",
+     "vimeo": "485728474"
+    },
+    {
+     "tag": "Government · Awareness campaign",
+     "client": "Ministry of Petroleum",
+     "text": "A national awareness campaign with motion graphics and a clear call to action.",
+     "img": "/img/films/662447404.jpg",
+     "vimeo": "662447404"
+    },
+    {
+     "tag": "Financial services · Campaign film",
+     "client": "Dubai Financial Market",
+     "text": "A campaign film for DFM's Gen Z investor programme, made for TV and social.",
+     "img": "/img/films/673930542.jpg",
+     "vimeo": "673930542"
+    },
+    {
+     "tag": "Automotive services · Launch film",
+     "client": "Ecocare",
+     "text": "A launch film for an eco-friendly car wash service.",
+     "img": "/img/films/485723684.jpg",
+     "vimeo": "485723684"
+    }
    ]
   }
  },
  "ar": {
   "base": {
    "crumb": "إعلانات التلفزيون",
-   "heroFilm": { "vimeo": "485728474", "img": "/img/films/485728474.jpg", "alt": "EMS Revolution: إعلان تلفزيوني مع كريم بنزيما" },
-   "stats": [["GRPs", "خطط مبنية على نقاط التقييم لا على عدد الإعلانات"], ["+3", "معدل التكرار الفعّال الذي نخطط له في كل حملة"], ["CPRP", "تكلفة نقطة التقييم نتفاوض عليها مع كل قناة"], ["ما بعد البث", "مراجعة لما عُرض فعلًا في كل حملة"]],
-   "servicesH": "التخطيط والشراء <em>ووقت البث.</em>",
-   "servicesP": "حملة التلفزيون تكون بجودة خطتها. نقرر أين ومتى وكم مرة يُعرض إعلانك قبل حجز أي إعلان.",
-   "services": [
-    { "t": "تحليل الجمهور ونسب المشاهدة", "d": "من تحتاج للوصول إليه، وماذا يشاهد ومتى، باستخدام بيانات نسب المشاهدة لجمهورك المستهدف.", "tags": ["الجمهور المستهدف", "نسب المشاهدة", "عادات المشاهدة"] },
-    { "t": "اختيار القنوات والبرامج", "d": "قنوات وبرامج مرتبة حسب ملاءمتها لجمهورك وتكلفة نقطة التقييم، لا حسب العادة.", "tags": ["مؤشر الملاءمة", "CPRP", "اختيار البرامج"] },
-    { "t": "تخطيط الوصول والتكرار", "d": "أهداف GRP وTRP والوصول +1 والتكرار الفعّال +3 وفق هدفك وميزانيتك.", "tags": ["GRPs", "TRPs", "الوصول +1", "التكرار +3"] },
-    { "t": "فترات البث وتوزيع الحملة", "d": "مزج أوقات الذروة والنهار والسهرة في جداول مكثفة أو مستمرة أو متقطعة.", "tags": ["وقت الذروة", "حملة مكثفة", "حملة متقطعة", "حملة مستمرة"] },
-    { "t": "مدد الإعلان ونسخه", "d": "نسخ 30 و20 و15 و10 ثوانٍ من إنتاج واحد، لتستخدم الخطة المدة المناسبة في كل فترة.", "tags": ["30 ث", "20 ث", "15 ث", "10 ث"] },
-    { "t": "التفاوض والشراء", "d": "الباقات والإعلانات المجانية ومواقع العرض المميزة والرعايات، نتفاوض عليها مع القنوات نيابةً عنك.", "tags": ["الباقات", "إعلانات مجانية", "الرعايات"] },
-    { "t": "حملات رمضان والمواسم", "d": "خطط لأغلى أسابيع السنة وأعلاها مشاهدة، تُحجز مبكرًا وتُوازن مع التكلفة.", "tags": ["رمضان", "العيد", "البطولات الرياضية"] },
-    { "t": "إنتاج الإعلان التلفزيوني", "d": "الفكرة والسيناريو واختيار الممثلين والتصوير والمونتاج بفريق الإنتاج الإعلامي لدينا.", "tags": ["الفكرة", "السيناريو", "التصوير", "المونتاج"] },
-    { "t": "المتابعة وتحليل ما بعد البث", "d": "التحقق من عرض الإعلانات، والمخطط مقابل المُحقق من GRPs، والأثر على البحث والزيارات والمبيعات.", "tags": ["التحقق من البث", "GRPs المحققة", "أثر العلامة"] }
+   "heroFilm": {
+    "vimeo": "485728474",
+    "img": "/img/films/485728474.jpg",
+    "alt": "EMS Revolution: إعلان تلفزيوني مع كريم بنزيما"
+   },
+   "stats": [
+    [
+     "GRPs",
+     "خطط مبنية على نقاط المشاهدة، مش عدد الإعلانات"
+    ],
+    [
+     "+3",
+     "مرات تكرار فعّالة بنخطط ليها في كل حملة"
+    ],
+    [
+     "CPRP",
+     "تكلفة نقطة المشاهدة بنتفاوض عليها قناة قناة"
+    ],
+    [
+     "بعد الشراء",
+     "مراجعة لكل اللي اتذاع فعلاً في كل حملة"
+    ]
    ],
-   "processH": "منهجية تخطيط <em>التلفزيون.</em>",
-   "processP": "سبع خطوات، هي نفسها لحملة مكثفة لأسبوعين أو لحملة رمضان كاملة.",
+   "servicesH": "تخطيط وشراء <em>ووقت على الهوا.</em>",
+   "servicesP": "حملة التلفزيون قوتها من قوة خطتها. بنحدد إعلانك يتعرض فين وإمتى وكام مرة قبل ما نحجز ولا إعلان.",
+   "services": [
+    {
+     "t": "تحليل الجمهور ونسب المشاهدة",
+     "d": "محتاج توصل لمين، وبيتفرج على إيه وإمتى، من بيانات نسب المشاهدة للجمهور المستهدف.",
+     "tags": [
+      "الجمهور المستهدف",
+      "بيانات المشاهدة",
+      "عادات المشاهدة"
+     ]
+    },
+    {
+     "t": "اختيار القنوات والبرامج",
+     "d": "قنوات وبرامج مترتبة حسب قربها من جمهورك وتكلفة نقطة المشاهدة، مش بالعادة.",
+     "tags": [
+      "مؤشر الملاءمة",
+      "CPRP",
+      "اختيار البرامج"
+     ]
+    },
+    {
+     "t": "تخطيط الوصول والتكرار",
+     "d": "أهداف GRP وTRP، ووصول 1+ وتكرار فعّال 3+ على حسب هدفك وميزانيتك.",
+     "tags": [
+      "GRPs",
+      "TRPs",
+      "وصول 1+",
+      "تكرار 3+"
+     ]
+    },
+    {
+     "t": "الفترات وتوزيع الحملة",
+     "d": "البرايم تايم والنهار وآخر الليل، موزعين على دفعات قوية أو استمرار أو نبضات.",
+     "tags": [
+      "برايم تايم",
+      "دفعة قوية",
+      "نبضات",
+      "استمرار"
+     ]
+    },
+    {
+     "t": "أطوال الإعلان ونسخه",
+     "d": "نسخ 30 و20 و15 و10 ثواني من تصوير واحد، عشان الخطة تستخدم الطول الصح في كل فترة.",
+     "tags": [
+      "30″",
+      "20″",
+      "15″",
+      "10″"
+     ]
+    },
+    {
+     "t": "التفاوض والشراء",
+     "d": "باقات وإعلانات بونص وأماكن مميزة ورعايات، بنتفاوض عليها مع القنوات بالنيابة عنك.",
+     "tags": [
+      "باقات",
+      "إعلانات بونص",
+      "رعايات"
+     ]
+    },
+    {
+     "t": "حملات رمضان والمواسم",
+     "d": "خطط لأغلى وأكتر أسابيع مشاهدة في السنة، محجوزة بدري ومحسوبة على التكلفة.",
+     "tags": [
+      "رمضان",
+      "العيد",
+      "بطولات الكورة"
+     ]
+    },
+    {
+     "t": "إنتاج الإعلان التلفزيوني",
+     "d": "الفكرة والسيناريو واختيار الممثلين والتصوير والمونتاج، من فريق الإنتاج بتاعنا.",
+     "tags": [
+      "الفكرة",
+      "السيناريو",
+      "التصوير",
+      "المونتاج"
+     ]
+    },
+    {
+     "t": "المتابعة وتحليل ما بعد الشراء",
+     "d": "التأكد من إذاعة كل إعلان، والـGRPs المخططة قصاد اللي اتحققت، وتأثيرها على البحث والزيارات والمبيعات.",
+     "tags": [
+      "التحقق من الإذاعة",
+      "الـGRPs المحققة",
+      "أثر العلامة"
+     ]
+    }
+   ],
+   "processH": "منهجنا في تخطيط <em>التلفزيون.</em>",
+   "processP": "سبع خطوات، هي هي في دفعة أسبوعين أو حملة رمضان كاملة.",
    "process": [
-    ["الاستلام والأهداف", "الوعي أو التفكير في الشراء أو المبيعات، مع أهداف الوصول والتكرار ونطاق الميزانية."],
-    ["تحديد الجمهور", "الجمهور المستهدف وعادات مشاهدته وبيانات نسب المشاهدة التي نخطط عليها."],
-    ["مزيج القنوات والفترات", "قنوات وبرامج وفترات مرتبة حسب الملاءمة وتكلفة نقطة التقييم."],
-    ["الخطة", "GRPs والوصول +1 والتكرار +3 وتوزيع الحملة ومدد الإعلان، مع حصتك من الإعلانات مقارنةً بالمنافسين."],
-    ["التفاوض والحجز", "الأسعار والباقات والإعلانات المجانية والمواقع المضمونة مع كل قناة."],
-    ["الإنتاج والتسليم", "إنتاج الإعلان وتجهيز نسخه وتسليمه لكل قناة في موعده."],
-    ["البث وما بعده", "التحقق من كل إعلان، وتقرير المُحقق مقابل المخطط من GRPs، ودروس للحملة التالية."]
+    [
+     "الاستلام والأهداف",
+     "وعي ولا تفكير ولا مبيعات، بأهداف وصول وتكرار ونطاق ميزانية."
+    ],
+    [
+     "تحديد الجمهور",
+     "الجمهور المستهدف وعادات مشاهدته وبيانات المشاهدة اللي بنخطط عليها."
+    ],
+    [
+     "توزيع القنوات والفترات",
+     "قنوات وبرامج وفترات مترتبة حسب الملاءمة وتكلفة نقطة المشاهدة."
+    ],
+    [
+     "الخطة",
+     "GRPs ووصول 1+ وتكرار 3+ وتوزيع الحملة وأطوال الإعلان، وحصة صوتك قصاد المنافسين."
+    ],
+    [
+     "التفاوض والحجز",
+     "الأسعار والباقات والبونص والأماكن متأمّنة مع كل قناة."
+    ],
+    [
+     "الإنتاج والتسليم",
+     "الإعلان متصور ومتعمل منه نسخ ومتسلّم لكل قناة في ميعاده."
+    ],
+    [
+     "على الهوا وبعد الشراء",
+     "كل إعلان متأكدين إنه اتذاع، وتقرير بالمخطط قصاد المحقق، ودروس للحملة الجاية."
+    ]
    ],
    "casesH": "إعلانات <em>أنتجناها.</em>",
-   "casesP": "اضغط على أي فيلم لتشغيله.",
+   "casesP": "دوس على الفيلم يشتغل.",
    "flight": {
-    "h": "كيف تبدو <em>الخطة.</em>",
-    "p": "مثال لحملة رمضانية مكثفة: ثقل كبير في أول أسبوعين وحول العيد، واستمرارية أخف بينهما.",
-    "cols": ["أسبوع −2", "أسبوع −1", "ر 1", "ر 2", "ر 3", "ر 4", "العيد", "أسبوع +1"],
-    "levels": ["خفيف", "متوسط", "مكثف"],
-    "rows": [["قنوات ترفيه عربية، ذروة", [0, 1, 3, 3, 2, 2, 3, 1]], ["قنوات محلية عامة، ذروة", [0, 1, 3, 2, 2, 2, 3, 0]], ["قنوات محلية عامة، نهار", [1, 1, 2, 2, 1, 1, 2, 1]], ["أخبار وحوارات", [1, 1, 1, 1, 1, 1, 1, 1]], ["يوتيوب والتلفزيون المتصل", [2, 2, 2, 2, 2, 2, 2, 1]]],
-    "note": "للتوضيح فقط. الخطط الحقيقية تُبنى على بيانات المشاهدة لجمهورك المستهدف وهدفك وميزانيتك."
+    "h": "الخطة <em>شكلها إيه.</em>",
+    "p": "مثال لدفعة رمضان: وزن تقيل في أول أسبوعين وحوالين العيد، واستمرار أخف في النص.",
+    "cols": [
+     "أسبوع −2",
+     "أسبوع −1",
+     "ر 1",
+     "ر 2",
+     "ر 3",
+     "ر 4",
+     "العيد",
+     "أسبوع +1"
+    ],
+    "levels": [
+     "خفيف",
+     "متوسط",
+     "تقيل"
+    ],
+    "rows": [
+     [
+      "قنوات ترفيه عربية، برايم",
+      [
+       0,
+       1,
+       3,
+       3,
+       2,
+       2,
+       3,
+       1
+      ]
+     ],
+     [
+      "قنوات محلية عامة، برايم",
+      [
+       0,
+       1,
+       3,
+       2,
+       2,
+       2,
+       3,
+       0
+      ]
+     ],
+     [
+      "قنوات محلية عامة، نهار",
+      [
+       1,
+       1,
+       2,
+       2,
+       1,
+       1,
+       2,
+       1
+      ]
+     ],
+     [
+      "أخبار وتوك شو",
+      [
+       1,
+       1,
+       1,
+       1,
+       1,
+       1,
+       1,
+       1
+      ]
+     ],
+     [
+      "يوتيوب والتلفزيون المتصل",
+      [
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       1
+      ]
+     ]
+    ],
+    "note": "مثال توضيحي بس. الخطط الحقيقية بتتبني على بيانات المشاهدة لجمهورك وهدفك وميزانيتك."
    }
   },
   "eg": {
-   "eyebrow": "وكالة إعلانات تلفزيونية في القاهرة، مصر",
-   "slogan": "القنوات الصحيحة، <em>والدقائق الصحيحة.</em>",
-   "lead": "نخطط ونشتري وننتج الحملات التلفزيونية على القنوات المصرية والعربية: تحليل الجمهور وأهداف الوصول والتكرار والتفاوض والإنتاج وتقارير ما بعد البث.",
-   "introH": "التلفزيون ما زال يصنع <em>أكبر وصول.</em>",
+   "eyebrow": "شركة إعلانات تلفزيون في القاهرة، مصر",
+   "slogan": "القنوات الصح، <em>في الدقايق الصح.</em>",
+   "lead": "بنخطط ونشتري وننتج حملات التلفزيون على القنوات المصرية والعربية: تحليل الجمهور، وأهداف الوصول والتكرار، والتفاوض، والإنتاج، وتقارير ما بعد الشراء.",
+   "introH": "التلفزيون لسه بيوصل <em>لأكبر عدد.</em>",
    "intro": [
-    "في مصر يبقى التلفزيون أسرع طريق للوصول إلى ملايين الناس دفعة واحدة، خاصة في رمضان ومباريات الكرة الكبرى. وهو أيضًا أسهل مكان لإهدار الميزانية على إعلانات لا يراها أحد.",
-    "نخطط للتلفزيون كما تفعل وكالات الميديا: على نسب المشاهدة والملاءمة وتكلفة نقطة التقييم، مع هدف واضح للوصول والتكرار. ثم نشتري وقت البث وننتج الإعلان ونراجع ما عُرض فعلًا."
+    "في مصر، التلفزيون لسه أسرع طريقة توصل بيها لملايين في نفس اللحظة، خصوصاً في رمضان وماتشات الكورة الكبيرة. وبرضه أسهل مكان تضيّع فيه ميزانية على إعلانات محدش شافها.",
+    "بنخطط التلفزيون زي وكالات الميديا: على نسب المشاهدة والملاءمة وتكلفة نقطة المشاهدة، بهدف واضح للوصول والتكرار. وبعدين بنشتري الوقت، وننتج الإعلان، ونراجع اللي اتذاع فعلاً."
    ],
-   "chipsH": "قنوات <em>نخطط عليها.</em>",
-   "chipsP": "شبكات مصرية وعربية، نختارها لكل حملة حسب الجمهور والتكلفة.",
-   "chips": ["MBC مصر", "MBC مصر 2", "MBC 1", "ON", "CBC", "DMC", "الحياة", "النهار", "صدى البلد", "القاهرة والناس", "التلفزيون المصري", "روتانا", "شاهد", "يوتيوب والتلفزيون المتصل"],
+   "chipsH": "قنوات <em>بنخطط عليها.</em>",
+   "chipsP": "قنوات مصرية وعربية، بنختارها لكل حملة حسب الجمهور والتكلفة.",
+   "chips": [
+    "MBC مصر",
+    "MBC مصر 2",
+    "MBC 1",
+    "ON",
+    "CBC",
+    "DMC",
+    "الحياة",
+    "النهار",
+    "صدى البلد",
+    "القاهرة والناس",
+    "التلفزيون المصري",
+    "روتانا",
+    "شاهد",
+    "يوتيوب والتلفزيون المتصل"
+   ],
    "cases": [
-    { "tag": "صحة ولياقة · إعلان تلفزيوني ورقمي", "client": "EMS Revolution", "text": "إعلان توعوي لـ EMS مصر بمشاركة كريم بنزيما، أُنتج للتلفزيون والديجيتال.", "img": "/img/films/485728474.jpg", "vimeo": "485728474" },
-    { "tag": "جهة حكومية · حملة توعية", "client": "وزارة البترول", "text": "حملة توعية قومية عن الغاز الطبيعي للسيارات، بموشن جرافيك ودعوة واضحة للإجراء.", "img": "/img/films/662447404.jpg", "vimeo": "662447404" },
-    { "tag": "جهة حكومية · فيلم مؤسسي", "client": "وزارة البترول", "text": "فيلم يستعرض إنجازات الوزارة ورؤيتها لمستقبل الطاقة في مصر.", "img": "/img/films/662442474.jpg", "vimeo": "662442474" },
-    { "tag": "خدمات سيارات · فيلم إطلاق", "client": "Ecocare", "text": "فيلم إطلاق خدمة Ecocare لغسيل السيارات الصديق للبيئة.", "img": "/img/films/485723684.jpg", "vimeo": "485723684" }
+    {
+     "tag": "صحة ولياقة · إعلان تلفزيون وديجيتال",
+     "client": "EMS Revolution",
+     "text": "إعلان توعية لـEMS مصر مع كريم بنزيما، معمول للتلفزيون والديجيتال.",
+     "img": "/img/films/485728474.jpg",
+     "vimeo": "485728474"
+    },
+    {
+     "tag": "حكومي · حملة توعية",
+     "client": "وزارة البترول",
+     "text": "حملة توعية قومية عن الغاز الطبيعي للعربيات، بموشن جرافيك ودعوة واضحة للأكشن.",
+     "img": "/img/films/662447404.jpg",
+     "vimeo": "662447404"
+    },
+    {
+     "tag": "حكومي · فيلم مؤسسي",
+     "client": "وزارة البترول",
+     "text": "فيلم بيعرض إنجازات الوزارة ورؤيتها لمستقبل الطاقة في مصر.",
+     "img": "/img/films/662442474.jpg",
+     "vimeo": "662442474"
+    },
+    {
+     "tag": "خدمات سيارات · فيلم إطلاق",
+     "client": "Ecocare",
+     "text": "فيلم إطلاق خدمة Ecocare لغسيل العربيات الصديق للبيئة.",
+     "img": "/img/films/485723684.jpg",
+     "vimeo": "485723684"
+    }
    ]
   },
   "ksa": {
    "eyebrow": "وكالة إعلانات تلفزيونية في جدة",
-   "slogan": "وقت بث مخطط <em>للمشاهد السعودي.</em>",
-   "lead": "من مكتبنا في جدة نخطط ونشتري وننتج الحملات التلفزيونية على القنوات التي يشاهدها الجمهور السعودي، بأهداف وصول وتكرار وأسعار متفاوض عليها ومراجعة بعد البث.",
-   "introH": "أين تشاهد <em>السعودية.</em>",
+   "slogan": "مساحات بث مخططة <em>للمشاهد السعودي.</em>",
+   "lead": "من مكتبنا في جدة نخطط ونشتري وننتج الحملات التلفزيونية على القنوات التي يشاهدها الجمهور السعودي، بأهداف وصول وتكرار وأسعار متفاوض عليها ومراجعة لما بعد الشراء.",
+   "introH": "أين يشاهد <em>الجمهور السعودي.</em>",
    "intro": [
-    "المشاهد السعودي يوزع وقته بين MBC وSBC وروتانا والقنوات الرياضية والبث عبر الإنترنت. والخطة الجيدة تتبع هذا التوزيع، وتركز على أوقات الذروة ورمضان حيث يستحق الأمر، وتضيف البث عبر الإنترنت والتلفزيون المتصل للوصول إلى الشباب.",
-    "نخطط على نسب المشاهدة وتكلفة نقطة التقييم، ونتفاوض مع الشبكات، وننتج الإعلان باللهجة السعودية، ونقدم تقريرًا عما عُرض فعلًا."
+    "يتوزع وقت المشاهد السعودي بين MBC وSBC وروتانا والقنوات الرياضية ومنصات البث. والخطة الجيدة تتبع هذا التوزيع، وتركّز على وقت الذروة ورمضان حيث يكون العائد أعلى، وتضيف منصات البث والتلفزيون المتصل للوصول إلى الجمهور الأصغر سناً.",
+    "نخطط على أساس نسب المشاهدة وتكلفة نقطة المشاهدة، ونتفاوض مع الشبكات، وننتج الإعلان بلهجة سعودية، ونقدّم تقريراً بما أُذيع فعلاً."
    ],
    "chipsH": "قنوات <em>نخطط عليها.</em>",
    "chipsP": "شبكات سعودية وعربية، نختارها لكل حملة حسب الجمهور والتكلفة.",
-   "chips": ["MBC 1", "MBC أكشن", "MBC دراما", "SBC", "السعودية", "روتانا خليجية", "روتانا سينما", "العربية", "SSC الرياضية", "شاهد", "يوتيوب والتلفزيون المتصل"],
+   "chips": [
+    "MBC 1",
+    "MBC أكشن",
+    "MBC دراما",
+    "SBC",
+    "السعودية",
+    "روتانا خليجية",
+    "روتانا سينما",
+    "العربية",
+    "SSC الرياضية",
+    "شاهد",
+    "يوتيوب والتلفزيون المتصل"
+   ],
    "cases": [
-    { "tag": "صحة ولياقة · إعلان تلفزيوني ورقمي", "client": "EMS Revolution", "text": "إعلان توعوي بمشاركة كريم بنزيما، أُنتج للتلفزيون والديجيتال.", "img": "/img/films/485728474.jpg", "vimeo": "485728474" },
-    { "tag": "جهة حكومية · حملة توعية", "client": "وزارة البترول", "text": "حملة توعية قومية بموشن جرافيك ودعوة واضحة للإجراء.", "img": "/img/films/662447404.jpg", "vimeo": "662447404" },
-    { "tag": "خدمات مالية · فيلم حملة", "client": "سوق دبي المالي", "text": "فيلم حملة لبرنامج سوق دبي المالي للمستثمرين من جيل Z، للتلفزيون والسوشيال.", "img": "/img/films/673930542.jpg", "vimeo": "673930542" },
-    { "tag": "خدمات سيارات · فيلم إطلاق", "client": "Ecocare", "text": "فيلم إطلاق لخدمة غسيل سيارات صديقة للبيئة.", "img": "/img/films/485723684.jpg", "vimeo": "485723684" }
+    {
+     "tag": "صحة ولياقة · إعلان تلفزيوني ورقمي",
+     "client": "EMS Revolution",
+     "text": "إعلان توعوي مع كريم بنزيما، أُنتج للتلفزيون والمنصات الرقمية.",
+     "img": "/img/films/485728474.jpg",
+     "vimeo": "485728474"
+    },
+    {
+     "tag": "جهة حكومية · حملة توعية",
+     "client": "وزارة البترول المصرية",
+     "text": "حملة توعية وطنية بموشن جرافيك ودعوة واضحة للإجراء.",
+     "img": "/img/films/662447404.jpg",
+     "vimeo": "662447404"
+    },
+    {
+     "tag": "خدمات مالية · فيلم حملة",
+     "client": "سوق دبي المالي",
+     "text": "فيلم حملة برنامج المستثمرين من جيل Z في سوق دبي المالي، للتلفزيون والمنصات الاجتماعية.",
+     "img": "/img/films/673930542.jpg",
+     "vimeo": "673930542"
+    },
+    {
+     "tag": "خدمات السيارات · فيلم إطلاق",
+     "client": "Ecocare",
+     "text": "فيلم إطلاق لخدمة غسيل سيارات صديقة للبيئة.",
+     "img": "/img/films/485723684.jpg",
+     "vimeo": "485723684"
+    }
    ]
+  },
+  "base_ksa": {
+   "stats": [
+    [
+     "GRPs",
+     "خطط مبنية على نقاط المشاهدة لا على عدد الإعلانات"
+    ],
+    [
+     "+3",
+     "مرات تكرار فعّالة نخطط لها في كل حملة"
+    ],
+    [
+     "CPRP",
+     "تكلفة نقطة المشاهدة نتفاوض عليها مع كل قناة"
+    ],
+    [
+     "ما بعد الشراء",
+     "مراجعة لما أُذيع فعلاً في كل حملة"
+    ]
+   ],
+   "servicesH": "تخطيط وشراء <em>ومساحات بث.</em>",
+   "servicesP": "قوة الحملة التلفزيونية من قوة خطتها. نحدد أين ومتى وكم مرة يُعرض إعلانك قبل حجز أي إعلان.",
+   "services": [
+    {
+     "t": "تحليل الجمهور ونسب المشاهدة",
+     "d": "من تحتاج إلى الوصول إليه، وماذا يشاهد ومتى، باستخدام بيانات نسب المشاهدة للجمهور المستهدف.",
+     "tags": [
+      "الجمهور المستهدف",
+      "نسب المشاهدة",
+      "عادات المشاهدة"
+     ]
+    },
+    {
+     "t": "اختيار القنوات والبرامج",
+     "d": "قنوات وبرامج مرتبة حسب ملاءمتها لجمهورك وتكلفة نقطة المشاهدة، لا حسب العادة.",
+     "tags": [
+      "مؤشر الملاءمة",
+      "CPRP",
+      "اختيار البرامج"
+     ]
+    },
+    {
+     "t": "تخطيط الوصول والتكرار",
+     "d": "أهداف GRP وTRP، ووصول 1+ وتكرار فعّال 3+ وفق هدفك وميزانيتك.",
+     "tags": [
+      "GRPs",
+      "TRPs",
+      "الوصول +1",
+      "التكرار +3"
+     ]
+    },
+    {
+     "t": "فترات البث وتوزيع الحملة",
+     "d": "وقت الذروة والفترة النهارية وأواخر الليل، موزعة على دفعات مكثفة أو استمرار أو نبضات.",
+     "tags": [
+      "وقت الذروة",
+      "دفعة مكثفة",
+      "نبضات",
+      "استمرار"
+     ]
+    },
+    {
+     "t": "مدد الإعلان ونسخه",
+     "d": "نسخ من 30 و20 و15 و10 ثوانٍ من إنتاج واحد، لتستخدم الخطة الطول المناسب في كل فترة.",
+     "tags": [
+      "30 ث",
+      "20 ث",
+      "15 ث",
+      "10 ث"
+     ]
+    },
+    {
+     "t": "التفاوض والشراء",
+     "d": "باقات وإعلانات إضافية ومواقع مميزة ورعايات، نتفاوض عليها مع القنوات نيابة عنك.",
+     "tags": [
+      "باقات",
+      "إعلانات إضافية",
+      "رعايات"
+     ]
+    },
+    {
+     "t": "حملات رمضان والمواسم",
+     "d": "خطط لأغلى الأسابيع وأعلاها مشاهدة في العام، تُحجز مبكراً وتُوازن مع التكلفة.",
+     "tags": [
+      "رمضان",
+      "العيد",
+      "بطولات كرة القدم"
+     ]
+    },
+    {
+     "t": "إنتاج الإعلان التلفزيوني",
+     "d": "الفكرة والسيناريو واختيار الممثلين والتصوير وما بعد الإنتاج، من فريق الإنتاج لدينا.",
+     "tags": [
+      "الفكرة",
+      "السيناريو",
+      "التصوير",
+      "ما بعد الإنتاج"
+     ]
+    },
+    {
+     "t": "المتابعة وتحليل ما بعد البث",
+     "d": "التحقق من بث كل إعلان، ومقارنة نقاط المشاهدة المخططة بالمحققة، وقياس أثرها على البحث والزيارات والمبيعات.",
+     "tags": [
+      "التحقق من البث",
+      "النقاط المحققة",
+      "أثر العلامة"
+     ]
+    }
+   ],
+   "processH": "منهجنا في التخطيط <em>التلفزيوني.</em>",
+   "processP": "سبع خطوات، هي نفسها في دفعة من أسبوعين أو حملة رمضانية كاملة.",
+   "process": [
+    [
+     "الاستلام والأهداف",
+     "الوعي أو الاهتمام أو المبيعات، مع أهداف الوصول والتكرار ونطاق الميزانية."
+    ],
+    [
+     "تحديد الجمهور",
+     "الجمهور المستهدف وعادات مشاهدته وبيانات المشاهدة التي نخطط بناءً عليها."
+    ],
+    [
+     "توزيع القنوات والفترات",
+     "قنوات وبرامج وفترات مرتبة حسب الملاءمة وتكلفة نقطة المشاهدة."
+    ],
+    [
+     "الخطة",
+     "نقاط المشاهدة والوصول 1+ والتكرار 3+ وتوزيع الحملة وأطوال الإعلان، وحصتك مقارنة بالمنافسين."
+    ],
+    [
+     "التفاوض والحجز",
+     "تأمين الأسعار والباقات والإعلانات الإضافية والمواقع مع كل قناة."
+    ],
+    [
+     "الإنتاج والتسليم",
+     "إنتاج الإعلان وإعداد نسخه وتسليمه لكل قناة في موعده."
+    ],
+    [
+     "البث وما بعد الشراء",
+     "التحقق من بث كل إعلان، وتقرير بالمخطط مقابل المحقق، ودروس للحملة التالية."
+    ]
+   ],
+   "casesH": "إعلانات <em>أنتجناها.</em>",
+   "casesP": "اضغط على الفيلم لتشغيله.",
+   "flight": {
+    "h": "كيف تبدو <em>الخطة.</em>",
+    "p": "مثال لدفعة رمضانية: وزن مكثف في الأسبوعين الأولين وحول العيد، واستمرار أخف بينهما.",
+    "cols": [
+     "أسبوع −2",
+     "أسبوع −1",
+     "ر 1",
+     "ر 2",
+     "ر 3",
+     "ر 4",
+     "العيد",
+     "أسبوع +1"
+    ],
+    "levels": [
+     "خفيف",
+     "متوسط",
+     "مكثف"
+    ],
+    "rows": [
+     [
+      "قنوات ترفيه عربية، وقت الذروة",
+      [
+       0,
+       1,
+       3,
+       3,
+       2,
+       2,
+       3,
+       1
+      ]
+     ],
+     [
+      "قنوات محلية عامة، وقت الذروة",
+      [
+       0,
+       1,
+       3,
+       2,
+       2,
+       2,
+       3,
+       0
+      ]
+     ],
+     [
+      "قنوات محلية عامة، نهاراً",
+      [
+       1,
+       1,
+       2,
+       2,
+       1,
+       1,
+       2,
+       1
+      ]
+     ],
+     [
+      "أخبار وبرامج حوارية",
+      [
+       1,
+       1,
+       1,
+       1,
+       1,
+       1,
+       1,
+       1
+      ]
+     ],
+     [
+      "يوتيوب والتلفزيون المتصل",
+      [
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       1
+      ]
+     ]
+    ],
+    "note": "مثال توضيحي فقط. تُبنى الخطط الفعلية على بيانات المشاهدة لجمهورك وهدفك وميزانيتك."
+   }
   }
  }
 }
