@@ -18,7 +18,7 @@ service: /branding-agency-egypt/
 
 <h2>Compose A Brand Strategy:</h2>
 
-<p>Composing a brand strategy is an important task. A successful strategy should be unique to your business, reflect the voice of your company, and have measurable goals. The first step in creating a solid plan is to define what success looks like for you. What are your metrics? How will you know if it’s working or not? It’s also important to think about how you want people to feel when they see or hear from your company – do you want them smiling, laughing, nodding their head in agreement? Once these are determined, pick out three words that best represent who you are as a company and again tie this back into the message of the post title. Next time someone reads one of our blog posts they’ll know exactly what kind of content is this.</p>
+<p>Composing a brand strategy is an important task. A successful strategy should be unique to your business, reflect the voice of your company, and have measurable goals. The first step in creating a solid plan is to define what success looks like for you. What are your metrics? How will you know if it’s working or not? It’s also important to think about how you want people to feel when they see or hear from your company – do you want them smiling, laughing, nodding their head in agreement? Once these are determined, pick out three words that top represent who you are as a company and again tie this back into the message of the post title. Next time someone reads one of our blog posts they’ll know exactly what kind of content is this.</p>
 
 <h2>Research Your Audience And Competitors:</h2>
 

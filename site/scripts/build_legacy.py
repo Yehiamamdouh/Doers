@@ -8,6 +8,7 @@ Markdown entries in the blog collection (editable from /admin/). Images are down
 from wp-content once, resized and served locally so the WordPress uploads can go.
 """
 import collections, html, io, json, pathlib, re, subprocess
+import rank_claims
 
 from PIL import Image
 
@@ -303,7 +304,7 @@ def build_post(r, common, used, en_by_path):
     fm.append('---')
     dest = BLOG / ('ar' if lang == 'ar' else '') / f'{slug}.md'
     dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text('\n'.join(fm) + '\n\n' + body_html(nodes) + '\n')
+    dest.write_text(rank_claims.fix('\n'.join(fm) + '\n\n' + body_html(nodes) + '\n'))
     return slug
 
 def redirect_rules():
@@ -368,7 +369,8 @@ def copy_fixes(page):
     for s in page.get('sections', []):
         if s.get('nodes'):
             s['nodes'] = [n for n in s['nodes'] if not (n.get('t') in ('p', 'h3') and n.get('html', '').strip() in drop)]
-    return page
+    # "top", never "best", for Doers' ranking claims, titles and descriptions included (scripts/rank_claims.py).
+    return json.loads(rank_claims.fix(json.dumps(page, ensure_ascii=False)))
 
 def main():
     recs = load()
