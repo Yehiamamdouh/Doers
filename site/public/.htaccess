@@ -69,6 +69,14 @@ ExpiresByType font/woff2 "access plus 1 year"
 ExpiresByType video/mp4 "access plus 1 year"
 ExpiresByType video/webm "access plus 1 year"
 </IfModule>
+# Pages: browsers always revalidate; Cloudflare may keep them an hour (s-maxage) and serves them as long as
+# the Cache Rule's Edge TTL respects these headers. Only real pages of the site carry them, so a redirect or
+# security check added by the server (e.g. Imunify360) is never kept at the edge.
+<IfModule mod_headers.c>
+<FilesMatch "\.html$">
+Header set Cache-Control "public, max-age=0, s-maxage=3600, must-revalidate"
+</FilesMatch>
+</IfModule>
 
 # ---- Block hidden files, backups and config (nothing like this should ever be served) ----
 <FilesMatch "(^\.|\.(bak|sql|log|ini|sh|env|config|dist)$|^(composer|package)(-lock)?\.json$)">

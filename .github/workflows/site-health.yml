@@ -1,0 +1,39 @@
+# Checks the live site every hour, and right after a manual run. If a page is missing, redirects somewhere
+# unexpected (e.g. a hosting security check) or serves the error page, the run fails and GitHub emails the
+# repository owner. Fix missing files with Deploy site → production → "full upload".
+name: Site health
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check key pages and files
+        run: |
+          set -u
+          UA='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 doers-health-check'
+          fail=0
+          check() { # url, text the response must contain
+            out=$(curl -sS -L --max-time 30 -A "$UA" -o /tmp/body -w '%{http_code} %{url_effective}' "$1") || { echo "::error::$1 unreachable"; fail=1; return; }
+            code=${out%% *}; final=${out#* }
+            if [ "$code" != 200 ]; then echo "::error::$1 returned HTTP $code"; fail=1
+            elif [ "${final%%\?*}" != "${1%%\?*}" ]; then echo "::error::$1 redirected to $final"; fail=1
+            elif [ -n "$2" ] && ! grep -q "$2" /tmp/body; then echo "::error::$1 is missing '$2' (wrong or error page)"; fail=1
+            else echo "ok  $1"; fi
+          }
+          check https://doersadv.com/ 'Advertising Agency in Egypt'
+          check https://doersadv.com/ar/ 'دورز'
+          check https://doersadv.com/branding-agency-egypt/ 'Branding'
+          check https://doersadv.com/event-management-cairo-egypt/ 'Event Management'
+          check https://doersadv.com/booth-production-egypt/ 'Booth Production'
+          check https://doersadv.com/ksa/advertising-agency-in-jeddah/ 'Jeddah'
+          check https://doersadv.com/contact-us/ 'contact'
+          check https://doersadv.com/css/home.css ''
+          check https://doersadv.com/css/rich.css ''
+          check https://doersadv.com/img/og-default.jpg ''
+          check https://doersadv.com/sitemap-index.xml 'sitemap'
+          exit $fail
