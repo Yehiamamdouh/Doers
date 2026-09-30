@@ -370,6 +370,8 @@ def copy_fixes(page):
     for s in page.get('sections', []):
         if s.get('nodes'):
             s['nodes'] = [n for n in s['nodes'] if not (n.get('t') in ('p', 'h3') and n.get('html', '').strip() in drop)]
+    # Deliberate SEO rewrites of the meta title, description or H1 (copy_fixes.json "meta").
+    page.update(FIXES.get('meta', {}).get(page['path'], {}))
     # "top", never "best", for Doers' ranking claims, titles and descriptions included (scripts/rank_claims.py).
     return json.loads(rank_claims.fix(json.dumps(page, ensure_ascii=False)))
 

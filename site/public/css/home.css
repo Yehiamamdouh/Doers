@@ -390,3 +390,5 @@ footer a:hover{color:var(--orange)}
 .mcity{display:flex;gap:6px;flex-shrink:0}
 .mcity a{font-size:11px !important;font-weight:700;padding:3px 8px !important;border:1px solid var(--line);border-radius:99px;transform:none !important}
 .mcity a:hover{border-color:var(--orange)}
+.intro-copy a{color:inherit;text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:3px;text-decoration-thickness:1.5px}
+.intro-copy a:hover{color:var(--orange-d)}
