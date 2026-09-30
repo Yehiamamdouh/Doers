@@ -79,6 +79,10 @@ import turnstile from '../data/turnstile.json';
     f.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!f.checkValidity()) { f.reportValidity(); return; }
+      // Turnstile fills a hidden token a moment after the page loads; wait for it rather than send without it.
+      if (window.turnstile && f.querySelector('.cf-turnstile')) {
+        for (let i = 0; i < 20 && !(f.querySelector('[name="cf-turnstile-response"]') || {}).value; i++) await new Promise((r) => setTimeout(r, 250));
+      }
       document.getElementById('cf-t').value = Date.now() - loaded;
       btn.disabled = true; btn.firstChild.textContent = sending + ' ';
       try {

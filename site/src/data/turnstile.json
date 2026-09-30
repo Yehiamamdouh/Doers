@@ -1,4 +1,4 @@
 {
  "note": "Cloudflare Turnstile site key for the contact form (public; the secret key lives on the server in doers-site-config.php, one level above public_html). Leave empty to turn the check off.",
- "siteKey": ""
+ "siteKey": "0x4AAAAAAFKF3KAM0zufRyC2"
 }
