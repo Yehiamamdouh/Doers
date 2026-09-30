@@ -51,7 +51,7 @@ const fontFaces = readFileSync('public/css/fonts.css', 'utf8');
 <link rel="apple-touch-icon" href="/img/favicon-32.jpg">
 {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 {!staging && (
-  <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var c=null;try{c=localStorage.getItem('doers-consent')}catch(e){}gtag('consent','default',{analytics_storage:c==='yes'?'granted':'denied',ad_storage:c==='yes'?'granted':'denied',ad_user_data:c==='yes'?'granted':'denied',ad_personalization:c==='yes'?'granted':'denied',wait_for_update:500});`} />
+  <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var c=null;try{c=localStorage.getItem('doers-consent')}catch(e){}function all(v){return{analytics_storage:v,ad_storage:v,ad_user_data:v,ad_personalization:v}}if(c){gtag('consent','default',all(c==='no'?'denied':'granted'))}else{var eu=all('denied');eu.region=['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'];eu.wait_for_update=500;gtag('consent','default',eu);gtag('consent','default',all('granted'))}`} />
 )}
 {!staging && (
   <!-- Tag Manager loads once the page has painted (on the first tap, scroll or key press, or 1.5 s after load),
