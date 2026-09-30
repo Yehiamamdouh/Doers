@@ -22,6 +22,10 @@ on:
         type: choice
         options: [staging, production]
         default: staging
+      full_upload:
+        description: Re-upload every file (use if files went missing on the server; deletes nothing)
+        type: boolean
+        default: false
 
 concurrency:
   group: deploy-${{ github.event.inputs.target || 'staging' }}
@@ -59,6 +63,9 @@ jobs:
           protocol: ftps
           local-dir: site/dist/
           server-dir: ${{ (github.event.inputs.target || 'staging') == 'staging' && secrets.FTP_STAGING_DIR || secrets.FTP_PRODUCTION_DIR }}
+          # The action uploads only what changed since the state file it keeps on the server. A full upload
+          # starts from a fresh state file, so every file is sent again and nothing is deleted.
+          state-name: ${{ github.event.inputs.full_upload == 'true' && format('.ftp-deploy-full-{0}.json', github.run_id) || '.ftp-deploy-sync-state.json' }}
           exclude: |
             **/.git*
             **/node_modules/**
