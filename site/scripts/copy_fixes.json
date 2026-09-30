@@ -460,23 +460,30 @@
  "note_meta": "meta: deliberate SEO rewrites of title / description / h1 per path, applied after the rest (scripts/build_legacy.py).",
  "meta": {
   "/branding-agency-egypt/": {
-   "title": "Top Branding Agency in Egypt | Brand Strategy & Identity | Doers",
-   "description": "Doers is a top-ranked branding agency in Cairo, Egypt: brand strategy, naming, logo and visual identity, brand books and packaging for companies in Egypt and Saudi Arabia."
+   "title": "Top Branding Agency in Egypt | Award-Winning Brand Identity | Doers",
+   "description": "Award-winning branding agency in Cairo, Egypt: TechBehemoths Awards winner for branding. Brand strategy, naming, logo and visual identity, brand books and packaging.",
+   "h1": "Award-Winning Branding Agency in Cairo, Egypt"
   },
   "/ar/branding-agency-egypt/": {
-   "title": "شركة براندنج في مصر | تصميم هوية بصرية واستراتيجية علامة | دورز",
-   "description": "دورز شركة براندنج في القاهرة مصنّفة من أبرز شركات البراندنج في مصر: استراتيجية العلامة، والاسم، واللوجو والهوية البصرية، ودليل الهوية، والتغليف.",
-   "h1": "شركة براندنج وهوية بصرية في القاهرة، مصر"
+   "title": "شركة براندنج في مصر حاصلة على جائزة | هوية بصرية واستراتيجية | دورز",
+   "description": "دورز شركة براندنج في القاهرة حاصلة على جائزة TechBehemoths للبراندنج في مصر: استراتيجية العلامة، والاسم، واللوجو والهوية البصرية، ودليل الهوية، والتغليف.",
+   "h1": "شركة براندنج حاصلة على جائزة في القاهرة، مصر"
   },
   "/ar/event-management-cairo-egypt/": {
    "title": "شركة تنظيم فعاليات وإيفنتات في مصر | دورز",
-   "description": "دورز شركة تنظيم فعاليات وإيفنتات في القاهرة: مؤتمرات، وإطلاق منتجات، وحفلات شركات، وتفعيلات، لعملاء منهم Dell وNovartis وISYS.",
+   "description": "دورز شركة تنظيم فعاليات وإيفنتات في القاهرة حاصلة على جوائز: مؤتمرات، وإطلاق منتجات، وحفلات شركات، وتفعيلات، لعملاء منهم Dell وNovartis وISYS.",
    "h1": "شركة تنظيم فعاليات وإيفنتات في القاهرة، مصر"
   },
   "/ar/booth-production-egypt/": {
    "title": "تصميم وتنفيذ أجنحة وبوثات المعارض في مصر | دورز",
-   "description": "تصميم وتنفيذ أجنحة وبوثات المعارض في مصر مع دورز: تصميم 3D، وتصنيع في ورشنا، وتركيب وفك في Cairo ICT وإيجبس وأكبر المعارض.",
+   "description": "تصميم وتنفيذ أجنحة وبوثات المعارض في مصر مع دورز، الوكالة الحاصلة على جوائز: تصميم 3D، وتصنيع في ورشنا، وتركيب وفك في Cairo ICT وإيجبس وأكبر المعارض.",
    "h1": "تصميم وتنفيذ أجنحة وبوثات المعارض في مصر"
+  },
+  "/event-management-cairo-egypt/": {
+   "description": "Award-winning event management agency in Cairo, Egypt: product launches, conferences, activations and corporate events for Dell, Novartis and ISYS."
+  },
+  "/booth-production-egypt/": {
+   "description": "Custom exhibition stands and booth production in Egypt by award-winning agency Doers: 3D design, fabrication in our workshops and installation at major trade shows."
   }
  }
 }
