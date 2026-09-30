@@ -6,13 +6,14 @@
 
 const TO_EMAIL = 'yehia@doersadv.com';
 const FROM_EMAIL = 'website@doersadv.com';
-const MAX_PER_HOUR = 5;
+const MAX_PER_DAY = 2;       // messages per IP in any 24 hours
+const MAX_PER_IP = 3;        // messages per IP, ever
 
 $wantsJson = strpos($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json') !== false;
-function respond($ok, $code = 200) {
+function respond($ok, $code = 200, $extra = []) {
     global $wantsJson;
     http_response_code($code);
-    if ($wantsJson) { header('Content-Type: application/json'); echo json_encode(['ok' => $ok]); }
+    if ($wantsJson) { header('Content-Type: application/json'); echo json_encode(['ok' => $ok] + $extra); }
     else { header('Location: ' . ($ok ? '/contact-us/?sent=1' : '/contact-us/?error=1')); }
     exit;
 }
@@ -71,11 +72,15 @@ if ($score >= 3) {
     respond(true);
 }
 
-// Simple per-IP rate limit stored in the system temp folder.
+// Per-IP limits: MAX_PER_DAY in any 24 hours and MAX_PER_IP ever. Kept outside the web root (hashed IPs only),
+// so they survive server restarts. The page tells a blocked visitor to use WhatsApp instead.
 $ip = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? 'unknown';  // behind Cloudflare, REMOTE_ADDR is Cloudflare's
-$bucket = sys_get_temp_dir() . '/doers_contact_' . md5($ip);
-$hits = array_filter(explode(',', (string)@file_get_contents($bucket)), function ($t) { return (int)$t > time() - 3600; });
-if (count($hits) >= MAX_PER_HOUR) respond(false, 429);
+$dir = dirname($_SERVER['DOCUMENT_ROOT']) . '/doers-contact-limits';
+if (!is_dir($dir)) @mkdir($dir, 0700);
+$bucket = (is_dir($dir) ? $dir : sys_get_temp_dir()) . '/' . md5('doers' . $ip);
+$hits = array_filter(explode(',', (string)@file_get_contents($bucket)), 'strlen');
+$today = array_filter($hits, function ($t) { return (int)$t > time() - 86400; });
+if (count($hits) >= MAX_PER_IP || count($today) >= MAX_PER_DAY) respond(false, 429, ['limit' => true]);
 $hits[] = (string)time();
 @file_put_contents($bucket, implode(',', $hits));
 
