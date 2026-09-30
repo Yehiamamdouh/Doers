@@ -4,8 +4,9 @@
 name: Site health
 
 on:
-  schedule:
-    - cron: '17 * * * *'
+  # Hourly schedule switched on once Cloudflare lets this check through (it currently gets a bot challenge).
+  # schedule:
+  #   - cron: '17 * * * *'
   workflow_dispatch:
 
 jobs:
