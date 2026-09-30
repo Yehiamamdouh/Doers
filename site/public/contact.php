@@ -47,6 +47,30 @@ $email = filter_var(trim((string)($_POST['email'] ?? '')), FILTER_VALIDATE_EMAIL
 $message = trim(cut((string)($_POST['message'] ?? ''), 5000));
 if ($name === '' || $email === '' || $message === '') respond(false, 422);
 
+// Content filter: link spam and scams (crypto, casino, SEO/backlink offers...) score points. Anything that
+// scores 3 or more is not emailed; it is kept in doers-spam.csv (outside the web root) and the sender still
+// sees a success message, so bots learn nothing. One link on its own (e.g. a company website) passes.
+$all = strtolower($name . ' ' . ($_POST['company'] ?? '') . ' ' . $message);
+$score = 0;
+$links = preg_match_all('~(https?://|www\.|\b[a-z0-9-]+\.(com|net|org|io|xyz|top|site|online|shop|ru|info|biz)\b)~i', $message);
+if ($links >= 1) $score += 2;
+if ($links >= 3) $score += 2;
+foreach (['crypto', 'bitcoin', 'btc', 'wallet', 'trezor', 'ledger live', 'metamask', 'airdrop', 'forex', 'casino', 'betting',
+          'viagra', 'cialis', 'loan', 'backlink', 'guest post', 'seo service', 'rank your website', 'first page of google',
+          'telegram', 'whatsapp me', 'investment opportunity', 'earn money', 'porn', 'escort', 'nude', 'dating'] as $w) {
+    if (preg_match('~\b' . preg_quote($w, '~') . '\b~', $all)) $score += 3;   // whole words: "dating" never matches "updating"
+}
+if (preg_match('~\[url=|<a\s+href~i', $message)) $score += 3;         // BBCode / HTML links: always a bot
+if (preg_match('~^[0-9]{6,}@~', $email)) $score += 1;                 // throwaway addresses like 56614757@...
+if ($t === '') $score += 1;                                             // posted without the page's JavaScript
+if (($_POST['lang'] ?? '') === 'ar' && $links && !preg_match('~\p{Arabic}~u', $message)) $score += 1; // Arabic page, English link spam
+if ($score >= 3) {
+    if ($fh = @fopen(dirname($_SERVER['DOCUMENT_ROOT']) . '/doers-spam.csv', 'a')) {
+        fputcsv($fh, [date('c'), $score, $name, $email, str_replace(["\r", "\n"], ' ', $message)]); fclose($fh);
+    }
+    respond(true);
+}
+
 // Simple per-IP rate limit stored in the system temp folder.
 $ip = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? 'unknown';  // behind Cloudflare, REMOTE_ADDR is Cloudflare's
 $bucket = sys_get_temp_dir() . '/doers_contact_' . md5($ip);
