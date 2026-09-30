@@ -20,7 +20,7 @@
    },
    "thumbnailUrl": "https://doersadv.com/img/og-default.jpg",
    "datePublished": "2019-02-23T01:03:47+00:00",
-   "description": "Award-winning advertising agency in Egypt and KSA, TechBehemoths Awards winner. Branding, event management, booth production, digital and outdoor from Cairo and Jeddah.",
+   "description": "Award-winning advertising agency in Egypt: TechBehemoths 2022 winner in Advertising and Branding. Branding, events, booths, digital and outdoor from Cairo and Jeddah.",
    "breadcrumb": {
     "@id": "https://doersadv.com/#breadcrumb"
    },
@@ -75,7 +75,10 @@
    "image": {
     "@id": "https://doersadv.com/#/schema/logo/image/"
    },
-   "award": "TechBehemoths Awards Winner, Branding, Egypt",
+   "award": [
+    "TechBehemoths Awards 2022 Winner, Advertising, Egypt",
+    "TechBehemoths Awards 2022 Winner, Branding, Egypt"
+   ],
    "sameAs": [
     "https://techbehemoths.com/company/doers-advertising-ltd",
     "http://facebook.com/DoersAdv",
