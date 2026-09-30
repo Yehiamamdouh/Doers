@@ -18,9 +18,13 @@ jobs:
           UA='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 doers-health-check'
           fail=0
           check() { # url, text the response must contain
-            out=$(curl -sS -L --max-time 30 -A "$UA" -o /tmp/body -w '%{http_code} %{url_effective}' "$1") || { echo "::error::$1 unreachable"; fail=1; return; }
+            out=$(curl -sS -L --max-time 30 -A "$UA" -D /tmp/head -o /tmp/body -w '%{http_code} %{url_effective}' "$1") || { echo "::error::$1 unreachable"; fail=1; return; }
             code=${out%% *}; final=${out#* }
-            if [ "$code" != 200 ]; then echo "::error::$1 returned HTTP $code"; fail=1
+            if [ "$code" != 200 ]; then
+              # Say who answered: Cloudflare (cf-mitigated, "Just a moment") or the hosting server (Imunify360, LiteSpeed).
+              who=$(grep -iE '^(server|cf-mitigated|cf-cache-status):' /tmp/head | tr -d '\r' | tr '\n' ' ')
+              title=$(grep -oiE '<title>[^<]*' /tmp/body | head -1 | sed 's/<title>//I')
+              echo "::error::$1 returned HTTP $code [$who] $title"; fail=1
             elif [ "${final%%\?*}" != "${1%%\?*}" ]; then echo "::error::$1 redirected to $final"; fail=1
             elif [ -n "$2" ] && ! grep -q "$2" /tmp/body; then echo "::error::$1 is missing '$2' (wrong or error page)"; fail=1
             else echo "ok  $1"; fi
