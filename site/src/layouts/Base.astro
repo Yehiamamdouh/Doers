@@ -20,6 +20,7 @@ interface Props {
 const { title, description, path, lang = 'en', alternates = {}, ogImage = '/img/og-default.jpg', schema, styles = [], ogType = 'website', noindex = false } = Astro.props;
 const site = 'https://doersadv.com';
 const canonical = site + path;
+const ksaPage = /^\/(ar\/)?ksa\//.test(path);
 const staging = import.meta.env.STAGING === '1' || process.env.STAGING === '1';
 const gtm = process.env.GTM_ID || 'GTM-TH643JH';
 // Self-hosted font faces, inlined so text never waits on another stylesheet.
@@ -66,8 +67,9 @@ const fontFaces = readFileSync('public/css/fonts.css', 'utf8');
 <body>
 {!staging && <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtm}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>}
 <slot />
-<!-- WhatsApp opens in a new tab, so the site stays open long enough for analytics to record the click. -->
-<script is:inline>document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function(a){a.target='_blank';a.rel='noopener'})</script>
+<!-- WhatsApp opens in a new tab, so the site stays open long enough for analytics to record the click.
+     Saudi pages (/ksa/, /ar/ksa/) use the Jeddah WhatsApp number. -->
+<script is:inline set:html={`document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function(a){a.target='_blank';a.rel='noopener'${ksaPage ? ";a.href='https://wa.me/966509881646'" : ''}})`} />
 <CookieNotice lang={lang} ksa={path.startsWith('/ar/ksa/')} />
 </body>
 </html>
