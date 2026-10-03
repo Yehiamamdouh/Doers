@@ -23,6 +23,7 @@ RewriteRule ^(.*)$ /$1/ [L,R=301]
 
 # ---- Redirects carried over from the old site (English and Arabic) ----
 RewriteRule ^(ar/)?best-advertising-agency/$ /$1 [L,R=301]
+RewriteRule ^(ar/)?event-management-egypt/$ /$1event-management-cairo-egypt/ [L,R=301]
 RewriteRule ^(ar/)?branding/$ /$1branding-agency-egypt/ [L,R=301]
 RewriteRule ^(ar/)?media/$ /$1media-production-egypt/ [L,R=301]
 RewriteRule ^(ar/)?event-management/$ /$1ksa/event-management-agency-in-jeddah/ [L,R=301]
