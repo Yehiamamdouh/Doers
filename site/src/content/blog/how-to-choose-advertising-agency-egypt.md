@@ -1,7 +1,7 @@
 ---
-title: "How to Choose an Advertising Agency in Egypt: 10 Questions to Ask | Doers"
+title: "Choosing an Advertising Agency in Egypt: 10 Questions | Doers"
 h1: "How to choose an advertising agency in Egypt: 10 questions to ask before you sign"
-description: "Choosing an advertising agency in Egypt? The 10 questions that separate a real partner from a supplier: strategy, in-house production, media, reporting, awards and how they handle pressure."
+description: "Choosing an advertising agency in Egypt? 10 questions that separate a real partner from a supplier: strategy, in-house teams, media, reporting and awards."
 lang: en
 date: 2026-10-05T09:00:00+00:00
 cover: /img/work/ediov-stage.jpg
@@ -24,7 +24,7 @@ service: /
 
 <h2>3. Can they run the whole campaign, or only part of it?</h2>
 
-<p>In Egypt, a serious campaign rarely lives in one channel. A product launch might need a TV spot, <a href="/outdoor-advertising-egypt/">billboards on the main roads</a>, social and search ads, a launch event and a stand at the next exhibition. When each piece is run by a different supplier, the message drifts and nobody owns the result. (Our <a href="/advertising-in-egypt-channels-guide/">guide to advertising channels in Egypt</a> explains what each one does best.) A full-service agency keeps one idea across every channel and one team accountable for all of it.</p>
+<p>In Egypt, a serious campaign rarely lives in one channel. A <a class="auto-link" href="/event-management-cairo-egypt/">product launch</a> might need a TV spot, <a href="/outdoor-advertising-egypt/">billboards on the main roads</a>, social and search ads, a launch event and a stand at the next exhibition. When each piece is run by a different supplier, the message drifts and nobody owns the result. (Our <a href="/advertising-in-egypt-channels-guide/">guide to advertising channels in Egypt</a> explains what each one does best.) A full-service agency keeps one idea across every channel and one team accountable for all of it.</p>
 
 <h2>4. Have they worked in your sector, and at your scale?</h2>
 

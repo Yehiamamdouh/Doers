@@ -1,7 +1,7 @@
 ---
-title: "Advertising in Egypt: TV, Outdoor, Digital or Events? A 2026 Channel Guide | Doers"
+title: "Advertising in Egypt: TV, Outdoor, Digital or Events? | Doers"
 h1: "Advertising in Egypt: how to choose between TV, outdoor, digital, events and exhibitions"
-description: "Where should your brand advertise in Egypt? What each channel does best, who it reaches, how to measure it, and how an advertising agency in Egypt combines them into one plan."
+description: "Where should your brand advertise in Egypt? What TV, radio, outdoor, digital, events and exhibitions each do best, and how to combine them in one plan."
 lang: en
 date: 2026-10-05T10:00:00+00:00
 cover: /img/ooh/luxoft-agouza-bridge.jpg

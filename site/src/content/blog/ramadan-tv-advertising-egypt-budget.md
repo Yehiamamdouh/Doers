@@ -1,7 +1,7 @@
 ---
 title: "Ramadan TV Advertising in Egypt: How to Plan the Budget | Doers"
 h1: "Ramadan TV advertising in Egypt: how to plan the budget so every pound is seen"
-description: "Ramadan is the most watched and most expensive season on Egyptian TV. How to set reach and frequency targets, choose channels and dayparts, split the budget across the month and prove what aired."
+description: "Ramadan is Egypt's biggest TV season. How to set reach targets, pick channels, split the budget across the month and prove what aired."
 lang: en
 date: 2026-09-29T10:00:00+00:00
 cover: /img/films/485728474.jpg
