@@ -1,0 +1,105 @@
+@keyframes button-ripple {
+  70% {
+    box-shadow: 0 0 0 15px currentColor;
+    opacity: 0.25;
+  }
+  100% {
+    box-shadow: 0 0 0 0 currentColor;
+    opacity: 0;
+  }
+}
+@keyframes spinner {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+.wcf-popup-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  gap: 10px;
+  line-height: 1;
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  text-align: center;
+  transition: all 0.3s;
+  z-index: 1;
+  cursor: pointer;
+}
+.wcf-popup-btn .spinner_image {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  animation: spinner 4s infinite linear;
+}
+.wcf-popup-btn.ripple::after, .wcf-popup-btn.ripple::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: dodgerblue;
+  border-radius: 100%;
+  box-shadow: 0 0 0 0 currentColor;
+  animation: button-ripple 3s infinite ease-out;
+  opacity: 0.6;
+  z-index: -1;
+}
+.wcf-popup-btn.ripple::before {
+  animation-delay: 0.9s;
+}
+.wcf-popup-btn.ripple::after {
+  animation-delay: 0.3s;
+}
+.wcf-popup-btn svg {
+  width: 1em;
+  height: 1em;
+}
+
+/*====== wcf popup ======*/
+.wcp--popup {
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  width: auto;
+  max-width: 1000px;
+  margin: 30px auto;
+  max-height: 90vh;
+  overflow-y: scroll;
+}
+
+@media (max-width: 1024px) {
+  .elementor-widget-wcf--tabs.wcf-tabs-tablet .tabs-wrapper,
+  .elementor-widget-wcf--services-tab.wcf-tabs-tablet .tabs-wrapper {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .elementor-widget-wcf--tabs.wcf-tabs-mobile .tabs-wrapper,
+  .elementor-widget-wcf--services-tab.wcf-tabs-mobile .tabs-wrapper {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .elementor-widget-wcf--tabs.wcf-tabs-mobile .tab-mobile-title,
+  .elementor-widget-wcf--services-tab.wcf-tabs-mobile .tab-mobile-title {
+    display: none;
+  }
+}
+@media (min-width: 1025px) {
+  .elementor-widget-wcf--tabs.wcf-tabs-tablet .tab-mobile-title,
+  .elementor-widget-wcf--services-tab.wcf-tabs-tablet .tab-mobile-title {
+    display: none;
+  }
+}

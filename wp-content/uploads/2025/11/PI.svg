@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient);
+      }
+
+      .cls-3 {
+        fill: #f2b65f;
+        fill-rule: evenodd;
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <circle class="cls-1" cx="100" cy="100" r="100"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="-950" cy="1150.27" fx="-950" fy="1150.27" r="108.67" gradientTransform="translate(1050 1250.27) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3a2762"/>
+      <stop offset=".12" stop-color="#392761"/>
+      <stop offset=".18" stop-color="#392760"/>
+      <stop offset=".23" stop-color="#382760"/>
+      <stop offset=".25" stop-color="#38265f"/>
+      <stop offset=".27" stop-color="#37265f"/>
+      <stop offset=".29" stop-color="#37265e"/>
+      <stop offset=".31" stop-color="#36265d"/>
+      <stop offset=".33" stop-color="#36265d"/>
+      <stop offset=".35" stop-color="#35265c"/>
+      <stop offset=".37" stop-color="#35265c"/>
+      <stop offset=".39" stop-color="#34265b"/>
+      <stop offset=".41" stop-color="#34255a"/>
+      <stop offset=".42" stop-color="#33255a"/>
+      <stop offset=".44" stop-color="#332559"/>
+      <stop offset=".45" stop-color="#322558"/>
+      <stop offset=".47" stop-color="#322558"/>
+      <stop offset=".48" stop-color="#312557"/>
+      <stop offset=".5" stop-color="#302556"/>
+      <stop offset=".52" stop-color="#302455"/>
+      <stop offset=".53" stop-color="#2f2455"/>
+      <stop offset=".54" stop-color="#2f2454"/>
+      <stop offset=".55" stop-color="#2e2453"/>
+      <stop offset=".56" stop-color="#2e2453"/>
+      <stop offset=".57" stop-color="#2d2452"/>
+      <stop offset=".59" stop-color="#2d2451"/>
+      <stop offset=".6" stop-color="#2c2451"/>
+      <stop offset=".61" stop-color="#2c2350"/>
+      <stop offset=".62" stop-color="#2b234f"/>
+      <stop offset=".63" stop-color="#2a234f"/>
+      <stop offset=".64" stop-color="#2a234e"/>
+      <stop offset=".65" stop-color="#2a234d"/>
+      <stop offset=".66" stop-color="#29234d"/>
+      <stop offset=".66" stop-color="#29234c"/>
+      <stop offset=".67" stop-color="#28234c"/>
+      <stop offset=".68" stop-color="#28224b"/>
+      <stop offset=".69" stop-color="#27224b"/>
+      <stop offset=".7" stop-color="#27224a"/>
+      <stop offset=".7" stop-color="#27224a"/>
+      <stop offset=".71" stop-color="#262249"/>
+      <stop offset=".72" stop-color="#262248"/>
+      <stop offset=".73" stop-color="#252248"/>
+      <stop offset=".73" stop-color="#252247"/>
+      <stop offset=".74" stop-color="#242247"/>
+      <stop offset=".75" stop-color="#242146"/>
+      <stop offset=".76" stop-color="#232145"/>
+      <stop offset=".77" stop-color="#222144"/>
+      <stop offset=".78" stop-color="#212143"/>
+      <stop offset=".79" stop-color="#212142"/>
+      <stop offset=".8" stop-color="#202142"/>
+      <stop offset=".81" stop-color="#202041"/>
+      <stop offset=".81" stop-color="#202041"/>
+      <stop offset=".82" stop-color="#1f2041"/>
+      <stop offset=".82" stop-color="#1f2040"/>
+      <stop offset=".83" stop-color="#1e203f"/>
+      <stop offset="1" stop-color="#1e203f"/>
+    </radialGradient>
+  </defs>
+  <g id="Quant_QNT_" data-name="Quant QNT ">
+    <g class="cls-4">
+      <rect class="cls-2" x="0" y="0" width="200" height="200"/>
+    </g>
+    <path class="cls-3" d="M95.66,70.78c.3,0,.54.24.54.54v6.97c0,.3-.24.54-.54.54h-8.63c-.3,0-.54-.24-.54-.54v-6.97c0-.3.24-.54.54-.54h8.63ZM112.56,70.78c.3,0,.54.24.54.54v6.97c0,.3-.24.54-.54.54h-8.63c-.3,0-.54-.24-.54-.54v-6.97c0-.3.24-.54.54-.54h8.63ZM86.5,92.57h-6.19v6c0,.14-.06.28-.16.38-.1.1-.24.16-.38.16h-8.75c-.14,0-.28-.06-.38-.16s-.16-.24-.16-.38v-5.88c0-2.6,1.03-5.1,2.88-6.95,1.84-1.84,4.34-2.88,6.95-2.88h39.37v-5c0-.3.24-.54.54-.54h8.75c.3,0,.54.24.54.54v4.88c0,2.61-1.03,5.1-2.88,6.95-1.84,1.84-4.34,2.88-6.95,2.88h-6.58v33.29c0,.23-.14.43-.35.5-1.19.44-5.12,1.89-7.49,2.77-.42.16-.9.1-1.27-.16-.37-.26-.59-.68-.59-1.13v-35.27h-7.2v33.29c0,.23-.14.43-.35.5-1.19.44-5.12,1.89-7.49,2.77-.42.16-.9.1-1.27-.16-.37-.26-.59-.68-.59-1.13v-35.27"/>
+    <path class="cls-3" d="M100,53.32c25.82,0,46.78,20.92,46.78,46.68s-20.96,46.68-46.78,46.68-46.78-20.92-46.78-46.68,20.96-46.68,46.78-46.68ZM100,45.19c30.32,0,54.94,24.56,54.94,54.81s-24.62,54.81-54.94,54.81-54.94-24.56-54.94-54.81,24.62-54.81,54.94-54.81"/>
+  </g>
+</svg>

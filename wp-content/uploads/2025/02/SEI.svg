@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="432.22" y1="-270.3" x2="432.22" y2="-70.3" gradientTransform="translate(-332.22 -70.3) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d1c1b2"/>
+      <stop offset="1" stop-color="#f4e2d0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="436.35" y1="-100.14" x2="436.35" y2="-243.39" gradientTransform="translate(-332.22 -70.3) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#933666"/>
+      <stop offset="1" stop-color="#dc4244"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="432.17" y1="-100.14" x2="432.17" y2="-243.39" xlink:href="#linear-gradient-2"/>
+  </defs>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Pack2">
+      <g id="Sei_Network_SEI_" data-name="Sei Network SEI ">
+        <circle class="cls-3" cx="100" cy="100" r="100"/>
+        <path class="cls-1" d="M131.11,146.86l-1.23,1c-11.77,9.51-28.93,8.1-39-3.19-5.49-6.15-14.9-6.78-21.16-1.41l-14.15,12.13c29.4,23.48,72.03,19.9,97.11-8.15-6.15-5.33-15.24-5.49-21.57-.38h0Z"/>
+        <path class="cls-2" d="M158.31,59.93c-5.22-1.12-10.67.31-14.66,3.86l-1.18,1c-11.32,10.04-28.52,9.43-39.1-1.38-5.78-5.89-15.21-6.07-21.21-.41l-16.48,15.52-9.06-9.64,16.48-15.5c11.25-10.59,28.91-10.23,39.72.81,5.65,5.77,14.83,6.1,20.87.74l1.18-1c3.54-3.15,7.78-5.41,12.36-6.6-29.11-26.19-73.94-23.81-100.13,5.3-9.55,10.62-15.67,23.87-17.56,38.03,11.22-5.37,24.62-3,33.32,5.9,5.62,5.77,14.68,6.39,21.04,1.44l9.21-7.2c11.56-9.04,27.91-8.62,39,1l17.93,15.63-8.69,10-17.9-15.63c-6.3-5.49-15.61-5.74-22.2-.6l-9.25,7.2c-11.65,9.12-28.31,8.01-38.64-2.59-6.01-6.15-15.84-6.37-22.12-.49l-2,1.87c1.44,14.41,7.28,28.02,16.72,39l15.11-13c11.73-10.05,29.35-8.88,39.64,2.65,5.38,6.03,14.54,6.77,20.82,1.7l1.23-1c11.01-8.91,26.74-8.91,37.75,0,14.3-23.79,13.42-53.74-2.25-76.65l.05.04Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

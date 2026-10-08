@@ -1,0 +1,61 @@
+.elementor-5063 .elementor-element.elementor-element-78d5a58{--display:flex;--flex-direction:column;--container-widget-width:calc( ( 1 - var( --container-widget-flex-grow ) ) * 100% );--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--justify-content:space-between;--align-items:center;border-style:solid;--border-style:solid;border-width:1px 1px 5px 1px;--border-top-width:1px;--border-right-width:1px;--border-bottom-width:5px;--border-left-width:1px;border-color:#F0F0F0;--border-color:#F0F0F0;--border-radius:0px 0px 0px 0px;box-shadow:0px 5px 10px -5px rgba(0,0,0,0.5);--padding-top:12%;--padding-bottom:12%;--padding-left:12%;--padding-right:12%;}.elementor-5063 .elementor-element.elementor-element-78d5a58:not(.elementor-motion-effects-element-type-background), .elementor-5063 .elementor-element.elementor-element-78d5a58 > .elementor-motion-effects-container > .elementor-motion-effects-layer{background-color:var( --e-global-color-accent );}.elementor-5063 .elementor-element.elementor-element-78d5a58:hover::before, .elementor-5063 .elementor-element.elementor-element-78d5a58:hover > .elementor-background-video-container::before, .elementor-5063 .elementor-element.elementor-element-78d5a58:hover > .e-con-inner > .elementor-background-video-container::before, .elementor-5063 .elementor-element.elementor-element-78d5a58 > .elementor-background-slideshow:hover::before, .elementor-5063 .elementor-element.elementor-element-78d5a58 > .e-con-inner > .elementor-background-slideshow:hover::before{--background-overlay:'';}.elementor-5063 .elementor-element.elementor-element-78d5a58:hover{--overlay-opacity:0.05;border-style:solid;border-width:5px 1px 1px 1px;--border-top-width:5px;--border-right-width:1px;--border-bottom-width:1px;--border-left-width:1px;--border-radius:10px 10px 10px 10px;--border-top-left-radius:10px;--border-top-right-radius:10px;--border-bottom-right-radius:10px;--border-bottom-left-radius:10px;box-shadow:0px 0px 0px 0px rgba(0,0,0,0.5);}.elementor-5063 .elementor-element.elementor-element-78d5a58, .elementor-5063 .elementor-element.elementor-element-78d5a58::before{--border-transition:0.3s;}.elementor-5063 .elementor-element.elementor-element-78d5a58.e-con{--align-self:center;}.elementor-5063 .elementor-element.elementor-element-78d5a58 .wcf-image-hover{background-image:url( ../../../plugins/elementor/assets/images/placeholder.png );}.elementor-widget-theme-post-title .elementor-heading-title{font-family:var( --e-global-typography-primary-font-family ), Sans-serif;font-weight:var( --e-global-typography-primary-font-weight );color:var( --e-global-color-primary );}.elementor-5063 .elementor-element.elementor-element-61e94fb{text-align:center;}.elementor-5063 .elementor-element.elementor-element-61e94fb .elementor-heading-title{font-family:"Lama Sans", Sans-serif;font-weight:600;line-height:1.3em;}.elementor-widget-icon.elementor-view-stacked .elementor-icon{background-color:var( --e-global-color-primary );}.elementor-widget-icon.elementor-view-framed .elementor-icon, .elementor-widget-icon.elementor-view-default .elementor-icon{color:var( --e-global-color-primary );border-color:var( --e-global-color-primary );}.elementor-widget-icon.elementor-view-framed .elementor-icon, .elementor-widget-icon.elementor-view-default .elementor-icon svg{fill:var( --e-global-color-primary );}.elementor-5063 .elementor-element.elementor-element-1c57266 .elementor-icon-wrapper{text-align:center;}.elementor-5063 .elementor-element.elementor-element-1c57266.elementor-view-stacked .elementor-icon{background-color:var( --e-global-color-secondary );}.elementor-5063 .elementor-element.elementor-element-1c57266.elementor-view-framed .elementor-icon, .elementor-5063 .elementor-element.elementor-element-1c57266.elementor-view-default .elementor-icon{color:var( --e-global-color-secondary );border-color:var( --e-global-color-secondary );}.elementor-5063 .elementor-element.elementor-element-1c57266.elementor-view-framed .elementor-icon, .elementor-5063 .elementor-element.elementor-element-1c57266.elementor-view-default .elementor-icon svg{fill:var( --e-global-color-secondary );}.elementor-5063 .elementor-element.elementor-element-1c57266 .elementor-icon{font-size:25px;}.elementor-5063 .elementor-element.elementor-element-1c57266 .elementor-icon svg{height:25px;}.elementor-5063 .elementor-element.elementor-element-1c57266 .elementor-icon i, .elementor-5063 .elementor-element.elementor-element-1c57266 .elementor-icon svg{transform:rotate(180deg);}.elementor-widget-theme-post-excerpt .elementor-widget-container{font-family:var( --e-global-typography-text-font-family ), Sans-serif;font-weight:var( --e-global-typography-text-font-weight );color:var( --e-global-color-text );}.elementor-5063 .elementor-element.elementor-element-959221a .elementor-widget-container{text-align:center;font-family:"Lama Sans", Sans-serif;font-weight:400;line-height:1.5em;}@media(min-width:768px){.elementor-5063 .elementor-element.elementor-element-78d5a58{--width:100%;}}/* Start Custom Fonts CSS */@font-face {
+	font-family: 'Lama Sans';
+	font-style: normal;
+	font-weight: 300;
+	font-display: auto;
+	src: url('../../2026/04/LamaSans-Light.eot');
+	src: url('../../2026/04/LamaSans-Light.eot@') format('embedded-opentype'),
+		url('../../2026/04/LamaSans-Light.woff2') format('woff2'),
+		url('../../2026/04/LamaSans-Light.woff') format('woff'),
+		url('../../2026/04/LamaSans-Light.ttf') format('truetype'),
+		url('../../2026/04/LamaSans-Light.svg') format('svg');
+}
+@font-face {
+	font-family: 'Lama Sans';
+	font-style: normal;
+	font-weight: normal;
+	font-display: auto;
+	src: url('../../2026/04/LamaSans-Regular.eot');
+	src: url('../../2026/04/LamaSans-Regular.eot@') format('embedded-opentype'),
+		url('../../2026/04/LamaSans-Regular.woff2') format('woff2'),
+		url('../../2026/04/LamaSans-Regular.woff') format('woff'),
+		url('../../2026/04/LamaSans-Regular.ttf') format('truetype'),
+		url('../../2026/04/LamaSans-Regular.svg') format('svg');
+}
+@font-face {
+	font-family: 'Lama Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-display: auto;
+	src: url('../../2026/04/LamaSans-Medium.eot');
+	src: url('../../2026/04/LamaSans-Medium.eot@') format('embedded-opentype'),
+		url('../../2026/04/LamaSans-Medium.woff2') format('woff2'),
+		url('../../2026/04/LamaSans-Medium.woff') format('woff'),
+		url('../../2026/04/LamaSans-Medium.ttf') format('truetype'),
+		url('../../2026/04/LamaSans-Medium.svg') format('svg');
+}
+@font-face {
+	font-family: 'Lama Sans';
+	font-style: normal;
+	font-weight: bold;
+	font-display: auto;
+	src: url('../../2026/04/LamaSans-Bold.eot');
+	src: url('../../2026/04/LamaSans-Bold.eot@') format('embedded-opentype'),
+		url('../../2026/04/LamaSans-Bold.woff2') format('woff2'),
+		url('../../2026/04/LamaSans-Bold.woff') format('woff'),
+		url('../../2026/04/LamaSans-Bold.ttf') format('truetype'),
+		url('../../2026/04/LamaSans-Bold.svg') format('svg');
+}
+@font-face {
+	font-family: 'Lama Sans';
+	font-style: normal;
+	font-weight: 900;
+	font-display: auto;
+	src: url('../../2026/04/LamaSans-Black.eot');
+	src: url('../../2026/04/LamaSans-Black.eot@') format('embedded-opentype'),
+		url('../../2026/04/LamaSans-Black.woff2') format('woff2'),
+		url('../../2026/04/LamaSans-Black.woff') format('woff'),
+		url('../../2026/04/LamaSans-Black.ttf') format('truetype'),
+		url('../../2026/04/LamaSans-Black.svg') format('svg');
+}
+/* End Custom Fonts CSS */

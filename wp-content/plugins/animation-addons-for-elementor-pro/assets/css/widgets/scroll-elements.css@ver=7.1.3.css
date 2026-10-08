@@ -1,0 +1,72 @@
+.wcf--scroll-elements {
+  display: flex;
+  gap: 100px;
+}
+.wcf--scroll-elements .scroll-nav-bar {
+  width: 20%;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.wcf--scroll-elements .scroll-title {
+  display: flex;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #ddd;
+}
+.wcf--scroll-elements .scroll-title:hover, .wcf--scroll-elements .scroll-title.active {
+  cursor: pointer;
+  color: #0a0a0a;
+}
+.wcf--scroll-elements .scroll-title svg,
+.wcf--scroll-elements .scroll-title i {
+  align-self: start;
+  margin-top: 5px;
+  margin-right: 10px;
+  width: 1em;
+  height: 1em;
+}
+.wcf--scroll-elements .scroll-content-wrap {
+  display: flex;
+  gap: 100px;
+  flex: 1;
+}
+.wcf--scroll-elements .scroll-images {
+  width: 50%;
+  position: relative;
+}
+.wcf--scroll-elements .scroll-images .image-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+.wcf--scroll-elements .scroll-images .image-wrap img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0;
+  z-index: -1;
+}
+.wcf--scroll-elements .scroll-contents {
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .elementor-widget-wcf--scroll-elements.wcf-scroll-tablet .scroll-nav-bar,
+  .elementor-widget-wcf--scroll-elements.wcf-scroll-tablet .scroll-images {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .elementor-widget-wcf--scroll-elements.wcf-scroll-mobile .scroll-nav-bar,
+  .elementor-widget-wcf--scroll-elements.wcf-scroll-mobile .scroll-images {
+    display: none;
+  }
+}

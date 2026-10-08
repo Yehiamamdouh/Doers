@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #35314b;
+      }
+    </style>
+  </defs>
+  <g id="Algorand_ALGO_" data-name="Algorand ALGO ">
+    <circle class="cls-2" cx="100" cy="100" r="100"/>
+    <path class="cls-1" d="M114.04,49.4h-13.07l-50.15,86.77h14.99l39.67-68.59,4.71,17.78-29.25,50.81h14.99l19.04-32.97,8.89,32.97h13.47l-13.14-48.96,9.29-16.18h-13.6l-5.84-21.63Z"/>
+  </g>
+</svg>
