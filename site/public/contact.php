@@ -29,6 +29,8 @@ if ($t !== '' && (int)$t < 3000) respond(true);
 //   <?php return ['turnstile_secret' => '...'];
 $config = @include dirname($_SERVER['DOCUMENT_ROOT']) . '/doers-site-config.php';
 $secret = is_array($config) ? ($config['turnstile_secret'] ?? '') : '';
+// The page always sends a Turnstile token; a post without one came from a bot, not the form. Pretend success.
+if (trim((string)($_POST['cf-turnstile-response'] ?? '')) === '') respond(true);
 if ($secret !== '') {
     $token = (string)($_POST['cf-turnstile-response'] ?? '');
     $ctx = stream_context_create(['http' => [

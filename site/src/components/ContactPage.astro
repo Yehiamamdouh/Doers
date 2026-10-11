@@ -66,7 +66,7 @@ import turnstile from '../data/turnstile.json';
           <label for="cf-city">{t.city}<select id="cf-city" name="city"><option>{t.cairo}</option><option>{t.jeddah}</option><option>Riyadh</option><option>Dubai</option><option>{t.other}</option></select></label>
         </div>
         <label for="cf-message">{t.message} <small>({t.required})</small><textarea id="cf-message" name="message" rows="6" required></textarea></label>
-        {turnstile.siteKey && <div class="cf-turnstile" data-sitekey={turnstile.siteKey} data-language={lang} data-size="flexible" data-appearance="interaction-only"></div>}
+        {turnstile.siteKey && <div class="cf-turnstile" data-sitekey={turnstile.siteKey} data-language={lang} data-size="flexible" data-appearance="always"></div>}
         <button class="btn btn-o" type="submit" id="cf-send">{t.send} <span class="arrow">↗</span></button>
         <p class="status" id="cf-status" role="status" aria-live="polite"></p>
       </form>
