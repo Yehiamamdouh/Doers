@@ -27,7 +27,10 @@ if ($t !== '' && (int)$t < 3000) respond(true);
 
 // Cloudflare Turnstile, once the secret key is set in doers-site-config.php (one level above public_html):
 //   <?php return ['turnstile_secret' => '...'];
-$config = @include dirname($_SERVER['DOCUMENT_ROOT']) . '/doers-site-config.php';
+$config = null;
+foreach (array_unique([dirname($_SERVER['DOCUMENT_ROOT'] ?? __DIR__), dirname(__DIR__), (string)getenv('HOME')]) as $dir) {
+    if ($dir !== '' && is_file($dir . '/doers-site-config.php')) { $config = @include $dir . '/doers-site-config.php'; break; }
+}
 $secret = is_array($config) ? ($config['turnstile_secret'] ?? '') : '';
 // The page always sends a Turnstile token; a post without one came from a bot, not the form. Pretend success.
 if (trim((string)($_POST['cf-turnstile-response'] ?? '')) === '') respond(true);
