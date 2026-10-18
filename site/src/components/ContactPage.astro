@@ -1,4 +1,7 @@
 ---
+// Where the form posts. On Cloudflare Pages there is no PHP, so the build points it at contact.php on the
+// Namecheap server (see .github/workflows/deploy-site.yml); elsewhere it stays on the same host.
+const formUrl = process.env.FORM_URL || '/contact.php';
 import Base from '../layouts/Base.astro';
 import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
@@ -49,7 +52,7 @@ import turnstile from '../data/turnstile.json';
           <div><span class="label">{ar ? "واتساب" : "WhatsApp"}</span><p><a href="https://wa.me/201101000255" dir="ltr">+20 110 100 0255</a></p><p>{t.hours}</p><a class="btn btn-o wa-btn" href="https://wa.me/201101000255">WhatsApp ↗</a></div>
         </div>
       </div>
-      <form class="cform" id="cform" action="/contact.php" method="post" novalidate>
+      <form class="cform" id="cform" action={formUrl} method="post" novalidate>
         <input type="hidden" name="lang" value={lang}>
         <input type="hidden" name="t" id="cf-t" value="">
         <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" id="cf-website" tabindex="-1" autocomplete="off"></label></div>

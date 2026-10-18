@@ -9,12 +9,19 @@ const FROM_EMAIL = 'website@doersadv.com';
 const MAX_PER_DAY = 2;       // messages per IP in any 24 hours
 const MAX_PER_IP = 3;        // messages per IP, ever
 
+// The site on Cloudflare Pages posts here from another host: allow those pages to read the reply.
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+if (preg_match('~^https://((www\.|staging\.)?doersadv\.com|([a-z0-9-]+\.)?doersadv\.pages\.dev)$~', $origin)) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+    header('Vary: Origin');
+}
+
 $wantsJson = strpos($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json') !== false;
 function respond($ok, $code = 200, $extra = []) {
     global $wantsJson;
     http_response_code($code);
     if ($wantsJson) { header('Content-Type: application/json'); echo json_encode(['ok' => $ok] + $extra); }
-    else { header('Location: ' . ($ok ? '/contact-us/?sent=1' : '/contact-us/?error=1')); }
+    else { header('Location: https://doersadv.com' . ($ok ? '/contact-us/?sent=1' : '/contact-us/?error=1')); }
     exit;
 }
 
