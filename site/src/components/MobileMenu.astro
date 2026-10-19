@@ -1,0 +1,53 @@
+---
+// Phones and tablets: the header menu is hidden under 1000px, so this button opens the full menu.
+// It works without JavaScript (<details>); a short script closes it after a tap on a link.
+import menu from '../data/services-menu.json';
+import { loc } from '../lib/links.js';
+const { lang = 'en', ksa = false } = Astro.props;
+const ar = lang === 'ar';
+const home = ar ? '/ar/' : '/';
+const link = (p) => loc(p, lang);
+const name = (s) => (ar ? (ksa && s.ar_ksa) || s.ar : s.name);
+const L = ar
+  ? { open: 'القائمة', work: 'أعمالنا', services: 'الخدمات', ksa: 'السعودية', blog: 'المدونة', contact: 'تواصل معنا', cairo: 'القاهرة', jeddah: 'جدة' }
+  : { open: 'Menu', work: 'Work', services: 'Services', ksa: 'KSA', blog: 'Blog', contact: 'Contact us', cairo: 'Cairo', jeddah: 'Jeddah' };
+---
+<details class="mnav">
+  <summary aria-label={L.open}><span></span><span></span><span></span></summary>
+  <nav class="mnav-p" aria-label={L.open}>
+    <a class="mnav-top" href={home + '#work'}>{L.work}</a>
+    <p class="mnav-h">{L.services}</p>
+    <ul>
+      {menu.map((s) => (
+        <li>
+          <a href={link(s.eg || s.ksa)}>{name(s)}</a>
+          <span>{s.eg && s.ksa && <a href={link(s.eg)}>{L.cairo}</a>}{s.eg && s.ksa && <a href={link(s.ksa)}>{L.jeddah}</a>}</span>
+        </li>
+      ))}
+    </ul>
+    <a class="mnav-top" href={link('/ksa/')}>{L.ksa}</a>
+    <a class="mnav-top" href={link('/blog/')}>{L.blog}</a>
+    <a class="btn btn-o mnav-cta" href={link('/contact-us/')}>{L.contact} <span class="arrow">↗</span></a>
+  </nav>
+</details>
+<script is:inline>document.querySelectorAll('.mnav-p a').forEach(function(a){a.addEventListener('click',function(){a.closest('details').open=false})})</script>
+<style is:global>
+.mnav{display:none}
+@media (max-width:1000px){
+  .mnav{display:block;position:fixed;top:16px;inset-inline-end:16px;z-index:200}
+  .nav .nav-r{margin-inline-end:56px}
+  .mnav summary{list-style:none;width:44px;height:44px;display:grid;place-content:center;gap:5px;background:var(--ink,#161718);border-radius:50%;cursor:pointer}
+  .mnav summary::-webkit-details-marker{display:none}
+  .mnav summary span{display:block;width:20px;height:2px;background:#fff;transition:transform .2s,opacity .2s}
+  .mnav[open] summary span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .mnav[open] summary span:nth-child(2){opacity:0}
+  .mnav[open] summary span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mnav-p{position:fixed;inset:76px 0 0;overflow-y:auto;background:var(--night,#F6F4EF);padding:20px 16px 40px;border-top:1px solid var(--line,#ddd)}
+  .mnav-top{display:block;font:700 22px/1.3 var(--display,system-ui);padding:12px 0;border-bottom:1px solid var(--line,#ddd)}
+  .mnav-h{margin:18px 0 4px;color:var(--orange-d,#C77A00);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  .mnav-p ul{list-style:none;margin:0 0 8px;padding:0}
+  .mnav-p li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line,#ddd);font-size:17px}
+  .mnav-p li span{display:flex;gap:12px;font-size:13px;color:var(--smoke,#666)}
+  .mnav-cta{display:inline-flex;margin-top:24px}
+}
+</style>

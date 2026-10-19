@@ -77,7 +77,9 @@ button{font:inherit;color:inherit}
 /* marquee */
 .marquee{background:var(--orange);overflow:hidden;padding:18px 0;border-block:2px solid var(--ink)}
 .track{display:flex;gap:44px;width:max-content;font:800 clamp(24px,3vw,40px)/1.1 var(--display);letter-spacing:-.02em;white-space:nowrap;will-change:transform}
-.track span::after{content:"✦";margin-inline-start:44px;font-size:.6em;vertical-align:middle}
+.track a{color:inherit;transition:opacity .2s}
+.track a:hover{opacity:.6}
+.track a::after{content:"✦";margin-inline-start:44px;font-size:.6em;vertical-align:middle}
 
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}

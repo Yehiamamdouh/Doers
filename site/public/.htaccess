@@ -40,6 +40,10 @@ RewriteRule ^(ar/)?website-development-company/$ /$1ksa/website-development-comp
 RewriteRule ^(ar/)?Ksa/(.*)$ /$1ksa/$2 [L,R=301]
 RewriteRule ^(ar/)?author/ /$1 [L,R=301]
 
+# ---- Old posts merged into the newer Egypt guides ----
+RewriteRule ^(ar/)?what-does-a-full-service-ad-agency-do/$ /$1what-does-an-advertising-agency-do-egypt/ [L,R=301]
+RewriteRule ^(ar/)?how-to-select-your-advertising-agency/$ /$1how-to-choose-advertising-agency-egypt/ [L,R=301]
+
 # ---- WordPress archives the new site doesn't have ----
 RewriteRule ^(ar/)?category/ /$1blog/ [L,R=301]
 RewriteRule ^(ar/)?blog/page/[0-9]+/$ /$1blog/ [L,R=301]

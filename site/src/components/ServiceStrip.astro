@@ -3,18 +3,27 @@
 // (`items`, or src/data/strips.json by English path); elsewhere the general list in subservices.json.
 import list from '../data/subservices.json';
 import strips from '../data/strips.json';
+import { loc } from '../lib/links.js';
 const { lang = 'en', items, path } = Astro.props;
 const key = lang === 'ar' ? 'ar' : 'en';
 const own = path && strips.strips.find((s) => s.paths.includes(path));
 const shown = items || (own ? own[key] : list[key]);
+// The general list links each item to its service page; a service page's own strip stays plain text.
+const href = (i) => (!items && !own ? loc(list.links[i].replace(/^\*/, ''), lang) : null);
 ---
-<div class="sstrip" aria-hidden="true">
-  <div class="sstrip-t">{[...shown, ...shown].map((s) => <span>{s}</span>)}</div>
+<div class="sstrip">
+  <div class="sstrip-t">
+    {[0, 1].map((dup) => shown.map((s, i) => href(i)
+      ? <a href={href(i)} tabindex={dup ? '-1' : undefined} aria-hidden={dup ? 'true' : undefined}>{s}</a>
+      : <span aria-hidden={dup ? 'true' : undefined}>{s}</span>))}
+  </div>
 </div>
 <style is:global>
 .sstrip{background:var(--orange,#F7A21B);color:var(--ink,#161718);overflow:hidden;padding:16px 0;border-block:2px solid var(--ink,#161718)}
 .sstrip-t{display:flex;gap:40px;width:max-content;font:800 clamp(20px,2.4vw,34px)/1.1 "Bricolage Grotesque","Alexandria",system-ui,sans-serif;letter-spacing:-.02em;white-space:nowrap;animation:sstrip 90s linear infinite}
-.sstrip-t span::after{content:"✦";margin-inline-start:40px;font-size:.6em;vertical-align:middle}
+.sstrip-t a{color:inherit;transition:opacity .2s}
+.sstrip-t a:hover{opacity:.6}
+.sstrip-t>*::after{content:"✦";margin-inline-start:40px;font-size:.6em;vertical-align:middle}
 .sstrip:hover .sstrip-t{animation-play-state:paused}
 [dir=rtl] .sstrip-t{animation-name:sstrip-rtl;letter-spacing:0}
 @keyframes sstrip{to{transform:translateX(-50%)}}

@@ -50,3 +50,7 @@
 /post-sitemap.xml /sitemap-index.xml 301
 /*/feed/ /:splat/ 301
 /*/amp/ /:splat/ 301
+/what-does-a-full-service-ad-agency-do/ /what-does-an-advertising-agency-do-egypt/ 301
+/how-to-select-your-advertising-agency/ /how-to-choose-advertising-agency-egypt/ 301
+/ar/what-does-a-full-service-ad-agency-do/ /ar/what-does-an-advertising-agency-do-egypt/ 301
+/ar/how-to-select-your-advertising-agency/ /ar/how-to-choose-advertising-agency-egypt/ 301

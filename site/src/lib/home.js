@@ -38,8 +38,10 @@ export function renderHome(lang = 'en') {
   $('#svc').html(S.map((s, i) => `<div class="row"${s.img ? ` data-img="/${s.img}"` : ''}><span class="n">${String(i + 1).padStart(2, '0')}</span><h3><a href="${U(s.eg || s.ksa)}">${nm(s)}</a></h3><p>${isAr ? s.da : s.d}</p><span class="cities">${s.eg ? `<a href="${U(s.eg)}">${city(1)}</a>` : ''}${s.ksa ? `<a href="${U(s.ksa)}">${city(0)}</a>` : ''}</span></div>`).join(''));
   $('#menu-all').html(S.map((s) => `<div class="mrow"><a class="mname" href="${U(s.eg || s.ksa)}">${nm(s)}</a><span class="mcity">${s.eg ? `<a href="${U(s.eg)}">${city(1)}</a>` : ''}${s.ksa ? `<a href="${U(s.ksa)}">${city(0)}</a>` : ''}</span></div>`).join(''));
   $('#fsvc').html(S.map((s) => `<li><a href="${U(s.eg || s.ksa)}">${nm(s)}</a></li>`).join(''));
-  const items = subservices[isAr ? 'ar' : 'en'].map((s) => `<span>${s}</span>`).join('');
-  $('#track').html(items + items);
+  // Each strip item links to its service page; the repeated copy (for the endless loop) is hidden from keyboards and screen readers.
+  const item = (s, i, dup) => `<a href="${U(subservices.links[i])}"${dup ? ' tabindex="-1" aria-hidden="true"' : ''}>${s}</a>`;
+  const list = subservices[isAr ? 'ar' : 'en'];
+  $('#track').html(list.map((s, i) => item(s, i)).join('') + list.map((s, i) => item(s, i, true)).join(''));
   $('#citylist').html(data.cities.map((c) => `<span>${isAr ? c[1] : c[0]}</span>`).join('<i>·</i>'));
   // The "Play reel" sticker plays the showreel once it's on Vimeo (src/data/films.json), the EMS ad until then.
   const reel = films.find((f) => f.key === 'showreel' && f.vimeo);
