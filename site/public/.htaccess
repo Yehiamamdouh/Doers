@@ -32,6 +32,7 @@ RewriteRule ^(ar/)?(ksa/)?digital-marketing/$ /$1ksa/digital-marketing-agency-in
 RewriteRule ^(ar/)?(ksa/)?ooh-3/$ /$1ksa/ooh-outdoor-agency-in-jeddah/ [L,R=301]
 RewriteRule ^(ar/)?ksa/branding/$ /$1ksa/branding-agency-in-jeddah/ [L,R=301]
 RewriteRule ^(ar/)?ksa/seo/$ /$1ksa/seo-agency-in-jeddah/ [L,R=301]
+RewriteRule ^(ar/)?booth-production/$ /$1booth-production-egypt/ [L,R=301]
 RewriteRule ^(ar/)?ksa/booth-production/$ /$1ksa/booth-production-in-jeddah/ [L,R=301]
 RewriteRule ^(ar/)?ksa/radio-advertising-ksa/$ /$1ksa/radio-advertising-agencies-in-jeddah/ [L,R=301]
 RewriteRule ^(ar/)?ksa/tv-advertising-ksa-riyadh/$ /$1ksa/tv-advertising-in-jeddah/ [L,R=301]
