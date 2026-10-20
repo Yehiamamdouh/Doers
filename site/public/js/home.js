@@ -14,12 +14,15 @@ document.querySelectorAll(".count").forEach(el=>{if(!RM)el.textContent="0";cio.o
 
 /* scroll: marquee velocity, parallax, nav hide */
 const track=document.getElementById("track"), nav=document.querySelector(".nav");
+// Measure the marquee's loop width once (and on resize), not on every frame.
+let half=track.scrollWidth/2;addEventListener("resize",()=>{half=track.scrollWidth/2},{passive:true});
 let x=0,lastY=scrollY,vel=0;
 function tick(){
   const y=scrollY,d=y-lastY;lastY=y;vel+= (Math.abs(d)-vel)*.1;
-  if(!RM){x-= (0.6+vel*.25)*(ar?-1:1);const half=track.scrollWidth/2;if(ar){if(x>half)x-=half}else if(-x>half)x+=half;track.style.transform=`translate3d(${x}px,0,0)`;}
+  if(!RM){x-= (0.6+vel*.25)*(ar?-1:1);if(ar){if(x>half)x-=half}else if(-x>half)x+=half;track.style.transform=`translate3d(${x}px,0,0)`;}
   nav.classList.toggle("hide",d>4&&y>400);if(d<-4)nav.classList.remove("hide");
-  if(!RM)document.querySelectorAll(".w img,.px").forEach(im=>{const r=im.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const p=(r.top+r.height/2-innerHeight/2)/innerHeight;im.style.setProperty("--py",(p*-6).toFixed(2)+"%")});
+  // Parallax only moves when the page scrolls.
+  if(!RM&&d!==0)document.querySelectorAll(".w img,.px").forEach(im=>{const r=im.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const p=(r.top+r.height/2-innerHeight/2)/innerHeight;im.style.setProperty("--py",(p*-6).toFixed(2)+"%")});
   requestAnimationFrame(tick);
 }
 requestAnimationFrame(tick);
