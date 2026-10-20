@@ -394,3 +394,14 @@ footer a:hover{color:var(--orange)}
 .mcity a:hover{border-color:var(--orange)}
 .intro-copy a{color:inherit;text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:3px;text-decoration-thickness:1.5px}
 .intro-copy a:hover{color:var(--orange-d)}
+
+/* homepage questions */
+.hfaq{padding-block:72px;border-top:1px solid var(--line)}
+.hfaq .h2{margin-bottom:24px}
+.hfaq details{border-bottom:1px solid var(--line);padding:18px 0}
+.hfaq summary{cursor:pointer;font:700 clamp(18px,2vw,22px)/1.35 var(--display);list-style:none}
+.hfaq summary::-webkit-details-marker{display:none}
+.hfaq summary::after{content:"+";float:inline-end;color:var(--orange-d,#C77A00)}
+.hfaq details[open] summary::after{content:"–"}
+.hfaq p{margin-top:10px;max-width:760px;color:var(--bone-2)}
+.hfaq p a{color:var(--orange-d,#C77A00);white-space:nowrap}

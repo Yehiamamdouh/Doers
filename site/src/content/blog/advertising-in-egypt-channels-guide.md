@@ -56,7 +56,7 @@ service: /
 
 <h2>Putting it together: one idea, every channel</h2>
 
-<p>The strongest campaigns in Egypt use a few channels that support each other. A typical launch might use TV or outdoor for reach, digital to capture the demand that reach creates, and an event or exhibition to close the most valuable conversations. What holds it together is one clear idea and <a href="/branding-agency-egypt/">a strong brand</a>, so every touchpoint feels like the same company.</p>
+<p>The strongest campaigns in Egypt use a few channels that support each other. A typical launch might use TV or outdoor for reach, digital to capture the demand that reach creates, and an event or exhibition to close the most valuable conversations. What holds it together is one clear idea and a strong brand, built with a good <a href="/branding-agency-egypt/">branding agency in Egypt</a>, so every touchpoint feels like the same company.</p>
 
 <p>Two rules help keep the budget working:</p>
 

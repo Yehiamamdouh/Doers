@@ -20,6 +20,10 @@
    [
     "Can you also apply the brand to our offices and events?",
     "Yes. Our own teams produce signage, office branding, exhibition stands and event branding, so the identity reaches the real world exactly as designed."
+   ],
+   [
+    "How much does branding cost in Egypt?",
+    "It depends on scope: a logo refresh, a full identity with guidelines, or naming and packaging too. We quote after a short brief so you pay only for what you need."
    ]
   ],
   "ar": [
@@ -42,6 +46,10 @@
    [
     "بتطبقوا الهوية على مكاتبنا والإيفنتات بتاعتنا كمان؟",
     "أيوه. فرقنا بتنفذ اللافتات وهوية المكاتب وأجنحة المعارض وهوية الإيفنتات، فالهوية بتنزل على الأرض زي ما اتصممت بالظبط."
+   ],
+   [
+    "البراندنج في مصر بيتكلف كام؟",
+    "على حسب الشغل: تجديد لوجو، ولا هوية كاملة بدليل، ولا كمان اسم وتغليف. بنسعّر بعد بريف قصير، فتدفع على اللي محتاجه بس."
    ]
   ]
  },
@@ -544,6 +552,14 @@
    [
     "How long should an outdoor campaign run?",
     "Most campaigns run for at least four weeks to build recall. We'll recommend a duration based on your budget and objectives."
+   ],
+   [
+    "How much does a billboard cost in Egypt?",
+    "It depends on location, size, format (static or digital), duration and season; a main bridge in Ramadan costs more than a side road in summer. We send a plan with options for your budget."
+   ],
+   [
+    "Which locations work best for outdoor advertising in Cairo?",
+    "The Ring Road, the main bridges (6th of October, Agouza, Stadium), New Cairo and Sheikh Zayed corridors, and malls, chosen by where your audience actually drives."
    ]
   ],
   "ar": [
@@ -562,6 +578,14 @@
    [
     "حملة الطرق المناسب تفضل قد إيه؟",
     "أغلب الحملات بتفضل 4 أسابيع على الأقل عشان تثبت في الذاكرة، وبنقترح المدة المناسبة حسب ميزانيتك وأهدافك."
+   ],
+   [
+    "البيلبورد في مصر بيتكلف كام؟",
+    "على حسب المكان والمقاس والنوع، ثابت ولا شاشة، والمدة والموسم. كوبري رئيسي في رمضان أغلى من شارع جانبي في الصيف. بنبعتلك خطة فيها اختيارات على قد ميزانيتك."
+   ],
+   [
+    "أنهي أماكن أحسن لإعلانات الطرق في القاهرة؟",
+    "الدائري والكباري الرئيسية زي ٦ أكتوبر والعجوزة والاستاد، ومحاور التجمع والشيخ زايد، والمولات. وبنختار على حسب الأماكن اللي جمهورك فعلًا بيعدّي منها."
    ]
   ]
  },
@@ -1002,6 +1026,60 @@
    [
     "Which shows do you work at?",
     "Egypt's major exhibitions, including Cairo ICT, EGYPES, AI Everything, Plastex and EgyBeauty Africa."
+   ]
+  ]
+ },
+ "/": {
+  "en": [
+   [
+    "What does an advertising agency in Egypt do?",
+    "It turns your business goal into a campaign and proves what it delivered: strategy, branding, production, TV, radio, outdoor and digital media, events and exhibition stands, with monthly reports.",
+    "/what-does-an-advertising-agency-do-egypt/",
+    "Read our full guide"
+   ],
+   [
+    "How much does advertising cost in Egypt?",
+    "It depends on the objective, channels, season and production, not a price list. Tell us your goal and budget range and we'll show how we'd spend it.",
+    "/advertising-cost-egypt-budget-factors/",
+    "What drives the budget"
+   ],
+   [
+    "Why choose Doers among advertising companies in Egypt?",
+    "One in-house team for strategy, creative, media, events and booths; two TechBehemoths awards (2022); clients from multinationals and UN agencies to local brands; and we adapt to your deadline.",
+    "/how-to-choose-advertising-agency-egypt/",
+    "How to choose an agency"
+   ],
+   [
+    "Do you work across Egypt or only in Cairo?",
+    "We're based in Cairo and run campaigns, events and outdoor across Egypt, with a team in Jeddah for Saudi Arabia.",
+    "/contact-us/",
+    "Talk to us"
+   ]
+  ],
+  "ar": [
+   [
+    "شركة الدعاية والإعلان في مصر بتعمل إيه؟",
+    "بتحوّل هدف البيزنس لحملة وبتثبت جابت إيه: استراتيجية، وبراندنج، وإنتاج، وتلفزيون وراديو وطرق وديجيتال، وإيفنتات وأجنحة معارض، مع تقارير شهرية.",
+    "/ar/what-does-an-advertising-agency-do-egypt/",
+    "اقرا الدليل كامل"
+   ],
+   [
+    "الإعلان في مصر بيتكلف كام؟",
+    "على حسب الهدف والقنوات والموسم والإنتاج، مش قايمة أسعار. قولّنا هدفك ونطاق ميزانيتك، وهنوريك هنصرفها إزاي.",
+    "/ar/advertising-cost-egypt-budget-factors/",
+    "إيه اللي بيحدد الميزانية"
+   ],
+   [
+    "ليه تختار دورز من بين شركات الدعاية والإعلان في مصر؟",
+    "فريق واحد داخلي للاستراتيجية والكريتيف والميديا والإيفنتات والبوثات، وجايزتين من TechBehemoths سنة 2022، وعملاء من شركات عالمية ووكالات أمم متحدة لبراندات محلية، وبنتأقلم مع ميعادك.",
+    "/ar/how-to-choose-advertising-agency-egypt/",
+    "إزاي تختار شركة"
+   ],
+   [
+    "بتشتغلوا في كل مصر ولا القاهرة بس؟",
+    "مقرنا القاهرة، وبننفذ حملات وإيفنتات وإعلانات طرق في كل مصر، ولينا فريق في جدة للسعودية.",
+    "/ar/contact-us/",
+    "كلّمنا"
    ]
   ]
  }

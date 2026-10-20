@@ -48,7 +48,7 @@ service: /
 
 <h2>9. Can they prove their work is recognised?</h2>
 
-<p>Awards and independent rankings are not everything, but they show that someone outside the agency checked the work. Look for recognition that is based on verified client work rather than paid listings. Doers, for example, won two <a href="https://techbehemoths.com/awards-2022/egypt" target="_blank" rel="noopener">TechBehemoths Awards</a> in Egypt in 2022, one for Advertising and one for Branding. Certifications such as Google Partner or HubSpot partnership also show that the team keeps its skills up to date.</p>
+<p>Awards and independent rankings are not everything, but they show that someone outside the agency checked the work. Look for recognition that is based on verified client work rather than paid listings. Doers, for example, won two <a href="https://techbehemoths.com/awards-2022/egypt" target="_blank" rel="noopener">TechBehemoths Awards</a> in Egypt in 2022, one for Advertising and one for Branding (see our <a href="/branding-agency-egypt/">branding agency in Egypt</a> work). Certifications such as Google Partner or HubSpot partnership also show that the team keeps its skills up to date.</p>
 
 <h2>10. Will they still fit when you grow into new markets?</h2>
 

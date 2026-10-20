@@ -46,7 +46,7 @@ service: /
 
 <h2>5. Brand and strategy: the part that makes everything else work</h2>
 
-<p>Strategy, research and <a href="/branding-agency-egypt/">branding</a> are usually a small share of the total, but they decide whether the rest of the budget works. A clear brand and message make every ad more effective, so the same media money delivers more.</p>
+<p>Strategy, research and branding are usually a small share of the total, but they decide whether the rest of the budget works. A clear brand and message make every ad more effective, so the same media money delivers more. Bringing in an experienced <a href="/branding-agency-egypt/">branding agency in Egypt</a> early saves rebuilding later.</p>
 
 <h2>6. Agency fees</h2>
 

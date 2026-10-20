@@ -5,6 +5,7 @@ import { hasArabic, loc } from './links.js';
 import data from '../data/home-services.json';
 import films from '../data/films.json';
 import subservices from '../data/subservices.json';
+import faqs from '../data/faqs.json';
 
 function localPath(href, lang) {
   let path = href.replace(/^https:\/\/doersadv\.com/, '');
@@ -42,6 +43,9 @@ export function renderHome(lang = 'en') {
   const item = (s, i, dup) => `<a href="${U(subservices.links[i])}"${dup ? ' tabindex="-1" aria-hidden="true"' : ''}>${s}</a>`;
   const list = subservices[isAr ? 'ar' : 'en'];
   $('#track').html(list.map((s, i) => item(s, i)).join('') + list.map((s, i) => item(s, i, true)).join(''));
+  // Homepage questions (src/data/faqs.json, key "/"): the same list feeds the FAQPage schema in pages/index.astro.
+  const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  $('#hfaq').html(`<h2 class="h2">${isAr ? 'أسئلة <em>شائعة.</em>' : 'Questions, <em>answered.</em>'}</h2>` + faqs['/'][lang].map(([q, a, href, label]) => `<details><summary>${esc(q)}</summary><p>${esc(a)} <a href="${href}">${esc(label)} →</a></p></details>`).join(''));
   $('#citylist').html(data.cities.map((c) => `<span>${isAr ? c[1] : c[0]}</span>`).join('<i>·</i>'));
   // The "Play reel" sticker plays the showreel once it's on Vimeo (src/data/films.json), the EMS ad until then.
   const reel = films.find((f) => f.key === 'showreel' && f.vimeo);
