@@ -46,7 +46,7 @@ async function scrollAll(p) {
 				p.on('response', r => { if (r.url().startsWith(LOCAL) && r.status() >= 400 && !r.url().endsWith(pg)) (bad[r.url()] ||= pg); });
 				p.on('requestfailed', r => { if (r.url().startsWith(LOCAL)) (bad[r.url()] ||= pg); });
 				p.on('console', m => { if (m.type() === 'error' && /MIME|refused to (execute|apply)/i.test(m.text())) (errs[m.text().slice(0, 120)] ||= pg); });
-				p.on('pageerror', e => { if (!/^jet-popup\//.test(pg)) (errs[e.message.slice(0, 120)] ||= pg); });
+				p.on('pageerror', e => { if (!/(^|\/)jet-popup\//.test(pg)) (errs[e.message.slice(0, 120)] ||= pg); }); // popup template pages error on the live site too
 				await p.goto(`${LOCAL}/${encodeURI(pg)}`, { waitUntil: 'networkidle', timeout: 60000 }).catch(e => (bad['open ' + pg] = e.message.slice(0, 80)));
 				await p.close();
 			}
@@ -119,20 +119,31 @@ async function scrollAll(p) {
 	for (const url of ['/crypto-currencies/', '/ar/crypto-currencies/']) {
 		const count = async (base, filter) => {
 			const p = await b.newPage({ viewport: { width: 1366, height: 900 } });
-			await p.goto(base + url, { waitUntil: 'networkidle' });
-			if (filter !== null) {
-				await (await p.$$('.jet-radio-list__item'))[filter].click();
-				await p.waitForLoadState('networkidle');
-				await p.waitForTimeout(1500);
+			try {
+				await p.goto(base + url, { waitUntil: 'networkidle', timeout: 60000 });
+				if (filter !== null) {
+					await p.waitForSelector('.jet-radio-list__item', { timeout: 20000 });
+					await (await p.$$('.jet-radio-list__item'))[filter].click();
+					await p.waitForLoadState('networkidle');
+					await p.waitForTimeout(2500);
+				}
+				const c = await scrollAll(p);
+				const names = await p.$$eval('.jet-listing-grid__item', e => e.map(x => x.innerText.trim().split('\n')[0]).sort().join(','));
+				return [c, names];
+			} catch (e) {
+				return [-1, e.message.slice(0, 60)];
+			} finally {
+				await p.close();
 			}
-			const c = await scrollAll(p);
-			const names = await p.$$eval('.jet-listing-grid__item', e => e.map(x => x.innerText.trim().split('\n')[0]).sort().join(','));
-			await p.close();
-			return [c, names];
 		};
 		for (const f of [null, 0, 1, 2, 3]) {
-			const [lc, ln] = await count(LOCAL, f);
-			const [rc, rn] = await count(LIVE, f);
+			// the live server is slow at times, so give each side up to 3 tries to agree
+			let lc, ln, rc, rn;
+			for (let t = 0; t < 3; t++) {
+				[lc, ln] = await count(LOCAL, f);
+				[rc, rn] = await count(LIVE, f);
+				if (lc === rc && ln === rn) break;
+			}
 			report(lc === rc && ln === rn, `crypto ${url} filter ${f === null ? 'none' : f}`, `local ${lc} / live ${rc}`);
 		}
 	}

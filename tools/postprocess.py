@@ -71,6 +71,17 @@ def fetch_lazy_scripts(site):
             if not os.path.exists(dest):
                 fetch(f'{SITE_URL}/wp-content/plugins/{plugin}/assets/js/{chunk}', dest)
                 n += 1
+    # Elementor 4.3+ loads named chunks from assets/js/chunks/<name>.min.js
+    jsdir = os.path.join(site, 'wp-content/plugins/elementor/assets/js')
+    names = set()
+    for f in os.listdir(jsdir):
+        if f.endswith('.js') or '.js@' in f:
+            names |= set(re.findall(r'elementorLoadChunk\(`([a-z0-9-]+)`\)', read(os.path.join(jsdir, f))))
+    for name in sorted(names):
+        dest = os.path.join(jsdir, 'chunks', name + '.min.js')
+        if not os.path.exists(dest):
+            fetch(f'{SITE_URL}/wp-content/plugins/elementor/assets/js/chunks/{name}.min.js', dest)
+            n += 1
     for path in ('wp-includes/js/wp-emoji-release.min.js',
                  'wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js'):
         dest = os.path.join(site, path)

@@ -56,9 +56,10 @@ def main():
             rest = url[len(SITE_URL):]
             if re.match(r'/(wp-admin|wp-json)', rest):
                 return m.group(0)
+            rest, _, frag = rest.partition('#')
             path, _, q = rest.partition('?')
             q = q.replace('&#038;', '&')
-            return ('/' + local(path, q)).replace('/', '\\/')
+            return ('/' + local(path, q) + ('#' + frag if frag else '')).replace('/', '\\/')
         s = re.sub(r'https:\\/\\/almajnaadvisors\.com(?:\\/[^"\\ <>\']*)*(?:\?[^"\\ <>\']*)?', esc, s)
         open(os.path.join(out, f), 'w', encoding='utf-8').write(s)
         n += 1
