@@ -4,12 +4,15 @@
 English and Arabic (`/ar/`), made so the site can move off WordPress without
 any visible change. Content and design are exactly what the live site shows.
 
-Separate from the Doers site (`main` branch). Work on this branch only.
+Repository: `Yehiamamdouh/almajna-website` (private), branch `main`.
 
 ## Layout
 
 - `site/` – the website. This is the folder the host serves.
-- `functions/` – Cloudflare Pages Functions (the contact form endpoint).
+- `functions/` – Cloudflare Pages Functions: the contact form and the admin API.
+- `admin/` – the admin panel (served at `/admin/`, behind Cloudflare Access).
+- `content/` – data the admin panel edits (shared sections, recorded AJAX requests).
+- `lib/` – code shared by the functions (GitHub client).
 - `tools/` – scripts that rebuild `site/` from the live site and test it;
   `tools/cms/build.mjs` turns `site/` into `dist/` on every deploy (search index).
 - `docs/setup-with-claude-in-chrome.md` – step-by-step setup to paste into Claude in Chrome.
@@ -17,7 +20,7 @@ Separate from the Doers site (`main` branch). Work on this branch only.
 ## Hosting on Cloudflare Pages
 
 1. Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git.
-2. Pick the `Doers` repository and the `almajna` branch.
+2. Pick the `almajna-website` repository and the `main` branch.
 3. Framework preset: None. Build command: `npm run build`.
    Build output directory: `dist`. Variable `NODE_VERSION` = `20`.
 4. Deploy, and check the `*.pages.dev` address it gives you.
@@ -38,7 +41,6 @@ load their files from `/wp-content/...`, `/static-ajax/...` and so on.
 - The contact forms (English and Arabic) post to `/api/contact`
   (`functions/api/contact.js`), which emails the message through Resend and
   answers the way WordPress did, so the form shows its usual success message.
-
 
 ## Contact form setup (once)
 
