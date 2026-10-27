@@ -3,8 +3,8 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 PORT=${PORT:-8790}
-python3 tools/check_links.py site | sed -n '1p;3,40p'
-python3 tools/serve.py site "$PORT" & SERVER=$!
+npm run build >/dev/null && python3 tools/check_links.py dist | sed -n '1p;3,40p'
+python3 tools/serve.py dist "$PORT" & SERVER=$!
 trap 'kill $SERVER' EXIT
 sleep 1
-node tools/verify.js "http://localhost:$PORT" site
+node tools/verify.js "http://localhost:$PORT" dist

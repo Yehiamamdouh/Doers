@@ -1,0 +1,11 @@
+{
+  "name": "almajna-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/cms/build.mjs site dist"
+  },
+  "dependencies": {
+    "linkedom": "0.18.5"
+  }
+}

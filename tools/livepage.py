@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""Step 3: save the live site's "page not found" page as SITE_DIR/404.html.
+"""Step 3: save live pages that wget cannot mirror as files in SITE_DIR.
 
-Static hosts (Cloudflare Pages included) serve /404.html for any missing
-URL at any depth, so every link in it is made root-relative.
+Usage: livepage.py SITE_DIR LIVE_URL OUT_PATH [LIVE_URL OUT_PATH ...]
+
+Used for the "page not found" page (served by the host for any missing URL)
+and the search results templates. Each can be served at any depth, so every
+link in it is made root-relative; assets only these pages use are downloaded.
 """
 import html
 import os
@@ -25,9 +28,8 @@ def get(url):
         raise
 
 
-def main():
-    site = sys.argv[1]
-    s = get(SITE_URL + '/this-page-does-not-exist-404/').decode('utf-8')
+def save(site, url, out):
+    s = get(url).decode('utf-8')
 
     def local_for(path, q):
         path = path.lstrip('/')
@@ -68,9 +70,17 @@ def main():
     s = re.sub(r'https:\\/\\/almajnaadvisors\.com\\/(?!wp-admin|wp-json)', r'\\/', s)
     s = s.replace('"concatemoji":"https://almajnaadvisors.com/', '"concatemoji":"/')
     s = s.replace('"siteurl":"https://almajnaadvisors.com"', '"siteurl":""')
-    with open(os.path.join(site, '404.html'), 'w', encoding='utf-8') as fh:
+    dest = os.path.join(site, out)
+    os.makedirs(os.path.dirname(dest) or '.', exist_ok=True)
+    with open(dest, 'w', encoding='utf-8') as fh:
         fh.write(s)
-    print('404.html written')
+    print(out, 'written')
+
+
+def main():
+    site, pairs = sys.argv[1], sys.argv[2:]
+    for url, out in zip(pairs[::2], pairs[1::2]):
+        save(site, url, out)
 
 
 if __name__ == '__main__':

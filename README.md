@@ -10,14 +10,16 @@ Separate from the Doers site (`main` branch). Work on this branch only.
 
 - `site/` – the website. This is the folder the host serves.
 - `functions/` – Cloudflare Pages Functions (the contact form endpoint).
-- `tools/` – scripts that rebuild `site/` from the live site and test it.
+- `tools/` – scripts that rebuild `site/` from the live site and test it;
+  `tools/cms/build.mjs` turns `site/` into `dist/` on every deploy (search index).
+- `docs/setup-with-claude-in-chrome.md` – step-by-step setup to paste into Claude in Chrome.
 
 ## Hosting on Cloudflare Pages
 
 1. Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git.
 2. Pick the `Doers` repository and the `almajna` branch.
-3. Framework preset: None. Build command: leave empty.
-   Build output directory: `site`
+3. Framework preset: None. Build command: `npm run build`.
+   Build output directory: `dist`. Variable `NODE_VERSION` = `20`.
 4. Deploy, and check the `*.pages.dev` address it gives you.
 5. Custom domains → add `almajnaadvisors.com` and `www.almajnaadvisors.com`.
 
@@ -31,12 +33,12 @@ load their files from `/wp-content/...`, `/static-ajax/...` and so on.
   WordPress AJAX answers were recorded from the live site and are replayed
   by `site/static-ajax/shim.js`.
 - Unknown URLs show the site's own 404 page (`site/404.html`).
+- Search (`/search/?s=` and `/ar/search/?s=`) in both languages, from an index
+  built on every deploy. (On the old site the Arabic search never found anything.)
 - The contact forms (English and Arabic) post to `/api/contact`
   (`functions/api/contact.js`), which emails the message through Resend and
   answers the way WordPress did, so the form shows its usual success message.
 
-Not replaced: site search. Once the domain points at Cloudflare, a search
-opens the home page.
 
 ## Contact form setup (once)
 
@@ -63,4 +65,4 @@ that each menu opens on desktop and mobile, that every team popup shows its
 bio, that the crypto list matches the live site with each filter, and that
 the 404 page is served.
 
-Preview locally: `python3 tools/serve.py site 8000`, then open http://localhost:8000/
+Preview locally: `npm run build && python3 tools/serve.py dist 8000`, then open http://localhost:8000/

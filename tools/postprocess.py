@@ -18,6 +18,7 @@ import re
 import shutil
 import sys
 import urllib.request
+from urllib.parse import unquote
 
 SITE_URL = 'https://almajnaadvisors.com'
 HOST = 'almajnaadvisors.com'
@@ -102,6 +103,33 @@ def rewrite_inline_urls(site):
             write(p, s2)
 
 
+def rewrite_absolute_links(site):
+    """Links wget left pointing at the live domain (pages fetched on a retry)."""
+    pat = re.compile(r'''((?:href|src)=["'])https://almajnaadvisors\.com(/[^"'?#]*)?(["'])''')
+    n = 0
+    for p in walk(site, {'html'}):
+        rel = os.path.relpath(os.path.dirname(p), site)
+        up = '' if rel == '.' else '../' * (rel.count(os.sep) + 1)
+
+        def rep(m):
+            nonlocal n
+            path = (m.group(2) or '/').lstrip('/')
+            disk = unquote(path)
+            if path == '' or path.endswith('/'):
+                target = disk + 'index.html'
+            else:
+                target = disk
+            if not os.path.isfile(os.path.join(site, target)):
+                return m.group(0)
+            n += 1
+            return m.group(1) + up + (path + 'index.html' if path == '' or path.endswith('/') else path) + m.group(3)
+        s = read(p)
+        s2 = pat.sub(rep, s)
+        if s2 != s:
+            write(p, s2)
+    print('absolute links made local:', n)
+
+
 def fix_short_links(site):
     """Menus link to /?p=ID; wget saved those as index.html@p=ID.html copies."""
     idmap = {}
@@ -169,6 +197,7 @@ def main():
     copy_tree(raw, site)
     fetch_lazy_scripts(site)
     rewrite_inline_urls(site)
+    rewrite_absolute_links(site)
     fix_short_links(site)
     fix_extensions(site)
 
