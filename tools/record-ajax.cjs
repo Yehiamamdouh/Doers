@@ -1,10 +1,10 @@
 // Step 4a: record the live site's AJAX answers so the static copy can replay them.
 // Covers the team member popups and the crypto listing (load more + filters).
-// Usage: node record-ajax.js OUT_DIR   (needs Playwright with Chromium)
+// Usage: node record-ajax.cjs OUT_DIR   (needs Playwright with Chromium)
 const { chromium } = require(process.env.PLAYWRIGHT || 'playwright');
 const fs = require('fs');
 const path = require('path');
-const { key } = require('./ajax-key.js');
+const { key } = require('./ajax-key.cjs');
 
 const SITE = 'https://almajnaadvisors.com';
 const OUT = process.argv[2];
@@ -30,6 +30,8 @@ const teams = ['/team/', '/ar/ourteam-ar/'];
 			if (seen.has(k) || r.status() !== 200) return;
 			seen.add(k);
 			fs.writeFileSync(path.join(OUT, k + '.json'), body);
+			// the request too, so the build can make answers for content added later
+			fs.writeFileSync(path.join(OUT, k + '.request.txt'), q.postData());
 			console.log('  recorded', k, action, body.length);
 		} catch (e) {}
 	});

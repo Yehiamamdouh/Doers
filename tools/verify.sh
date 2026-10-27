@@ -7,4 +7,4 @@ npm run build >/dev/null && python3 tools/check_links.py dist | sed -n '1p;3,40p
 python3 tools/serve.py dist "$PORT" & SERVER=$!
 trap 'kill $SERVER' EXIT
 sleep 1
-node tools/verify.js "http://localhost:$PORT" dist
+node tools/verify.cjs "http://localhost:$PORT" dist

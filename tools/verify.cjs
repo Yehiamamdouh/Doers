@@ -1,5 +1,5 @@
 // Checks the static copy in a real browser and compares it with the live site.
-// Usage: node verify.js LOCAL_BASE_URL SITE_DIR [LIVE_BASE_URL]
+// Usage: node verify.cjs LOCAL_BASE_URL SITE_DIR [LIVE_BASE_URL]
 const { chromium } = require(process.env.PLAYWRIGHT || 'playwright');
 const fs = require('fs');
 const path = require('path');
@@ -12,7 +12,7 @@ function pages(dir, base = '') {
 	let out = [];
 	for (const f of fs.readdirSync(path.join(dir, base), { withFileTypes: true })) {
 		const rel = base ? `${base}/${f.name}` : f.name;
-		if (f.isDirectory()) { if (!/^(wp-content|wp-includes|fonts\.|static-ajax)/.test(rel)) out = out.concat(pages(dir, rel)); }
+		if (f.isDirectory()) { if (!/^(wp-content|wp-includes|fonts\.|static-ajax|admin)/.test(rel)) out = out.concat(pages(dir, rel)); }
 		else if (f.name.endsWith('.html')) out.push(rel);
 	}
 	return out;

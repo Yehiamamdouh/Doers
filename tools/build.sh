@@ -14,7 +14,7 @@ python3 tools/livepage.py build/site \
 	"$LIVE/?s=zzqqxxnothing" search/_none.html \
 	"$LIVE/ar/?s=zzqqxxnothing" ar/search/index.html
 node tools/cms/search-pages.mjs build/site
-node tools/record-ajax.js build/ajax
+node tools/record-ajax.cjs build/ajax
 python3 tools/static_ajax.py build/site build/ajax tools/runtime/shim.js
 cp tools/runtime/search.js build/site/static-ajax/search.js
 rm -rf site && mv build/site site
