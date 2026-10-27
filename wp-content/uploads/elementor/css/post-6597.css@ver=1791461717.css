@@ -7,7 +7,7 @@
 	font-weight: 300;
 	font-display: auto;
 	src: url('../../2026/04/LamaSans-Light.eot');
-	src: url('../../2026/04/LamaSans-Light.eot@') format('embedded-opentype'),
+	src: url('../../2026/04/LamaSans-Light.eot@.eot') format('embedded-opentype'),
 		url('../../2026/04/LamaSans-Light.woff2') format('woff2'),
 		url('../../2026/04/LamaSans-Light.woff') format('woff'),
 		url('../../2026/04/LamaSans-Light.ttf') format('truetype'),
@@ -19,7 +19,7 @@
 	font-weight: normal;
 	font-display: auto;
 	src: url('../../2026/04/LamaSans-Regular.eot');
-	src: url('../../2026/04/LamaSans-Regular.eot@') format('embedded-opentype'),
+	src: url('../../2026/04/LamaSans-Regular.eot@.eot') format('embedded-opentype'),
 		url('../../2026/04/LamaSans-Regular.woff2') format('woff2'),
 		url('../../2026/04/LamaSans-Regular.woff') format('woff'),
 		url('../../2026/04/LamaSans-Regular.ttf') format('truetype'),
@@ -31,7 +31,7 @@
 	font-weight: 500;
 	font-display: auto;
 	src: url('../../2026/04/LamaSans-Medium.eot');
-	src: url('../../2026/04/LamaSans-Medium.eot@') format('embedded-opentype'),
+	src: url('../../2026/04/LamaSans-Medium.eot@.eot') format('embedded-opentype'),
 		url('../../2026/04/LamaSans-Medium.woff2') format('woff2'),
 		url('../../2026/04/LamaSans-Medium.woff') format('woff'),
 		url('../../2026/04/LamaSans-Medium.ttf') format('truetype'),
@@ -43,7 +43,7 @@
 	font-weight: bold;
 	font-display: auto;
 	src: url('../../2026/04/LamaSans-Bold.eot');
-	src: url('../../2026/04/LamaSans-Bold.eot@') format('embedded-opentype'),
+	src: url('../../2026/04/LamaSans-Bold.eot@.eot') format('embedded-opentype'),
 		url('../../2026/04/LamaSans-Bold.woff2') format('woff2'),
 		url('../../2026/04/LamaSans-Bold.woff') format('woff'),
 		url('../../2026/04/LamaSans-Bold.ttf') format('truetype'),
@@ -55,7 +55,7 @@
 	font-weight: 900;
 	font-display: auto;
 	src: url('../../2026/04/LamaSans-Black.eot');
-	src: url('../../2026/04/LamaSans-Black.eot@') format('embedded-opentype'),
+	src: url('../../2026/04/LamaSans-Black.eot@.eot') format('embedded-opentype'),
 		url('../../2026/04/LamaSans-Black.woff2') format('woff2'),
 		url('../../2026/04/LamaSans-Black.woff') format('woff'),
 		url('../../2026/04/LamaSans-Black.ttf') format('truetype'),
