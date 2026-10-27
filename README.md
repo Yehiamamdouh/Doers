@@ -9,6 +9,7 @@ Separate from the Doers site (`main` branch). Work on this branch only.
 ## Layout
 
 - `site/` – the website. This is the folder the host serves.
+- `functions/` – Cloudflare Pages Functions (the contact form endpoint).
 - `tools/` – scripts that rebuild `site/` from the live site and test it.
 
 ## Hosting on Cloudflare Pages
@@ -30,9 +31,24 @@ load their files from `/wp-content/...`, `/static-ajax/...` and so on.
   WordPress AJAX answers were recorded from the live site and are replayed
   by `site/static-ajax/shim.js`.
 - Unknown URLs show the site's own 404 page (`site/404.html`).
+- The contact forms (English and Arabic) post to `/api/contact`
+  (`functions/api/contact.js`), which emails the message through Resend and
+  answers the way WordPress did, so the form shows its usual success message.
 
-Not yet replaced (they need a server): the contact form, which still posts
-to the old WordPress, and site search.
+Not replaced: site search. Once the domain points at Cloudflare, a search
+opens the home page.
+
+## Contact form setup (once)
+
+1. Create a free account at https://resend.com and add the domain
+   `almajnaadvisors.com` (Domains → Add). Add the DNS records it shows in
+   Cloudflare DNS. They only cover sending and do not touch existing email (MX).
+2. Create an API key in Resend (API Keys → Create, "Sending access").
+3. In the Cloudflare Pages project → Settings → Variables and secrets, add:
+   - `RESEND_API_KEY` (type Secret): the key from step 2
+   - `CONTACT_TO`: `info@almajna.com` (comma-separate several addresses)
+   - `CONTACT_FROM`: `AlMajna Website <website@almajnaadvisors.com>`
+4. Redeploy, send a test message from /contact/ and /ar/contactus-ar/.
 
 ## Rebuilding from the live site
 

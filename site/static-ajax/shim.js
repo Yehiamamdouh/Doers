@@ -1,6 +1,7 @@
-/* Static copy helper: answers the site's WordPress AJAX calls (team member
-   popups, crypto listing load-more and filters) from responses recorded from
-   the live site, stored next to this file as <key>.json. */
+/* Static copy helper for the site's WordPress AJAX calls:
+   - team member popups, crypto listing load-more and filters are answered from
+     responses recorded from the live site, stored next to this file as <key>.json
+   - the contact forms post to the /api/contact Pages Function instead */
 (function ($) {
 	if (!$ || !$.ajaxPrefilter) return;
 	var base = new URL('.', document.currentScript.src).href;
@@ -19,7 +20,14 @@
 	}
 	$.ajaxPrefilter(function (o) {
 		if (String(o.type).toUpperCase() !== 'POST' || !/admin-ajax\.php|[?&]nocache=/.test(o.url)) return;
-		if (/[?&]action=jet_popup_get_content|jet_engine_ajax|jet_smart_filters/.test('&' + (typeof o.data === 'string' ? o.data : $.param(o.data || {}))) === false) return;
+		if (window.FormData && o.data instanceof FormData) {
+			if (o.data.get('action') === 'elementor_pro_forms_send_form') {
+				o.url = new URL('/api/contact', location.href).href;
+				o.crossDomain = false;
+			}
+			return;
+		}
+		if (/[?&]action=(jet_popup_get_content|jet_engine_ajax|jet_smart_filters)(&|$)/.test('&' + (typeof o.data === 'string' ? o.data : $.param(o.data || {}))) === false) return;
 		o.url = base + key(o.data) + '.json';
 		o.type = 'GET';
 		o.data = '';
