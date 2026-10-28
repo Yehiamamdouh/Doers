@@ -4,6 +4,7 @@
 
 declare(strict_types=1);
 
+require __DIR__ . '/lib/guard.php';
 require __DIR__ . '/lib/bootstrap.php';
 
 set_exception_handler(function (Throwable $e) {

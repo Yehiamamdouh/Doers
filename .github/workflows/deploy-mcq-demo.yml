@@ -73,9 +73,11 @@ jobs:
           set -u
           UA='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 doers-health-check'
           BASE=https://staging.doersadv.com/mcq-demo
-          code=$(curl -sS -A "$UA" -c jar -o page.html -w '%{http_code}' "$BASE/admin.php")
+          echo "assets/app.css → HTTP $(curl -sS -A "$UA" -o /dev/null -w '%{http_code}' "$BASE/assets/app.css")"
+          code=$(curl -sS -A "$UA" -c jar -D head.txt -o page.html -w '%{http_code}' "$BASE/admin.php")
           echo "admin.php → HTTP $code"
           if [ "$code" != 200 ] || ! grep -q 'window.APP' page.html; then
+            echo "--- response headers ---"; grep -iE '^(server|x-powered-by|content-type|x-litespeed|platform):' head.txt
             echo "--- response body ---"; sed -e 's/<[^>]*>/ /g' page.html | tr -s ' \n' | head -c 1500; echo
             exit 1
           fi
