@@ -1,6 +1,11 @@
 Options -Indexes
 DirectoryIndex index.php
 
+# Stop rewrite rules of a parent site (when installed in a subfolder) from applying here.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+</IfModule>
+
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
 </IfModule>

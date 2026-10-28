@@ -36,6 +36,10 @@ function db(): PDO
     $pdo->exec('PRAGMA journal_mode = WAL');
     $pdo->exec('PRAGMA busy_timeout = 5000');
     migrate($pdo);
+    if (is_file(APP_ROOT . '/config.php')) {
+        require_once __DIR__ . '/seed.php';
+        seed_from_config($pdo, require APP_ROOT . '/config.php');
+    }
     return $pdo;
 }
 

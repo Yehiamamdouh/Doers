@@ -1,0 +1,84 @@
+# Uploads the MCQ platform (mcq-platform/) to a demo folder on the staging host over FTP,
+# so the client can try it at https://staging.doersadv.com/mcq-demo/ (noindex, separate from the Doers site).
+#
+# Runs on every push to the platform's branch that changes mcq-platform/, or manually from the Actions tab.
+# Uses the same secrets as "Deploy site": FTP_SERVER, FTP_USERNAME, FTP_PASSWORD, FTP_STAGING_DIR.
+# The teacher and demo student accounts are created on first run from password HASHES only;
+# the passwords themselves are not in this repository.
+name: Deploy MCQ demo
+
+on:
+  push:
+    branches: [ccr-be8434f3-efv3w8]
+    paths: ['mcq-platform/**', '.github/workflows/deploy-mcq-demo.yml']
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-mcq-demo
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check PHP syntax
+        run: find mcq-platform -name '*.php' -print0 | xargs -0 -n1 php -l
+
+      - name: First-run accounts and sample questions
+        run: |
+          cat > mcq-platform/config.php <<'EOF'
+          <?php
+          return [
+              'admin_username' => 'admin',
+              'admin_password_hash' => '$2y$10$aPoLlO6rZ3K7zNegh8UAeupzLq0jRMhh/kk5oqrkYE7NGQixgZR3G',
+              'settings' => ['platform_name' => 'منصة الاختبارات (تجريبي)'],
+              'students' => [
+                  ['name' => 'طالب تجريبي 1', 'username' => 'demo1', 'password_hash' => '$2y$10$QOgOmiWtICaxBXScjgjxR.I/BUc4jDHRF.MTJ5rW5yD8L15F13xYq'],
+                  ['name' => 'طالب تجريبي 2', 'username' => 'demo2', 'password_hash' => '$2y$10$WILGXxDacgtw14eCip.bu.KUHwxIdlLUEh9ZmhrUP1g6tCyCVOgvm'],
+              ],
+              'quizzes_file' => 'demo/sample-quizzes.json',
+          ];
+          EOF
+          php -l mcq-platform/config.php
+
+      - name: Target folder
+        env:
+          STAGING_DIR: ${{ secrets.FTP_STAGING_DIR }}
+        run: echo "MCQ_DIR=${STAGING_DIR%/}/mcq-demo/" >> "$GITHUB_ENV"
+
+      - name: Upload over FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: mcq-platform/
+          server-dir: ${{ env.MCQ_DIR }}
+          state-name: .ftp-deploy-mcq-state.json
+          exclude: |
+            **/.git*
+            **/.git*/**
+            README.md
+            config.sample.php
+            data/*.sqlite*
+
+      - name: Check the demo responds
+        run: |
+          set -u
+          UA='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 doers-health-check'
+          BASE=https://staging.doersadv.com/mcq-demo
+          code=$(curl -sS -A "$UA" -c jar -o page.html -w '%{http_code}' "$BASE/admin.php")
+          echo "admin.php → HTTP $code"
+          [ "$code" = 200 ] && grep -q 'window.APP' page.html || { head -c 600 page.html; exit 1; }
+          csrf=$(grep -o '"csrf":"[a-f0-9]*"' page.html | cut -d'"' -f4)
+          status=$(curl -sS -A "$UA" -b jar -H 'Content-Type: application/json' -H "X-CSRF: $csrf" -d '{}' "$BASE/api.php?action=admin.status")
+          echo "admin.status → $status"
+          echo "$status" | grep -q '"needs_setup":false' || exit 1
+          code=$(curl -sS -A "$UA" -o /dev/null -w '%{http_code}' "$BASE/data/platform.sqlite")
+          echo "data/platform.sqlite → HTTP $code (must not be 200)"
+          [ "$code" != 200 ]
+          echo "Demo is live: $BASE/ (teacher: $BASE/admin.php)" >> "$GITHUB_STEP_SUMMARY"

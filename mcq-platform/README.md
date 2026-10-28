@@ -62,6 +62,12 @@ Explanation: Incidence counts new cases in a period.
 
 **النسخ الاحتياطي:** كل البيانات في ملف واحد هو `data/platform.sqlite`. انسخه دورياً.
 
+**بديل لشاشة الإعداد:** انسخ `config.sample.php` إلى `config.php` وضع فيه hash كلمة المرور، فيتم إنشاء حساب المعلم والمحتوى التجريبي تلقائياً عند أول تشغيل.
+
+## النسخة التجريبية
+
+الـ workflow `Deploy MCQ demo` يرفع المنصة على `https://staging.doersadv.com/mcq-demo/` مع كل push على برانش المنصة، ومعها حساب معلم وطالبين تجريبيين و12 سؤالاً للتجربة.
+
 ## التشغيل محلياً
 
 ```bash

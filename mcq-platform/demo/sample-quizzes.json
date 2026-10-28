@@ -1,0 +1,86 @@
+[
+  {
+    "title": "Epidemiology — Basics (sample)",
+    "description": "8 sample questions to try the platform. Replace them with your own from PDF.",
+    "questions": [
+      {
+        "text": "Incidence rate measures:",
+        "options": ["All existing cases at a point in time", "New cases occurring during a period in a population at risk", "Deaths from a disease", "Recovered cases"],
+        "correct": 1,
+        "explanation": "Incidence counts NEW cases during a specified period among people at risk. Prevalence counts ALL existing cases."
+      },
+      {
+        "text": "Which study design starts with exposure status and follows people forward to see who develops the outcome?",
+        "options": ["Case-control", "Cross-sectional", "Cohort", "Ecological"],
+        "correct": 2,
+        "explanation": "Cohort studies classify people by exposure first and follow them over time to compare outcome rates."
+      },
+      {
+        "text": "The case-control study design is most suitable for:",
+        "options": ["Rare diseases", "Measuring incidence directly", "Rare exposures", "Calculating prevalence"],
+        "correct": 0,
+        "explanation": "Case-control studies start from people who already have the disease, so they work well for rare diseases. They cannot measure incidence directly."
+      },
+      {
+        "text": "Prevalence ≈ Incidence × ?",
+        "options": ["Mortality rate", "Average duration of disease", "Population size", "Attack rate"],
+        "correct": 1,
+        "explanation": "In a steady state, prevalence ≈ incidence × average duration. Long-lasting diseases build up higher prevalence."
+      },
+      {
+        "text": "Herd immunity protects:",
+        "options": ["Only vaccinated people", "Unvaccinated people too, indirectly", "Only children under 5", "Only health workers"],
+        "correct": 1,
+        "explanation": "When enough of the population is immune, transmission chains break and susceptible (unvaccinated) people are protected indirectly."
+      },
+      {
+        "text": "Sensitivity of a screening test is the proportion of:",
+        "options": ["Healthy people correctly identified as negative", "Diseased people correctly identified as positive", "Positive results that are truly diseased", "Negative results that are truly healthy"],
+        "correct": 1,
+        "explanation": "Sensitivity = true positives / all who have the disease. Specificity = true negatives / all who do not have the disease."
+      },
+      {
+        "text": "Relative risk (RR) is calculated from which type of study?",
+        "options": ["Case-control", "Cohort", "Case report", "Cross-sectional only"],
+        "correct": 1,
+        "explanation": "RR compares incidence in exposed vs unexposed, which needs incidence data from a cohort study. Case-control studies give the odds ratio."
+      },
+      {
+        "text": "Hepatitis A is mainly transmitted by:",
+        "options": ["Blood transfusion", "Fecal-oral route", "Sexual contact", "Mosquito bites"],
+        "correct": 1,
+        "explanation": "HAV spreads through contaminated food and water (fecal-oral). Hepatitis B and C spread mainly through blood and body fluids."
+      }
+    ]
+  },
+  {
+    "title": "أسئلة تجريبية بالعربي",
+    "description": "مثال لأسئلة باللغة العربية.",
+    "questions": [
+      {
+        "text": "أي مما يلي يُعد من طرق الوقاية الأولية؟",
+        "options": ["التطعيم", "الكشف المبكر عن السرطان", "العلاج الطبيعي بعد الجلطة", "الغسيل الكلوي"],
+        "correct": 0,
+        "explanation": "الوقاية الأولية تمنع حدوث المرض من الأساس، مثل التطعيم. الكشف المبكر وقاية ثانوية، والتأهيل وقاية ثالثية."
+      },
+      {
+        "text": "معدل وفيات الأطفال الرضع يُحسب لكل:",
+        "options": ["100 مولود حي", "1000 مولود حي", "10000 نسمة", "مليون نسمة"],
+        "correct": 1,
+        "explanation": "معدل وفيات الرضع = عدد وفيات الأطفال أقل من سنة ÷ عدد المواليد الأحياء في نفس السنة × 1000."
+      },
+      {
+        "text": "أهم طريقة للوقاية من الكوليرا هي:",
+        "options": ["المضادات الحيوية لكل السكان", "توفير مياه شرب نظيفة وصرف صحي آمن", "عزل المرضى فقط", "ارتداء الكمامات"],
+        "correct": 1,
+        "explanation": "الكوليرا تنتقل عن طريق المياه والطعام الملوث، لذلك المياه النظيفة والصرف الصحي هما أساس الوقاية."
+      },
+      {
+        "text": "فترة الحضانة هي الفترة بين:",
+        "options": ["دخول الميكروب وظهور الأعراض", "ظهور الأعراض والشفاء", "العدوى والوفاة", "التشخيص وبدء العلاج"],
+        "correct": 0,
+        "explanation": "فترة الحضانة تبدأ من لحظة العدوى (دخول الميكروب) وتنتهي عند ظهور أول الأعراض."
+      }
+    ]
+  }
+]
