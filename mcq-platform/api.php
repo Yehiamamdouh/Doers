@@ -74,7 +74,7 @@ function load_student(int $id): ?array
     if (!$row) {
         return null;
     }
-    foreach (['active', 'first_login_at', 'expires_at', 'last_login_at'] as $k) {
+    foreach (['id', 'active', 'first_login_at', 'expires_at', 'last_login_at', 'created_at'] as $k) {
         $row[$k] = $row[$k] === null ? null : (int)$row[$k];
     }
     return $row;
@@ -204,6 +204,7 @@ function current_admin(): array
         unset($_SESSION['admin_id']);
         fail('سجّل الدخول أولاً.', 401, 'auth');
     }
+    $admin['id'] = (int)$admin['id'];
     return $admin;
 }
 

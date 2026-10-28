@@ -62,6 +62,9 @@ function db(): PDO
     $pdo = new PDO('sqlite:' . DB_FILE, null, null, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        // PHP < 8.1 returns every column as a string; do the same everywhere so the code
+        // (which casts what it needs) behaves identically on the PHP 7.2 host and newer PHP.
+        PDO::ATTR_STRINGIFY_FETCHES => true,
     ]);
     $pdo->exec('PRAGMA foreign_keys = ON');
     $pdo->exec('PRAGMA journal_mode = WAL');
