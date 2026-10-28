@@ -224,7 +224,9 @@ function validate_questions(array $list): array
     foreach ($list as $i => $q) {
         $n = $i + 1;
         $text = trim((string)($q['text'] ?? ''));
-        $options = array_values(array_filter(array_map(fn($o) => trim((string)$o), (array)($q['options'] ?? [])), fn($o) => $o !== ''));
+        $options = array_values(array_filter(array_map('trim', array_map('strval', (array)($q['options'] ?? []))), function ($o) {
+            return $o !== '';
+        }));
         $correct = (int)($q['correct'] ?? -1);
         if ($text === '') {
             fail("السؤال رقم $n بدون نص.");
@@ -238,7 +240,9 @@ function validate_questions(array $list): array
         $out[] = [
             'id' => (int)($q['id'] ?? 0),
             'text' => mb_substr($text, 0, 5000),
-            'options' => array_map(fn($o) => mb_substr($o, 0, 1000), array_slice($options, 0, 10)),
+            'options' => array_map(function ($o) {
+                return mb_substr($o, 0, 1000);
+            }, array_slice($options, 0, 10)),
             'correct' => $correct,
             'explanation' => mb_substr(trim((string)($q['explanation'] ?? '')), 0, 10000),
         ];
@@ -311,7 +315,9 @@ switch ($action) {
         $stats = [];
         foreach ($stmt as $a) {
             $qid = (int)$a['quiz_id'];
-            $stats[$qid] ??= ['open' => null, 'last' => null, 'best' => null, 'finished' => 0];
+            if (!isset($stats[$qid])) {
+                $stats[$qid] = ['open' => null, 'last' => null, 'best' => null, 'finished' => 0];
+            }
             $total = count(json_decode($a['question_ids'], true) ?: []);
             if ($a['finished_at'] === null) {
                 $stats[$qid]['open'] = ['id' => (int)$a['id'], 'answered' => count(json_decode($a['answers'], true) ?: []), 'total' => $total];
@@ -487,7 +493,9 @@ switch ($action) {
         $stats = [];
         foreach ($pdo->query('SELECT student_id, question_ids, correct_count FROM attempts WHERE finished_at IS NOT NULL') as $a) {
             $sid = (int)$a['student_id'];
-            $stats[$sid] ??= ['attempts' => 0, 'pct_sum' => 0];
+            if (!isset($stats[$sid])) {
+                $stats[$sid] = ['attempts' => 0, 'pct_sum' => 0];
+            }
             $stats[$sid]['attempts']++;
             $stats[$sid]['pct_sum'] += pct((int)$a['correct_count'], count(json_decode($a['question_ids'], true) ?: []));
         }
@@ -617,9 +625,9 @@ switch ($action) {
         }
         $quiz['id'] = (int)$quiz['id'];
         $quiz['published'] = (int)$quiz['published'];
-        $quiz['questions'] = array_map(fn($q) => [
-            'id' => $q['id'], 'text' => $q['text'], 'options' => $q['options'], 'correct' => $q['correct'], 'explanation' => $q['explanation'],
-        ], quiz_questions($quiz['id']));
+        $quiz['questions'] = array_map(function ($q) {
+            return ['id' => $q['id'], 'text' => $q['text'], 'options' => $q['options'], 'correct' => $q['correct'], 'explanation' => $q['explanation']];
+        }, quiz_questions($quiz['id']));
         json_out(['ok' => true, 'quiz' => $quiz]);
     }
 

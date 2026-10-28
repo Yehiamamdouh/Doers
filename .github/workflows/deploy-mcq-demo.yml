@@ -24,10 +24,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check PHP syntax (8.x and the oldest supported, 7.4)
+      # The staging host runs PHP 7.2, so lint and test on 7.2 before anything is uploaded.
+      - name: Lint and test on PHP 7.2
         run: |
           find mcq-platform -name '*.php' -print0 | xargs -0 -n1 php -l
-          docker run --rm -v "$PWD/mcq-platform:/app" php:7.4-cli sh -c 'for f in $(find /app -name "*.php"); do php -l "$f" || exit 1; done'
+          docker run --rm -v "$PWD/mcq-platform:/app" php:7.2-cli sh -c 'for f in $(find /app -name "*.php"); do php -l "$f" || exit 1; done'
+          docker run -d --name php72 --user "$(id -u):$(id -g)" -p 8099:8099 -v "$PWD/mcq-platform:/app" -w /app php:7.2-cli php -S 0.0.0.0:8099
+          for i in $(seq 1 20); do curl -fsS -o /dev/null http://127.0.0.1:8099/ && break; sleep 0.5; done
+          python3 mcq-platform/tests/api_test.py || { docker logs php72 | tail -30; exit 1; }
+          docker rm -f php72
+          rm -f mcq-platform/data/platform.sqlite*
 
       - name: First-run accounts and sample questions
         run: |
@@ -66,6 +72,7 @@ jobs:
             **/.git*/**
             README.md
             config.sample.php
+            tests/**
             data/*.sqlite*
 
       - name: Check the demo responds

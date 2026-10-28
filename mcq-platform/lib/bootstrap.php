@@ -22,8 +22,8 @@ ini_set('display_errors', '0');
 // Returns a readable reason when the server can't run the platform, or null when it can.
 function requirements_error(): ?string
 {
-    if (version_compare(PHP_VERSION, '7.4.0', '<')) {
-        return 'PHP ' . PHP_VERSION . ' is too old: choose PHP 8.1 or newer in cPanel → Select PHP Version.';
+    if (version_compare(PHP_VERSION, '7.2.0', '<')) {
+        return 'PHP ' . PHP_VERSION . ' is too old: choose PHP 7.2 or newer (8.1+ recommended) in cPanel → Select PHP Version.';
     }
     if (!extension_loaded('pdo_sqlite')) {
         return 'The pdo_sqlite PHP extension is off: enable it in cPanel → Select PHP Version → Extensions.';
@@ -76,65 +76,66 @@ function db(): PDO
 
 function migrate(PDO $pdo): void
 {
-    $pdo->exec(<<<SQL
-        CREATE TABLE IF NOT EXISTS admins (
-            id INTEGER PRIMARY KEY,
-            username TEXT NOT NULL UNIQUE COLLATE NOCASE,
-            password_hash TEXT NOT NULL,
-            created_at INTEGER NOT NULL
-        );
-        CREATE TABLE IF NOT EXISTS students (
-            id INTEGER PRIMARY KEY,
-            name TEXT NOT NULL,
-            username TEXT NOT NULL UNIQUE COLLATE NOCASE,
-            password_hash TEXT NOT NULL,
-            notes TEXT NOT NULL DEFAULT '',
-            active INTEGER NOT NULL DEFAULT 1,
-            first_login_at INTEGER,
-            expires_at INTEGER,
-            session_token TEXT,
-            last_login_at INTEGER,
-            created_at INTEGER NOT NULL
-        );
-        CREATE TABLE IF NOT EXISTS quizzes (
-            id INTEGER PRIMARY KEY,
-            title TEXT NOT NULL,
-            description TEXT NOT NULL DEFAULT '',
-            published INTEGER NOT NULL DEFAULT 1,
-            position INTEGER NOT NULL DEFAULT 0,
-            created_at INTEGER NOT NULL,
-            updated_at INTEGER NOT NULL
-        );
-        CREATE TABLE IF NOT EXISTS questions (
-            id INTEGER PRIMARY KEY,
-            quiz_id INTEGER NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE,
-            position INTEGER NOT NULL DEFAULT 0,
-            text TEXT NOT NULL,
-            options TEXT NOT NULL,
-            correct INTEGER NOT NULL,
-            explanation TEXT NOT NULL DEFAULT ''
-        );
-        CREATE INDEX IF NOT EXISTS questions_quiz ON questions(quiz_id, position);
-        CREATE TABLE IF NOT EXISTS attempts (
-            id INTEGER PRIMARY KEY,
-            student_id INTEGER NOT NULL REFERENCES students(id) ON DELETE CASCADE,
-            quiz_id INTEGER NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE,
-            question_ids TEXT NOT NULL,
-            answers TEXT NOT NULL DEFAULT '{}',
-            correct_count INTEGER NOT NULL DEFAULT 0,
-            started_at INTEGER NOT NULL,
-            finished_at INTEGER
-        );
-        CREATE INDEX IF NOT EXISTS attempts_student ON attempts(student_id, quiz_id);
-        CREATE TABLE IF NOT EXISTS settings (
-            key TEXT PRIMARY KEY,
-            value TEXT NOT NULL
-        );
-        CREATE TABLE IF NOT EXISTS login_failures (
-            key TEXT NOT NULL,
-            at INTEGER NOT NULL
-        );
-        SQL);
+    $pdo->exec(<<<'SQL'
+CREATE TABLE IF NOT EXISTS admins (
+    id INTEGER PRIMARY KEY,
+    username TEXT NOT NULL UNIQUE COLLATE NOCASE,
+    password_hash TEXT NOT NULL,
+    created_at INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS students (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    username TEXT NOT NULL UNIQUE COLLATE NOCASE,
+    password_hash TEXT NOT NULL,
+    notes TEXT NOT NULL DEFAULT '',
+    active INTEGER NOT NULL DEFAULT 1,
+    first_login_at INTEGER,
+    expires_at INTEGER,
+    session_token TEXT,
+    last_login_at INTEGER,
+    created_at INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS quizzes (
+    id INTEGER PRIMARY KEY,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL DEFAULT '',
+    published INTEGER NOT NULL DEFAULT 1,
+    position INTEGER NOT NULL DEFAULT 0,
+    created_at INTEGER NOT NULL,
+    updated_at INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS questions (
+    id INTEGER PRIMARY KEY,
+    quiz_id INTEGER NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE,
+    position INTEGER NOT NULL DEFAULT 0,
+    text TEXT NOT NULL,
+    options TEXT NOT NULL,
+    correct INTEGER NOT NULL,
+    explanation TEXT NOT NULL DEFAULT ''
+);
+CREATE INDEX IF NOT EXISTS questions_quiz ON questions(quiz_id, position);
+CREATE TABLE IF NOT EXISTS attempts (
+    id INTEGER PRIMARY KEY,
+    student_id INTEGER NOT NULL REFERENCES students(id) ON DELETE CASCADE,
+    quiz_id INTEGER NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE,
+    question_ids TEXT NOT NULL,
+    answers TEXT NOT NULL DEFAULT '{}',
+    correct_count INTEGER NOT NULL DEFAULT 0,
+    started_at INTEGER NOT NULL,
+    finished_at INTEGER
+);
+CREATE INDEX IF NOT EXISTS attempts_student ON attempts(student_id, quiz_id);
+CREATE TABLE IF NOT EXISTS settings (
+    key TEXT PRIMARY KEY,
+    value TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS login_failures (
+    key TEXT NOT NULL,
+    at INTEGER NOT NULL
+);
+SQL
+    );
 }
 
 function settings(): array
@@ -153,7 +154,7 @@ function settings(): array
 
 function save_settings(array $values): void
 {
-    $stmt = db()->prepare('INSERT INTO settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value');
+    $stmt = db()->prepare('INSERT OR REPLACE INTO settings (key, value) VALUES (?, ?)');
     foreach (DEFAULT_SETTINGS as $key => $_) {
         if (array_key_exists($key, $values)) {
             $stmt->execute([$key, trim((string)$values[$key])]);
@@ -167,20 +168,19 @@ function start_session(): void
         return;
     }
     session_name('mcq_session');
-    session_set_cookie_params([
-        'lifetime' => 0,
-        'path' => '/',
-        'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
-        'httponly' => true,
-        'samesite' => 'Lax',
-    ]);
+    $secure = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
+    if (PHP_VERSION_ID >= 70300) {
+        session_set_cookie_params(['lifetime' => 0, 'path' => '/', 'secure' => $secure, 'httponly' => true, 'samesite' => 'Lax']);
+    } else {
+        session_set_cookie_params(0, '/; samesite=Lax', '', $secure, true);
+    }
     session_start();
     if (empty($_SESSION['csrf'])) {
         $_SESSION['csrf'] = bin2hex(random_bytes(16));
     }
 }
 
-// Both end the request (exit). No `never` return type so the app still runs on PHP 7.4/8.0 hosting.
+// Both end the request (exit). The code stays PHP 7.2-compatible because the staging host runs 7.2.
 function json_out(array $data, int $status = 200): void
 {
     http_response_code($status);
@@ -259,25 +259,26 @@ function page_shell(string $title, array $scripts): void
     header('X-Frame-Options: DENY');
     header('Referrer-Policy: same-origin');
     echo <<<HTML
-    <!doctype html>
-    <html lang="ar" dir="rtl">
-    <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex">
-    <title>{$title} | {$name}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/app.css?v={$version}">
-    <script>try{var t=localStorage.getItem('mcq-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
-    </head>
-    <body>
-    <div id="app" class="boot"><div class="spinner"></div></div>
-    <div id="toast" role="status" aria-live="polite"></div>
-    <script>window.APP = {$boot};</script>
-    {$tags}
-    </body>
-    </html>
-    HTML;
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{$title} | {$name}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css?v={$version}">
+<script>try{var t=localStorage.getItem('mcq-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+<div id="app" class="boot"><div class="spinner"></div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>window.APP = {$boot};</script>
+{$tags}
+</body>
+</html>
+HTML;
+
 }

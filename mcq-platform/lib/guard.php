@@ -2,11 +2,11 @@
 // Loaded first by every entry file. Written in old PHP syntax on purpose, so that on a host
 // with an old PHP version the visitor sees why instead of a blank error page.
 
-if (version_compare(PHP_VERSION, '7.4.0', '<')) {
+if (version_compare(PHP_VERSION, '7.2.0', '<')) {
     header('HTTP/1.1 500 Internal Server Error');
     header('Content-Type: text/html; charset=utf-8');
     echo '<!doctype html><meta charset="utf-8"><title>Setup needed</title><p style="font-family:sans-serif">'
-        . 'Setup needed: PHP ' . PHP_VERSION . ' is too old. Choose PHP 8.1 or newer in cPanel &rarr; Select PHP Version.</p>';
+        . 'Setup needed: PHP ' . PHP_VERSION . ' is too old. Choose PHP 7.2 or newer (8.1+ recommended) in cPanel &rarr; Select PHP Version.</p>';
     exit;
 }
 
