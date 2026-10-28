@@ -1,0 +1,268 @@
+---
+// "Plan your campaign": four questions, then a suggested channel mix. The mix comes from fixed rules below
+// (goal + audience + timing); nothing is priced. "Send me the full plan" posts to the same contact.php as the
+// contact page, with the answers written into the message.
+const formUrl = process.env.FORM_URL || '/contact.php';
+import Base from '../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import turnstile from '../data/turnstile.json';
+import { loc } from '../lib/links.js';
+const { lang = 'en' } = Astro.props;
+const ar = lang === 'ar';
+const L = (p) => loc(p, lang);
+
+const t = ar ? {
+  title: 'خطط حملتك الإعلانية في مصر في دقيقة | دورز',
+  desc: 'جاوب على ٤ أسئلة وشوف أنهي قنوات إعلانية مناسبة لهدفك وجمهورك وتوقيتك في مصر: تلفزيون، وطرق، وديجيتال، وإيفنتات، ومعارض. ببلاش ومن غير تسجيل.',
+  crumb: 'خطط حملتك', eyebrow: 'أداة مجانية من دورز', h1: 'خطط حملتك في مصر <em>في دقيقة.</em>',
+  lead: 'جاوب على ٤ أسئلة سريعة وشوف أنهي قنوات مناسبة لهدفك وتوقيتك. ببلاش ومن غير تسجيل.',
+  q: ['هدفك إيه؟', 'جمهورك مين؟', 'إمتى؟', 'ميزانيتك قد إيه؟'],
+  goal: { launch: 'إطلاق منتج', awareness: 'شهرة للبراند', b2b: 'عملاء B2B', sales: 'مبيعات أو زيارات للفرع', expo: 'معرض أو إيفنت' },
+  aud: { mass: 'الجمهور العام في مصر كلها', city: 'القاهرة والمدن الكبيرة', biz: 'شركات وأصحاب قرار' },
+  when: { month: 'خلال شهر', quarter: 'من ١ لـ ٣ شهور', ramadan: 'رمضان الجاي', open: 'لسه بنخطط' },
+  budgetLabel: 'اكتب المبلغ بأي عملة (اختياري)', budgetPh: 'مثلًا 500,000 جنيه أو $20,000', budgetNone: 'لسه مش محدد',
+  next: 'التالي', back: 'رجوع', show: 'شوف التوليفة', step: 'سؤال', of: 'من',
+  resultH: 'التوليفة <em>المقترحة.</em>', resultP: 'دي نقطة بداية مبنية على إجاباتك. الخطة النهائية والتكلفة بتتحدد بعد ما نفهم البيزنس بتاعك.',
+  more: 'اعرف أكتر', again: 'ابدأ من الأول',
+  sendH: 'ابعتولي الخطة كاملة', sendP: 'هنراجع إجاباتك ونرد عليك خلال يوم عمل بخطة مفصّلة وعرض سعر.',
+  name: 'الاسم', email: 'البريد الإلكتروني', phone: 'رقم الموبايل أو الواتساب (اختياري)', company: 'الشركة (اختياري)',
+  send: 'ابعت', sending: 'بيتبعت…', ok: 'وصلتنا إجاباتك. هنرد عليك خلال يوم عمل.', err: 'ماتبعتتش. جرّب تاني أو كلمنا على واتساب.', limit: 'وصلتنا رسايلك وهنرد عليك قريب.',
+  notes: { month: 'التوقيت ضيق: ابدأ بالديجيتال والراديو لأنهم بينزلوا بسرعة. التلفزيون والطرق محتاجين وقت حجز وإنتاج.', ramadan: 'رمضان أغلى وأزحم موسم: احجز التلفزيون والطرق بدري، وخلّص الإنتاج قبله بأسابيع.' },
+  ramadanLink: 'دليل ميزانية تلفزيون رمضان',
+} : {
+  title: 'Plan Your Advertising Campaign in Egypt in 60 Seconds | Doers',
+  desc: 'Answer four questions and see which advertising channels fit your goal, audience and timing in Egypt: TV, outdoor, digital, events and exhibitions. Free, no sign-up.',
+  crumb: 'Plan your campaign', eyebrow: 'A free tool by Doers', h1: 'Plan your campaign in Egypt <em>in 60 seconds.</em>',
+  lead: 'Answer four quick questions and see which channels fit your goal, timing and budget. Free, no sign-up.',
+  q: ['What is your goal?', 'Who do you need to reach?', 'When?', 'What budget do you have in mind?'],
+  goal: { launch: 'Launch a product', awareness: 'Brand awareness', b2b: 'B2B leads', sales: 'Sales or store visits', expo: 'An exhibition or event' },
+  aud: { mass: 'The general public across Egypt', city: 'Cairo and the big cities', biz: 'Companies and decision makers' },
+  when: { month: 'Within a month', quarter: 'In 1–3 months', ramadan: 'Next Ramadan', open: 'Still planning' },
+  budgetLabel: 'Type an amount in any currency (optional)', budgetPh: 'e.g. EGP 500,000 or $20,000', budgetNone: 'Not decided yet',
+  next: 'Next', back: 'Back', show: 'Show my mix', step: 'Question', of: 'of',
+  resultH: 'Your suggested <em>mix.</em>', resultP: 'A starting point based on your answers. The final plan and cost depend on your business, and we work them out with you.',
+  more: 'Learn more', again: 'Start again',
+  sendH: 'Send me the full plan', sendP: "We'll review your answers and reply within one working day with a detailed plan and a quote.",
+  name: 'Name', email: 'Email', phone: 'Mobile or WhatsApp (optional)', company: 'Company (optional)',
+  send: 'Send', sending: 'Sending…', ok: "Thanks, we've got your answers. We'll reply within one working day.", err: "It didn't send. Try again, or message us on WhatsApp.", limit: "We've already received your messages and will reply soon.",
+  notes: { month: 'Tight timing: start with digital and radio, which go live fast. TV and outdoor need booking and production time.', ramadan: 'Ramadan is the busiest and most expensive season: book TV and outdoor early and finish production weeks before.' },
+  ramadanLink: 'Ramadan TV budget guide',
+};
+
+// Channel cards: name, one-line reason, and the page that explains it.
+const C = ar ? {
+  tv: ['إعلانات التلفزيون', 'أوسع وصول وأسرع طريقة تبني ثقة عند الجمهور العام.', '/tv-advertising/'],
+  ooh: ['إعلانات الطرق', 'البراند قدام نفس الناس كل يوم على الكباري والطرق الرئيسية.', '/outdoor-advertising-egypt/'],
+  radio: ['الراديو', 'تكرار الرسالة بتكلفة أقل في مشوار الزحمة كل يوم.', '/radio-advertising-egypt/'],
+  digital: ['التسويق الرقمي', 'استهداف دقيق وقياس لكل جنيه: إعلانات جوجل والسوشيال.', '/digital-marketing-egypt-cairo/'],
+  seo: ['السيو', 'زيارات مستمرة من ناس بتدوّر على خدمتك من غير ما تدفع على كل كليك.', '/seo/'],
+  events: ['الإيفنتات والتفعيلات', 'لحظة إطلاق الناس تتكلم عنها، ومحتوى يغذي كل القنوات.', '/event-management-cairo-egypt/'],
+  booth: ['أجنحة المعارض', 'تلاقي المشترين وأصحاب القرار في مكان واحد.', '/booth-production-egypt/'],
+  branding: ['البراندنج', 'هوية ورسالة واضحة قبل ما تصرف على الميديا.', '/branding-agency-egypt/'],
+  media: ['الإنتاج', 'تصوير واحد يطلّع إعلان التلفزيون والسوشيال والطرق مع بعض.', '/media-production-egypt/'],
+} : {
+  tv: ['TV advertising', 'The widest reach and the fastest way to build trust with the general public.', '/tv-advertising/'],
+  ooh: ['Outdoor (OOH)', 'Your brand in front of the same people every day on bridges and main roads.', '/outdoor-advertising-egypt/'],
+  radio: ['Radio', 'Repeats your message for less during the daily commute.', '/radio-advertising-egypt/'],
+  digital: ['Digital marketing', 'Precise targeting and proof for every pound: Google and social ads.', '/digital-marketing-egypt-cairo/'],
+  seo: ['SEO', 'A steady flow of people already searching for what you sell, without paying per click.', '/seo/'],
+  events: ['Events & activations', 'A launch moment people talk about, and content for every channel.', '/event-management-cairo-egypt/'],
+  booth: ['Exhibition stands', 'Meet buyers and decision makers in one hall.', '/booth-production-egypt/'],
+  branding: ['Branding', 'A clear identity and message before you spend on media.', '/branding-agency-egypt/'],
+  media: ['Production', 'One shoot for the TV spot, social cuts and outdoor visuals together.', '/media-production-egypt/'],
+};
+for (const k in C) C[k][2] = L(C[k][2]);
+
+// The rules: goal → audience → channels, in order of importance.
+const RULES = {
+  launch: { mass: ['tv', 'ooh', 'digital', 'events', 'media'], city: ['ooh', 'digital', 'events', 'radio', 'media'], biz: ['events', 'digital', 'booth', 'branding'] },
+  awareness: { mass: ['tv', 'ooh', 'radio', 'digital', 'media'], city: ['ooh', 'radio', 'digital', 'media'], biz: ['digital', 'booth', 'events', 'branding'] },
+  b2b: { mass: ['digital', 'seo', 'booth', 'events'], city: ['digital', 'seo', 'booth', 'events'], biz: ['digital', 'booth', 'events', 'seo'] },
+  sales: { mass: ['digital', 'tv', 'radio', 'ooh'], city: ['ooh', 'radio', 'digital', 'seo'], biz: ['digital', 'seo', 'events'] },
+  expo: { mass: ['booth', 'events', 'digital', 'ooh'], city: ['booth', 'events', 'digital', 'ooh'], biz: ['booth', 'events', 'digital', 'branding'] },
+};
+
+const path = ar ? '/ar/campaign-planner/' : '/campaign-planner/';
+const site = 'https://doersadv.com';
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebApplication', '@id': site + path, url: site + path, name: t.title, description: t.desc, applicationCategory: 'BusinessApplication', operatingSystem: 'Any', isAccessibleForFree: true, inLanguage: ar ? 'ar' : 'en', publisher: { '@id': `${site}/#organization` } },
+    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: ar ? 'الرئيسية' : 'Home', item: site + (ar ? '/ar/' : '/') }, { '@type': 'ListItem', position: 2, name: t.crumb, item: site + path }] },
+  ],
+};
+const groups = [['goal', t.goal], ['aud', t.aud], ['when', t.when]];
+---
+<Base title={t.title} description={t.desc} path={path} lang={lang} alternates={{ en: '/campaign-planner/', ar: '/ar/campaign-planner/' }} schema={schema} styles={['/css/site.css', '/css/contact.css']}>
+  <SiteHeader lang={lang} altHref={ar ? '/campaign-planner/' : '/ar/campaign-planner/'} />
+  <main class="wrap">
+    <nav class="crumbs label" aria-label="Breadcrumb"><a href={ar ? '/ar/' : '/'}>{ar ? 'الرئيسية' : 'Home'}</a><span>/</span><span>{t.crumb}</span></nav>
+    <section class="planner">
+      <div class="pl-intro">
+        <p class="label eyebrow">{t.eyebrow}</p>
+        <h1 class="disp" set:html={t.h1} />
+        <p class="lead">{t.lead}</p>
+      </div>
+
+      <form class="pl-q cform" id="plq">
+        <p class="pl-step label" id="pl-step"></p>
+        {groups.map(([key, opts], i) => (
+          <fieldset class="pl-f" data-i={i}>
+            <legend>{t.q[i]}</legend>
+            {Object.entries(opts).map(([v, label], j) => <label class="pl-opt"><input type="radio" name={key} value={v} required={j === 0}><span>{label}</span></label>)}
+          </fieldset>
+        ))}
+        <fieldset class="pl-f" data-i="3">
+          <legend>{t.q[3]}</legend>
+          <label>{t.budgetLabel}<input name="budget" id="pl-budget" maxlength="60" placeholder={t.budgetPh} autocomplete="off"></label>
+          <label class="pl-opt"><input type="checkbox" id="pl-nobudget"><span>{t.budgetNone}</span></label>
+        </fieldset>
+        <div class="pl-nav">
+          <button type="button" class="btn btn-line" id="pl-back">{t.back}</button>
+          <button type="button" class="btn btn-o" id="pl-next">{t.next} <span class="arrow">→</span></button>
+        </div>
+      </form>
+
+      <div class="pl-res" id="plres" hidden>
+        <h2 class="h2" set:html={t.resultH} />
+        <p class="lead">{t.resultP}</p>
+        <p class="pl-note" id="pl-note" hidden></p>
+        <ol class="pl-cards" id="pl-cards"></ol>
+        <button type="button" class="pl-again" id="pl-again">{t.again}</button>
+
+        <form class="cform pl-send" id="plsend" action={formUrl} method="post" novalidate>
+          <h3>{t.sendH}</h3>
+          <p>{t.sendP}</p>
+          <input type="hidden" name="lang" value={lang}>
+          <input type="hidden" name="t" id="pl-t" value="">
+          <input type="hidden" name="service" value="Campaign planner">
+          <input type="hidden" name="message" id="pl-msg" value="">
+          <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="row">
+            <label>{t.name}<input name="name" required autocomplete="name"></label>
+            <label>{t.email}<input name="email" type="email" required autocomplete="email"></label>
+          </div>
+          <div class="row">
+            <label>{t.phone}<input name="phone" type="tel" autocomplete="tel" dir="ltr"></label>
+            <label>{t.company}<input name="company" autocomplete="organization"></label>
+          </div>
+          {turnstile.siteKey && <div class="cf-turnstile" data-sitekey={turnstile.siteKey} data-language={lang} data-size="flexible" data-appearance="always"></div>}
+          <button class="btn btn-o" type="submit" id="pl-send">{t.send} <span class="arrow">↗</span></button>
+          <p class="status" id="pl-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <SiteFooter lang={lang} />
+  <script is:inline define:vars={{ t, C, RULES, rLink: L('/ramadan-tv-advertising-egypt-budget/') }}>
+    const q = document.getElementById('plq'), sets = [...q.querySelectorAll('.pl-f')], stepEl = document.getElementById('pl-step');
+    const back = document.getElementById('pl-back'), next = document.getElementById('pl-next'), res = document.getElementById('plres');
+    const loaded = Date.now();
+    let i = 0;
+    function show() {
+      sets.forEach((s, k) => (s.hidden = k !== i));
+      stepEl.textContent = `${t.step} ${i + 1} ${t.of} ${sets.length}`;
+      back.style.visibility = i ? 'visible' : 'hidden';
+      next.firstChild.textContent = (i === sets.length - 1 ? t.show : t.next) + ' ';
+    }
+    const val = (n) => (q.querySelector(`input[name="${n}"]:checked`) || {}).value;
+    next.addEventListener('click', () => {
+      const name = ['goal', 'aud', 'when'][i];
+      if (name && !val(name)) { sets[i].querySelector('input').reportValidity(); return; }
+      if (i < sets.length - 1) { i++; show(); return; }
+      result();
+    });
+    back.addEventListener('click', () => { if (i) { i--; show(); } });
+    // Picking an answer moves on by itself.
+    q.querySelectorAll('input[type=radio]').forEach((r) => r.addEventListener('change', () => setTimeout(() => next.click(), 180)));
+    document.getElementById('pl-nobudget').addEventListener('change', (e) => { document.getElementById('pl-budget').disabled = e.target.checked; });
+
+    function result() {
+      const goal = val('goal'), aud = val('aud'), when = val('when');
+      let list = RULES[goal][aud].slice();
+      if (when === 'month') list = list.filter((c) => !['tv', 'media'].includes(c)).sort((a, b) => (a === 'digital' ? -1 : b === 'digital' ? 1 : 0));
+      if (when === 'ramadan' && aud !== 'biz' && !list.includes('tv')) list.unshift('tv');
+      const cards = document.getElementById('pl-cards');
+      cards.innerHTML = '';
+      list.forEach((k) => {
+        const [name, why, href] = C[k];
+        const li = document.createElement('li');
+        li.innerHTML = `<b></b><p></p><a></a>`;
+        li.querySelector('b').textContent = name; li.querySelector('p').textContent = why;
+        const a = li.querySelector('a'); a.href = href; a.textContent = t.more + ' →';
+        cards.appendChild(li);
+      });
+      const note = document.getElementById('pl-note');
+      if (t.notes[when]) {
+        note.textContent = t.notes[when] + ' ';
+        if (when === 'ramadan') { const a = document.createElement('a'); a.href = rLink; a.textContent = t.ramadanLink + ' →'; note.appendChild(a); }
+        note.hidden = false;
+      } else note.hidden = true;
+      const budget = document.getElementById('pl-nobudget').checked ? t.budgetNone : (document.getElementById('pl-budget').value.trim() || t.budgetNone);
+      document.getElementById('pl-msg').value = [
+        'Campaign planner answers:',
+        `Goal: ${t.goal[goal]}`, `Audience: ${t.aud[aud]}`, `Timing: ${t.when[when]}`, `Budget: ${budget}`,
+        `Suggested mix: ${list.map((k) => C[k][0]).join(', ')}`,
+      ].join('\n');
+      q.hidden = true; res.hidden = false;
+      res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.dataLayer && window.dataLayer.push({ event: 'planner_result', goal, audience: aud, timing: when });
+    }
+    document.getElementById('pl-again').addEventListener('click', () => { q.reset(); i = 0; show(); res.hidden = true; q.hidden = false; q.scrollIntoView({ behavior: 'smooth' }); });
+    show();
+
+    const f = document.getElementById('plsend'), st = document.getElementById('pl-status'), btn = document.getElementById('pl-send');
+    f.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!f.checkValidity()) { f.reportValidity(); return; }
+      if (window.turnstile && f.querySelector('.cf-turnstile')) {
+        for (let k = 0; k < 20 && !(f.querySelector('[name="cf-turnstile-response"]') || {}).value; k++) await new Promise((r) => setTimeout(r, 250));
+      }
+      document.getElementById('pl-t').value = Date.now() - loaded;
+      btn.disabled = true; btn.firstChild.textContent = t.sending + ' ';
+      try {
+        const r = await fetch(f.action, { method: 'POST', body: new FormData(f), headers: { Accept: 'application/json' } });
+        const j = await r.json().catch(() => ({}));
+        if (j.limit) { st.textContent = t.limit; st.className = 'status err'; return; }
+        if (!r.ok || !j.ok) throw new Error();
+        st.textContent = t.ok; st.className = 'status ok'; window.turnstile && turnstile.reset();
+        window.dataLayer && window.dataLayer.push({ event: 'generate_lead', form: 'campaign_planner' });
+      } catch { st.textContent = t.err; st.className = 'status err'; }
+      finally { btn.disabled = false; btn.firstChild.textContent = t.send + ' '; }
+    });
+  </script>
+  {turnstile.siteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+  <style is:global>
+    .planner{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,72px);padding-block:28px clamp(64px,8vw,110px)}
+    .planner .disp{font:800 clamp(40px,5.4vw,84px)/.98 var(--display);letter-spacing:-.04em;margin:18px 0}
+    .planner .disp em,.pl-res .h2 em{font-style:normal;color:var(--orange)}
+    [dir=rtl] .planner .disp{letter-spacing:0;line-height:1.25}
+    .planner .lead{color:var(--bone-2);font-size:18px;max-width:46ch}
+    .planner .eyebrow{color:var(--orange-d,#C77A00)}
+    .pl-step{color:var(--smoke)}
+    .pl-f{border:0;padding:0;margin:0;display:grid;gap:10px}
+    .pl-f[hidden],.pl-q[hidden],.pl-res[hidden],.pl-note[hidden]{display:none}
+    .pl-f legend{font:700 clamp(22px,2.4vw,30px)/1.2 var(--display);margin-bottom:12px}
+    .pl-opt{display:flex!important;align-items:center;gap:12px;border:1px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;font-weight:600}
+    .pl-opt:has(input:checked){border-color:var(--orange);background:#FFF6E6}
+    .pl-opt input{width:auto;accent-color:var(--orange)}
+    .pl-nav{display:flex;justify-content:space-between;gap:12px;margin-top:6px}
+    .pl-nav button{border:0;cursor:pointer}
+    .pl-nav .btn-line{border:1.5px solid var(--line);background:transparent}
+    .pl-res{grid-column:1/-1}
+    .pl-note{background:#FFF6E6;border-inline-start:4px solid var(--orange);padding:14px 18px;border-radius:10px;margin:16px 0;max-width:820px}
+    .pl-note a{color:var(--orange-d,#C77A00);font-weight:600}
+    .pl-cards{list-style:none;padding:0;margin:20px 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;counter-reset:c}
+    .pl-cards li{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:8px;counter-increment:c}
+    .pl-cards li::before{content:counter(c,decimal-leading-zero);color:var(--orange-d,#C77A00);font-weight:700;font-size:13px}
+    .pl-cards b{font:700 20px/1.2 var(--display)}
+    .pl-cards p{color:var(--bone-2);font-size:15px}
+    .pl-cards a{color:var(--orange-d,#C77A00);font-weight:600;font-size:14px}
+    .pl-again{background:none;border:0;text-decoration:underline;cursor:pointer;color:var(--smoke);font:inherit}
+    .pl-send{margin-top:28px;max-width:760px}
+    .pl-send h3{font:700 24px var(--display)}
+    .pl-send p{color:var(--bone-2)}
+    @media (max-width:860px){.planner{grid-template-columns:1fr}.pl-send .row{grid-template-columns:1fr}}
+  </style>
+</Base>

@@ -80,6 +80,8 @@ service: /booth-production-egypt/
 <li>Lead capture ready (forms, QR codes or a tablet)</li>
 </ul>
 
+<p>Check the dates of the big shows at the Egypt International Exhibition Center in our <a href="/egypt-advertising-calendar/">Egypt advertising and exhibitions calendar</a>.</p>
+
 <h2>Planning a stand?</h2>
 
 <p>Doers designs, builds and installs exhibition stands in Egypt and Saudi Arabia, from 3D concept and fabrication in our own workshops to LED, lighting, installation and dismantling. See our <a href="/booth-production-egypt/">booth production work in Cairo</a> or, for Saudi shows, our <a href="/ksa/booth-production-in-jeddah/">stand builders in Jeddah</a>. If your stand is part of a wider launch, our <a href="/event-management-cairo-egypt/">event management</a> team can run the whole programme. Tell us the show and stand size and we'll reply within one working day.</p>

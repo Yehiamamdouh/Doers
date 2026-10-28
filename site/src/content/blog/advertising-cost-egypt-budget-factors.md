@@ -62,6 +62,8 @@ service: /
 <li><strong>Use one team.</strong> When strategy, creative, media and production sit together, nothing is paid for twice.</li>
 </ul>
 
+<p>Want a quick starting point? Try our free <a href="/campaign-planner/">campaign planner</a>: four questions, and you see which channels fit your goal and timing.</p>
+
 <h2>Planning a campaign budget?</h2>
 
 <p>Doers is a full-service, award-winning <a href="/">advertising agency in Egypt</a>. Tell us your objective, your timing and the budget range you have in mind, and we'll show you how we would spend it to get the most out of every pound. Whatever your deadline, we adapt, take responsibility and hit the ground running. You may also find our guides on <a href="/how-to-choose-advertising-agency-egypt/">how to choose an advertising agency in Egypt</a> and <a href="/advertising-in-egypt-channels-guide/">which advertising channels to use</a> useful.</p>

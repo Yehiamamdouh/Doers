@@ -1,0 +1,167 @@
+---
+// Egypt advertising & exhibitions calendar. Data: src/data/egypt-calendar.json.
+// Dated trade shows get Event schema and an "Add to calendar" (.ics) button; month-only ones say "dates to be confirmed".
+import Base from '../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import cal from '../data/egypt-calendar.json';
+import { loc } from '../lib/links.js';
+const { lang = 'en' } = Astro.props;
+const ar = lang === 'ar';
+const L = (p) => loc(p, lang);
+const t = ar ? {
+  title: 'أجندة الإعلان والمعارض في مصر ٢٠٢٧ | المواسم ومعارض مركز مصر للمعارض | دورز',
+  desc: 'كل موسم إعلاني ومعرض مهم في مصر لحد آخر ٢٠٢٧: رمضان والأعياد والمدارس، ومعارض مركز مصر للمعارض الدولية في التجمع، ومعاها إمتى تبدأ تخطط وتحجز.',
+  crumb: 'أجندة الإعلان والمعارض', eyebrow: 'محدّثة باستمرار', h1: 'أجندة الإعلان والمعارض <em>في مصر ٢٠٢٧.</em>',
+  lead: 'كل موسم ومعرض مهم للبراندات في مصر، ومعاه إمتى تبدأ تخطط وتحجز.',
+  types: { expo: 'معرض', season: 'موسم', plan: 'جهّز' }, tbc: 'الميعاد يتأكد قريب', add: 'أضف لتقويمك', site: 'موقع المعرض', more: 'اعرف أكتر',
+  eiec: 'مركز مصر للمعارض الدولية، التجمع', hijri: 'بالتقويم الهجري',
+  updated: 'آخر تحديث', note: 'مواعيد المعارض من المنظمين أو من أكتر من مصدر، وممكن تتغير. اتأكد دايمًا من موقع المنظم قبل الحجز.',
+  howH: 'إزاي تستخدم <em>الأجندة.</em>',
+  how: [
+    ['لجناح في معرض', 'احجز المساحة قبلها بـ ٣ شهور على الأقل، وابدأ تصميم وتنفيذ الجناح قبلها بـ ٦ لـ ٨ أسابيع.', '/booth-production-egypt/', 'تصميم وتنفيذ الأجنحة'],
+    ['لرمضان والمواسم الكبيرة', 'اتفق على الفكرة والميزانية قبلها بـ ٣ شهور، واحجز التلفزيون والطرق بدري.', '/ramadan-tv-advertising-egypt-budget/', 'دليل ميزانية رمضان'],
+    ['لإيفنت أو إطلاق', 'اختار ميعاد ميتعارضش مع معرض كبير في نفس المجال، أو استغل المعرض نفسه.', '/event-management-cairo-egypt/', 'تنظيم الإيفنتات'],
+  ],
+  ctaH: 'عندك معرض أو موسم <em>جاي؟</em>', ctaP: 'قولّنا الميعاد، وهنرد عليك خلال يوم عمل بخطة وجدول تنفيذ.', cta: 'خطط حملتك', cta2: 'كلّمنا',
+} : {
+  title: 'Egypt Advertising & Exhibitions Calendar 2027 | Seasons and EIEC Trade Shows | Doers',
+  desc: 'Every advertising season and major trade show in Egypt through 2027: Ramadan, Eids, back to school, and the shows at the Egypt International Exhibition Center, with when to plan and book.',
+  crumb: 'Advertising & exhibitions calendar', eyebrow: 'Kept up to date', h1: 'Egypt advertising & exhibitions <em>calendar 2027.</em>',
+  lead: 'Every season and trade show that matters for brands in Egypt, with when to start planning and booking.',
+  types: { expo: 'Trade show', season: 'Season', plan: 'Get ready' }, tbc: 'Dates to be confirmed', add: 'Add to calendar', site: 'Official site', more: 'Learn more',
+  eiec: 'Egypt International Exhibition Center, New Cairo', hijri: 'Hijri calendar',
+  updated: 'Last updated', note: 'Trade show dates come from the organisers or from several listings and can change. Always confirm on the organiser’s site before booking.',
+  howH: 'How to use <em>the calendar.</em>',
+  how: [
+    ['For an exhibition stand', 'Book your space at least three months ahead, and start stand design and build six to eight weeks before the show.', '/booth-production-egypt/', 'Booth production'],
+    ['For Ramadan and big seasons', 'Agree the idea and budget three months ahead, and book TV and outdoor early.', '/ramadan-tv-advertising-egypt-budget/', 'Ramadan budget guide'],
+    ['For an event or launch', 'Pick a date that doesn’t clash with a big show in your industry, or use the show itself.', '/event-management-cairo-egypt/', 'Event management'],
+  ],
+  ctaH: 'A show or a season <em>coming up?</em>', ctaP: "Tell us the date and we'll reply within one working day with a plan and a timeline.", cta: 'Plan your campaign', cta2: 'Talk to us',
+};
+const monthName = (ym) => new Date(ym + '-15').toLocaleDateString(ar ? 'ar-EG' : 'en-GB', { month: 'long', year: 'numeric' });
+const fmt = (d) => new Date(d + 'T12:00:00').toLocaleDateString(ar ? 'ar-EG' : 'en-GB', { day: 'numeric', month: 'short' });
+const name = (it) => (ar && it.name_ar) || it.name;
+const items = cal.items;
+
+const path = ar ? '/ar/egypt-advertising-calendar/' : '/egypt-advertising-calendar/';
+const site = 'https://doersadv.com';
+const EIEC = { '@type': 'Place', name: 'Egypt International Exhibition Center (EIEC)', address: { '@type': 'PostalAddress', addressLocality: 'New Cairo', addressCountry: 'EG' } };
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebPage', '@id': site + path, url: site + path, name: t.title, description: t.desc, inLanguage: ar ? 'ar' : 'en', dateModified: cal.updated, publisher: { '@id': `${site}/#organization` } },
+    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: ar ? 'الرئيسية' : 'Home', item: site + (ar ? '/ar/' : '/') }, { '@type': 'ListItem', position: 2, name: t.crumb, item: site + path }] },
+    ...items.filter((it) => it.type === 'expo' && it.start).map((it) => ({
+      '@type': 'ExhibitionEvent', name: it.name, startDate: it.start, endDate: it.end, eventStatus: 'https://schema.org/EventScheduled', eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      location: it.venue === 'eiec' ? EIEC : { '@type': 'Place', name: 'Cairo', address: { '@type': 'PostalAddress', addressLocality: 'Cairo', addressCountry: 'EG' } },
+      description: it.en, ...(it.url ? { url: it.url } : {}),
+    })),
+  ],
+};
+---
+<Base title={t.title} description={t.desc} path={path} lang={lang} alternates={{ en: '/egypt-advertising-calendar/', ar: '/ar/egypt-advertising-calendar/' }} schema={schema} styles={['/css/site.css']}>
+  <SiteHeader lang={lang} altHref={ar ? '/egypt-advertising-calendar/' : '/ar/egypt-advertising-calendar/'} />
+  <main class="wrap cal">
+    <nav class="crumbs label" aria-label="Breadcrumb"><a href={ar ? '/ar/' : '/'}>{ar ? 'الرئيسية' : 'Home'}</a><span>/</span><span>{t.crumb}</span></nav>
+    <header class="cal-hero">
+      <p class="label eyebrow">{t.eyebrow}</p>
+      <h1 class="disp" set:html={t.h1} />
+      <p class="lead">{t.lead}</p>
+      <p class="cal-legend">{Object.entries(t.types).map(([k, v]) => <span class={`tag ${k}`}>{v}</span>)}</p>
+    </header>
+
+    {cal.months.map((m) => {
+      const list = items.filter((it) => it.month === m);
+      return list.length > 0 && (
+        <section class="cal-m">
+          <h2>{monthName(m)}</h2>
+          <ul>
+            {list.map((it) => (
+              <li class={`cal-i ${it.type}`}>
+                <span class={`tag ${it.type}`}>{t.types[it.type]}</span>
+                <div>
+                  <h3>{name(it)}</h3>
+                  <p class="when">
+                    {it.start ? `${fmt(it.start)} – ${fmt(it.end)}` : it.type === 'expo' ? t.tbc : it.hijri ? t.hijri : ''}
+                    {it.venue === 'eiec' && <span> · {t.eiec}</span>}
+                  </p>
+                  <p>{ar ? it.ar : it.en}</p>
+                  <p class="acts">
+                    {it.start && <button type="button" class="ics" data-name={it.name} data-start={it.start} data-end={it.end} data-loc={it.venue === 'eiec' ? 'Egypt International Exhibition Center, New Cairo' : 'Cairo, Egypt'}>{t.add}</button>}
+                    {it.url && <a href={it.url} target="_blank" rel="noopener">{t.site} ↗</a>}
+                    {it.link && <a href={L(it.link)}>{t.more} →</a>}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      );
+    })}
+
+    <p class="cal-note">{t.note} {t.updated}: {new Date(cal.updated).toLocaleDateString(ar ? 'ar-EG' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}.</p>
+
+    <section class="cal-how">
+      <h2 class="h2" set:html={t.howH} />
+      <div>{t.how.map(([h, p, href, a]) => <article><h3>{h}</h3><p>{p}</p><a href={L(href)}>{a} →</a></article>)}</div>
+    </section>
+
+    <section class="cal-cta">
+      <h2 class="h2" set:html={t.ctaH} />
+      <p>{t.ctaP}</p>
+      <p><a class="btn btn-o" href={L('/campaign-planner/')}>{t.cta} <span class="arrow">→</span></a> <a class="btn btn-line" href={L('/contact-us/')}>{t.cta2}</a></p>
+    </section>
+  </main>
+  <SiteFooter lang={lang} />
+  <script is:inline>
+    // "Add to calendar": an all-day .ics file that Google Calendar, Outlook and Apple Calendar all open.
+    document.querySelectorAll('.ics').forEach((b) => b.addEventListener('click', () => {
+      const d = (s) => s.replace(/-/g, '');
+      const end = new Date(b.dataset.end + 'T12:00:00Z'); end.setUTCDate(end.getUTCDate() + 1);
+      const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Doers//Egypt calendar//EN', 'BEGIN:VEVENT',
+        'UID:' + d(b.dataset.start) + '-' + b.dataset.name.replace(/\W+/g, '') + '@doersadv.com', 'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').slice(0, 15) + 'Z',
+        'DTSTART;VALUE=DATE:' + d(b.dataset.start), 'DTEND;VALUE=DATE:' + end.toISOString().slice(0, 10).replace(/-/g, ''),
+        'SUMMARY:' + b.dataset.name, 'LOCATION:' + b.dataset.loc, 'URL:https://doersadv.com/egypt-advertising-calendar/', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
+      a.download = b.dataset.name.replace(/[^\w]+/g, '-') + '.ics'; a.click();
+      window.dataLayer && window.dataLayer.push({ event: 'calendar_add', item: b.dataset.name });
+    }));
+  </script>
+  <style is:global>
+    .cal-hero{padding-block:20px 30px}
+    .cal .disp{font:800 clamp(40px,5.4vw,84px)/.98 var(--display);letter-spacing:-.04em;margin:18px 0}
+    .cal .disp em,.cal .h2 em{font-style:normal;color:var(--orange)}
+    [dir=rtl] .cal .disp{letter-spacing:0;line-height:1.25}
+    .cal .lead{color:var(--bone-2);font-size:18px;max-width:56ch}
+    .cal .eyebrow{color:var(--orange-d,#C77A00)}
+    .cal-legend{display:flex;gap:8px;margin-top:18px}
+    .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:4px 10px;white-space:nowrap;height:max-content}
+    .tag.expo{background:#161718;color:#fff}.tag.season{background:#F7A21B;color:#161718}.tag.plan{background:#E6EEF7;color:#1B3A5C}
+    .cal-m{display:grid;grid-template-columns:220px 1fr;gap:24px;border-top:1px solid var(--line);padding-block:28px}
+    .cal-m h2{font:800 clamp(22px,2.4vw,30px)/1.1 var(--display);position:sticky;top:90px;align-self:start}
+    .cal-m ul{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+    .cal-i{display:grid;grid-template-columns:110px 1fr;gap:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+    .cal-i .tag{justify-self:start}
+    .cal-i h3{font:700 20px/1.25 var(--display)}
+    .cal-i p{color:var(--bone-2);margin-top:4px}
+    .cal-i .when{font-weight:600;color:var(--bone);font-size:14px}
+    .cal-i .acts{display:flex;flex-wrap:wrap;gap:16px;margin-top:10px;font-size:14px;font-weight:600}
+    .cal-i .acts a{color:var(--orange-d,#C77A00)}
+    .ics{background:none;border:1.5px solid var(--line);border-radius:999px;padding:4px 12px;font:600 13px var(--body);cursor:pointer}
+    .ics:hover{border-color:var(--orange)}
+    .cal-note{color:var(--smoke);font-size:14px;border-top:1px solid var(--line);padding-top:20px}
+    .cal-how{padding-block:56px 20px}
+    .cal-how>div{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+    .cal-how article{background:var(--night-2);border-radius:18px;padding:22px}
+    .cal-how h3{font:700 19px var(--display);margin-bottom:6px}
+    .cal-how p{color:var(--bone-2)}
+    .cal-how a{display:inline-block;margin-top:10px;color:var(--orange-d,#C77A00);font-weight:600}
+    .cal-cta{padding-block:40px clamp(64px,8vw,100px)}
+    .cal-cta p{color:var(--bone-2);margin-top:10px}
+    .cal-cta .btn{margin-top:8px}
+    @media (max-width:860px){.cal-m{grid-template-columns:1fr;gap:12px}.cal-m h2{position:static}.cal-i{grid-template-columns:1fr;gap:8px}.cal-how>div{grid-template-columns:1fr}}
+  </style>
+</Base>

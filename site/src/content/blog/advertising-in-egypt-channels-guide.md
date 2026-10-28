@@ -65,6 +65,8 @@ service: /
 <li><strong>Measure everything against the objective.</strong> Agree the KPIs before launch, and move money towards what works each month.</li>
 </ul>
 
+<p>Not sure which mix fits you? Our free <a href="/campaign-planner/">campaign planner</a> suggests one in a minute.</p>
+
 <h2>Need a plan for advertising in Egypt?</h2>
 
 <p>Doers is a full-service, award-winning <a href="/">advertising agency in Egypt</a>, headquartered in Cairo with a team in Jeddah. We plan and run TV, radio, outdoor, digital, events and exhibitions under one plan, so your brand speaks with one voice and every pound is measured. Not sure how to choose a partner? Read our guide on <a href="/how-to-choose-advertising-agency-egypt/">how to choose an advertising agency in Egypt</a>. Tell us your objective, and we'll reply within one working day with how we would approach it.</p>
