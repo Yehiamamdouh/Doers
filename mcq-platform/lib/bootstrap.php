@@ -19,6 +19,37 @@ const DEFAULT_SETTINGS = [
 date_default_timezone_set('Africa/Cairo');
 ini_set('display_errors', '0');
 
+// Returns a readable reason when the server can't run the platform, or null when it can.
+function requirements_error(): ?string
+{
+    if (version_compare(PHP_VERSION, '7.4.0', '<')) {
+        return 'PHP ' . PHP_VERSION . ' is too old: choose PHP 8.1 or newer in cPanel → Select PHP Version.';
+    }
+    if (!extension_loaded('pdo_sqlite')) {
+        return 'The pdo_sqlite PHP extension is off: enable it in cPanel → Select PHP Version → Extensions.';
+    }
+    if (!extension_loaded('mbstring')) {
+        return 'The mbstring PHP extension is off: enable it in cPanel → Select PHP Version → Extensions.';
+    }
+    if (!is_dir(DATA_DIR)) {
+        @mkdir(DATA_DIR, 0750, true);
+    }
+    if (!is_writable(DATA_DIR)) {
+        return 'PHP cannot write to the data/ folder: set its permissions to 755 (or 775).';
+    }
+    return null;
+}
+
+function requirements_page(string $reason): void
+{
+    http_response_code(500);
+    header('Content-Type: text/html; charset=utf-8');
+    echo '<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><title>Setup needed</title>'
+        . '<div style="font-family:system-ui,sans-serif;max-width:560px;margin:15vh auto;padding:0 16px;line-height:1.6">'
+        . '<h1 style="font-size:1.3rem">المنصة تحتاج إعداداً على السيرفر</h1><p>Setup needed: ' . htmlspecialchars($reason) . '</p></div>';
+    exit;
+}
+
 function db(): PDO
 {
     static $pdo = null;
@@ -149,7 +180,8 @@ function start_session(): void
     }
 }
 
-function json_out(array $data, int $status = 200): never
+// Both end the request (exit). No `never` return type so the app still runs on PHP 7.4/8.0 hosting.
+function json_out(array $data, int $status = 200): void
 {
     http_response_code($status);
     header('Content-Type: application/json; charset=utf-8');
@@ -158,7 +190,7 @@ function json_out(array $data, int $status = 200): never
     exit;
 }
 
-function fail(string $message, int $status = 400, string $code = 'error'): never
+function fail(string $message, int $status = 400, string $code = 'error'): void
 {
     json_out(['ok' => false, 'error' => $message, 'code' => $code], $status);
 }
@@ -205,6 +237,15 @@ function public_settings(): array
 
 function page_shell(string $title, array $scripts): void
 {
+    if ($reason = requirements_error()) {
+        requirements_page($reason);
+    }
+    try {
+        settings();
+    } catch (Throwable $e) {
+        error_log('[mcq] ' . $e);
+        requirements_page('Database error: ' . $e->getMessage());
+    }
     start_session();
     $boot = json_encode(['csrf' => $_SESSION['csrf'], 'settings' => public_settings()], JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP);
     $name = htmlspecialchars(settings()['platform_name'], ENT_QUOTES);

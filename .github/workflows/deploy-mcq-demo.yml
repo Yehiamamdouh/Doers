@@ -24,8 +24,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check PHP syntax
-        run: find mcq-platform -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Check PHP syntax (8.x and the oldest supported, 7.4)
+        run: |
+          find mcq-platform -name '*.php' -print0 | xargs -0 -n1 php -l
+          docker run --rm -v "$PWD/mcq-platform:/app" php:7.4-cli sh -c 'for f in $(find /app -name "*.php"); do php -l "$f" || exit 1; done'
 
       - name: First-run accounts and sample questions
         run: |
@@ -73,7 +75,10 @@ jobs:
           BASE=https://staging.doersadv.com/mcq-demo
           code=$(curl -sS -A "$UA" -c jar -o page.html -w '%{http_code}' "$BASE/admin.php")
           echo "admin.php → HTTP $code"
-          [ "$code" = 200 ] && grep -q 'window.APP' page.html || { head -c 600 page.html; exit 1; }
+          if [ "$code" != 200 ] || ! grep -q 'window.APP' page.html; then
+            echo "--- response body ---"; sed -e 's/<[^>]*>/ /g' page.html | tr -s ' \n' | head -c 1500; echo
+            exit 1
+          fi
           csrf=$(grep -o '"csrf":"[a-f0-9]*"' page.html | cut -d'"' -f4)
           status=$(curl -sS -A "$UA" -b jar -H 'Content-Type: application/json' -H "X-CSRF: $csrf" -d '{}' "$BASE/api.php?action=admin.status")
           echo "admin.status → $status"

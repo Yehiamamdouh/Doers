@@ -11,6 +11,10 @@ set_exception_handler(function (Throwable $e) {
     fail('حدث خطأ غير متوقع، حاول مرة أخرى.', 500);
 });
 
+if ($reason = requirements_error()) {
+    fail('Setup needed: ' . $reason, 500, 'setup');
+}
+
 start_session();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
