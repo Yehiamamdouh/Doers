@@ -1,0 +1,11 @@
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+</IfModule>
+
+# The database, config and PHP helpers are never served directly.
+<FilesMatch "\.(sqlite|sqlite-wal|sqlite-shm|db|md|json)$">
+  Require all denied
+</FilesMatch>
