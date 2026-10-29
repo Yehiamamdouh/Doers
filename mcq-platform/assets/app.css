@@ -311,6 +311,26 @@ td .row { gap: 6px; flex-wrap: nowrap; }
 .parsed-list ol { margin: 6px 0 0; padding-inline-start: 22px; }
 .parsed-list li.is-correct { color: var(--good); font-weight: 700; }
 
+/* Progress chart (single series: the platform's primary color) */
+.chart { position: relative; width: 100%; min-height: 240px; margin-top: 8px; }
+.chart-svg { display: block; overflow: visible; outline: none; border-radius: 8px; }
+.chart-svg:focus-visible { box-shadow: 0 0 0 3px var(--primary-soft); }
+.chart-grid { stroke: var(--border); stroke-width: 1; }
+.chart-base { stroke: var(--muted); stroke-width: 1; opacity: .45; }
+.chart-axis { fill: var(--muted); font-size: 11px; font-family: inherit; }
+.chart-line { fill: none; stroke: var(--primary); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.chart-area { fill: var(--primary); opacity: .1; }
+.chart-dot { fill: var(--primary); stroke: var(--surface); stroke-width: 2; transition: r .1s; }
+.chart-cross { stroke: var(--muted); stroke-width: 1; opacity: 0; }
+.chart-label { fill: var(--text); font-size: 12px; font-weight: 700; font-family: inherit; }
+.chart-tip {
+  position: absolute; display: none; flex-direction: column; pointer-events: none; z-index: 2;
+  background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow);
+  border-radius: 10px; padding: 6px 10px; font-size: .8rem; line-height: 1.5; white-space: nowrap; direction: rtl;
+}
+.chart-tip b { font-size: 1.05rem; }
+.kpi .badge { margin-top: 4px; }
+
 /* Modal */
 .modal-backdrop {
   position: fixed; inset: 0; z-index: 50; background: rgba(10, 14, 28, .55);

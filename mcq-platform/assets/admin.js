@@ -109,6 +109,7 @@
     if (page === 'quizzes') return showQuizzes();
     if (page === 'quiz') return showQuizEditor(arg === 'new' ? 0 : Number(arg));
     if (page === 'results') return showResults(arg ? Number(arg) : 0);
+    if (page === 'progress') return showStudentProgress(Number(arg));
     if (page === 'settings') return showSettings();
     return showStudents();
   }
@@ -276,7 +277,7 @@
           h('h3', {}, 'الحساب'),
           h('div', { class: 'row' },
             h('button', { class: 'btn', type: 'button', onclick: () => { document.querySelector('.modal-backdrop')?.remove(); studentForm(s); } }, 'تعديل البيانات / كلمة المرور'),
-            h('button', { class: 'btn', type: 'button', onclick: () => { document.querySelector('.modal-backdrop')?.remove(); location.hash = 'results/' + s.id; } }, 'عرض النتائج'),
+            h('button', { class: 'btn primary', type: 'button', onclick: () => { document.querySelector('.modal-backdrop')?.remove(); location.hash = 'progress/' + s.id; } }, '📈 التقدم والأداء'),
             h('button', { class: 'btn', type: 'button', onclick: () => act('logout') }, 'تسجيل خروج من كل الأجهزة'),
             s.active
               ? h('button', { class: 'btn danger', type: 'button', onclick: () => act('suspend', null, 'إيقاف حساب ' + s.name + '؟') }, 'إيقاف الحساب')
@@ -303,12 +304,14 @@
         (studentFilter.state === 'all' || s.subscription.state === studentFilter.state || (studentFilter.state === 'active' && s.subscription.state === 'ending')) &&
         (!q || s.name.toLowerCase().includes(q) || s.username.toLowerCase().includes(q)));
       tbody.replaceChildren(...rows.map((s) => h('tr', {},
-        h('td', {}, h('div', { style: { fontWeight: 700 } }, s.name), s.notes ? h('div', { class: 'small muted' }, s.notes.slice(0, 60)) : null),
+        h('td', {}, h('a', { href: '#progress/' + s.id, style: { fontWeight: 700 } }, s.name), s.notes ? h('div', { class: 'small muted' }, s.notes.slice(0, 60)) : null),
         h('td', { dir: 'ltr', style: { textAlign: 'right' } }, s.username),
         h('td', {}, statusBadge(s)),
         h('td', { class: 'small' }, s.subscription.first_login_at ? fmtDate(s.subscription.first_login_at) : '—'),
         h('td', { class: 'small' }, s.subscription.expires_at ? fmtDate(s.subscription.expires_at) : '—'),
-        h('td', { class: 'small' }, s.attempts ? s.attempts + ' · ' + s.avg_pct + '%' : '—'),
+        h('td', { class: 'small' }, s.attempts
+          ? h('div', { class: 'row' }, h('span', {}, s.attempts + ' · ' + (s.last_pct !== null ? s.last_pct : s.avg_pct) + '%'), UI.deltaBadge(s.trend))
+          : '—'),
         h('td', {}, h('div', { class: 'row' },
           h('button', { class: 'btn sm good', onclick: async () => { try { await studentAction(s, 'renew'); toast('تم تجديد اشتراك ' + s.name); showStudents(); } catch (e) { /* shown */ } } }, 'تجديد'),
           h('button', { class: 'btn sm', onclick: () => manageStudent(s) }, 'إدارة'))))));
@@ -339,7 +342,7 @@
         h('button', { class: 'btn', onclick: bulkAdd }, 'إضافة مجموعة'),
         h('button', { class: 'btn primary', onclick: () => studentForm(null) }, '+ إضافة طالب')),
       h('div', { class: 'table-wrap' }, h('table', {},
-        h('thead', {}, h('tr', {}, ['الطالب', 'اسم المستخدم', 'الحالة', 'بداية الاشتراك', 'نهاية الاشتراك', 'اختبارات · متوسط', ''].map((t) => h('th', {}, t)))),
+        h('thead', {}, h('tr', {}, ['الطالب', 'اسم المستخدم', 'الحالة', 'بداية الاشتراك', 'نهاية الاشتراك', 'اختبارات · آخر نتيجة · الاتجاه', ''].map((t) => h('th', {}, t)))),
         tbody)),
       h('p', { class: 'small muted', style: { marginTop: '12px' } }, 'يبدأ اشتراك كل طالب (' + settings.subscription_months + ' شهور) تلقائياً من أول تسجيل دخول، ويُغلق حسابه تلقائياً عند انتهاء المدة حتى تجدده.'));
   }
@@ -683,13 +686,14 @@
         h('div', { class: 'kpi' }, h('b', {}, rows.length ? avg + '%' : '—'), h('span', { class: 'small muted' }, 'متوسط الدرجات')),
         h('div', { class: 'kpi' }, h('b', {}, new Set(rows.map((r) => r.student_id)).size), h('span', { class: 'small muted' }, 'طالب')));
       tbody.replaceChildren(...rows.map((r) => h('tr', {},
-        h('td', {}, h('a', { href: '#results/' + r.student_id }, r.student)),
-        h('td', { dir: 'auto' }, r.quiz),
+        h('td', {}, h('a', { href: '#progress/' + r.student_id }, r.student)),
+        h('td', { dir: 'auto' }, r.quiz, r.mode === 'wrong' ? h('span', { class: 'badge info', style: { marginInlineStart: '6px' } }, 'الأخطاء فقط') : null),
         h('td', {}, r.correct + ' / ' + r.total),
         h('td', {}, h('span', { class: 'badge ' + (r.pct >= 75 ? 'good' : r.pct >= 50 ? 'warn' : 'bad') }, r.pct + '%')),
         h('td', { class: 'small' }, fmtDateTime(r.finished_at)),
-        h('td', { class: 'small' }, r.minutes + ' دقيقة'))));
-      if (!rows.length) tbody.append(h('tr', {}, h('td', { colspan: 6, class: 'empty' }, 'لا توجد نتائج بعد.')));
+        h('td', { class: 'small' }, r.minutes + ' دقيقة'),
+        h('td', {}, h('button', { class: 'btn sm', onclick: () => reviewAttempt(r.id, r.student) }, 'مراجعة')))));
+      if (!rows.length) tbody.append(h('tr', {}, h('td', { colspan: 7, class: 'empty' }, 'لا توجد نتائج بعد.')));
     };
     paint();
 
@@ -716,8 +720,49 @@
         h('button', { class: 'btn', onclick: exportCsv }, 'تصدير Excel (CSV)')),
       kpis,
       h('div', { class: 'table-wrap' }, h('table', {},
-        h('thead', {}, h('tr', {}, ['الطالب', 'الاختبار', 'الدرجة', 'النسبة', 'التاريخ', 'المدة'].map((t) => h('th', {}, t)))),
+        h('thead', {}, h('tr', {}, ['الطالب', 'الاختبار', 'الدرجة', 'النسبة', 'التاريخ', 'المدة', ''].map((t) => h('th', {}, t)))),
         tbody)));
+  }
+
+  // ---------- Student progress ----------
+
+  async function reviewAttempt(attemptId, studentName) {
+    let a;
+    try { a = (await call('admin.attempt', { id: attemptId })).attempt; } catch (e) { return; }
+    const correct = a.questions.filter((q) => q.chosen !== undefined && q.chosen === q.correct_index).length;
+    const pct = a.questions.length ? Math.round((correct / a.questions.length) * 100) : 0;
+    modal({
+      title: (studentName ? studentName + ' — ' : '') + a.title,
+      wide: true,
+      body: h('div', {},
+        h('div', { class: 'row' },
+          h('span', { class: 'badge ' + (pct >= 75 ? 'good' : pct >= 50 ? 'warn' : 'bad') }, pct + '%'),
+          h('span', {}, correct + ' / ' + a.questions.length),
+          a.finished_at ? h('span', { class: 'muted small' }, fmtDateTime(a.finished_at)) : null,
+          a.mode === 'wrong' ? h('span', { class: 'badge info' }, 'الأخطاء فقط') : null,
+          a.previous_pct !== null ? h('span', { class: 'small' }, 'عن المحاولة السابقة (' + a.previous_pct + '%): ', UI.deltaBadge(pct - a.previous_pct)) : null),
+        UI.reviewList(a, 'teacher')),
+      confirmText: 'إغلاق',
+      cancelText: null,
+    });
+  }
+
+  async function showStudentProgress(id) {
+    loading('students');
+    let data;
+    try { data = await call('admin.student.history', { id }); } catch (e) { return; }
+    const s = data.student;
+    shell('students',
+      h('div', { class: 'toolbar' },
+        h('a', { class: 'btn ghost sm', href: '#students' }, '→ الطلاب'),
+        h('span', { class: 'spacer' }),
+        h('a', { class: 'btn sm', href: '#results/' + s.id }, 'كل نتائجه في جدول النتائج')),
+      h('div', { class: 'row', style: { marginBottom: '6px' } },
+        h('h1', { style: { margin: 0 } }, s.name),
+        statusBadge(s),
+        h('span', { class: 'muted', dir: 'ltr' }, s.username)),
+      h('p', { class: 'muted' }, 'سجل أداء الطالب في كل المحاولات، للمقارنة ومتابعة التحسّن أو التراجع.'),
+      UI.progressView(data.attempts, { onReview: (attemptId) => reviewAttempt(attemptId, s.name), who: 'teacher' }));
   }
 
   // ---------- Settings ----------

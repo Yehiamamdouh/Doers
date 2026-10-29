@@ -139,6 +139,23 @@ CREATE TABLE IF NOT EXISTS login_failures (
 );
 SQL
     );
+    // Added later: whether an attempt covered the whole quiz ('full') or only the student's
+    // previous mistakes ('wrong'). Only full attempts are compared when tracking progress.
+    $columns = array_column($pdo->query('PRAGMA table_info(attempts)')->fetchAll(PDO::FETCH_ASSOC), 'name');
+    if (!in_array('mode', $columns, true)) {
+        $pdo->exec("ALTER TABLE attempts ADD COLUMN mode TEXT NOT NULL DEFAULT 'full'");
+        // Older "wrong answers only" attempts hold fewer questions than their quiz.
+        $totals = [];
+        foreach ($pdo->query('SELECT quiz_id, COUNT(*) AS n FROM questions GROUP BY quiz_id') as $row) {
+            $totals[(int)$row['quiz_id']] = (int)$row['n'];
+        }
+        $mark = $pdo->prepare("UPDATE attempts SET mode = 'wrong' WHERE id = ?");
+        foreach ($pdo->query('SELECT id, quiz_id, question_ids FROM attempts')->fetchAll() as $row) {
+            if (count(json_decode($row['question_ids'], true) ?: []) < ($totals[(int)$row['quiz_id']] ?? 0)) {
+                $mark->execute([$row['id']]);
+            }
+        }
+    }
 }
 
 function settings(): array

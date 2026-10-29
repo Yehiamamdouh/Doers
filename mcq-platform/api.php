@@ -168,28 +168,82 @@ function attempt_payload(array $a): array
         }
         $questions[] = $item;
     }
-    return [
+    $payload = [
         'id' => (int)$a['id'],
         'quiz_id' => (int)$a['quiz_id'],
         'title' => $a['title'],
+        'mode' => $a['mode'],
         'finished' => $finished,
+        'finished_at' => $finished ? (int)$a['finished_at'] : null,
         'correct_count' => (int)$a['correct_count'],
         'questions' => $questions,
+        'previous_pct' => null,
     ];
+    // The score of the previous full attempt at the same quiz, to show progress on the result screen.
+    if ($finished && $a['mode'] === 'full') {
+        $stmt = db()->prepare("SELECT question_ids, correct_count FROM attempts
+            WHERE student_id = ? AND quiz_id = ? AND mode = 'full' AND finished_at IS NOT NULL AND id < ?
+            ORDER BY finished_at DESC, id DESC LIMIT 1");
+        $stmt->execute([(int)$a['student_id'], (int)$a['quiz_id'], (int)$a['id']]);
+        if ($prev = $stmt->fetch()) {
+            $payload['previous_pct'] = pct((int)$prev['correct_count'], count(json_decode($prev['question_ids'], true) ?: []));
+        }
+    }
+    return $payload;
 }
 
-function create_attempt(int $studentId, int $quizId, array $questionIds): array
+function create_attempt(int $studentId, int $quizId, array $questionIds, string $mode): array
 {
     $pdo = db();
     $pdo->prepare('DELETE FROM attempts WHERE student_id = ? AND quiz_id = ? AND finished_at IS NULL')->execute([$studentId, $quizId]);
-    $pdo->prepare('INSERT INTO attempts (student_id, quiz_id, question_ids, started_at) VALUES (?, ?, ?, ?)')
-        ->execute([$studentId, $quizId, json_encode(array_values($questionIds)), time()]);
+    $pdo->prepare('INSERT INTO attempts (student_id, quiz_id, question_ids, mode, started_at) VALUES (?, ?, ?, ?, ?)')
+        ->execute([$studentId, $quizId, json_encode(array_values($questionIds)), $mode, time()]);
     return load_attempt((int)$pdo->lastInsertId(), $studentId);
 }
 
 function pct(int $correct, int $total): int
 {
     return $total > 0 ? (int)round($correct * 100 / $total) : 0;
+}
+
+// Every finished attempt of a student, oldest first, for the progress page.
+function student_history(int $studentId): array
+{
+    $stmt = db()->prepare(
+        'SELECT a.id, a.quiz_id, q.title AS quiz, a.mode, a.question_ids, a.correct_count, a.started_at, a.finished_at
+         FROM attempts a JOIN quizzes q ON q.id = a.quiz_id
+         WHERE a.student_id = ? AND a.finished_at IS NOT NULL ORDER BY a.finished_at, a.id'
+    );
+    $stmt->execute([$studentId]);
+    $rows = [];
+    foreach ($stmt as $r) {
+        $total = count(json_decode($r['question_ids'], true) ?: []);
+        $rows[] = [
+            'id' => (int)$r['id'],
+            'quiz_id' => (int)$r['quiz_id'],
+            'quiz' => $r['quiz'],
+            'mode' => $r['mode'],
+            'correct' => (int)$r['correct_count'],
+            'total' => $total,
+            'pct' => pct((int)$r['correct_count'], $total),
+            'finished_at' => (int)$r['finished_at'],
+            'minutes' => max(1, (int)round(((int)$r['finished_at'] - (int)$r['started_at']) / 60)),
+        ];
+    }
+    return $rows;
+}
+
+// Trend of full-attempt scores: the average of the latest n attempts minus the average of the n
+// before them, n = min(3, half the attempts). The progress page computes the same in JavaScript.
+function score_trend(array $scores): ?int
+{
+    $n = min(3, intdiv(count($scores), 2));
+    if ($n < 1) {
+        return null;
+    }
+    $recent = array_slice($scores, -$n);
+    $before = array_slice($scores, -2 * $n, $n);
+    return (int)round(array_sum($recent) / $n - array_sum($before) / $n);
 }
 
 // ---------- Teacher ----------
@@ -378,7 +432,7 @@ switch ($action) {
                 fail('أحسنت! لا توجد أخطاء في آخر محاولة.');
             }
         }
-        json_out(['ok' => true, 'attempt' => attempt_payload(create_attempt($s['id'], $quizId, $ids))]);
+        json_out(['ok' => true, 'attempt' => attempt_payload(create_attempt($s['id'], $quizId, $ids, $mode === 'wrong' ? 'wrong' : 'full'))]);
     }
 
     case 'student.answer': {
@@ -434,6 +488,11 @@ switch ($action) {
         $s = current_student();
         $a = load_attempt(int_in($in, 'attempt_id'), $s['id']);
         json_out(['ok' => true, 'attempt' => attempt_payload($a)]);
+    }
+
+    case 'student.history': {
+        $s = current_student();
+        json_out(['ok' => true, 'me' => student_me($s), 'attempts' => student_history($s['id'])]);
     }
 
     // ----- Teacher -----
@@ -492,18 +551,22 @@ switch ($action) {
         current_admin();
         $rows = $pdo->query('SELECT * FROM students ORDER BY id DESC')->fetchAll();
         $stats = [];
-        foreach ($pdo->query('SELECT student_id, question_ids, correct_count FROM attempts WHERE finished_at IS NOT NULL') as $a) {
+        foreach ($pdo->query('SELECT student_id, mode, question_ids, correct_count FROM attempts WHERE finished_at IS NOT NULL ORDER BY finished_at, id') as $a) {
             $sid = (int)$a['student_id'];
             if (!isset($stats[$sid])) {
-                $stats[$sid] = ['attempts' => 0, 'pct_sum' => 0];
+                $stats[$sid] = ['attempts' => 0, 'pct_sum' => 0, 'full' => []];
             }
+            $p = pct((int)$a['correct_count'], count(json_decode($a['question_ids'], true) ?: []));
             $stats[$sid]['attempts']++;
-            $stats[$sid]['pct_sum'] += pct((int)$a['correct_count'], count(json_decode($a['question_ids'], true) ?: []));
+            $stats[$sid]['pct_sum'] += $p;
+            if ($a['mode'] === 'full') {
+                $stats[$sid]['full'][] = $p;
+            }
         }
         $out = [];
         foreach ($rows as $r) {
             $s = load_student((int)$r['id']);
-            $st = $stats[$s['id']] ?? ['attempts' => 0, 'pct_sum' => 0];
+            $st = $stats[$s['id']] ?? ['attempts' => 0, 'pct_sum' => 0, 'full' => []];
             $out[] = [
                 'id' => $s['id'],
                 'name' => $s['name'],
@@ -515,6 +578,8 @@ switch ($action) {
                 'subscription' => subscription_state($s),
                 'attempts' => $st['attempts'],
                 'avg_pct' => $st['attempts'] ? (int)round($st['pct_sum'] / $st['attempts']) : null,
+                'last_pct' => $st['full'] ? end($st['full']) : null,
+                'trend' => score_trend($st['full']),
             ];
         }
         json_out(['ok' => true, 'students' => $out]);
@@ -599,6 +664,30 @@ switch ($action) {
                 fail('إجراء غير معروف.');
         }
         json_out(['ok' => true]);
+    }
+
+    case 'admin.student.history': {
+        current_admin();
+        $s = load_student(int_in($in, 'id'));
+        if (!$s) {
+            fail('الطالب غير موجود.', 404);
+        }
+        json_out([
+            'ok' => true,
+            'student' => ['id' => $s['id'], 'name' => $s['name'], 'username' => $s['username'], 'subscription' => subscription_state($s)],
+            'attempts' => student_history($s['id']),
+        ]);
+    }
+
+    case 'admin.attempt': {
+        current_admin();
+        $stmt = $pdo->prepare('SELECT student_id FROM attempts WHERE id = ?');
+        $stmt->execute([int_in($in, 'id')]);
+        $sid = $stmt->fetchColumn();
+        if ($sid === false) {
+            fail('المحاولة غير موجودة.', 404);
+        }
+        json_out(['ok' => true, 'attempt' => attempt_payload(load_attempt(int_in($in, 'id'), (int)$sid))]);
     }
 
     case 'admin.quizzes': {
@@ -712,9 +801,9 @@ switch ($action) {
             $args[] = $qid;
         }
         $stmt = $pdo->prepare(
-            'SELECT a.id, a.student_id, a.quiz_id, a.question_ids, a.correct_count, a.started_at, a.finished_at, s.name AS student, q.title AS quiz
+            'SELECT a.id, a.student_id, a.quiz_id, a.mode, a.question_ids, a.correct_count, a.started_at, a.finished_at, s.name AS student, q.title AS quiz
              FROM attempts a JOIN students s ON s.id = a.student_id JOIN quizzes q ON q.id = a.quiz_id
-             WHERE ' . implode(' AND ', $where) . ' ORDER BY a.finished_at DESC LIMIT 500'
+             WHERE ' . implode(' AND ', $where) . ' ORDER BY a.finished_at DESC, a.id DESC LIMIT 500'
         );
         $stmt->execute($args);
         $rows = [];
@@ -726,6 +815,7 @@ switch ($action) {
                 'student' => $r['student'],
                 'quiz_id' => (int)$r['quiz_id'],
                 'quiz' => $r['quiz'],
+                'mode' => $r['mode'],
                 'correct' => (int)$r['correct_count'],
                 'total' => $total,
                 'pct' => pct((int)$r['correct_count'], $total),

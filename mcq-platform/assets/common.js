@@ -125,7 +125,8 @@
       document.body.appendChild(backdrop);
       document.addEventListener('keydown', onKey);
       const first = form.querySelector('input, textarea, select');
-      (first || confirmBtn).focus();
+      if (first) first.focus();
+      else confirmBtn.focus({ preventScroll: true }); // long content (e.g. an answer review) stays at its top
     });
   }
 

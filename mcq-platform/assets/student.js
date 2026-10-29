@@ -98,6 +98,7 @@
       h('div', { class: 'wrap' },
         brand(S.platform_name),
         extra,
+        me ? h('button', { class: 'btn ghost sm', onclick: () => showProgress() }, '📈 تقدمي') : null,
         me ? h('span', { class: 'muted small hide-sm' }, me.name) : null,
         themeButton(),
         me ? h('button', { class: 'btn ghost sm', onclick: logout }, 'خروج') : null));
@@ -348,33 +349,6 @@
     const skipped = c.total - c.answered;
     const pct = c.total ? Math.round((c.correct / c.total) * 100) : 0;
     const message = pct >= 90 ? 'ممتاز! أداء رائع 🎉' : pct >= 75 ? 'أحسنت! نتيجة جيدة جداً 👏' : pct >= 50 ? 'جيد، راجع الأخطاء لتتحسن أكثر 💪' : 'لا بأس، راجع الشرح وحاول مرة أخرى 📖';
-    let filter = 'all';
-
-    const list = h('div', { class: 'stack' });
-    const paintList = () => {
-      list.replaceChildren(...a.questions
-        .map((q, i) => ({ q, i, st: q.chosen === undefined ? 'skipped' : q.chosen === q.correct_index ? 'correct' : 'wrong' }))
-        .filter(({ st }) => filter === 'all' || (filter === 'wrong' ? st !== 'correct' : st === 'correct'))
-        .map(({ q, i, st }) => h('article', { class: 'card review-item ' + st },
-          h('div', { class: 'q-num' }, 'السؤال ' + (i + 1),
-            h('span', { class: 'badge ' + (st === 'correct' ? 'good' : st === 'wrong' ? 'bad' : 'warn') }, st === 'correct' ? 'صحيح' : st === 'wrong' ? 'خطأ' : 'لم تُجب')),
-          h('div', { class: 'q-text', dir: textDir(q.text) }, q.text),
-          h('div', { class: 'options', dir: textDir(q.text) }, q.options.map((text, oi) => h('div', {
-            class: 'option' + (oi === q.correct_index ? ' correct' : oi === q.chosen ? ' wrong' : ' dim'),
-          },
-            h('span', { class: 'letter' }, optionLetter(oi, q.text)),
-            h('span', { class: 'otext', dir: 'auto' }, text),
-            oi === q.correct_index ? h('span', { class: 'mark' }, '✓') : oi === q.chosen ? h('span', { class: 'mark' }, '✗') : null))),
-          q.explanation ? h('div', { class: 'feedback' }, h('div', { class: 'explain-title', style: { marginTop: 0 } }, 'الشرح:'), h('div', { class: 'explain', dir: 'auto' }, q.explanation)) : null)));
-      if (!list.children.length) list.append(h('div', { class: 'card empty' }, 'لا توجد أسئلة هنا.'));
-    };
-    paintList();
-
-    const filterBtn = (key, label) => h('button', {
-      class: key === filter ? 'active' : '',
-      onclick: (e) => { filter = key; e.target.parentNode.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b === e.target)); paintList(); },
-    }, label);
-
     mount(
       topbar(),
       h('main', {},
@@ -383,6 +357,10 @@
             h('div', { class: 'muted', dir: 'auto' }, a.title),
             ring(pct),
             h('h1', {}, message),
+            a.previous_pct !== null && a.previous_pct !== undefined
+              ? h('p', {}, 'مقارنة بمحاولتك السابقة (' + a.previous_pct + '%): ', UI.deltaBadge(pct - a.previous_pct))
+              : null,
+            a.mode === 'wrong' ? h('p', { class: 'small muted' }, 'محاولة "الأخطاء فقط" لا تُحسب في منحنى التقدم.') : null,
             h('div', { class: 'stats' },
               h('div', { class: 'stat' }, h('b', { style: { color: 'var(--good)' } }, c.correct), 'صحيحة'),
               h('div', { class: 'stat' }, h('b', { style: { color: 'var(--bad)' } }, c.wrong), 'خاطئة'),
@@ -391,13 +369,30 @@
             h('div', { class: 'row', style: { justifyContent: 'center' } },
               c.correct < c.total ? h('button', { class: 'btn primary', onclick: () => startQuiz(a.quiz_id, 'wrong') }, 'حل الأسئلة الخاطئة فقط') : null,
               h('button', { class: 'btn', onclick: () => startQuiz(a.quiz_id, 'new') }, 'إعادة الاختبار كاملاً'),
+              h('button', { class: 'btn ghost', onclick: () => showProgress() }, '📈 تقدمي'),
               h('button', { class: 'btn ghost', onclick: () => showHome() }, 'كل الاختبارات'))),
-          h('div', { class: 'row', style: { margin: '28px 0 12px' } },
-            h('h2', { class: 'spacer', style: { margin: 0 } }, 'مراجعة الإجابات'),
-            h('div', { class: 'tabs' }, filterBtn('all', 'الكل'), filterBtn('wrong', 'الأخطاء'), filterBtn('correct', 'الصحيحة'))),
-          list)));
+          UI.reviewList(a))));
 
     if (fresh && pct >= 80) confetti();
+  }
+
+  // ---------- Progress history ----------
+
+  async function showProgress() {
+    attempt = null;
+    mount(topbar(), h('main', {}, h('div', { class: 'wrap' }, h('div', { class: 'boot', style: { minHeight: '40vh' } }, h('div', { class: 'spinner' })))));
+    let data;
+    try { data = await call('student.history'); } catch (e) { return; }
+    me = data.me;
+    mount(
+      topbar(),
+      h('main', {},
+        h('div', { class: 'wrap' },
+          h('div', { class: 'row', style: { marginBottom: '8px' } },
+            h('button', { class: 'btn ghost sm', onclick: () => showHome() }, '→ الاختبارات')),
+          h('h1', {}, 'تقدمي'),
+          h('p', { class: 'muted' }, 'كل نتائجك السابقة محفوظة هنا، لتقارن أداءك وتتابع تحسّنك من محاولة لأخرى.'),
+          UI.progressView(data.attempts, { onReview: reviewAttempt, who: 'student' }))));
   }
 
   // ---------- Boot ----------

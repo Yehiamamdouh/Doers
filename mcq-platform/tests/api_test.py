@@ -61,6 +61,27 @@ check('finish reveals all', all('correct_index' in q for q in fin['questions']) 
 w = S('student.start', {'quiz_id': qid, 'mode': 'wrong'})['attempt']
 check('wrong-only retry has 2 qs (wrong + skipped)', len(w['questions']) == 2, len(w['questions']))
 
+# Progress history: finish the wrong-only retry, then a perfect full attempt.
+for q in w['questions']:
+    S('student.answer', {'attempt_id': w['id'], 'question_id': q['id'], 'choice': 0})
+wf = S('student.finish', {'attempt_id': w['id']})['attempt']
+check('wrong-only attempt marked', wf['mode'] == 'wrong' and wf['previous_pct'] is None, wf.get('mode'))
+full = S('student.start', {'quiz_id': qid, 'mode': 'new'})['attempt']
+for q in full['questions']:
+    S('student.answer', {'attempt_id': full['id'], 'question_id': q['id'], 'choice': 0})
+fin2 = S('student.finish', {'attempt_id': full['id']})['attempt']
+check('result compares with previous full attempt', fin2['mode'] == 'full' and fin2['previous_pct'] == 33, fin2.get('previous_pct'))
+hist = S('student.history')['attempts']
+check('history keeps every attempt in order', [a['mode'] for a in hist] == ['full', 'wrong', 'full'] and hist[0]['pct'] == 33, [(a['mode'], a['pct']) for a in hist])
+srow = A('admin.students')['students'][0]
+expected_trend = hist[2]['pct'] - hist[0]['pct']
+check('teacher sees last score and trend', srow['last_pct'] == hist[2]['pct'] and srow['trend'] == expected_trend, (srow['last_pct'], srow['trend']))
+ah = A('admin.student.history', {'id': srow['id']})
+check('teacher sees student history', len(ah['attempts']) == 3 and ah['student']['name'] == 'سارة علي')
+aa = A('admin.attempt', {'id': hist[0]['id']})['attempt']
+check('teacher can review an attempt', len(aa['questions']) == 3 and all('correct_index' in q for q in aa['questions']))
+check('student cannot use teacher history', S('admin.student.history', {'id': srow['id']})['code'] == 'auth')
+
 # Single device: second login kicks out the first.
 S2 = client()
 check('second device login', S2('student.login', {'username': '01012345678', 'password': 'pass1234'})['ok'])
@@ -102,7 +123,7 @@ A('admin.quiz.save', {'id': qid, 'title': quiz['title'], 'published': 1, 'questi
 q2 = A('admin.quiz.get', {'id': qid})['quiz']['questions']
 check('ids preserved on edit', q2[0]['id'] == qs[0]['id'] and q2[0]['text'] == 'Incidence rate measures?' and len(q2) == 3)
 res = A('admin.results', {})['results']
-check('results listed', len(res) == 1 and res[0]['pct'] == 33, res)
+check('results listed newest first', [r['id'] for r in res] == sorted([r['id'] for r in res], reverse=True) and res[-1]['pct'] == 33, [r['pct'] for r in res])
 check('settings save', A('admin.settings.save', {'settings': {'subscription_months': 6, 'contact_whatsapp': '+20 101 234 5678'}})['ok'])
 check('settings applied', A('admin.me')['settings']['contact_whatsapp'] == '201012345678')
 A('admin.settings.save', {'settings': {'subscription_months': 3}})
