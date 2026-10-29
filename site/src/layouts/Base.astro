@@ -72,6 +72,18 @@ const fontFaces = readFileSync('public/css/fonts.css', 'utf8');
 <!-- WhatsApp opens in a new tab, so the site stays open long enough for analytics to record the click.
      Saudi pages (/ksa/, /ar/ksa/) use the Jeddah WhatsApp number. -->
 <script is:inline set:html={`document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function(a){a.target='_blank';a.rel='noopener'${ksaPage ? ";a.href='https://wa.me/966509881646'" : ''}})`} />
+<!-- The Doers sonic logo (footer button): plays only on a click, never on its own. -->
+<script is:inline set:html={'document.querySelectorAll(".dsound").forEach(function(b){var a=b.nextElementSibling;\n  b.addEventListener("click",function(){if(a.paused){a.currentTime=0;a.volume=.8;a.play();window.dataLayer&&dataLayer.push({event:"doers_sound"})}else a.pause()});\n  a.addEventListener("play",function(){b.classList.add("on");b.setAttribute("aria-pressed","true")});\n  ["pause","ended"].forEach(function(ev){a.addEventListener(ev,function(){b.classList.remove("on");b.setAttribute("aria-pressed","false")})});\n});'} />
+<style is:global>
+.dsound{display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:none;border:1.5px solid var(--line,#ddd);border-radius:999px;padding:8px 16px 8px 12px;font:600 14px var(--body);color:inherit;cursor:pointer;transition:border-color .2s}
+.dsound:hover,.dsound.on{border-color:var(--orange,#F7A21B)}
+.dsound .eq{display:inline-flex;align-items:flex-end;gap:2px;height:14px}
+.dsound .eq i{width:3px;height:5px;background:var(--orange,#F7A21B);border-radius:2px}
+.dsound.on .eq i{animation:dseq .6s ease-in-out infinite alternate}
+.dsound.on .eq i:nth-child(2){animation-delay:.15s}.dsound.on .eq i:nth-child(3){animation-delay:.3s}.dsound.on .eq i:nth-child(4){animation-delay:.45s}
+@keyframes dseq{to{height:14px}}
+@media (prefers-reduced-motion:reduce){.dsound.on .eq i{animation:none;height:10px}}
+</style>
 <CookieNotice lang={lang} ksa={path.startsWith('/ar/ksa/')} />
 </body>
 </html>

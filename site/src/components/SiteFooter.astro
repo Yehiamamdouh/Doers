@@ -5,13 +5,16 @@ import ServiceStrip from './ServiceStrip.astro';
 const { lang = 'en', strip = true, ksa = false } = Astro.props;
 const ar = lang === 'ar';
 const link = (p) => loc(p, lang);
-const L = ar ? { tag: ksa ? 'دورز<br><em>تنجز كل شيء.</em>' : 'دورز<br><em>بتعمل كل حاجة.</em>', what: 'خدماتنا', cairo: 'القاهرة', jeddah: 'جدة', follow: 'تابعنا', cAddr: 'شارع رسلان، مدينة نصر، المنطقة التاسعة، بلوك 23، برج 3', jAddr: 'مركز زهران، برج B، الدور 12', hours: 'الأحد–الخميس · 10:00–18:00' } : { tag: 'Doers<br><em>do it all.</em>', what: 'What we do', cairo: 'Cairo', jeddah: 'Jeddah', follow: 'Follow', cAddr: 'Raslan St, Nasr City, 9th Area, Block 23, Tower 3', jAddr: 'Zahran Building Center, Tower B, 12th Floor', hours: 'Sun–Thu · 10:00–18:00' };
+const L = ar ? { tag: ksa ? 'دورز<br><em>تنجز كل شيء.</em>' : 'دورز<br><em>بتعمل كل حاجة.</em>', what: 'خدماتنا', cairo: 'القاهرة', jeddah: 'جدة', follow: 'تابعنا', cAddr: 'شارع رسلان، مدينة نصر، المنطقة التاسعة، بلوك 23، برج 3', jAddr: 'مركز زهران، برج B، الدور 12', hours: 'الأحد–الخميس · 10:00–18:00', sound: 'اسمع صوت دورز' } : { tag: 'Doers<br><em>do it all.</em>', what: 'What we do', cairo: 'Cairo', jeddah: 'Jeddah', follow: 'Follow', cAddr: 'Raslan St, Nasr City, 9th Area, Block 23, Tower 3', jAddr: 'Zahran Building Center, Tower B, 12th Floor', hours: 'Sun–Thu · 10:00–18:00', sound: 'Hear the Doers sound' };
 ---
 {strip && <ServiceStrip lang={lang} />}
 <footer>
   <div class="wrap">
     <div class="fgrid">
-      <div><p class="ftag" set:html={L.tag} /></div>
+      <div><p class="ftag" set:html={L.tag} />
+        <!-- The Doers sonic logo: plays only when someone presses this, never on its own. -->
+        <button type="button" class="dsound" aria-pressed="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>{L.sound}</button>
+        <audio class="dsound-a" src="/audio/doers-sound.mp3" preload="none"></audio></div>
       <div><span class="label">{L.what}</span><ul>{menu.map((s) => <li><a href={link(s.eg || s.ksa)}>{ar ? (ksa && s.ar_ksa) || s.ar : s.name}</a></li>)}</ul></div>
       <div><span class="label">{L.cairo}</span><p>{L.cAddr}</p><p dir="ltr" style="margin-top:8px"><a href="tel:+201101000255">+20 110 1000 255</a></p></div>
       <div><span class="label">{L.jeddah}</span><p>{L.jAddr}</p><p dir="ltr" style="margin-top:8px"><a href="tel:+966509881646">+966 50 988 1646</a></p></div>
