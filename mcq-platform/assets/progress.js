@@ -249,6 +249,7 @@
           h('div', { class: 'q-num' }, 'السؤال ' + (i + 1),
             h('span', { class: 'badge ' + (st === 'correct' ? 'good' : st === 'wrong' ? 'bad' : 'warn') }, st === 'correct' ? 'صحيح' : st === 'wrong' ? 'خطأ' : (you ? 'لم تُجب' : 'لم يُجب'))),
           h('div', { class: 'q-text', dir: textDir(q.text) }, q.text),
+          window.UI.questionImage(q.image),
           h('div', { class: 'options', dir: textDir(q.text) }, q.options.map((text, oi) => h('div', {
             class: 'option' + (oi === q.correct_index ? ' correct' : oi === q.chosen ? ' wrong' : ' dim'),
           },

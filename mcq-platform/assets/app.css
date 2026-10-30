@@ -311,6 +311,24 @@ td .row { gap: 6px; flex-wrap: nowrap; }
 .parsed-list ol { margin: 6px 0 0; padding-inline-start: 22px; }
 .parsed-list li.is-correct { color: var(--good); font-weight: 700; }
 
+/* Question images */
+.q-img {
+  display: block; padding: 0; margin: 0 0 18px; max-width: 100%; border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden; background: #fff; cursor: zoom-in;
+}
+.q-img img { display: block; max-width: 100%; max-height: 420px; width: auto; height: auto; -webkit-user-drag: none; }
+.review-item .q-img img { max-height: 260px; }
+.lightbox {
+  position: fixed; inset: 0; z-index: 80; background: rgba(5, 8, 18, .88);
+  display: grid; place-items: center; padding: 16px; cursor: zoom-out; animation: fade .15s ease;
+}
+.lightbox img { max-width: 100%; max-height: calc(100vh - 32px); border-radius: 8px; background: #fff; }
+.lightbox .btn { position: fixed; top: 12px; inset-inline-end: 12px; }
+.img-control { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 10px 0 4px; }
+.img-control .q-img { margin: 0; }
+.img-control .q-img img { max-height: 120px; }
+.q-edit.drop-target { outline: 3px dashed var(--primary); outline-offset: 2px; }
+
 /* Progress chart (single series: the platform's primary color) */
 .chart { position: relative; width: 100%; min-height: 240px; margin-top: 8px; }
 .chart-svg { display: block; overflow: visible; outline: none; border-radius: 8px; }

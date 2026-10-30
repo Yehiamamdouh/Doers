@@ -33,7 +33,7 @@ jobs:
           for i in $(seq 1 20); do curl -fsS -o /dev/null http://127.0.0.1:8099/ && break; sleep 0.5; done
           python3 mcq-platform/tests/api_test.py || { docker logs php72 | tail -30; exit 1; }
           docker rm -f php72
-          rm -f mcq-platform/data/platform.sqlite*
+          rm -rf mcq-platform/data/platform.sqlite* mcq-platform/data/media
 
       - name: First-run accounts and sample questions
         run: |
@@ -74,6 +74,7 @@ jobs:
             config.sample.php
             tests/**
             data/*.sqlite*
+            data/media/**
 
       - name: Check the demo responds
         run: |

@@ -152,6 +152,26 @@
     return /[؀-ۿ]/.test(sample || '') ? LETTERS_AR[i] : LETTERS_EN[i];
   }
 
+  const mediaUrl = (name) => 'media.php?f=' + encodeURIComponent(name);
+
+  // Full-size view of an image; closes on click, tap or Escape.
+  function lightbox(src) {
+    const close = () => { box.remove(); document.removeEventListener('keydown', onKey); };
+    const onKey = (e) => { if (e.key === 'Escape') close(); };
+    const box = h('div', { class: 'lightbox', role: 'dialog', 'aria-label': 'عرض الصورة', onclick: close },
+      h('img', { src, alt: '' }),
+      h('button', { class: 'btn', type: 'button', 'aria-label': 'إغلاق' }, '✕'));
+    document.body.appendChild(box);
+    document.addEventListener('keydown', onKey);
+  }
+
+  function questionImage(name) {
+    if (!name) return null;
+    const src = mediaUrl(name);
+    return h('button', { type: 'button', class: 'q-img', title: 'اضغط لتكبير الصورة', onclick: () => lightbox(src) },
+      h('img', { src, alt: 'صورة السؤال', loading: 'lazy', draggable: 'false' }));
+  }
+
   // English questions read left-to-right, Arabic ones right-to-left.
   function textDir(text) {
     return /[\u0600-\u06FF]/.test(text || '') ? 'rtl' : 'ltr';
@@ -215,6 +235,6 @@
 
   window.UI = {
     APP, h, append, mount, api, ApiError, toast, themeButton, brand, modal,
-    fmtDate, fmtDateTime, isoDate, whatsappLink, optionLetter, textDir, confetti, randomPassword, copyText,
+    fmtDate, fmtDateTime, isoDate, whatsappLink, optionLetter, textDir, confetti, mediaUrl, lightbox, questionImage, randomPassword, copyText,
   };
 })();

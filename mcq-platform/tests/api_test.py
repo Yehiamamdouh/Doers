@@ -15,6 +15,13 @@ def client():
             r = op.open(req); return json.loads(r.read())
         except urllib.error.HTTPError as e:
             return json.loads(e.read())
+    def get(path):
+        try:
+            r = op.open(BASE + path)
+            return r.status, r.headers.get('Content-Type', ''), r.read()
+        except urllib.error.HTTPError as e:
+            return e.code, '', b''
+    call.get = get
     return call
 def check(label, cond, extra=''):
     print(('PASS ' if cond else 'FAIL ') + label, extra if not cond else '')
@@ -35,6 +42,19 @@ r = A('admin.quiz.save', {'title': 'Epidemiology 1', 'published': 1, 'questions'
 check('quiz save', r['ok']); qid = r['id']
 check('invalid quiz refused', not A('admin.quiz.save', {'title': 'bad', 'questions': [{'text': 'x', 'options': ['a', 'b'], 'correct': 5}]})['ok'])
 
+# Question image: upload, attach to question 1, and refuse non-images.
+PNG = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=='
+up = A('admin.media.upload', {'data': 'data:image/png;base64,' + PNG})
+check('image upload', up['ok'] and re.match(r'^[a-f0-9]{32}\.png$', up['name']), up)
+check('non-image upload refused', not A('admin.media.upload', {'data': 'data:image/png;base64,' + 'aGVsbG8='})['ok'])
+check('unknown image name refused', not A('admin.quiz.save', {'id': qid, 'title': 'Epidemiology 1', 'published': 1, 'questions': [{'text': 'x', 'options': ['a', 'b'], 'correct': 0, 'image': '0' * 32 + '.png'}]})['ok'])
+qz = A('admin.quiz.get', {'id': qid})['quiz']
+qz['questions'][0]['image'] = up['name']
+check('save question with image', A('admin.quiz.save', {'id': qid, 'title': qz['title'], 'published': 1, 'questions': qz['questions']})['ok'])
+check('image kept on question', A('admin.quiz.get', {'id': qid})['quiz']['questions'][0]['image'] == up['name'])
+status, ctype, _ = A.get('media.php?f=' + up['name'])
+check('teacher can load image', status == 200 and ctype == 'image/png', (status, ctype))
+
 S = client()
 check('student unauth', S('student.me')['code'] == 'auth')
 check('wrong password', not S('student.login', {'username': '01012345678', 'password': 'nope'})['ok'])
@@ -45,8 +65,13 @@ days = (sub['expires_at'] - sub['first_login_at']) / 86400
 check('3 month window', 89 <= days <= 93, days)
 quizzes = S('student.quizzes')['quizzes']
 check('quiz listed', len(quizzes) == 1 and quizzes[0]['total'] == 3)
+status, ctype, body = S.get('media.php?f=' + up['name'])
+check('student can load image', status == 200 and ctype == 'image/png' and body[:4] == b'\x89PNG', (status, ctype))
+check('anonymous cannot load image', client().get('media.php?f=' + up['name'])[0] == 403)
+check('bad image name is 404', S.get('media.php?f=../data/platform.sqlite')[0] == 404)
 att = S('student.start', {'quiz_id': qid, 'mode': 'new'})['attempt']
 check('no answers leaked before answering', all('correct_index' not in q for q in att['questions']))
+check('student sees question image', att['questions'][0]['image'] == up['name'])
 q1, q2 = att['questions'][0], att['questions'][1]
 r = S('student.answer', {'attempt_id': att['id'], 'question_id': q1['id'], 'choice': 1})
 check('correct answer', r['correct'] and r['explanation'] == 'New cases over time.')
@@ -92,6 +117,7 @@ sid = A('admin.students')['students'][0]['id']
 A('admin.student.action', {'id': sid, 'action': 'expire'})
 r = S2('student.quizzes')
 check('expired blocks active session', r['code'] == 'expired', r)
+check('expired student cannot load images', S2.get('media.php?f=' + up['name'])[0] == 403)
 r = client()('student.login', {'username': '01012345678', 'password': 'pass1234'})
 check('expired blocks login', r['code'] == 'expired')
 A('admin.student.action', {'id': sid, 'action': 'renew'})

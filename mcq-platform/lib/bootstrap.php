@@ -141,6 +141,10 @@ SQL
     );
     // Added later: whether an attempt covered the whole quiz ('full') or only the student's
     // previous mistakes ('wrong'). Only full attempts are compared when tracking progress.
+    $questionColumns = array_column($pdo->query('PRAGMA table_info(questions)')->fetchAll(PDO::FETCH_ASSOC), 'name');
+    if (!in_array('image', $questionColumns, true)) {
+        $pdo->exec("ALTER TABLE questions ADD COLUMN image TEXT NOT NULL DEFAULT ''");
+    }
     $columns = array_column($pdo->query('PRAGMA table_info(attempts)')->fetchAll(PDO::FETCH_ASSOC), 'name');
     if (!in_array('mode', $columns, true)) {
         $pdo->exec("ALTER TABLE attempts ADD COLUMN mode TEXT NOT NULL DEFAULT 'full'");
@@ -197,6 +201,113 @@ function start_session(): void
     session_start();
     if (empty($_SESSION['csrf'])) {
         $_SESSION['csrf'] = bin2hex(random_bytes(16));
+    }
+}
+
+// ---------- Who is logged in (shared by api.php and media.php) ----------
+
+function load_student(int $id): ?array
+{
+    $stmt = db()->prepare('SELECT * FROM students WHERE id = ?');
+    $stmt->execute([$id]);
+    $row = $stmt->fetch();
+    if (!$row) {
+        return null;
+    }
+    foreach (['id', 'active', 'first_login_at', 'expires_at', 'last_login_at', 'created_at'] as $k) {
+        $row[$k] = $row[$k] === null ? null : (int)$row[$k];
+    }
+    return $row;
+}
+
+function student_blocked(array $s): ?array
+{
+    if (!$s['active']) {
+        return ['تم إيقاف حسابك مؤقتاً. تواصل مع المسؤول.', 'suspended'];
+    }
+    if ($s['expires_at'] !== null && $s['expires_at'] <= time()) {
+        return [settings()['expired_message'], 'expired'];
+    }
+    return null;
+}
+
+// The logged-in student, or null with the message, error code and HTTP status explaining why not.
+function session_student_check(): array
+{
+    $id = (int)($_SESSION['student_id'] ?? 0);
+    $s = $id ? load_student($id) : null;
+    if (!$s) {
+        unset($_SESSION['student_id'], $_SESSION['student_token']);
+        return [null, 'سجّل الدخول أولاً.', 'auth', 401];
+    }
+    if (settings()['single_device'] === '1' && !hash_equals((string)$s['session_token'], (string)($_SESSION['student_token'] ?? ''))) {
+        unset($_SESSION['student_id'], $_SESSION['student_token']);
+        return [null, 'تم تسجيل الدخول بحسابك من جهاز آخر، فتم إنهاء الجلسة هنا.', 'other_device', 401];
+    }
+    if ($blocked = student_blocked($s)) {
+        return [null, $blocked[0], $blocked[1], 403];
+    }
+    return [$s, '', '', 200];
+}
+
+function session_admin_ok(): bool
+{
+    $id = (int)($_SESSION['admin_id'] ?? 0);
+    if (!$id) {
+        return false;
+    }
+    $stmt = db()->prepare('SELECT 1 FROM admins WHERE id = ?');
+    $stmt->execute([$id]);
+    return (bool)$stmt->fetchColumn();
+}
+
+// ---------- Question images ----------
+// Stored in data/media (never served directly) and sent by media.php to logged-in users only.
+
+const MEDIA_DIR = DATA_DIR . '/media';
+const MEDIA_NAME = '/^[a-f0-9]{32}\.(jpg|png|gif|webp)$/';
+const MEDIA_MAX_BYTES = 4 * 1024 * 1024;
+
+// Saves an image sent as a data: URL and returns its file name, or throws with a readable reason.
+function save_media(string $dataUrl): string
+{
+    if (!preg_match('#^data:image/[a-z+.-]+;base64,(.+)$#s', $dataUrl, $m)) {
+        throw new InvalidArgumentException('الملف ليس صورة.');
+    }
+    $bytes = base64_decode($m[1], true);
+    if ($bytes === false || $bytes === '') {
+        throw new InvalidArgumentException('تعذّرت قراءة الصورة.');
+    }
+    if (strlen($bytes) > MEDIA_MAX_BYTES) {
+        throw new InvalidArgumentException('الصورة أكبر من 4 ميجابايت.');
+    }
+    $info = @getimagesizefromstring($bytes);
+    $types = [IMAGETYPE_JPEG => 'jpg', IMAGETYPE_PNG => 'png', IMAGETYPE_GIF => 'gif', IMAGETYPE_WEBP => 'webp'];
+    if (!$info || !isset($types[$info[2]])) {
+        throw new InvalidArgumentException('نوع الصورة غير مدعوم. استخدم JPG أو PNG أو WebP أو GIF.');
+    }
+    if (!is_dir(MEDIA_DIR) && !mkdir(MEDIA_DIR, 0750, true)) {
+        throw new RuntimeException('تعذّر إنشاء فولدر الصور.');
+    }
+    $name = bin2hex(random_bytes(16)) . '.' . $types[$info[2]];
+    if (file_put_contents(MEDIA_DIR . '/' . $name, $bytes) === false) {
+        throw new RuntimeException('تعذّر حفظ الصورة.');
+    }
+    return $name;
+}
+
+// Deletes images no question uses any more. Recent uploads are kept: they may belong to a quiz still being edited.
+function sweep_media(): void
+{
+    if (!is_dir(MEDIA_DIR)) {
+        return;
+    }
+    $used = array_flip(db()->query("SELECT image FROM questions WHERE image != ''")->fetchAll(PDO::FETCH_COLUMN));
+    foreach (scandir(MEDIA_DIR) as $file) {
+        $path = MEDIA_DIR . '/' . $file;
+        if (preg_match(MEDIA_NAME, $file) && !isset($used[$file]) && filemtime($path) < time() - 86400) {
+            @unlink($path);
+        }
     }
 }
 

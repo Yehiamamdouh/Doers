@@ -408,7 +408,70 @@
   }
 
   function blankQuestion() {
-    return { id: 0, text: '', options: ['', '', '', ''], correct: -1, explanation: '' };
+    return { id: 0, text: '', image: '', options: ['', '', '', ''], correct: -1, explanation: '' };
+  }
+
+  // Large photos are scaled to 1600px and re-encoded as JPEG so they load quickly on phones.
+  async function prepareImage(file) {
+    if (!/^image\//.test(file.type)) throw new Error('الملف ليس صورة.');
+    const readAsDataUrl = (blob) => new Promise((resolve, reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(r.result);
+      r.onerror = () => reject(new Error('تعذّرت قراءة الصورة.'));
+      r.readAsDataURL(blob);
+    });
+    const small = file.size < (file.type === 'image/jpeg' ? 400 : 600) * 1024;
+    if (file.type === 'image/gif' || (small && /^image\/(jpeg|png|webp)$/.test(file.type))) return readAsDataUrl(file);
+    const url = URL.createObjectURL(file);
+    try {
+      const img = await new Promise((resolve, reject) => {
+        const el = new Image();
+        el.onload = () => resolve(el);
+        el.onerror = () => reject(new Error('نوع الصورة غير مدعوم. استخدم JPG أو PNG.'));
+        el.src = url;
+      });
+      const scale = Math.min(1, 1600 / Math.max(img.naturalWidth, img.naturalHeight));
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(img.naturalWidth * scale);
+      canvas.height = Math.round(img.naturalHeight * scale);
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#fff'; // transparent areas stay white in JPEG
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      return canvas.toDataURL('image/jpeg', 0.85);
+    } finally {
+      URL.revokeObjectURL(url);
+    }
+  }
+
+  async function attachImage(q, file) {
+    toast('جاري رفع الصورة…');
+    try {
+      const res = await call('admin.media.upload', { data: await prepareImage(file) });
+      q.image = res.name;
+      markDirty();
+      renderEditor(true);
+      toast('تمت إضافة الصورة — لا تنسَ الحفظ');
+    } catch (err) {
+      if (!(err instanceof UI.ApiError)) toast(err.message, 'bad');
+    }
+  }
+
+  function imageFile(list) {
+    return Array.from(list || []).find((f) => /^image\//.test(f.type));
+  }
+
+  function imageControl(q) {
+    const input = h('input', { type: 'file', accept: 'image/*', class: 'hidden', onchange: () => { const f = imageFile(input.files); if (f) attachImage(q, f); } });
+    if (q.image) {
+      return h('div', { class: 'img-control' }, input,
+        UI.questionImage(q.image),
+        h('button', { class: 'btn sm', type: 'button', onclick: () => input.click() }, 'تغيير الصورة'),
+        h('button', { class: 'btn sm danger', type: 'button', onclick: () => { q.image = ''; markDirty(); renderEditor(true); } }, 'حذف الصورة'));
+    }
+    return h('div', { class: 'img-control' }, input,
+      h('button', { class: 'btn sm ghost', type: 'button', onclick: () => input.click() }, '🖼️ إضافة صورة للسؤال'),
+      h('span', { class: 'small muted' }, 'أو الصق صورة (Ctrl+V) داخل السؤال، أو اسحبها إليه'));
   }
 
   function questionEditor(q, i) {
@@ -424,7 +487,7 @@
         markDirty(); renderEditor(true);
       } }, '✕')));
 
-    return h('article', { class: 'card q-edit' + (invalid ? ' invalid' : ''), id: 'q-' + i },
+    const card = h('article', { class: 'card q-edit' + (invalid ? ' invalid' : ''), id: 'q-' + i },
       h('div', { class: 'q-edit-head' },
         h('b', {}, 'السؤال ' + (i + 1)),
         invalid ? h('span', { class: 'badge bad' }, q.correct < 0 ? 'حدّد الإجابة الصحيحة' : 'غير مكتمل') : null,
@@ -433,11 +496,26 @@
         h('button', { class: 'btn sm ghost', type: 'button', disabled: i === quiz.questions.length - 1, title: 'لأسفل', onclick: () => { quiz.questions.splice(i + 1, 0, quiz.questions.splice(i, 1)[0]); markDirty(); renderEditor(true); } }, '↓'),
         h('button', { class: 'btn sm danger', type: 'button', onclick: () => { if (window.confirm('حذف السؤال ' + (i + 1) + '؟')) { quiz.questions.splice(i, 1); markDirty(); renderEditor(true); } } }, 'حذف')),
       h('textarea', { class: 'input', rows: 2, dir: 'auto', placeholder: 'نص السؤال', oninput: (e) => { q.text = e.target.value; markDirty(); } }, q.text),
+      imageControl(q),
       h('div', { class: 'small muted', style: { margin: '10px 0 6px' } }, 'الاختيارات — اضغط الدائرة بجانب الإجابة الصحيحة'),
       optionRows,
       q.options.length < 10 ? h('button', { class: 'btn sm ghost', type: 'button', onclick: () => { q.options.push(''); markDirty(); renderEditor(true); } }, '+ إضافة اختيار') : null,
       h('div', { class: 'small muted', style: { margin: '10px 0 6px' } }, 'الشرح (يظهر للطالب بعد الإجابة)'),
       h('textarea', { class: 'input', rows: 2, dir: 'auto', placeholder: 'شرح الإجابة الصحيحة (اختياري)', oninput: (e) => { q.explanation = e.target.value; markDirty(); } }, q.explanation));
+
+    // A pasted or dropped image becomes this question's image.
+    card.addEventListener('paste', (e) => {
+      const f = imageFile(e.clipboardData && e.clipboardData.files);
+      if (f) { e.preventDefault(); attachImage(q, f); }
+    });
+    card.addEventListener('dragover', (e) => { if (Array.from(e.dataTransfer.types).includes('Files')) { e.preventDefault(); card.classList.add('drop-target'); } });
+    card.addEventListener('dragleave', (e) => { if (!card.contains(e.relatedTarget)) card.classList.remove('drop-target'); });
+    card.addEventListener('drop', (e) => {
+      card.classList.remove('drop-target');
+      const f = imageFile(e.dataTransfer.files);
+      if (f) { e.preventDefault(); attachImage(q, f); }
+    });
+    return card;
   }
 
   function renderEditor(keepScroll) {
@@ -475,7 +553,7 @@
     const questions = quiz.questions.map((q) => {
       // Drop empty options and remap the correct answer to the remaining ones.
       const kept = q.options.map((o, i) => ({ o: o.trim(), i })).filter((x) => x.o);
-      return { id: q.id || 0, text: q.text, options: kept.map((x) => x.o), correct: kept.findIndex((x) => x.i === q.correct), explanation: q.explanation };
+      return { id: q.id || 0, text: q.text, image: q.image || '', options: kept.map((x) => x.o), correct: kept.findIndex((x) => x.i === q.correct), explanation: q.explanation };
     });
     try {
       const res = await call('admin.quiz.save', { id: quiz.id, title: quiz.title, description: quiz.description, published: quiz.published, questions });
@@ -549,6 +627,8 @@
     return pdfjsReady;
   }
 
+  // Text of a PDF page by page. A scanned PDF has (almost) no text layer: `scanned` is then true
+  // and the pages can be read with OCR instead.
   async function pdfToText(file, onProgress) {
     const pdfjs = await loadPdfJs();
     const pdf = await pdfjs.getDocument({ data: await file.arrayBuffer() }).promise;
@@ -567,36 +647,127 @@
       }
       pages.push(text);
     }
-    return pages.join('\n');
+    const text = pages.join('\n');
+    return { text, pdf, scanned: text.replace(/\s/g, '').length < 30 * pdf.numPages };
+  }
+
+  async function pdfPageCanvas(pdf, n) {
+    const page = await pdf.getPage(n);
+    const viewport = page.getViewport({ scale: 2 }); // ~150 dpi for A4, enough for OCR
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.ceil(viewport.width);
+    canvas.height = Math.ceil(viewport.height);
+    await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+    return canvas;
+  }
+
+  // OCR (reading text from images) with Tesseract, loaded from the CDN only when a teacher needs it
+  // (about 7 MB the first time, then cached by the browser). Exact versions are pinned.
+  const TESSERACT = {
+    script: 'https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js',
+    workerPath: 'https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/worker.min.js',
+    corePath: 'https://cdn.jsdelivr.net/npm/tesseract.js-core@5.1.1',
+  };
+  let tesseractReady = null;
+
+  function loadTesseract() {
+    if (!tesseractReady) {
+      tesseractReady = new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = TESSERACT.script;
+        s.onload = () => resolve(window.Tesseract);
+        s.onerror = () => { tesseractReady = null; reject(new Error('تعذّر تحميل أداة قراءة الصور. تأكد من الإنترنت وحاول مرة أخرى.')); };
+        document.head.appendChild(s);
+      });
+    }
+    return tesseractReady;
+  }
+
+  // Reads `count` images one at a time (getSource(i) returns a File, image or canvas) and joins their text.
+  async function ocr(count, getSource, langs, onProgress) {
+    const Tesseract = await loadTesseract();
+    let current = 0;
+    onProgress('جاري تجهيز أداة قراءة الصور (أول مرة قد تأخذ دقيقة)…');
+    const worker = await Tesseract.createWorker(langs, 1, {
+      workerPath: TESSERACT.workerPath,
+      corePath: TESSERACT.corePath,
+      logger: (m) => {
+        if (m.status === 'recognizing text') {
+          onProgress('جاري قراءة النص من ' + (count > 1 ? 'الصفحة ' + (current + 1) + ' من ' + count : 'الصورة') + ' — ' + Math.round(m.progress * 100) + '%');
+        }
+      },
+    });
+    try {
+      const texts = [];
+      for (current = 0; current < count; current++) {
+        const { data } = await worker.recognize(await getSource(current));
+        texts.push(data.text);
+      }
+      return texts.join('\n');
+    } finally {
+      await worker.terminate();
+    }
   }
 
   function openImport() {
     const status = h('div', { class: 'small muted' });
     const source = h('textarea', { class: 'input code', dir: 'auto', placeholder: 'الصق نص الأسئلة هنا، أو اختر ملف PDF بالأعلى…\n\n1. What is the powerhouse of the cell?\nA) Nucleus\nB) Mitochondria\nC) Ribosome\nD) Golgi\nAnswer: B\nExplanation: Mitochondria produce ATP.' });
     const key = h('textarea', { class: 'input', rows: 3, dir: 'ltr', placeholder: '1-B  2-C  3-A  4-D …' });
-    const fileInput = h('input', { type: 'file', accept: '.pdf,.txt,application/pdf,text/plain', class: 'input' });
-    fileInput.addEventListener('change', async () => {
-      const file = fileInput.files[0];
-      if (!file) return;
-      status.textContent = 'جاري قراءة الملف…';
+    const lang = h('select', { class: 'input', style: { maxWidth: '260px' } },
+      h('option', { value: 'ara+eng' }, 'عربي وإنجليزي'),
+      h('option', { value: 'eng' }, 'إنجليزي فقط (أدق للأسئلة الإنجليزية)'),
+      h('option', { value: 'ara' }, 'عربي فقط'));
+    const fileInput = h('input', { type: 'file', multiple: true, accept: '.pdf,.txt,image/*,application/pdf,text/plain', class: 'input' });
+    let busy = false;
+    const OCR_NOTE = 'تمت القراءة من الصور. القراءة الآلية قد تخطئ في بعض الحروف، فراجع النص ثم اضغط "تحليل الأسئلة".';
+
+    const readImages = async (files, append) => {
+      const text = await ocr(files.length, (i) => files[i], lang.value, (msg) => { status.textContent = msg; });
+      source.value = append && source.value.trim() ? source.value.trimEnd() + '\n\n' + text : text;
+      status.textContent = OCR_NOTE;
+    };
+
+    const run = async (task) => {
+      if (busy) { toast('انتظر حتى تنتهي القراءة الحالية', 'bad'); return; }
+      busy = true;
+      btnParse.disabled = true;
       try {
-        if (/\.pdf$/i.test(file.name) || file.type === 'application/pdf') {
-          source.value = await pdfToText(file, (p, n) => { status.textContent = 'جاري قراءة صفحة ' + p + ' من ' + n + '…'; });
-        } else {
-          source.value = await file.text();
-        }
-        status.textContent = source.value.trim()
-          ? 'تمت قراءة الملف. راجع النص بسرعة ثم اضغط "تحليل الأسئلة".'
-          : 'لم يتم العثور على نص في الملف. غالباً الملف عبارة عن صور (سكان)، استخدم أداة OCR أولاً ثم الصق النص.';
+        await task();
       } catch (err) {
         status.textContent = err.message || 'تعذّرت قراءة الملف.';
+      } finally {
+        busy = false;
+        btnParse.disabled = false;
       }
-    });
+    };
+
+    fileInput.addEventListener('change', () => run(async () => {
+      const files = Array.from(fileInput.files);
+      if (!files.length) return;
+      const images = files.filter((f) => /^image\//.test(f.type));
+      if (images.length === files.length) return readImages(images, false);
+      const file = files[0];
+      status.textContent = 'جاري قراءة الملف…';
+      if (/\.pdf$/i.test(file.name) || file.type === 'application/pdf') {
+        const res = await pdfToText(file, (p, n) => { status.textContent = 'جاري قراءة صفحة ' + p + ' من ' + n + '…'; });
+        if (res.scanned) {
+          status.textContent = 'الملف عبارة عن صور (سكان)، جاري قراءته بالـ OCR…';
+          source.value = await ocr(res.pdf.numPages, (i) => pdfPageCanvas(res.pdf, i + 1), lang.value, (msg) => { status.textContent = msg; });
+          status.textContent = OCR_NOTE;
+          return;
+        }
+        source.value = res.text;
+      } else {
+        source.value = await file.text();
+      }
+      status.textContent = source.value.trim() ? 'تمت قراءة الملف. راجع النص بسرعة ثم اضغط "تحليل الأسئلة".' : 'لم يتم العثور على نص في الملف.';
+    }));
 
     const preview = h('div', { class: 'parsed-list stack' });
     const stepInput = h('div', {},
-      h('div', { class: 'alert' }, 'ارفع ملف PDF (يحتوي على نص وليس صوراً) أو الصق الأسئلة. يتعرف النظام على: ترقيم الأسئلة، الاختيارات (A-D أو أ-د)، سطر "Answer:" أو "الإجابة:"، علامة * بجانب الإجابة الصحيحة، سطر "Explanation:" أو "الشرح:"، ومفتاح الإجابات في آخر الملف.'),
-      field('ملف PDF أو TXT', fileInput),
+      h('div', { class: 'alert' }, 'ارفع ملف PDF (عادي أو سكان)، أو صور للأسئلة (يمكن اختيار أكثر من صورة)، أو الصق النص أو لقطة شاشة (Ctrl+V). يتعرف النظام على: ترقيم الأسئلة، الاختيارات (A-D أو أ-د)، سطر "Answer:" أو "الإجابة:"، علامة * بجانب الإجابة الصحيحة، سطر "Explanation:" أو "الشرح:"، ومفتاح الإجابات في آخر الملف.'),
+      field('ملف PDF أو صور أو TXT', fileInput),
+      h('label', { class: 'field' }, h('span', {}, 'لغة الأسئلة في الصور والملفات المصوّرة'), lang),
       status,
       field('نص الأسئلة', source),
       h('details', {}, h('summary', { style: { cursor: 'pointer', fontWeight: 600 } }, 'مفتاح الإجابات منفصل؟ (اختياري)'),
@@ -653,6 +824,14 @@
       markDirty();
       renderEditor();
       toast('تمت إضافة ' + parsed.length + ' سؤال — راجعها ثم اضغط حفظ');
+    });
+
+    // A screenshot pasted anywhere in this window is read with OCR and added to the text.
+    backdrop.addEventListener('paste', (e) => {
+      const images = Array.from((e.clipboardData && e.clipboardData.files) || []).filter((f) => /^image\//.test(f.type));
+      if (!images.length || stepInput.classList.contains('hidden')) return;
+      e.preventDefault();
+      run(() => readImages(images, true));
     });
 
     backdrop.append(h('div', { class: 'modal wide' },

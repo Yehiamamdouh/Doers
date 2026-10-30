@@ -257,6 +257,7 @@
             h('div', { class: 'q-num' }, 'السؤال ' + (index + 1) + ' من ' + c.total,
               state ? h('span', { class: 'badge ' + (state === 'correct' ? 'good' : 'bad') }, state === 'correct' ? 'صحيح' : 'خطأ') : null),
             h('div', { class: 'q-text', dir: textDir(q.text) }, q.text),
+            UI.questionImage(q.image),
             h('div', { class: 'options', dir: textDir(q.text) }, options),
             feedback),
           h('div', { class: 'player-nav' },

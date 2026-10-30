@@ -66,45 +66,11 @@ function subscription_state(array $s): array
     ];
 }
 
-function load_student(int $id): ?array
-{
-    $stmt = db()->prepare('SELECT * FROM students WHERE id = ?');
-    $stmt->execute([$id]);
-    $row = $stmt->fetch();
-    if (!$row) {
-        return null;
-    }
-    foreach (['id', 'active', 'first_login_at', 'expires_at', 'last_login_at', 'created_at'] as $k) {
-        $row[$k] = $row[$k] === null ? null : (int)$row[$k];
-    }
-    return $row;
-}
-
-function student_blocked(array $s): ?array
-{
-    if (!$s['active']) {
-        return ['تم إيقاف حسابك مؤقتاً. تواصل مع المسؤول.', 'suspended'];
-    }
-    if ($s['expires_at'] !== null && $s['expires_at'] <= time()) {
-        return [settings()['expired_message'], 'expired'];
-    }
-    return null;
-}
-
 function current_student(): array
 {
-    $id = (int)($_SESSION['student_id'] ?? 0);
-    $s = $id ? load_student($id) : null;
+    list($s, $message, $code, $status) = session_student_check();
     if (!$s) {
-        unset($_SESSION['student_id'], $_SESSION['student_token']);
-        fail('سجّل الدخول أولاً.', 401, 'auth');
-    }
-    if (settings()['single_device'] === '1' && !hash_equals((string)$s['session_token'], (string)($_SESSION['student_token'] ?? ''))) {
-        unset($_SESSION['student_id'], $_SESSION['student_token']);
-        fail('تم تسجيل الدخول بحسابك من جهاز آخر، فتم إنهاء الجلسة هنا.', 401, 'other_device');
-    }
-    if ($blocked = student_blocked($s)) {
-        fail($blocked[0], 403, $blocked[1]);
+        fail($message, $status, $code);
     }
     return $s;
 }
@@ -157,7 +123,7 @@ function attempt_payload(array $a): array
             continue;
         }
         $q = $byId[$qid];
-        $item = ['id' => $q['id'], 'text' => $q['text'], 'options' => $q['options']];
+        $item = ['id' => $q['id'], 'text' => $q['text'], 'image' => $q['image'], 'options' => $q['options']];
         $chosen = $a['answers'][(string)$qid] ?? null;
         if ($chosen !== null) {
             $item['chosen'] = (int)$chosen;
@@ -283,6 +249,10 @@ function validate_questions(array $list): array
             return $o !== '';
         }));
         $correct = (int)($q['correct'] ?? -1);
+        $image = (string)($q['image'] ?? '');
+        if ($image !== '' && (!preg_match(MEDIA_NAME, $image) || !is_file(MEDIA_DIR . '/' . $image))) {
+            fail("صورة السؤال رقم $n غير موجودة. ارفعها مرة أخرى.");
+        }
         if ($text === '') {
             fail("السؤال رقم $n بدون نص.");
         }
@@ -300,6 +270,7 @@ function validate_questions(array $list): array
             }, array_slice($options, 0, 10)),
             'correct' => $correct,
             'explanation' => mb_substr(trim((string)($q['explanation'] ?? '')), 0, 10000),
+            'image' => $image,
         ];
     }
     return $out;
@@ -716,7 +687,7 @@ switch ($action) {
         $quiz['id'] = (int)$quiz['id'];
         $quiz['published'] = (int)$quiz['published'];
         $quiz['questions'] = array_map(function ($q) {
-            return ['id' => $q['id'], 'text' => $q['text'], 'options' => $q['options'], 'correct' => $q['correct'], 'explanation' => $q['explanation']];
+            return ['id' => $q['id'], 'text' => $q['text'], 'image' => $q['image'], 'options' => $q['options'], 'correct' => $q['correct'], 'explanation' => $q['explanation']];
         }, quiz_questions($quiz['id']));
         json_out(['ok' => true, 'quiz' => $quiz]);
     }
@@ -743,15 +714,15 @@ switch ($action) {
         // Keep existing question ids so students' attempts still line up after edits.
         $existing = array_column(quiz_questions($id), 'id');
         $kept = [];
-        $update = $pdo->prepare('UPDATE questions SET position = ?, text = ?, options = ?, correct = ?, explanation = ? WHERE id = ? AND quiz_id = ?');
-        $insert = $pdo->prepare('INSERT INTO questions (quiz_id, position, text, options, correct, explanation) VALUES (?, ?, ?, ?, ?, ?)');
+        $update = $pdo->prepare('UPDATE questions SET position = ?, text = ?, options = ?, correct = ?, explanation = ?, image = ? WHERE id = ? AND quiz_id = ?');
+        $insert = $pdo->prepare('INSERT INTO questions (quiz_id, position, text, options, correct, explanation, image) VALUES (?, ?, ?, ?, ?, ?, ?)');
         foreach ($questions as $pos => $q) {
             $options = json_encode($q['options'], JSON_UNESCAPED_UNICODE);
             if ($q['id'] && in_array($q['id'], $existing, true)) {
-                $update->execute([$pos, $q['text'], $options, $q['correct'], $q['explanation'], $q['id'], $id]);
+                $update->execute([$pos, $q['text'], $options, $q['correct'], $q['explanation'], $q['image'], $q['id'], $id]);
                 $kept[] = $q['id'];
             } else {
-                $insert->execute([$id, $pos, $q['text'], $options, $q['correct'], $q['explanation']]);
+                $insert->execute([$id, $pos, $q['text'], $options, $q['correct'], $q['explanation'], $q['image']]);
             }
         }
         $removed = array_diff($existing, $kept);
@@ -760,6 +731,7 @@ switch ($action) {
                 ->execute(array_values($removed));
         }
         $pdo->commit();
+        sweep_media();
         json_out(['ok' => true, 'id' => $id]);
     }
 
@@ -786,7 +758,18 @@ switch ($action) {
     case 'admin.quiz.delete':
         current_admin();
         $pdo->prepare('DELETE FROM quizzes WHERE id = ?')->execute([int_in($in, 'id')]);
+        sweep_media();
         json_out(['ok' => true]);
+
+    case 'admin.media.upload': {
+        current_admin();
+        try {
+            $name = save_media((string)($in['data'] ?? ''));
+        } catch (InvalidArgumentException $e) {
+            fail($e->getMessage());
+        }
+        json_out(['ok' => true, 'name' => $name]);
+    }
 
     case 'admin.results': {
         current_admin();
