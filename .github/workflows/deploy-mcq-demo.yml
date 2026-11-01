@@ -32,6 +32,8 @@ jobs:
           docker run -d --name php72 --user "$(id -u):$(id -g)" -p 8099:8099 -v "$PWD/mcq-platform:/app" -w /app php:7.2-cli php -S 0.0.0.0:8099
           for i in $(seq 1 20); do curl -fsS -o /dev/null http://127.0.0.1:8099/ && break; sleep 0.5; done
           python3 mcq-platform/tests/api_test.py || { docker logs php72 | tail -30; exit 1; }
+          rm -rf mcq-platform/data/platform.sqlite* mcq-platform/data/media
+          python3 mcq-platform/tests/mock_test.py || { docker logs php72 | tail -30; exit 1; }
           docker rm -f php72
           rm -rf mcq-platform/data/platform.sqlite* mcq-platform/data/media
 
@@ -42,7 +44,14 @@ jobs:
           return [
               'admin_username' => 'admin',
               'admin_password_hash' => '$2y$10$aPoLlO6rZ3K7zNegh8UAeupzLq0jRMhh/kk5oqrkYE7NGQixgZR3G',
-              'settings' => ['platform_name' => 'منصة الاختبارات (تجريبي)'],
+              // Filled in on first run, and later for any setting the teacher has not saved yet.
+              'settings' => [
+                  'platform_name' => 'منصة الاختبارات (تجريبي)',
+                  'services_enabled' => '1',
+                  'services_title' => 'خدماتنا الإضافية',
+                  'services_text' => "خدمة المساعدة في البحث العلمي والإشراف\nكورسات الماجستير للأوبئة والإحصاء الحيوي",
+                  'services_whatsapp' => '0571216884',
+              ],
               'students' => [
                   ['name' => 'طالب تجريبي 1', 'username' => 'demo1', 'password_hash' => '$2y$10$QOgOmiWtICaxBXScjgjxR.I/BUc4jDHRF.MTJ5rW5yD8L15F13xYq'],
                   ['name' => 'طالب تجريبي 2', 'username' => 'demo2', 'password_hash' => '$2y$10$WILGXxDacgtw14eCip.bu.KUHwxIdlLUEh9ZmhrUP1g6tCyCVOgvm'],

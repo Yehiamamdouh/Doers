@@ -95,6 +95,26 @@ function quiz_questions(int $quizId): array
     return $rows;
 }
 
+// Questions keyed by id, with the title of the quiz each one comes from (mock exams mix quizzes).
+function questions_by_ids(array $ids): array
+{
+    $ids = array_values(array_unique(array_map('intval', $ids)));
+    if (!$ids) {
+        return [];
+    }
+    $stmt = db()->prepare('SELECT qs.*, q.title AS source FROM questions qs JOIN quizzes q ON q.id = qs.quiz_id
+        WHERE qs.id IN (' . implode(',', array_fill(0, count($ids), '?')) . ')');
+    $stmt->execute($ids);
+    $byId = [];
+    foreach ($stmt as $q) {
+        $q['id'] = (int)$q['id'];
+        $q['correct'] = (int)$q['correct'];
+        $q['options'] = json_decode($q['options'], true) ?: [];
+        $byId[$q['id']] = $q;
+    }
+    return $byId;
+}
+
 function load_attempt(int $id, int $studentId): array
 {
     $stmt = db()->prepare('SELECT a.*, q.title FROM attempts a JOIN quizzes q ON q.id = a.quiz_id WHERE a.id = ? AND a.student_id = ?');
@@ -112,11 +132,11 @@ function load_attempt(int $id, int $studentId): array
 // sent once the student has answered that question (or finished the attempt).
 function attempt_payload(array $a): array
 {
-    $byId = [];
-    foreach (quiz_questions((int)$a['quiz_id']) as $q) {
-        $byId[$q['id']] = $q;
-    }
+    $byId = questions_by_ids($a['question_ids']);
     $finished = $a['finished_at'] !== null;
+    $mock = $a['mode'] === 'mock';
+    // In a mock exam the answers stay hidden until the end, unless the teacher chose to show them.
+    $reveal = !$mock || settings()['mock_feedback'] === '1';
     $questions = [];
     foreach ($a['question_ids'] as $qid) {
         if (!isset($byId[$qid])) {
@@ -124,11 +144,16 @@ function attempt_payload(array $a): array
         }
         $q = $byId[$qid];
         $item = ['id' => $q['id'], 'text' => $q['text'], 'image' => $q['image'], 'options' => $q['options']];
+        if ($mock) {
+            $item['source'] = $q['source'];
+        }
         $chosen = $a['answers'][(string)$qid] ?? null;
-        if ($chosen !== null) {
+        if ($chosen !== null && (int)$chosen < 0) {
+            $item['skipped'] = true; // skipped or ran out of time in a mock exam
+        } elseif ($chosen !== null) {
             $item['chosen'] = (int)$chosen;
         }
-        if ($chosen !== null || $finished) {
+        if ($finished || ($chosen !== null && (int)$chosen >= 0 && $reveal)) {
             $item['correct_index'] = $q['correct'];
             $item['explanation'] = $q['explanation'];
         }
@@ -145,12 +170,16 @@ function attempt_payload(array $a): array
         'questions' => $questions,
         'previous_pct' => null,
     ];
-    // The score of the previous full attempt at the same quiz, to show progress on the result screen.
-    if ($finished && $a['mode'] === 'full') {
+    if ($mock) {
+        $payload['seconds'] = max(10, (int)settings()['mock_seconds']);
+        $payload['feedback'] = $reveal;
+    }
+    // The score of the previous complete attempt (full quiz, or mock exam) to show progress on the result screen.
+    if ($finished && $a['mode'] !== 'wrong') {
         $stmt = db()->prepare("SELECT question_ids, correct_count FROM attempts
-            WHERE student_id = ? AND quiz_id = ? AND mode = 'full' AND finished_at IS NOT NULL AND id < ?
+            WHERE student_id = ? AND quiz_id = ? AND mode = ? AND finished_at IS NOT NULL AND id < ?
             ORDER BY finished_at DESC, id DESC LIMIT 1");
-        $stmt->execute([(int)$a['student_id'], (int)$a['quiz_id'], (int)$a['id']]);
+        $stmt->execute([(int)$a['student_id'], (int)$a['quiz_id'], $a['mode'], (int)$a['id']]);
         if ($prev = $stmt->fetch()) {
             $payload['previous_pct'] = pct((int)$prev['correct_count'], count(json_decode($prev['question_ids'], true) ?: []));
         }
@@ -210,6 +239,84 @@ function score_trend(array $scores): ?int
     $recent = array_slice($scores, -$n);
     $before = array_slice($scores, -2 * $n, $n);
     return (int)round(array_sum($recent) / $n - array_sum($before) / $n);
+}
+
+// ---------- Mock exam ----------
+
+// The hidden quiz that mock exam attempts belong to (created on first use).
+function mock_quiz_id(): int
+{
+    $pdo = db();
+    $id = $pdo->query("SELECT id FROM quizzes WHERE kind = 'mock' LIMIT 1")->fetchColumn();
+    if ($id) {
+        return (int)$id;
+    }
+    $pdo->prepare("INSERT INTO quizzes (title, description, published, position, created_at, updated_at, kind) VALUES (?, '', 0, 0, ?, ?, 'mock')")
+        ->execute([settings()['mock_title'], time(), time()]);
+    return (int)$pdo->lastInsertId();
+}
+
+// Questions a mock exam can draw from: every question of every published quiz, grouped by quiz.
+function mock_pool(): array
+{
+    $groups = [];
+    foreach (db()->query("SELECT qs.id, qs.quiz_id FROM questions qs JOIN quizzes q ON q.id = qs.quiz_id
+        WHERE q.published = 1 AND q.kind = 'normal' ORDER BY qs.id") as $row) {
+        $groups[(int)$row['quiz_id']][] = (int)$row['id'];
+    }
+    return $groups;
+}
+
+// Picks a new mock exam for a student.
+// - Equal share per quiz; a quiz with fewer questions than its share passes the rest to the others.
+// - Within each quiz, questions this student never had in a mock exam come first, then the ones
+//   seen longest ago, so every exam is different until the question bank runs out.
+function build_mock(int $studentId): array
+{
+    $groups = mock_pool();
+    $stmt = db()->prepare("SELECT question_ids FROM attempts WHERE student_id = ? AND quiz_id = ? AND mode = 'mock' ORDER BY id");
+    $stmt->execute([$studentId, mock_quiz_id()]);
+    $lastSeen = [];
+    $round = 0;
+    foreach ($stmt->fetchAll(PDO::FETCH_COLUMN) as $json) {
+        $round++;
+        foreach (json_decode($json, true) ?: [] as $qid) {
+            $lastSeen[(int)$qid] = $round;
+        }
+    }
+    foreach ($groups as $quizId => $ids) {
+        $order = [];
+        foreach ($ids as $qid) {
+            $order[$qid] = ($lastSeen[$qid] ?? 0) * 1000000 + random_int(0, 999999);
+        }
+        asort($order);
+        $groups[$quizId] = array_keys($order);
+    }
+
+    $total = array_sum(array_map('count', $groups));
+    $remaining = min(max(1, (int)settings()['mock_size']), $total);
+    $take = array_fill_keys(array_keys($groups), 0);
+    $open = array_keys($groups);
+    while ($remaining > 0 && $open) {
+        shuffle($open); // which quizzes get the leftover questions is random
+        $share = intdiv($remaining, count($open));
+        $extra = $remaining % count($open);
+        foreach ($open as $i => $quizId) {
+            $want = $share + ($i < $extra ? 1 : 0);
+            $got = min($want, count($groups[$quizId]) - $take[$quizId]);
+            $take[$quizId] += $got;
+            $remaining -= $got;
+        }
+        $open = array_values(array_filter($open, function ($quizId) use ($groups, $take) {
+            return $take[$quizId] < count($groups[$quizId]);
+        }));
+    }
+    $picked = [];
+    foreach ($take as $quizId => $n) {
+        $picked = array_merge($picked, array_slice($groups[$quizId], 0, $n));
+    }
+    shuffle($picked);
+    return $picked;
 }
 
 // ---------- Teacher ----------
@@ -332,9 +439,9 @@ switch ($action) {
     case 'student.quizzes': {
         $s = current_student();
         $quizzes = $pdo->query(
-            'SELECT q.id, q.title, q.description, COUNT(qs.id) AS total
+            "SELECT q.id, q.title, q.description, COUNT(qs.id) AS total
              FROM quizzes q JOIN questions qs ON qs.quiz_id = q.id
-             WHERE q.published = 1 GROUP BY q.id ORDER BY q.position, q.id'
+             WHERE q.published = 1 AND q.kind = 'normal' GROUP BY q.id ORDER BY q.position, q.id"
         )->fetchAll();
         $stmt = $pdo->prepare('SELECT id, quiz_id, question_ids, answers, correct_count, finished_at FROM attempts WHERE student_id = ? ORDER BY id');
         $stmt->execute([$s['id']]);
@@ -359,21 +466,37 @@ switch ($action) {
             $q['total'] = (int)$q['total'];
             $q['stats'] = $stats[$q['id']] ?? null;
         }
-        json_out(['ok' => true, 'me' => student_me($s), 'quizzes' => $quizzes]);
+        $mock = null;
+        if (settings()['mock_enabled'] === '1') {
+            $pool = mock_pool();
+            $available = array_sum(array_map('count', $pool));
+            $mockId = mock_quiz_id();
+            $mock = [
+                'quiz_id' => $mockId,
+                'title' => settings()['mock_title'],
+                'size' => min((int)settings()['mock_size'], $available),
+                'available' => $available,
+                'quizzes' => count($pool),
+                'seconds' => (int)settings()['mock_seconds'],
+                'stats' => $stats[$mockId] ?? null,
+            ];
+        }
+        json_out(['ok' => true, 'me' => student_me($s), 'quizzes' => $quizzes, 'mock' => $mock]);
     }
 
     case 'student.start': {
         $s = current_student();
         $quizId = int_in($in, 'quiz_id');
         $mode = str_in($in, 'mode', 10);
-        $stmt = $pdo->prepare('SELECT id FROM quizzes WHERE id = ? AND published = 1');
+        $stmt = $pdo->prepare('SELECT id, kind, published FROM quizzes WHERE id = ?');
         $stmt->execute([$quizId]);
-        if (!$stmt->fetch()) {
+        $quiz = $stmt->fetch();
+        $isMock = $quiz && $quiz['kind'] === 'mock';
+        if (!$quiz || (!$isMock && $quiz['published'] !== '1')) {
             fail('الاختبار غير متاح.', 404);
         }
-        $allIds = array_column(quiz_questions($quizId), 'id');
-        if (!$allIds) {
-            fail('لا توجد أسئلة في هذا الاختبار بعد.');
+        if ($isMock && $mode !== 'wrong' && settings()['mock_enabled'] !== '1') {
+            fail('الاختبار التجريبي غير متاح حالياً.', 404);
         }
         if ($mode === 'resume') {
             $stmt = $pdo->prepare('SELECT id FROM attempts WHERE student_id = ? AND quiz_id = ? AND finished_at IS NULL ORDER BY id DESC LIMIT 1');
@@ -382,7 +505,6 @@ switch ($action) {
                 json_out(['ok' => true, 'attempt' => attempt_payload(load_attempt((int)$open, $s['id']))]);
             }
         }
-        $ids = $allIds;
         if ($mode === 'wrong') {
             $stmt = $pdo->prepare('SELECT id FROM attempts WHERE student_id = ? AND quiz_id = ? AND finished_at IS NOT NULL ORDER BY id DESC LIMIT 1');
             $stmt->execute([$s['id'], $quizId]);
@@ -391,19 +513,24 @@ switch ($action) {
                 fail('لا توجد محاولة سابقة لمراجعة أخطائها.');
             }
             $last = load_attempt((int)$lastId, $s['id']);
-            $correctById = array_column(quiz_questions($quizId), 'correct', 'id');
-            $ids = array_values(array_filter($last['question_ids'], function ($qid) use ($last, $correctById) {
-                if (!isset($correctById[$qid])) {
+            $byId = questions_by_ids($last['question_ids']);
+            $ids = array_values(array_filter($last['question_ids'], function ($qid) use ($last, $byId) {
+                if (!isset($byId[$qid])) {
                     return false;
                 }
                 $chosen = $last['answers'][(string)$qid] ?? null;
-                return $chosen === null || (int)$chosen !== $correctById[$qid];
+                return $chosen === null || (int)$chosen !== $byId[$qid]['correct'];
             }));
             if (!$ids) {
                 fail('أحسنت! لا توجد أخطاء في آخر محاولة.');
             }
+            json_out(['ok' => true, 'attempt' => attempt_payload(create_attempt($s['id'], $quizId, $ids, 'wrong'))]);
         }
-        json_out(['ok' => true, 'attempt' => attempt_payload(create_attempt($s['id'], $quizId, $ids, $mode === 'wrong' ? 'wrong' : 'full'))]);
+        $ids = $isMock ? build_mock($s['id']) : array_column(quiz_questions($quizId), 'id');
+        if (!$ids) {
+            fail('لا توجد أسئلة في هذا الاختبار بعد.');
+        }
+        json_out(['ok' => true, 'attempt' => attempt_payload(create_attempt($s['id'], $quizId, $ids, $isMock ? 'mock' : 'full'))]);
     }
 
     case 'student.answer': {
@@ -417,16 +544,13 @@ switch ($action) {
         if (!in_array($qid, $a['question_ids'], true)) {
             fail('السؤال غير موجود في هذه المحاولة.');
         }
-        $question = null;
-        foreach (quiz_questions((int)$a['quiz_id']) as $q) {
-            if ($q['id'] === $qid) {
-                $question = $q;
-            }
-        }
+        $question = questions_by_ids([$qid])[$qid] ?? null;
         if (!$question) {
             fail('تم حذف هذا السؤال.');
         }
-        if ($choice < 0 || $choice >= count($question['options'])) {
+        $mock = $a['mode'] === 'mock';
+        // -1 = skipped, or the question's time ran out (mock exams only).
+        if (($choice < 0 && !($mock && $choice === -1)) || $choice >= count($question['options'])) {
             fail('اختيار غير صالح.');
         }
         if (!array_key_exists((string)$qid, $a['answers'])) {
@@ -436,6 +560,12 @@ switch ($action) {
                 ->execute([json_encode($a['answers'], JSON_FORCE_OBJECT), $correctCount, $a['id']]);
         }
         $chosen = (int)$a['answers'][(string)$qid];
+        if ($mock && settings()['mock_feedback'] !== '1') {
+            json_out(['ok' => true, 'chosen' => $chosen]); // answers are shown at the end
+        }
+        if ($chosen < 0) {
+            json_out(['ok' => true, 'chosen' => $chosen, 'skipped' => true, 'correct_index' => $question['correct'], 'explanation' => $question['explanation']]);
+        }
         json_out([
             'ok' => true,
             'chosen' => $chosen,
@@ -515,8 +645,16 @@ switch ($action) {
         unset($_SESSION['admin_id']);
         json_out(['ok' => true]);
 
-    case 'admin.me':
-        json_out(['ok' => true, 'admin' => current_admin(), 'settings' => settings()]);
+    case 'admin.me': {
+        $admin = current_admin();
+        $pool = mock_pool();
+        json_out([
+            'ok' => true,
+            'admin' => $admin,
+            'settings' => settings(),
+            'mock_pool' => ['questions' => array_sum(array_map('count', $pool)), 'quizzes' => count($pool)],
+        ]);
+    }
 
     case 'admin.students': {
         current_admin();
@@ -530,7 +668,7 @@ switch ($action) {
             $p = pct((int)$a['correct_count'], count(json_decode($a['question_ids'], true) ?: []));
             $stats[$sid]['attempts']++;
             $stats[$sid]['pct_sum'] += $p;
-            if ($a['mode'] === 'full') {
+            if ($a['mode'] !== 'wrong') {
                 $stats[$sid]['full'][] = $p;
             }
         }
@@ -664,9 +802,9 @@ switch ($action) {
     case 'admin.quizzes': {
         current_admin();
         $rows = $pdo->query(
-            'SELECT q.*, (SELECT COUNT(*) FROM questions WHERE quiz_id = q.id) AS total,
+            "SELECT q.*, (SELECT COUNT(*) FROM questions WHERE quiz_id = q.id) AS total,
                     (SELECT COUNT(*) FROM attempts WHERE quiz_id = q.id AND finished_at IS NOT NULL) AS attempts
-             FROM quizzes q ORDER BY q.position, q.id'
+             FROM quizzes q WHERE q.kind = 'normal' ORDER BY q.position, q.id"
         )->fetchAll();
         foreach ($rows as &$r) {
             foreach (['id', 'published', 'position', 'total', 'attempts', 'created_at', 'updated_at'] as $k) {
@@ -678,7 +816,7 @@ switch ($action) {
 
     case 'admin.quiz.get': {
         current_admin();
-        $stmt = $pdo->prepare('SELECT * FROM quizzes WHERE id = ?');
+        $stmt = $pdo->prepare("SELECT * FROM quizzes WHERE id = ? AND kind = 'normal'");
         $stmt->execute([int_in($in, 'id')]);
         $quiz = $stmt->fetch();
         if (!$quiz) {
@@ -702,6 +840,9 @@ switch ($action) {
         $questions = validate_questions((array)($in['questions'] ?? []));
         $now = time();
         $pdo->beginTransaction();
+        if ($id && $id === mock_quiz_id()) {
+            fail('لا يمكن تعديل الاختبار التجريبي من هنا.');
+        }
         if ($id) {
             $pdo->prepare('UPDATE quizzes SET title = ?, description = ?, published = ?, updated_at = ? WHERE id = ?')
                 ->execute([$title, str_in($in, 'description', 2000), !empty($in['published']) ? 1 : 0, $now, $id]);
@@ -737,12 +878,12 @@ switch ($action) {
 
     case 'admin.quiz.publish':
         current_admin();
-        $pdo->prepare('UPDATE quizzes SET published = ? WHERE id = ?')->execute([!empty($in['published']) ? 1 : 0, int_in($in, 'id')]);
+        $pdo->prepare("UPDATE quizzes SET published = ? WHERE id = ? AND kind = 'normal'")->execute([!empty($in['published']) ? 1 : 0, int_in($in, 'id')]);
         json_out(['ok' => true]);
 
     case 'admin.quiz.move': {
         current_admin();
-        $ids = array_map('intval', $pdo->query('SELECT id FROM quizzes ORDER BY position, id')->fetchAll(PDO::FETCH_COLUMN));
+        $ids = array_map('intval', $pdo->query("SELECT id FROM quizzes WHERE kind = 'normal' ORDER BY position, id")->fetchAll(PDO::FETCH_COLUMN));
         $i = array_search(int_in($in, 'id'), $ids, true);
         $j = $i === false ? false : $i + (int_in($in, 'dir') < 0 ? -1 : 1);
         if ($i !== false && isset($ids[$j])) {
@@ -757,7 +898,7 @@ switch ($action) {
 
     case 'admin.quiz.delete':
         current_admin();
-        $pdo->prepare('DELETE FROM quizzes WHERE id = ?')->execute([int_in($in, 'id')]);
+        $pdo->prepare("DELETE FROM quizzes WHERE id = ? AND kind = 'normal'")->execute([int_in($in, 'id')]);
         sweep_media();
         json_out(['ok' => true]);
 
@@ -818,13 +959,31 @@ switch ($action) {
         if (isset($values['warn_days'])) {
             $values['warn_days'] = (string)min(60, max(0, (int)$values['warn_days']));
         }
-        if (isset($values['single_device'])) {
-            $values['single_device'] = $values['single_device'] ? '1' : '0';
+        foreach (['contact_whatsapp', 'services_whatsapp'] as $key) {
+            if (isset($values[$key])) {
+                $values[$key] = preg_replace('/\D+/', '', clean_username((string)$values[$key]));
+            }
         }
-        if (isset($values['contact_whatsapp'])) {
-            $values['contact_whatsapp'] = preg_replace('/\D+/', '', clean_username((string)$values['contact_whatsapp']));
+        foreach (['single_device', 'mock_enabled', 'mock_feedback', 'services_enabled'] as $key) {
+            if (isset($values[$key])) {
+                $values[$key] = $values[$key] ? '1' : '0';
+            }
+        }
+        if (isset($values['mock_size'])) {
+            $values['mock_size'] = (string)min(1000, max(5, (int)$values['mock_size']));
+        }
+        if (isset($values['mock_seconds'])) {
+            $values['mock_seconds'] = (string)min(600, max(10, (int)$values['mock_seconds']));
+        }
+        foreach (['mock_title' => 200, 'services_title' => 200, 'services_text' => 5000] as $key => $max) {
+            if (isset($values[$key])) {
+                $values[$key] = mb_substr(trim((string)$values[$key]), 0, $max);
+            }
         }
         save_settings($values);
+        if (isset($values['mock_title']) && $values['mock_title'] !== '') {
+            $pdo->prepare("UPDATE quizzes SET title = ? WHERE kind = 'mock'")->execute([$values['mock_title']]);
+        }
         json_out(['ok' => true]);
     }
 

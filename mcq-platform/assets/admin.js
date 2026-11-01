@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  const { APP, h, mount, api, toast, themeButton, brand, modal, fmtDate, fmtDateTime, isoDate, optionLetter, textDir, randomPassword, copyText } = window.UI;
+  const { APP, h, mount, api, toast, waNumber, waLink, themeButton, brand, modal, fmtDate, fmtDateTime, isoDate, optionLetter, textDir, randomPassword, copyText } = window.UI;
   let settings = Object.assign({}, APP.settings);
   const studentUrl = new URL('./', location.href).href;
 
@@ -129,13 +129,6 @@
     if (sub.state === 'expired') return h('span', { class: 'badge bad' }, 'منتهي');
     if (sub.state === 'ending') return h('span', { class: 'badge warn' }, 'ينتهي خلال ' + sub.days_left + ' يوم');
     return h('span', { class: 'badge good' }, 'نشط · ' + sub.days_left + ' يوم');
-  }
-
-  function waNumber(username) {
-    let d = String(username).replace(/\D/g, '');
-    if (d.startsWith('00')) d = d.slice(2);
-    if (/^01\d{9}$/.test(d)) d = '2' + d; // Egyptian mobile → international
-    return d.length >= 10 ? d : '';
   }
 
   function credentialsText(name, username, password) {
@@ -946,12 +939,73 @@
 
   // ---------- Settings ----------
 
+  let mockPool = { questions: 0, quizzes: 0 };
+
+  async function saveSettings(values) {
+    try {
+      await call('admin.settings.save', { settings: values });
+      const me = await call('admin.me');
+      settings = me.settings;
+      mockPool = me.mock_pool;
+      toast('تم حفظ الإعدادات');
+      showSettings();
+    } catch (err) { /* shown */ }
+  }
+
+  function mockSettingsCard() {
+    const f = {
+      enabled: h('input', { type: 'checkbox', checked: settings.mock_enabled === '1' }),
+      title: h('input', { class: 'input', value: settings.mock_title }),
+      size: h('input', { class: 'input', type: 'number', min: 5, max: 1000, value: settings.mock_size, style: { maxWidth: '140px' } }),
+      seconds: h('input', { class: 'input', type: 'number', min: 10, max: 600, value: settings.mock_seconds, style: { maxWidth: '140px' } }),
+      feedback: h('input', { type: 'checkbox', checked: settings.mock_feedback === '1' }),
+    };
+    const size = Number(settings.mock_size);
+    return h('form', { class: 'card', onsubmit: (e) => {
+      e.preventDefault();
+      saveSettings({ mock_enabled: f.enabled.checked, mock_title: f.title.value, mock_size: f.size.value, mock_seconds: f.seconds.value, mock_feedback: f.feedback.checked });
+    } },
+      h('h2', {}, '⏱ الاختبار التجريبي'),
+      h('p', { class: 'muted' }, 'اختبار بوقت محدد، أسئلته مختارة من كل الاختبارات المنشورة بالتساوي، وأسئلة مختلفة في كل مرة لنفس الطالب (حتى تنفد الأسئلة غير المكررة). يستطيع الطالب إجراءه عدداً غير محدود من المرات.'),
+      h('div', { class: 'alert' + (mockPool.questions < size ? ' warn' : '') },
+        'بنك الأسئلة الآن: ' + mockPool.questions + ' سؤال في ' + mockPool.quizzes + ' اختبار منشور.',
+        mockPool.questions < size ? ' الاختبار التجريبي سيكون ' + mockPool.questions + ' سؤال فقط حتى تضيفي أسئلة أكثر.' : ''),
+      h('label', { class: 'check', style: { marginBottom: '14px' } }, f.enabled, 'إظهار الاختبار التجريبي للطلاب'),
+      field('اسم الاختبار', f.title),
+      field('عدد الأسئلة في كل اختبار', f.size),
+      field('الوقت لكل سؤال (بالثواني)', f.seconds, '60 = دقيقة لكل سؤال. عند انتهاء الوقت ينتقل الطالب للسؤال التالي تلقائياً، ويمكنه التخطي قبلها.'),
+      h('label', { class: 'check', style: { marginBottom: '16px' } }, f.feedback, 'إظهار الإجابة الصحيحة والشرح بعد كل سؤال (بدونها تظهر الإجابات في نهاية الاختبار مثل الامتحان الحقيقي)'),
+      h('div', {}, h('button', { class: 'btn primary', type: 'submit' }, 'حفظ')));
+  }
+
+  function servicesSettingsCard() {
+    const f = {
+      enabled: h('input', { type: 'checkbox', checked: settings.services_enabled === '1' }),
+      title: h('input', { class: 'input', value: settings.services_title }),
+      text: h('textarea', { class: 'input', rows: 4, dir: 'auto', placeholder: 'خدمة المساعدة في البحث العلمي والإشراف\nكورسات الماجستير للأوبئة والإحصاء الحيوي' }, settings.services_text),
+      whatsapp: h('input', { class: 'input', dir: 'ltr', value: settings.services_whatsapp, placeholder: '0571216884' }),
+    };
+    const link = waLink(settings.services_whatsapp);
+    return h('form', { class: 'card', onsubmit: (e) => {
+      e.preventDefault();
+      saveSettings({ services_enabled: f.enabled.checked, services_title: f.title.value, services_text: f.text.value, services_whatsapp: f.whatsapp.value });
+    } },
+      h('h2', {}, '✨ خدماتنا الإضافية'),
+      h('p', { class: 'muted' }, 'تظهر للطلاب كبطاقة في الصفحة الرئيسية (وفي صفحة انتهاء الاشتراك)، مع زر واتساب للتواصل.'),
+      h('label', { class: 'check', style: { marginBottom: '14px' } }, f.enabled, 'إظهار "خدماتنا الإضافية" للطلاب'),
+      field('العنوان', f.title),
+      field('الخدمات (كل خدمة في سطر)', f.text),
+      field('رقم واتساب للتواصل', f.whatsapp, 'مثل 0571216884 أو 01012345678 (يتحول للصيغة الدولية تلقائياً).'),
+      link ? h('p', { class: 'small' }, 'رابط الواتساب الحالي: ', h('a', { href: link, target: '_blank', rel: 'noopener', dir: 'ltr' }, link)) : null,
+      h('div', {}, h('button', { class: 'btn primary', type: 'submit' }, 'حفظ')));
+  }
+
   function showSettings() {
     const f = {
       platform_name: h('input', { class: 'input', value: settings.platform_name }),
       subscription_months: h('input', { class: 'input', type: 'number', min: 1, max: 36, value: settings.subscription_months, style: { maxWidth: '140px' } }),
       warn_days: h('input', { class: 'input', type: 'number', min: 0, max: 60, value: settings.warn_days, style: { maxWidth: '140px' } }),
-      contact_whatsapp: h('input', { class: 'input', dir: 'ltr', value: settings.contact_whatsapp, placeholder: '201012345678' }),
+      contact_whatsapp: h('input', { class: 'input', dir: 'ltr', value: settings.contact_whatsapp, placeholder: '01012345678' }),
       expired_message: h('textarea', { class: 'input', rows: 3 }, settings.expired_message),
       single_device: h('input', { type: 'checkbox', checked: settings.single_device === '1' }),
     };
@@ -973,21 +1027,18 @@
             expired_message: f.expired_message.value,
             single_device: f.single_device.checked,
           };
-          try {
-            await call('admin.settings.save', { settings: values });
-            settings = (await call('admin.me')).settings;
-            toast('تم حفظ الإعدادات');
-            showSettings();
-          } catch (err) { /* shown */ }
+          saveSettings(values);
         } },
           h('h2', {}, 'إعدادات المنصة'),
           field('اسم المنصة', f.platform_name),
           field('مدة الاشتراك (بالشهور)', f.subscription_months, 'تبدأ من أول تسجيل دخول للطالب. التغيير يُطبّق على الاشتراكات الجديدة والتجديدات القادمة.'),
           field('تنبيه قرب الانتهاء قبل (أيام)', f.warn_days),
-          field('رقم واتساب للتجديد', f.contact_whatsapp, 'بالصيغة الدولية بدون + (مثال 201012345678). يظهر للطالب زر واتساب عند انتهاء اشتراكه.'),
+          field('رقم واتساب للتجديد', f.contact_whatsapp, 'مثل 01012345678 أو 0571216884 (يتحول للصيغة الدولية تلقائياً). يظهر للطالب زر واتساب عند انتهاء اشتراكه.'),
           field('رسالة انتهاء الاشتراك', f.expired_message),
           h('label', { class: 'check', style: { marginBottom: '16px' } }, f.single_device, 'جهاز واحد لكل طالب (الدخول من جهاز جديد يُخرج الجهاز القديم، لمنع مشاركة الحساب)'),
           h('div', {}, h('button', { class: 'btn primary', type: 'submit' }, 'حفظ الإعدادات'))),
+        mockSettingsCard(),
+        servicesSettingsCard(),
         h('form', { class: 'card', onsubmit: async (e) => {
           e.preventDefault();
           try {
@@ -1008,6 +1059,7 @@
     try {
       const res = await api('admin.me');
       settings = res.settings;
+      mockPool = res.mock_pool;
       route();
     } catch (err) {
       showLogin();

@@ -139,10 +139,23 @@
     return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
   };
 
+  // Phone number in the international form wa.me needs. Local Egyptian (01…) and Saudi (05…)
+  // mobiles get their country code; anything else is used as written.
+  function waNumber(raw) {
+    let d = String(raw || '').replace(/[\u0660-\u0669]/g, (c) => String(c.charCodeAt(0) - 0x0660)).replace(/\D/g, '');
+    if (d.startsWith('00')) d = d.slice(2);
+    if (/^01\d{9}$/.test(d)) d = '2' + d;
+    else if (/^05\d{8}$/.test(d)) d = '966' + d.slice(1);
+    return d.length >= 10 ? d : '';
+  }
+
+  function waLink(raw, text) {
+    const num = waNumber(raw);
+    return num ? 'https://wa.me/' + num + (text ? '?text=' + encodeURIComponent(text) : '') : null;
+  }
+
   function whatsappLink(text) {
-    const num = (APP.settings.contact_whatsapp || '').replace(/\D/g, '');
-    if (!num) return null;
-    return 'https://wa.me/' + num + (text ? '?text=' + encodeURIComponent(text) : '');
+    return waLink(APP.settings.contact_whatsapp, text);
   }
 
   const LETTERS_AR = ['أ', 'ب', 'ج', 'د', 'هـ', 'و', 'ز', 'ح', 'ط', 'ي'];
@@ -235,6 +248,6 @@
 
   window.UI = {
     APP, h, append, mount, api, ApiError, toast, themeButton, brand, modal,
-    fmtDate, fmtDateTime, isoDate, whatsappLink, optionLetter, textDir, confetti, mediaUrl, lightbox, questionImage, randomPassword, copyText,
+    fmtDate, fmtDateTime, isoDate, whatsappLink, waNumber, waLink, optionLetter, textDir, confetti, mediaUrl, lightbox, questionImage, randomPassword, copyText,
   };
 })();

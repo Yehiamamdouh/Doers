@@ -7,6 +7,9 @@
   const SVG = 'http://www.w3.org/2000/svg';
   const STEADY = 5; // a change smaller than this many points counts as steady
 
+  // Complete attempts (a whole quiz, or a mock exam) are compared; "mistakes only" retries are not.
+  const comparable = (a) => a.mode !== 'wrong';
+
   // Same rule as score_trend() in api.php: average of the latest n full attempts minus the n before them.
   function trend(scores) {
     const n = Math.min(3, Math.floor(scores.length / 2));
@@ -157,7 +160,7 @@
 
     const paint = () => {
       const rows = attempts.filter((a) => !quizFilter || a.quiz_id === quizFilter);
-      const full = rows.filter((a) => a.mode === 'full');
+      const full = rows.filter(comparable);
       const scores = full.map((a) => a.pct);
       const t = trend(scores);
       const avg = scores.length ? Math.round(scores.reduce((s, v) => s + v, 0) / scores.length) : null;
@@ -168,7 +171,7 @@
       const prevByQuiz = {};
       const change = {};
       for (const a of attempts) {
-        if (a.mode !== 'full') continue;
+        if (!comparable(a)) continue;
         if (prevByQuiz[a.quiz_id] !== undefined) change[a.id] = a.pct - prevByQuiz[a.quiz_id];
         prevByQuiz[a.quiz_id] = a.pct;
       }
@@ -186,7 +189,7 @@
       if (full.length) {
         parts.push(h('section', { class: 'card' },
           h('h3', {}, 'الدرجة في كل محاولة'),
-          h('p', { class: 'small muted' }, 'المحاولات الكاملة فقط' + (quizFilter ? '' : '، لكل الاختبارات') + '. مرّر على المنحنى لرؤية التفاصيل.'),
+          h('p', { class: 'small muted' }, 'المحاولات الكاملة والتجريبية فقط' + (quizFilter ? '' : '، لكل الاختبارات') + '. مرّر على المنحنى لرؤية التفاصيل.'),
           scoreChart(full)));
       }
 
@@ -196,7 +199,7 @@
           h('div', { class: 'table-wrap' }, h('table', {},
             h('thead', {}, h('tr', {}, ['الاختبار', 'محاولات', 'أول نتيجة', 'آخر نتيجة', 'أفضل', 'التغيير'].map((x) => h('th', {}, x)))),
             h('tbody', {}, quizzes.map((q) => {
-              const qa = attempts.filter((a) => a.quiz_id === q.id && a.mode === 'full');
+              const qa = attempts.filter((a) => a.quiz_id === q.id && comparable(a));
               const first = qa[0];
               const lastQ = qa[qa.length - 1];
               return h('tr', {},
@@ -216,9 +219,9 @@
           h('tbody', {}, rows.slice().reverse().map((a) => h('tr', {},
             h('td', { class: 'small' }, fmtDateTime(a.finished_at)),
             h('td', { dir: 'auto' }, a.quiz),
-            h('td', {}, a.mode === 'full' ? h('span', { class: 'badge' }, 'كامل') : h('span', { class: 'badge info' }, 'الأخطاء فقط')),
+            h('td', {}, a.mode === 'full' ? h('span', { class: 'badge' }, 'كامل') : a.mode === 'mock' ? h('span', { class: 'badge warn' }, '⏱ تجريبي') : h('span', { class: 'badge info' }, 'الأخطاء فقط')),
             h('td', {}, h('b', {}, a.pct + '%'), h('span', { class: 'small muted' }, ' (' + a.correct + '/' + a.total + ')')),
-            h('td', {}, a.mode !== 'full' ? h('span', { class: 'muted small' }, 'لا يُقارن') : change[a.id] !== undefined ? deltaBadge(change[a.id]) : h('span', { class: 'muted small' }, 'أول محاولة')),
+            h('td', {}, !comparable(a) ? h('span', { class: 'muted small' }, 'لا يُقارن') : change[a.id] !== undefined ? deltaBadge(change[a.id]) : h('span', { class: 'muted small' }, 'أول محاولة')),
             h('td', { class: 'small' }, a.minutes + ' د'),
             h('td', {}, onReview ? h('button', { class: 'btn sm', onclick: () => onReview(a.id) }, 'مراجعة') : null))))))));
 
@@ -247,6 +250,7 @@
         .filter(({ st }) => filter === 'all' || (filter === 'wrong' ? st !== 'correct' : st === 'correct'))
         .map(({ q, i, st }) => h('article', { class: 'card review-item ' + st },
           h('div', { class: 'q-num' }, 'السؤال ' + (i + 1),
+            q.source ? h('span', { class: 'badge', dir: 'auto' }, q.source) : null,
             h('span', { class: 'badge ' + (st === 'correct' ? 'good' : st === 'wrong' ? 'bad' : 'warn') }, st === 'correct' ? 'صحيح' : st === 'wrong' ? 'خطأ' : (you ? 'لم تُجب' : 'لم يُجب'))),
           h('div', { class: 'q-text', dir: textDir(q.text) }, q.text),
           window.UI.questionImage(q.image),

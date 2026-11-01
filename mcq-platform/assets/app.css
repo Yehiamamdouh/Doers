@@ -311,6 +311,43 @@ td .row { gap: 6px; flex-wrap: nowrap; }
 .parsed-list ol { margin: 6px 0 0; padding-inline-start: 22px; }
 .parsed-list li.is-correct { color: var(--good); font-weight: 700; }
 
+/* Mock exam */
+.mock-card {
+  display: flex; gap: 16px; align-items: flex-start; margin-bottom: 24px;
+  border: 2px solid var(--primary); background: linear-gradient(135deg, var(--primary-soft), var(--surface) 70%);
+}
+.mock-card h2 { margin: 0 0 4px; }
+.mock-card .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.mock-icon {
+  flex: none; width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center;
+  background: var(--primary); color: var(--primary-ink); font-size: 1.6rem;
+}
+.mock-body { flex: 1; min-width: 0; }
+.rules { margin: 0; padding-inline-start: 20px; line-height: 1.9; }
+.warn-text { color: var(--warn); font-weight: 700; }
+.timer {
+  display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; border-radius: 999px;
+  background: var(--primary-soft); color: var(--primary); font-weight: 800; font-variant-numeric: tabular-nums;
+  direction: ltr; min-width: 82px; justify-content: center;
+}
+.timer.low { background: var(--bad-soft); color: var(--bad); animation: pulse 1s ease infinite; }
+.timer.is-hidden { display: none; }
+.option.selected { border-color: var(--primary); background: var(--primary-soft); }
+.option.selected .letter { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); }
+@keyframes pulse { 50% { opacity: .55; } }
+
+/* Other services */
+.services-card { margin-top: 24px; border-inline-start: 5px solid var(--good); }
+.services-card h2 { margin-bottom: 10px; }
+.services-list { margin: 0 0 16px; padding-inline-start: 22px; line-height: 2; font-weight: 600; }
+.auth .services-card { max-width: 420px; width: 100%; margin: 16px auto 0; }
+.auth { align-content: center; }
+
+@media (max-width: 600px) {
+  .mock-card { flex-direction: column; }
+  .mock-icon { width: 44px; height: 44px; font-size: 1.3rem; }
+}
+
 /* Question images */
 .q-img {
   display: block; padding: 0; margin: 0 0 18px; max-width: 100%; border: 1px solid var(--border);

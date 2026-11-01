@@ -14,6 +14,17 @@ const DEFAULT_SETTINGS = [
     'contact_whatsapp' => '',
     'expired_message' => 'انتهت مدة اشتراكك. تواصل معنا لتجديد الاشتراك والعودة للمنصة.',
     'single_device' => '1',
+    // Mock exam: a timed test drawn from every quiz, different questions each time.
+    'mock_enabled' => '1',
+    'mock_title' => 'الاختبار التجريبي',
+    'mock_size' => '200',
+    'mock_seconds' => '60',
+    'mock_feedback' => '0',
+    // "Our other services" card on the students' home page.
+    'services_enabled' => '0',
+    'services_title' => 'خدماتنا الإضافية',
+    'services_text' => '',
+    'services_whatsapp' => '',
 ];
 
 date_default_timezone_set('Africa/Cairo');
@@ -141,6 +152,11 @@ SQL
     );
     // Added later: whether an attempt covered the whole quiz ('full') or only the student's
     // previous mistakes ('wrong'). Only full attempts are compared when tracking progress.
+    $quizColumns = array_column($pdo->query('PRAGMA table_info(quizzes)')->fetchAll(PDO::FETCH_ASSOC), 'name');
+    if (!in_array('kind', $quizColumns, true)) {
+        // 'normal' quizzes are the teacher's; one hidden 'mock' quiz holds the mock exam attempts.
+        $pdo->exec("ALTER TABLE quizzes ADD COLUMN kind TEXT NOT NULL DEFAULT 'normal'");
+    }
     $questionColumns = array_column($pdo->query('PRAGMA table_info(questions)')->fetchAll(PDO::FETCH_ASSOC), 'name');
     if (!in_array('image', $questionColumns, true)) {
         $pdo->exec("ALTER TABLE questions ADD COLUMN image TEXT NOT NULL DEFAULT ''");
@@ -363,6 +379,13 @@ function public_settings(): array
         'contact_whatsapp' => $s['contact_whatsapp'],
         'expired_message' => $s['expired_message'],
         'warn_days' => (int)$s['warn_days'],
+        'mock_enabled' => $s['mock_enabled'] === '1',
+        'mock_title' => $s['mock_title'],
+        'mock_seconds' => (int)$s['mock_seconds'],
+        'services_enabled' => $s['services_enabled'] === '1',
+        'services_title' => $s['services_title'],
+        'services_text' => $s['services_text'],
+        'services_whatsapp' => $s['services_whatsapp'],
     ];
 }
 
