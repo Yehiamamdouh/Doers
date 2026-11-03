@@ -133,6 +133,7 @@ function load_attempt(int $id, int $studentId): array
 function attempt_payload(array $a): array
 {
     $byId = questions_by_ids($a['question_ids']);
+    $flagged = flagged_ids((int)$a['student_id']);
     $finished = $a['finished_at'] !== null;
     $mock = $a['mode'] === 'mock';
     // In a mock exam the answers stay hidden until the end, unless the teacher chose to show them.
@@ -143,8 +144,8 @@ function attempt_payload(array $a): array
             continue;
         }
         $q = $byId[$qid];
-        $item = ['id' => $q['id'], 'text' => $q['text'], 'image' => $q['image'], 'options' => $q['options']];
-        if ($mock) {
+        $item = ['id' => $q['id'], 'text' => $q['text'], 'image' => $q['image'], 'options' => $q['options'], 'flagged' => isset($flagged[$q['id']])];
+        if ($mock || $a['mode'] === 'review') {
             $item['source'] = $q['source'];
         }
         $chosen = $a['answers'][(string)$qid] ?? null;
@@ -175,7 +176,7 @@ function attempt_payload(array $a): array
         $payload['feedback'] = $reveal;
     }
     // The score of the previous complete attempt (full quiz, or mock exam) to show progress on the result screen.
-    if ($finished && $a['mode'] !== 'wrong') {
+    if ($finished && in_array($a['mode'], ['full', 'mock'], true)) {
         $stmt = db()->prepare("SELECT question_ids, correct_count FROM attempts
             WHERE student_id = ? AND quiz_id = ? AND mode = ? AND finished_at IS NOT NULL AND id < ?
             ORDER BY finished_at DESC, id DESC LIMIT 1");
@@ -246,14 +247,127 @@ function score_trend(array $scores): ?int
 // The hidden quiz that mock exam attempts belong to (created on first use).
 function mock_quiz_id(): int
 {
+    return system_quiz_id('mock', settings()['mock_title']);
+}
+
+// Hidden quizzes that hold attempts mixing questions from many quizzes: the mock exam ('mock')
+// and practice of a student's flagged questions ('review'). Created on first use.
+function system_quiz_id(string $kind, string $title): int
+{
     $pdo = db();
-    $id = $pdo->query("SELECT id FROM quizzes WHERE kind = 'mock' LIMIT 1")->fetchColumn();
-    if ($id) {
+    $stmt = $pdo->prepare('SELECT id FROM quizzes WHERE kind = ? LIMIT 1');
+    $stmt->execute([$kind]);
+    if ($id = $stmt->fetchColumn()) {
         return (int)$id;
     }
-    $pdo->prepare("INSERT INTO quizzes (title, description, published, position, created_at, updated_at, kind) VALUES (?, '', 0, 0, ?, ?, 'mock')")
-        ->execute([settings()['mock_title'], time(), time()]);
+    $pdo->prepare("INSERT INTO quizzes (title, description, published, position, created_at, updated_at, kind) VALUES (?, '', 0, 0, ?, ?, ?)")
+        ->execute([$title, time(), time(), $kind]);
     return (int)$pdo->lastInsertId();
+}
+
+function review_quiz_id(): int
+{
+    return system_quiz_id('review', 'الأسئلة المعلّمة');
+}
+
+// ---------- Flags, daily goal, strengths per quiz ----------
+
+function flagged_ids(int $studentId): array
+{
+    $stmt = db()->prepare('SELECT question_id FROM flags WHERE student_id = ?');
+    $stmt->execute([$studentId]);
+    return array_flip(array_map('intval', $stmt->fetchAll(PDO::FETCH_COLUMN)));
+}
+
+// Flagged questions still in a published quiz, newest flag first.
+function flagged_questions(int $studentId): array
+{
+    $stmt = db()->prepare("SELECT qs.id, qs.text, qs.image, q.title AS source, f.created_at
+        FROM flags f JOIN questions qs ON qs.id = f.question_id JOIN quizzes q ON q.id = qs.quiz_id
+        WHERE f.student_id = ? AND q.published = 1 AND q.kind = 'normal' ORDER BY f.created_at DESC, qs.id");
+    $stmt->execute([$studentId]);
+    return array_map(function ($r) {
+        return ['id' => (int)$r['id'], 'text' => $r['text'], 'image' => $r['image'], 'source' => $r['source'], 'flagged_at' => (int)$r['created_at']];
+    }, $stmt->fetchAll());
+}
+
+function record_activity(int $studentId, bool $correct): void
+{
+    $pdo = db();
+    $day = date('Y-m-d');
+    $pdo->prepare('INSERT OR IGNORE INTO activity (student_id, day) VALUES (?, ?)')->execute([$studentId, $day]);
+    $pdo->prepare('UPDATE activity SET answered = answered + 1, correct = correct + ? WHERE student_id = ? AND day = ?')
+        ->execute([$correct ? 1 : 0, $studentId, $day]);
+}
+
+// Today's progress towards the student's daily goal, the last 7 days, and the streak: consecutive
+// days on which the goal was met, ending today (if met already) or yesterday.
+function daily_state(array $s): array
+{
+    $goal = max(1, (int)($s['daily_goal'] ?? 20));
+    $stmt = db()->prepare('SELECT day, answered FROM activity WHERE student_id = ? AND day >= ? ORDER BY day DESC');
+    $stmt->execute([$s['id'], date('Y-m-d', strtotime('-400 days'))]);
+    $byDay = [];
+    foreach ($stmt as $r) {
+        $byDay[$r['day']] = (int)$r['answered'];
+    }
+    $today = date('Y-m-d');
+    $week = [];
+    for ($i = 6; $i >= 0; $i--) {
+        $d = date('Y-m-d', strtotime("-$i days"));
+        $n = $byDay[$d] ?? 0;
+        $week[] = ['day' => $d, 'answered' => $n, 'met' => $n >= $goal];
+    }
+    $streak = 0;
+    $cursor = ($byDay[$today] ?? 0) >= $goal ? strtotime('today') : strtotime('yesterday');
+    while (($byDay[date('Y-m-d', $cursor)] ?? 0) >= $goal) {
+        $streak++;
+        $cursor = strtotime('-1 day', $cursor);
+    }
+    return ['goal' => $goal, 'today' => $byDay[$today] ?? 0, 'streak' => $streak, 'week' => $week];
+}
+
+// Accuracy per quiz across the student's complete attempts (whole quizzes and mock exams),
+// weakest first. Skipped and unanswered questions count as not correct.
+function student_topics(int $studentId): array
+{
+    $stmt = db()->prepare("SELECT question_ids, answers FROM attempts
+        WHERE student_id = ? AND finished_at IS NOT NULL AND mode IN ('full', 'mock')");
+    $stmt->execute([$studentId]);
+    $rows = $stmt->fetchAll();
+    $ids = [];
+    foreach ($rows as $r) {
+        $ids = array_merge($ids, json_decode($r['question_ids'], true) ?: []);
+    }
+    $byId = questions_by_ids($ids);
+    $topics = [];
+    foreach ($rows as $r) {
+        $answers = json_decode($r['answers'], true) ?: [];
+        foreach (json_decode($r['question_ids'], true) ?: [] as $qid) {
+            if (!isset($byId[$qid])) {
+                continue;
+            }
+            $q = $byId[$qid];
+            $quizId = (int)$q['quiz_id'];
+            if (!isset($topics[$quizId])) {
+                $topics[$quizId] = ['quiz_id' => $quizId, 'quiz' => $q['source'], 'correct' => 0, 'total' => 0];
+            }
+            $topics[$quizId]['total']++;
+            $chosen = $answers[(string)$qid] ?? null;
+            if ($chosen !== null && (int)$chosen === $q['correct']) {
+                $topics[$quizId]['correct']++;
+            }
+        }
+    }
+    $out = [];
+    foreach ($topics as $t) {
+        $t['pct'] = pct($t['correct'], $t['total']);
+        $out[] = $t;
+    }
+    usort($out, function ($x, $y) {
+        return $x['pct'] <=> $y['pct'];
+    });
+    return $out;
 }
 
 // Questions a mock exam can draw from: every question of every published quiz, grouped by quiz.
@@ -481,7 +595,8 @@ switch ($action) {
                 'stats' => $stats[$mockId] ?? null,
             ];
         }
-        json_out(['ok' => true, 'me' => student_me($s), 'quizzes' => $quizzes, 'mock' => $mock]);
+        json_out(['ok' => true, 'me' => student_me($s), 'quizzes' => $quizzes, 'mock' => $mock,
+            'daily' => daily_state($s), 'flags' => count(flagged_questions($s['id'])), 'review_quiz_id' => review_quiz_id()]);
     }
 
     case 'student.start': {
@@ -492,7 +607,8 @@ switch ($action) {
         $stmt->execute([$quizId]);
         $quiz = $stmt->fetch();
         $isMock = $quiz && $quiz['kind'] === 'mock';
-        if (!$quiz || (!$isMock && $quiz['published'] !== '1')) {
+        $isReview = $quiz && $quiz['kind'] === 'review';
+        if (!$quiz || (!$isMock && !$isReview && $quiz['published'] !== '1')) {
             fail('الاختبار غير متاح.', 404);
         }
         if ($isMock && $mode !== 'wrong' && settings()['mock_enabled'] !== '1') {
@@ -526,6 +642,14 @@ switch ($action) {
             }
             json_out(['ok' => true, 'attempt' => attempt_payload(create_attempt($s['id'], $quizId, $ids, 'wrong'))]);
         }
+        if ($isReview) {
+            $ids = array_column(flagged_questions($s['id']), 'id');
+            if (!$ids) {
+                fail('لا توجد أسئلة معلّمة بعد. علّم أي سؤال أثناء الحل لتجده هنا.');
+            }
+            shuffle($ids);
+            json_out(['ok' => true, 'attempt' => attempt_payload(create_attempt($s['id'], $quizId, $ids, 'review'))]);
+        }
         $ids = $isMock ? build_mock($s['id']) : array_column(quiz_questions($quizId), 'id');
         if (!$ids) {
             fail('لا توجد أسئلة في هذا الاختبار بعد.');
@@ -553,21 +677,28 @@ switch ($action) {
         if (($choice < 0 && !($mock && $choice === -1)) || $choice >= count($question['options'])) {
             fail('اختيار غير صالح.');
         }
+        $daily = null;
         if (!array_key_exists((string)$qid, $a['answers'])) {
             $a['answers'][(string)$qid] = $choice;
             $correctCount = (int)$a['correct_count'] + ($choice === $question['correct'] ? 1 : 0);
             $pdo->prepare('UPDATE attempts SET answers = ?, correct_count = ? WHERE id = ?')
                 ->execute([json_encode($a['answers'], JSON_FORCE_OBJECT), $correctCount, $a['id']]);
+            if ($choice >= 0) {
+                record_activity($s['id'], $choice === $question['correct']);
+                $daily = daily_state($s);
+                $daily['reached_now'] = $daily['today'] === $daily['goal'];
+            }
         }
         $chosen = (int)$a['answers'][(string)$qid];
         if ($mock && settings()['mock_feedback'] !== '1') {
-            json_out(['ok' => true, 'chosen' => $chosen]); // answers are shown at the end
+            json_out(['ok' => true, 'chosen' => $chosen, 'daily' => $daily]); // answers are shown at the end
         }
         if ($chosen < 0) {
             json_out(['ok' => true, 'chosen' => $chosen, 'skipped' => true, 'correct_index' => $question['correct'], 'explanation' => $question['explanation']]);
         }
         json_out([
             'ok' => true,
+            'daily' => $daily,
             'chosen' => $chosen,
             'correct' => $chosen === $question['correct'],
             'correct_index' => $question['correct'],
@@ -593,7 +724,34 @@ switch ($action) {
 
     case 'student.history': {
         $s = current_student();
-        json_out(['ok' => true, 'me' => student_me($s), 'attempts' => student_history($s['id'])]);
+        json_out(['ok' => true, 'me' => student_me($s), 'attempts' => student_history($s['id']), 'topics' => student_topics($s['id'])]);
+    }
+
+    case 'student.flag': {
+        $s = current_student();
+        $qid = int_in($in, 'question_id');
+        if (!questions_by_ids([$qid])) {
+            fail('السؤال غير موجود.', 404);
+        }
+        if (!empty($in['flagged'])) {
+            $pdo->prepare('INSERT OR IGNORE INTO flags (student_id, question_id, created_at) VALUES (?, ?, ?)')->execute([$s['id'], $qid, time()]);
+        } else {
+            $pdo->prepare('DELETE FROM flags WHERE student_id = ? AND question_id = ?')->execute([$s['id'], $qid]);
+        }
+        json_out(['ok' => true, 'flagged' => !empty($in['flagged'])]);
+    }
+
+    case 'student.flags': {
+        $s = current_student();
+        json_out(['ok' => true, 'me' => student_me($s), 'questions' => flagged_questions($s['id']), 'review_quiz_id' => review_quiz_id()]);
+    }
+
+    case 'student.goal': {
+        $s = current_student();
+        $goal = min(200, max(1, int_in($in, 'goal')));
+        $pdo->prepare('UPDATE students SET daily_goal = ? WHERE id = ?')->execute([$goal, $s['id']]);
+        $s['daily_goal'] = $goal;
+        json_out(['ok' => true, 'daily' => daily_state($s)]);
     }
 
     // ----- Teacher -----
@@ -668,7 +826,7 @@ switch ($action) {
             $p = pct((int)$a['correct_count'], count(json_decode($a['question_ids'], true) ?: []));
             $stats[$sid]['attempts']++;
             $stats[$sid]['pct_sum'] += $p;
-            if ($a['mode'] !== 'wrong') {
+            if (in_array($a['mode'], ['full', 'mock'], true)) {
                 $stats[$sid]['full'][] = $p;
             }
         }
@@ -785,6 +943,8 @@ switch ($action) {
             'ok' => true,
             'student' => ['id' => $s['id'], 'name' => $s['name'], 'username' => $s['username'], 'subscription' => subscription_state($s)],
             'attempts' => student_history($s['id']),
+            'topics' => student_topics($s['id']),
+            'daily' => daily_state($s),
         ]);
     }
 

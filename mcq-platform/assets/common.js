@@ -78,22 +78,101 @@
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
+  // Line icons (24px grid, drawn with the current text color). Names describe the picture.
+  const ICONS = {
+    home: '<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
+    flag: '<path d="M5 22V4"/><path d="M5 4h12l-2 4 2 4H5"/>',
+    chart: '<path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/>',
+    user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+    x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+    check: '<path d="M20 6 9 17l-5-5"/>',
+    forward: '<path d="M19 12H5"/><path d="m12 19-7-7 7-7"/>',
+    back: '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
+    up: '<path d="m6 15 6-6 6 6"/>',
+    down: '<path d="m6 9 6 6 6-6"/>',
+    timer: '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M10 2h4"/>',
+    eye: '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    eyeOff: '<path d="M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3 3.8"/><path d="M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.7 9.7 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/><path d="m2 2 20 20"/>',
+    flame: '<path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 2-5 3-6 0 3 2 4 3 4-1-3-1-7 0-10z"/>',
+    star: '<path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 17.6 5.9 20.9 7.1 14l-5-4.8 6.9-.9z"/>',
+    book: '<path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/>',
+    pulse: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+    bars: '<path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/>',
+    leaf: '<path d="M11 20A7 7 0 0 1 4 13c0-6 7-10 16-10 0 9-4 16-9 17z"/><path d="M4 21c4-4 7-6 11-9"/>',
+    globe: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20"/><path d="M12 2a15 15 0 0 0 0 20"/>',
+    flask: '<path d="M9 3h6"/><path d="M10 3v6L4.5 18.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-2.5L14 9V3"/><path d="M7 15h10"/>',
+    heart: '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>',
+    shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+    marker: '<path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/>',
+    strike: '<path d="M4 12h16"/><path d="M8 6.5A4 4 0 0 1 12 5c2.2 0 4 1.3 4 3"/><path d="M16 17.5A4 4 0 0 1 12 19c-2.2 0-4-1.3-4-3"/>',
+    chat: '<path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z"/>',
+    logout: '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/>',
+    moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>',
+    sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m4.9 19.1 1.4-1.4"/><path d="m17.7 6.3 1.4-1.4"/>',
+    target: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+    refresh: '<path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/>',
+    lock: '<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+    hourglass: '<path d="M6 2h12"/><path d="M6 22h12"/><path d="M7 2v4a5 5 0 0 0 10 0V2"/><path d="M7 22v-4a5 5 0 0 1 10 0v4"/>',
+    list: '<path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/>',
+    sparkle: '<path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z"/>',
+  };
+
+  // opts.solid fills the shape (a filled flag or flame); opts.stroke sets the line width.
+  function icon(name, size, opts) {
+    const o = opts || {};
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    const s = String(size || 20);
+    svg.setAttribute('width', s);
+    svg.setAttribute('height', s);
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', o.solid ? 'currentColor' : 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', String(o.stroke || 2));
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('class', 'icon');
+    svg.innerHTML = ICONS[name] || ''; // static path data from the table above, never user input
+    return svg;
+  }
+
+  function toggleTheme() {
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('mcq-theme', next); } catch (e) { /* storage blocked */ }
+    return next;
+  }
+
   function themeButton() {
     const btn = h('button', { class: 'btn ghost icon', type: 'button', title: 'الوضع الليلي / النهاري', 'aria-label': 'تبديل الوضع الليلي' });
-    const paint = () => { btn.textContent = currentTheme() === 'dark' ? '☀️' : '🌙'; };
-    btn.addEventListener('click', () => {
-      const next = currentTheme() === 'dark' ? 'light' : 'dark';
-      document.documentElement.dataset.theme = next;
-      try { localStorage.setItem('mcq-theme', next); } catch (e) { /* storage blocked */ }
-      paint();
-    });
+    const paint = () => { btn.replaceChildren(icon(currentTheme() === 'dark' ? 'sun' : 'moon', 20)); };
+    btn.addEventListener('click', () => { toggleTheme(); paint(); });
     paint();
     return btn;
   }
 
+  // The platform's logo when brand files exist (CSS swaps in the dark-mode version),
+  // otherwise the first letter of the name.
+  function logoMark(size) {
+    const B = APP.brand || {};
+    if (!B.mark) return h('span', { class: 'brand-mark', 'aria-hidden': 'true' }, (APP.settings.platform_name || 'م').trim().charAt(0));
+    return h('span', { class: 'brand-logo', style: { height: (size || 36) + 'px' }, 'aria-hidden': 'true' },
+      h('img', { class: 'on-light', src: B.mark, alt: '' }),
+      h('img', { class: 'on-dark', src: B.mark_dark || B.mark, alt: '' }));
+  }
+
+  function fullLogo() {
+    const B = APP.brand || {};
+    if (!B.logo) return null;
+    return h('div', { class: 'full-logo' },
+      h('img', { class: 'on-light', src: B.logo, alt: APP.settings.platform_name }),
+      h('img', { class: 'on-dark', src: B.logo_dark || B.logo, alt: '' }));
+  }
+
   function brand(name) {
     const text = (name || APP.settings.platform_name || '').trim();
-    return h('div', { class: 'brand' }, h('span', { class: 'brand-mark', 'aria-hidden': 'true' }, text.charAt(0) || 'م'), h('span', {}, text));
+    return h('div', { class: 'brand' }, logoMark(36), h('span', {}, text));
   }
 
   // Resolves with true/false (confirm) or the form element (custom content).
@@ -247,7 +326,7 @@
   }
 
   window.UI = {
-    APP, h, append, mount, api, ApiError, toast, themeButton, brand, modal,
+    APP, h, append, mount, api, ApiError, toast, themeButton, toggleTheme, currentTheme, icon, logoMark, fullLogo, brand, modal,
     fmtDate, fmtDateTime, isoDate, whatsappLink, waNumber, waLink, optionLetter, textDir, confetti, mediaUrl, lightbox, questionImage, randomPassword, copyText,
   };
 })();

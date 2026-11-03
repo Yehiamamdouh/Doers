@@ -39,7 +39,7 @@
     }, error, fields, submit);
     mount(h('div', { class: 'auth' },
       h('div', { class: 'card' },
-        h('div', { class: 'brand-mark', 'aria-hidden': 'true' }, '✎'),
+        UI.fullLogo() || UI.logoMark(56),
         h('h1', {}, title),
         h('p', { class: 'lead' }, lead),
         form,
@@ -374,7 +374,7 @@
         ? h('div', { class: 'table-wrap' }, h('table', {},
           h('thead', {}, h('tr', {}, ['الاختبار', 'الأسئلة', 'الحالة', 'محاولات', ''].map((t) => h('th', {}, t)))),
           h('tbody', {}, rows)))
-        : h('div', { class: 'card empty' }, h('div', { class: 'big' }, '📝'),
+        : h('div', { class: 'card empty' }, h('div', { class: 'big' }, UI.icon('book', 28)),
           h('p', {}, 'لا توجد اختبارات بعد. أنشئ اختباراً ثم ارفع ملف PDF بالأسئلة أو الصقها.'),
           h('a', { class: 'btn primary', href: '#quiz/new' }, 'إنشاء أول اختبار')));
   }
@@ -463,7 +463,7 @@
         h('button', { class: 'btn sm danger', type: 'button', onclick: () => { q.image = ''; markDirty(); renderEditor(true); } }, 'حذف الصورة'));
     }
     return h('div', { class: 'img-control' }, input,
-      h('button', { class: 'btn sm ghost', type: 'button', onclick: () => input.click() }, '🖼️ إضافة صورة للسؤال'),
+      h('button', { class: 'btn sm ghost', type: 'button', onclick: () => input.click() }, UI.icon('sparkle', 16), 'إضافة صورة للسؤال'),
       h('span', { class: 'small muted' }, 'أو الصق صورة (Ctrl+V) داخل السؤال، أو اسحبها إليه'));
   }
 
@@ -529,14 +529,14 @@
         h('label', { class: 'check' }, h('input', { type: 'checkbox', checked: !!quiz.published, onchange: (e) => { quiz.published = e.target.checked ? 1 : 0; markDirty(); } }), 'ظاهر للطلاب')),
       h('div', { class: 'toolbar' },
         h('h2', { class: 'spacer', style: { margin: 0 } }, 'الأسئلة (' + quiz.questions.length + ')'),
-        h('button', { class: 'btn primary', onclick: openImport }, '📄 استيراد من PDF أو نص'),
+        h('button', { class: 'btn primary', onclick: openImport }, UI.icon('book', 18), 'استيراد من PDF أو صور'),
         h('button', { class: 'btn', onclick: () => { quiz.questions.push(blankQuestion()); markDirty(); renderEditor(true); setTimeout(() => document.getElementById('q-' + (quiz.questions.length - 1))?.scrollIntoView({ behavior: 'smooth' }), 50); } }, '+ سؤال يدوي'),
         h('button', { class: 'btn ghost', onclick: exportJson, disabled: !quiz.questions.length }, 'تصدير JSON'),
         h('button', { class: 'btn ghost', onclick: importJson }, 'استيراد JSON')),
       invalidCount ? h('div', { class: 'alert warn' }, invalidCount + ' سؤال يحتاج مراجعة (بدون إجابة صحيحة أو اختيارات ناقصة). الأسئلة المعلّمة بالأحمر.') : null,
       quiz.questions.length
         ? h('div', { class: 'stack' }, quiz.questions.map(questionEditor))
-        : h('div', { class: 'card empty' }, h('div', { class: 'big' }, '📄'), h('p', {}, 'ارفع ملف PDF بالأسئلة أو الصق نصها، وسيتم تحويلها تلقائياً إلى أسئلة تفاعلية.'),
+        : h('div', { class: 'card empty' }, h('div', { class: 'big' }, UI.icon('book', 28)), h('p', {}, 'ارفع ملف PDF بالأسئلة أو الصق نصها، وسيتم تحويلها تلقائياً إلى أسئلة تفاعلية.'),
           h('button', { class: 'btn primary', onclick: openImport }, 'استيراد الأسئلة')),
       quiz.questions.length > 3 ? h('div', { class: 'row', style: { marginTop: '16px', justifyContent: 'flex-end' } }, h('button', { class: 'btn primary', onclick: saveQuiz }, 'حفظ الاختبار')) : null);
     if (keepScroll) window.scrollTo(0, y);
@@ -934,7 +934,11 @@
         statusBadge(s),
         h('span', { class: 'muted', dir: 'ltr' }, s.username)),
       h('p', { class: 'muted' }, 'سجل أداء الطالب في كل المحاولات، للمقارنة ومتابعة التحسّن أو التراجع.'),
-      UI.progressView(data.attempts, { onReview: (attemptId) => reviewAttempt(attemptId, s.name), who: 'teacher' }));
+      data.daily ? h('div', { class: 'row', style: { marginBottom: '14px' } },
+        h('span', { class: 'badge gold' }, UI.icon('flame', 14, { solid: true }), data.daily.streak + ' يوم متتالي'),
+        h('span', { class: 'badge info' }, 'الهدف اليومي ' + data.daily.goal + ' سؤال'),
+        h('span', { class: 'badge' }, 'حل اليوم ' + data.daily.today + ' سؤال')) : null,
+      UI.progressView(data.attempts, { onReview: (attemptId) => reviewAttempt(attemptId, s.name), who: 'teacher', topics: data.topics }));
   }
 
   // ---------- Settings ----------
@@ -965,7 +969,7 @@
       e.preventDefault();
       saveSettings({ mock_enabled: f.enabled.checked, mock_title: f.title.value, mock_size: f.size.value, mock_seconds: f.seconds.value, mock_feedback: f.feedback.checked });
     } },
-      h('h2', {}, '⏱ الاختبار التجريبي'),
+      h('h2', { class: 'row', style: { gap: '8px' } }, UI.icon('timer', 22), 'الاختبار التجريبي'),
       h('p', { class: 'muted' }, 'اختبار بوقت محدد، أسئلته مختارة من كل الاختبارات المنشورة بالتساوي، وأسئلة مختلفة في كل مرة لنفس الطالب (حتى تنفد الأسئلة غير المكررة). يستطيع الطالب إجراءه عدداً غير محدود من المرات.'),
       h('div', { class: 'alert' + (mockPool.questions < size ? ' warn' : '') },
         'بنك الأسئلة الآن: ' + mockPool.questions + ' سؤال في ' + mockPool.quizzes + ' اختبار منشور.',
@@ -990,7 +994,7 @@
       e.preventDefault();
       saveSettings({ services_enabled: f.enabled.checked, services_title: f.title.value, services_text: f.text.value, services_whatsapp: f.whatsapp.value });
     } },
-      h('h2', {}, '✨ خدماتنا الإضافية'),
+      h('h2', { class: 'row', style: { gap: '8px' } }, UI.icon('sparkle', 22), 'خدماتنا الإضافية'),
       h('p', { class: 'muted' }, 'تظهر للطلاب كبطاقة في الصفحة الرئيسية (وفي صفحة انتهاء الاشتراك)، مع زر واتساب للتواصل.'),
       h('label', { class: 'check', style: { marginBottom: '14px' } }, f.enabled, 'إظهار "خدماتنا الإضافية" للطلاب'),
       field('العنوان', f.title),

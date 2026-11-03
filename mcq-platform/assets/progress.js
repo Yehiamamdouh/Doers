@@ -7,8 +7,9 @@
   const SVG = 'http://www.w3.org/2000/svg';
   const STEADY = 5; // a change smaller than this many points counts as steady
 
-  // Complete attempts (a whole quiz, or a mock exam) are compared; "mistakes only" retries are not.
-  const comparable = (a) => a.mode !== 'wrong';
+  // Complete attempts (a whole quiz, or a mock exam) are compared; "mistakes only" retries and
+  // practice of flagged questions are not.
+  const comparable = (a) => a.mode === 'full' || a.mode === 'mock';
 
   // Same rule as score_trend() in api.php: average of the latest n full attempts minus the n before them.
   function trend(scores) {
@@ -142,13 +143,39 @@
     return h('div', { class: 'kpi' }, h('span', { class: 'small muted' }, label), h('b', {}, value), extra || null);
   }
 
+  // Score per file, weakest first (feature: "know your weak points"). topics: [{quiz, quiz_id?, correct, total, pct}].
+  // The weakest file is marked "focus here" when it trails; onPractice(quizId) adds a practice button to it.
+  function topicBars(topics, opts) {
+    const onPractice = opts && opts.onPractice;
+    const sorted = topics.slice().sort((a, b) => a.pct - b.pct);
+    const weakest = sorted.length > 1 && sorted[0].pct < 70 ? sorted[0] : null;
+    return h('div', { class: 'topics' }, sorted.map((t) => {
+      const weak = t === weakest;
+      return h('div', { class: 'topic' + (weak ? ' weak' : t.pct >= 80 ? ' strong' : '') },
+        h('div', { class: 'line' },
+          h('span', { dir: 'auto' }, t.quiz),
+          h('span', { class: 'row', style: { gap: '8px' } },
+            weak ? h('span', { class: 'focus' }, 'ركّز هنا') : null,
+            h('b', {}, t.pct + '%'),
+            h('span', { class: 'small muted' }, '(' + t.correct + '/' + t.total + ')'))),
+        h('div', { class: 'bar', role: 'img', 'aria-label': t.quiz + ' ' + t.pct + '%' }, h('i', { style: { width: Math.max(2, t.pct) + '%' } })),
+        weak && onPractice && t.quiz_id ? h('div', {}, h('button', { class: 'btn sm primary', type: 'button', onclick: () => onPractice(t.quiz_id) }, 'تدرّب على هذا الملف')) : null);
+    }));
+  }
+
   // attempts: oldest first, from student_history() in api.php.
   function progressView(attempts, opts) {
     const onReview = opts && opts.onReview;
     const who = (opts && opts.who) || 'student'; // wording: "you" for the student, "the student" for the teacher
     const root = h('div', { class: 'stack' });
+    if (opts && opts.topics && opts.topics.length) {
+      root.append(h('section', { class: 'card' },
+        h('h2', {}, who === 'student' ? 'نتيجتك في كل ملف' : 'نتيجة الطالب في كل ملف'),
+        h('p', { class: 'small muted' }, 'من كل المحاولات الكاملة والاختبارات التجريبية. الأضعف أولاً.'),
+        topicBars(opts.topics, { onPractice: opts.onPractice })));
+    }
     if (!attempts.length) {
-      root.append(h('div', { class: 'card empty' }, h('div', { class: 'big' }, '📈'),
+      root.append(h('div', { class: 'card empty' }, h('div', { class: 'big' }, window.UI.icon('chart', 28)),
         h('p', {}, who === 'student' ? 'لم تُكمل أي اختبار بعد. بعد أول اختبار ستظهر هنا درجاتك وتطورك.' : 'لم يُكمل الطالب أي اختبار بعد.')));
       return root;
     }
@@ -183,7 +210,7 @@
           tile('متوسط الدرجات', avg === null ? '—' : avg + '%'),
           tile('آخر نتيجة', last ? last.pct + '%' : '—', last && prev ? h('div', { class: 'small' }, deltaBadge(last.pct - prev.pct), ' عن السابقة') : null),
           tile('أفضل نتيجة', scores.length ? Math.max.apply(null, scores) + '%' : '—'),
-          tile('الاتجاه', trendText(t), t !== null ? h('div', { class: 'small' }, deltaBadge(t), ' ', h('span', { class: 'muted' }, 'آخر ' + n + ' مقابل ' + n + ' قبلها')) : null)),
+          tile('الاتجاه', t === null ? '—' : trendText(t), t !== null ? h('div', { class: 'small' }, deltaBadge(t), ' ', h('span', { class: 'muted' }, 'آخر ' + n + ' مقابل ' + n + ' قبلها')) : h('div', { class: 'small muted' }, trendText(t)))),
       ];
 
       if (full.length) {
@@ -219,7 +246,7 @@
           h('tbody', {}, rows.slice().reverse().map((a) => h('tr', {},
             h('td', { class: 'small' }, fmtDateTime(a.finished_at)),
             h('td', { dir: 'auto' }, a.quiz),
-            h('td', {}, a.mode === 'full' ? h('span', { class: 'badge' }, 'كامل') : a.mode === 'mock' ? h('span', { class: 'badge warn' }, '⏱ تجريبي') : h('span', { class: 'badge info' }, 'الأخطاء فقط')),
+            h('td', {}, a.mode === 'full' ? h('span', { class: 'badge' }, 'كامل') : a.mode === 'mock' ? h('span', { class: 'badge gold' }, 'تجريبي') : a.mode === 'review' ? h('span', { class: 'badge info' }, 'المعلّمة') : h('span', { class: 'badge info' }, 'الأخطاء فقط')),
             h('td', {}, h('b', {}, a.pct + '%'), h('span', { class: 'small muted' }, ' (' + a.correct + '/' + a.total + ')')),
             h('td', {}, !comparable(a) ? h('span', { class: 'muted small' }, 'لا يُقارن') : change[a.id] !== undefined ? deltaBadge(change[a.id]) : h('span', { class: 'muted small' }, 'أول محاولة')),
             h('td', { class: 'small' }, a.minutes + ' د'),
@@ -276,5 +303,5 @@
       list);
   }
 
-  Object.assign(window.UI, { progressView, reviewList, deltaBadge, trend });
+  Object.assign(window.UI, { progressView, reviewList, deltaBadge, trend, topicBars });
 })();

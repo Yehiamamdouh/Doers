@@ -17,6 +17,20 @@ function seed_from_config(PDO $pdo, $config): void
             $pdo->prepare('INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)')->execute([$key, (string)$value]);
         }
     }
+    // A one-time change pushed with a deploy (e.g. a new platform name): applied once per version,
+    // after which the teacher's own edits win again.
+    $update = (array)($config['settings_update'] ?? []);
+    if (!empty($update['version'])) {
+        $applied = (int)$pdo->query("SELECT value FROM settings WHERE key = 'config_version'")->fetchColumn();
+        if ($applied < (int)$update['version']) {
+            foreach ((array)($update['values'] ?? []) as $key => $value) {
+                if (array_key_exists($key, DEFAULT_SETTINGS)) {
+                    $pdo->prepare('INSERT OR REPLACE INTO settings (key, value) VALUES (?, ?)')->execute([$key, (string)$value]);
+                }
+            }
+            $pdo->prepare("INSERT OR REPLACE INTO settings (key, value) VALUES ('config_version', ?)")->execute([(string)(int)$update['version']]);
+        }
+    }
     if ((int)$pdo->query('SELECT COUNT(*) FROM admins')->fetchColumn() > 0) {
         return;
     }

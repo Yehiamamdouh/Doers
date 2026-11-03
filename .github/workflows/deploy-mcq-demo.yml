@@ -34,6 +34,8 @@ jobs:
           python3 mcq-platform/tests/api_test.py || { docker logs php72 | tail -30; exit 1; }
           rm -rf mcq-platform/data/platform.sqlite* mcq-platform/data/media
           python3 mcq-platform/tests/mock_test.py || { docker logs php72 | tail -30; exit 1; }
+          rm -rf mcq-platform/data/platform.sqlite* mcq-platform/data/media
+          python3 mcq-platform/tests/features_test.py || { docker logs php72 | tail -30; exit 1; }
           docker rm -f php72
           rm -rf mcq-platform/data/platform.sqlite* mcq-platform/data/media
 
@@ -46,7 +48,7 @@ jobs:
               'admin_password_hash' => '$2y$10$aPoLlO6rZ3K7zNegh8UAeupzLq0jRMhh/kk5oqrkYE7NGQixgZR3G',
               // Filled in on first run, and later for any setting the teacher has not saved yet.
               'settings' => [
-                  'platform_name' => 'منصة الاختبارات (تجريبي)',
+                  'platform_name' => 'جالاكسي',
                   'services_enabled' => '1',
                   'services_title' => 'خدماتنا الإضافية',
                   'services_text' => "خدمة المساعدة في البحث العلمي والإشراف\nكورسات الماجستير للأوبئة والإحصاء الحيوي",
@@ -57,6 +59,8 @@ jobs:
                   ['name' => 'طالب تجريبي 2', 'username' => 'demo2', 'password_hash' => '$2y$10$WILGXxDacgtw14eCip.bu.KUHwxIdlLUEh9ZmhrUP1g6tCyCVOgvm'],
               ],
               'quizzes_file' => 'demo/sample-quizzes.json',
+              // Applied once to the existing demo: the client's brand name.
+              'settings_update' => ['version' => 1, 'values' => ['platform_name' => 'جالاكسي']],
           ];
           EOF
           php -l mcq-platform/config.php

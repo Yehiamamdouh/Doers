@@ -152,6 +152,27 @@ SQL
     );
     // Added later: whether an attempt covered the whole quiz ('full') or only the student's
     // previous mistakes ('wrong'). Only full attempts are compared when tracking progress.
+    // Flagged questions, the daily activity behind goals and streaks, and each student's daily goal.
+    $pdo->exec(<<<'SQL'
+CREATE TABLE IF NOT EXISTS flags (
+    student_id INTEGER NOT NULL REFERENCES students(id) ON DELETE CASCADE,
+    question_id INTEGER NOT NULL REFERENCES questions(id) ON DELETE CASCADE,
+    created_at INTEGER NOT NULL,
+    PRIMARY KEY (student_id, question_id)
+);
+CREATE TABLE IF NOT EXISTS activity (
+    student_id INTEGER NOT NULL REFERENCES students(id) ON DELETE CASCADE,
+    day TEXT NOT NULL,
+    answered INTEGER NOT NULL DEFAULT 0,
+    correct INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (student_id, day)
+);
+SQL
+    );
+    $studentColumns = array_column($pdo->query('PRAGMA table_info(students)')->fetchAll(PDO::FETCH_ASSOC), 'name');
+    if (!in_array('daily_goal', $studentColumns, true)) {
+        $pdo->exec('ALTER TABLE students ADD COLUMN daily_goal INTEGER NOT NULL DEFAULT 20');
+    }
     $quizColumns = array_column($pdo->query('PRAGMA table_info(quizzes)')->fetchAll(PDO::FETCH_ASSOC), 'name');
     if (!in_array('kind', $quizColumns, true)) {
         // 'normal' quizzes are the teacher's; one hidden 'mock' quiz holds the mock exam attempts.
@@ -401,7 +422,17 @@ function page_shell(string $title, array $scripts): void
         requirements_page('Database error: ' . $e->getMessage());
     }
     start_session();
-    $boot = json_encode(['csrf' => $_SESSION['csrf'], 'settings' => public_settings()], JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP);
+    // Brand files in assets/brand are optional: without them the pages show the name's first letter.
+    $brand = [];
+    foreach (['mark' => 'mark.png', 'mark_dark' => 'mark-dark.png', 'logo' => 'logo-ar.png', 'logo_dark' => 'logo-ar-dark.png', 'logo_en' => 'logo-en.png'] as $key => $file) {
+        if (is_file(APP_ROOT . "/assets/brand/$file")) {
+            $brand[$key] = "assets/brand/$file?v=" . filemtime(APP_ROOT . "/assets/brand/$file");
+        }
+    }
+    $icons = is_file(APP_ROOT . '/assets/brand/favicon.png')
+        ? '<link rel="icon" type="image/png" href="assets/brand/favicon.png"><link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">'
+        : '';
+    $boot = json_encode(['csrf' => $_SESSION['csrf'], 'settings' => public_settings(), 'brand' => $brand], JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_SLASHES);
     $name = htmlspecialchars(settings()['platform_name'], ENT_QUOTES);
     $title = htmlspecialchars($title, ENT_QUOTES);
     $tags = '';
@@ -422,7 +453,9 @@ function page_shell(string $title, array $scripts): void
 <title>{$title} | {$name}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#021F47">
+{$icons}
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/app.css?v={$version}">
 <script>try{var t=localStorage.getItem('mcq-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
