@@ -61,8 +61,8 @@ jobs:
                   ['name' => 'طالب تجريبي 2', 'username' => 'demo2', 'password_hash' => '$2y$10$WILGXxDacgtw14eCip.bu.KUHwxIdlLUEh9ZmhrUP1g6tCyCVOgvm'],
               ],
               'quizzes_file' => 'demo/sample-quizzes.json',
-              // Applied once to the existing demo: the client's brand name.
-              'settings_update' => ['version' => 1, 'values' => ['platform_name' => 'جالاكسي']],
+              // Applied once to the existing demo (bump the version for a new change): brand name, renewal WhatsApp.
+              'settings_update' => ['version' => 2, 'values' => ['platform_name' => 'جالاكسي', 'contact_whatsapp' => '0571216884']],
           ];
           EOF
           php -l mcq-platform/config.php
