@@ -1,10 +1,12 @@
-// Teacher dashboard: students and subscriptions, quizzes and question editor, PDF import, results, settings.
+// Teacher dashboard: students and subscriptions, quizzes and question editor, PDF import, results,
+// free-trial visitors, settings.
 (function () {
   'use strict';
 
   const { APP, h, mount, api, toast, waNumber, waLink, themeButton, brand, modal, fmtDate, fmtDateTime, isoDate, optionLetter, textDir, randomPassword, copyText } = window.UI;
   let settings = Object.assign({}, APP.settings);
   const studentUrl = new URL('./', location.href).href;
+  const trialUrl = studentUrl + '#trial';
 
   async function call(action, body) {
     try {
@@ -75,7 +77,7 @@
 
   // ---------- Shell and routing ----------
 
-  const TABS = [['students', 'الطلاب والاشتراكات'], ['quizzes', 'الاختبارات والأسئلة'], ['results', 'النتائج'], ['settings', 'الإعدادات']];
+  const TABS = [['students', 'الطلاب والاشتراكات'], ['quizzes', 'الاختبارات والأسئلة'], ['results', 'النتائج'], ['trials', 'التجربة المجانية'], ['settings', 'الإعدادات']];
   let dirty = false;
   let lastHash = location.hash;
 
@@ -111,6 +113,7 @@
     if (page === 'results') return showResults(arg ? Number(arg) : 0);
     if (page === 'progress') return showStudentProgress(Number(arg));
     if (page === 'settings') return showSettings();
+    if (page === 'trials') return showTrials();
     return showStudents();
   }
   window.addEventListener('hashchange', route);
@@ -340,6 +343,48 @@
       h('p', { class: 'small muted', style: { marginTop: '12px' } }, 'يبدأ اشتراك كل طالب (' + settings.subscription_months + ' شهور) تلقائياً من أول تسجيل دخول، ويُغلق حسابه تلقائياً عند انتهاء المدة حتى تجدده.'));
   }
 
+  // ---------- Free-trial visitors ----------
+
+  async function showTrials() {
+    loading('trials');
+    let data;
+    try { data = await call('admin.trials'); } catch (e) { return; }
+    const trials = data.trials;
+    const done = trials.filter((t) => t.finished_at !== null);
+    const avg = done.length ? Math.round(done.reduce((n, t) => n + t.pct, 0) / done.length) : null;
+    const followUp = (t) => waLink(t.phone, 'مرحباً ' + t.name + '، شكراً لتجربتك ' + settings.trial_title + ' على ' + settings.platform_name +
+      (t.finished_at !== null ? ' وحصولك على ' + t.pct + '%' : '') + '. يسعدنا اشتراكك للوصول لكل الأسئلة مع الشرح والاختبارات التجريبية ومتابعة تقدمك.');
+    const rows = trials.map((t) => h('tr', {},
+      h('td', {}, h('b', {}, t.name), t.subscribed ? h('div', {}, h('span', { class: 'badge good' }, 'اشترك')) : null),
+      h('td', { dir: 'ltr', style: { textAlign: 'right' } }, '+' + t.phone),
+      h('td', { class: 'small' }, fmtDateTime(t.started_at)),
+      h('td', {}, t.finished_at !== null
+        ? h('span', { class: 'badge ' + (t.pct >= 50 ? 'good' : 'bad') }, 'أنهى · ' + t.pct + '% (' + t.correct + '/' + t.total + ')')
+        : h('span', { class: 'badge warn' }, 'لم يكمل · ' + t.answered + ' من ' + t.total)),
+      h('td', {}, h('div', { class: 'row' },
+        followUp(t) ? h('a', { class: 'btn sm good', href: followUp(t), target: '_blank', rel: 'noopener' }, UI.icon('chat', 16), 'واتساب') : null,
+        h('button', { class: 'btn sm ghost', title: 'حذف', onclick: async () => {
+          if (!window.confirm('حذف "' + t.name + '" من قائمة التجربة المجانية؟ سيتمكن هذا الرقم من التجربة مرة أخرى.')) return;
+          await call('admin.trial.delete', { id: t.id }).catch(() => {});
+          showTrials();
+        } }, 'حذف')))));
+    shell('trials',
+      h('div', { class: 'kpis' },
+        h('div', { class: 'kpi' }, h('b', {}, trials.length), h('span', { class: 'small muted' }, 'جرّبوا المنصة')),
+        h('div', { class: 'kpi' }, h('b', {}, done.length), h('span', { class: 'small muted' }, 'أنهوا الاختبار')),
+        h('div', { class: 'kpi' }, h('b', {}, avg === null ? '—' : avg + '%'), h('span', { class: 'small muted' }, 'متوسط النتيجة')),
+        h('div', { class: 'kpi' }, h('b', {}, trials.filter((t) => t.subscribed).length), h('span', { class: 'small muted' }, 'اشتركوا بعدها'))),
+      h('div', { class: 'card', style: { marginBottom: '16px' } },
+        h('h2', { class: 'row', style: { gap: '8px' } }, UI.icon('sparkle', 22), 'رابط الاختبار المجاني'),
+        h('p', { class: 'muted' }, 'انشريه على واتساب أو السوشيال ميديا: يفتح للزائر ' + settings.trial_title + ' مباشرة بدون حساب، بعد كتابة اسمه ورقم الواتساب.' +
+          (settings.trial_enabled === '1' ? '' : ' (الاختبار المجاني متوقف الآن، فعّليه من الإعدادات.)')),
+        h('div', { class: 'row' }, h('code', { dir: 'ltr', style: { wordBreak: 'break-all' } }, trialUrl), h('button', { class: 'btn sm', onclick: () => copyText(trialUrl) }, 'نسخ'))),
+      h('div', { class: 'table-wrap' }, h('table', {},
+        h('thead', {}, h('tr', {}, ['الاسم', 'واتساب', 'بدأ', 'النتيجة', ''].map((x) => h('th', {}, x)))),
+        h('tbody', {}, rows.length ? rows : h('tr', {}, h('td', { colspan: 5, class: 'empty' }, 'لم يجرّب أحد الاختبار المجاني بعد. انشري الرابط لتبدأ القائمة.'))))),
+      h('p', { class: 'small muted', style: { marginTop: '12px' } }, 'تظهر "اشترك" عندما يكون لدى أحد الطلاب نفس رقم الموبايل كاسم مستخدم.'));
+  }
+
   // ---------- Quizzes ----------
 
   async function showQuizzes() {
@@ -366,7 +411,12 @@
           showQuizzes();
         } }, 'حذف')))));
 
+    const sum = (list) => list.reduce((n, q) => n + q.total, 0);
     shell('quizzes',
+      h('div', { class: 'kpis' },
+        h('div', { class: 'kpi' }, h('b', {}, sum(quizzes).toLocaleString('en-US')), h('span', { class: 'small muted' }, 'إجمالي الأسئلة على المنصة')),
+        h('div', { class: 'kpi' }, h('b', {}, sum(quizzes.filter((q) => q.published)).toLocaleString('en-US')), h('span', { class: 'small muted' }, 'أسئلة ظاهرة للطلاب')),
+        h('div', { class: 'kpi' }, h('b', {}, quizzes.length), h('span', { class: 'small muted' }, 'اختبار (ملف)'))),
       h('div', { class: 'toolbar' },
         h('h1', { class: 'spacer', style: { margin: 0 } }, 'الاختبارات'),
         h('a', { class: 'btn primary', href: '#quiz/new' }, '+ اختبار جديد')),
@@ -982,6 +1032,36 @@
       h('div', {}, h('button', { class: 'btn primary', type: 'submit' }, 'حفظ')));
   }
 
+  function trialSettingsCard() {
+    const f = {
+      enabled: h('input', { type: 'checkbox', checked: settings.trial_enabled === '1' }),
+      title: h('input', { class: 'input', value: settings.trial_title }),
+      size: h('input', { class: 'input', type: 'number', min: 5, max: 1000, value: settings.trial_size, style: { maxWidth: '140px' } }),
+      seconds: h('input', { class: 'input', type: 'number', min: 10, max: 600, value: settings.trial_seconds, style: { maxWidth: '140px' } }),
+      feedback: h('input', { type: 'checkbox', checked: settings.trial_feedback === '1' }),
+      message: h('textarea', { class: 'input', rows: 3 }, settings.trial_message),
+      count: h('input', { type: 'checkbox', checked: settings.show_question_count === '1' }),
+    };
+    return h('form', { class: 'card', onsubmit: (e) => {
+      e.preventDefault();
+      saveSettings({
+        trial_enabled: f.enabled.checked, trial_title: f.title.value, trial_size: f.size.value, trial_seconds: f.seconds.value,
+        trial_feedback: f.feedback.checked, trial_message: f.message.value, show_question_count: f.count.checked,
+      });
+    } },
+      h('h2', { class: 'row', style: { gap: '8px' } }, UI.icon('sparkle', 22), 'الاختبار المجاني للزوار'),
+      h('p', { class: 'muted' }, 'عينة مجانية لغير المشتركين: أسئلة من كل الملفات المنشورة بالتساوي، مرة واحدة لكل رقم واتساب. في النهاية يرى الزائر نتيجته في كل ملف ودعوة للاشتراك. قائمة الزوار في تبويب "التجربة المجانية".'),
+      h('label', { class: 'check', style: { marginBottom: '14px' } }, f.enabled, 'تفعيل الاختبار المجاني (زر "جرّب مجاناً" في صفحة الدخول)'),
+      field('اسم الاختبار', f.title),
+      field('عدد الأسئلة', f.size),
+      field('الوقت لكل سؤال (بالثواني)', f.seconds),
+      h('label', { class: 'check', style: { marginBottom: '14px' } }, f.feedback, 'إظهار الإجابة الصحيحة والشرح بعد كل سؤال (يعرّف الزائر بقوة المنصة)'),
+      field('رسالة الدعوة للاشتراك', f.message, 'تظهر للزائر مع نتيجته، مع زر واتساب على رقم التجديد في إعدادات المنصة.'),
+      h('label', { class: 'check', style: { marginBottom: '14px' } }, f.count, 'إظهار عداد إجمالي الأسئلة في صفحة الدخول والصفحة الرئيسية'),
+      h('p', { class: 'small' }, 'الرابط المباشر: ', h('code', { dir: 'ltr' }, trialUrl), ' ', h('button', { class: 'btn sm', type: 'button', onclick: () => copyText(trialUrl) }, 'نسخ')),
+      h('div', {}, h('button', { class: 'btn primary', type: 'submit' }, 'حفظ')));
+  }
+
   function servicesSettingsCard() {
     const f = {
       enabled: h('input', { type: 'checkbox', checked: settings.services_enabled === '1' }),
@@ -1042,6 +1122,7 @@
           h('label', { class: 'check', style: { marginBottom: '16px' } }, f.single_device, 'جهاز واحد لكل طالب (الدخول من جهاز جديد يُخرج الجهاز القديم، لمنع مشاركة الحساب)'),
           h('div', {}, h('button', { class: 'btn primary', type: 'submit' }, 'حفظ الإعدادات'))),
         mockSettingsCard(),
+        trialSettingsCard(),
         servicesSettingsCard(),
         h('form', { class: 'card', onsubmit: async (e) => {
           e.preventDefault();

@@ -1,6 +1,6 @@
 // Student app: login, home (daily goal, streak, mock exam, quiz tiles), question player with
 // flag / highlight / strike-out, timed mock exam, results with scores per file, flagged
-// questions, progress and account pages.
+// questions, progress and account pages. Visitors without an account can take one free trial exam.
 (function () {
   'use strict';
 
@@ -24,6 +24,10 @@
       showBlocked(err.code, err.message);
       return true;
     }
+    if (err.code === 'trial_auth') {
+      showTrialIntro();
+      return true;
+    }
     toast(err.message, 'bad');
     return false;
   }
@@ -44,8 +48,28 @@
     mount(h('div', { class: 'auth' }, content));
   }
 
+  function fmtNum(n) {
+    return Number(n || 0).toLocaleString('en-US');
+  }
+
+  // "1,250 سؤال على المنصة": the question counter on the login, trial and home pages.
+  function questionCounter(stats) {
+    if (!S.show_question_count || !stats || !stats.questions) return null;
+    return h('div', { class: 'q-counter' },
+      h('span', { class: 'ico' }, icon('book', 22)),
+      h('div', {},
+        h('b', {}, fmtNum(stats.questions)),
+        h('span', {}, 'سؤال على المنصة' + (stats.quizzes > 1 ? ' في ' + stats.quizzes + ' ملف' : ''))));
+  }
+
+  function clearTrialHash() {
+    if (location.hash === '#trial') history.replaceState(null, '', location.pathname + location.search);
+  }
+
   function showLogin(notice) {
     stopMockTimer();
+    attempt = null;
+    clearTrialHash();
     const error = h('div', { class: 'alert bad hidden', role: 'alert' });
     const user = h('input', { class: 'input', id: 'login-user', name: 'username', autocomplete: 'username', required: true, dir: 'ltr' });
     const pass = h('input', { class: 'input', id: 'login-pass', name: 'password', type: 'password', autocomplete: 'current-password', required: true, dir: 'ltr' });
@@ -78,7 +102,11 @@
       logo || logoMark(56),
       h('h1', { class: logo ? 'sr-only' : '' }, S.platform_name),
       h('p', { class: 'lead' }, 'سجّل الدخول وابدأ حل الأسئلة'),
+      questionCounter(APP.stats),
       form,
+      S.trial_enabled && APP.stats && APP.stats.questions ? h('div', { class: 'trial-cta' },
+        h('div', {}, h('b', {}, 'مش مشترك لسه؟'), h('span', {}, 'جرّب المنصة مجاناً بدون حساب')),
+        h('button', { class: 'btn gold', type: 'button', onclick: () => showTrialIntro() }, icon('sparkle', 18), 'جرّب مجاناً')) : null,
       h('div', { class: 'row', style: { justifyContent: 'center', marginTop: '14px' } }, themeButton())));
     user.focus();
   }
@@ -203,7 +231,8 @@
         data.mock && data.mock.available ? mockHero(data.mock) : null,
         open ? resumeCard(open) : null,
         flagsCount ? flagCard() : null),
-      h('div', { class: 'section-head' }, h('h2', {}, 'اختباراتك'), h('span', { class: 'muted small' }, data.quizzes.length + ' ملف')),
+      h('div', { class: 'section-head' }, h('h2', {}, 'اختباراتك'),
+        h('span', { class: 'muted small' }, (S.show_question_count ? fmtNum(data.quizzes.reduce((n, q) => n + q.total, 0)) + ' سؤال · ' : '') + data.quizzes.length + ' ملف')),
       data.quizzes.length
         ? h('div', { class: 'tiles' }, data.quizzes.map(quizTile))
         : h('div', { class: 'card empty' }, h('div', { class: 'big' }, icon('book', 28)), h('p', {}, 'لا توجد اختبارات متاحة حالياً. ستظهر هنا فور إضافتها.')),
@@ -610,7 +639,7 @@
   // Keyboard: 1-9 or A-J picks an option, arrows move between questions.
   document.addEventListener('keydown', (e) => {
     if (!attempt || !document.querySelector('.q-card') || e.target.closest('input, textarea') || document.querySelector('.modal-backdrop')) return;
-    if (attempt.mode === 'mock') return mockKey(e);
+    if (attempt.mode === 'mock' || attempt.mode === 'trial') return mockKey(e);
     const q = attempt.questions[index];
     let pick = -1;
     if (/^[1-9]$/.test(e.key)) pick = Number(e.key) - 1;
@@ -702,6 +731,7 @@
     if (newQuestion) { mockSelected = null; mockDeadline = Date.now() + a.seconds * 1000; }
     const out = struck.get(q.id) || new Set();
     const again = () => renderMock(false);
+    const trial = a.mode === 'trial';
 
     const options = q.options.map((text, i) => {
       let cls = 'option';
@@ -741,9 +771,13 @@
       : [h('button', { class: 'btn', onclick: () => mockSubmit(-1) }, isLast ? 'تخطي وإنهاء' : 'تخطي'), h('span', { class: 'spacer hide-sm' }), a.feedback ? null : confirmBtn];
 
     focusPage(!newQuestion,
-      focusHead('حفظ والخروج', () => { stopMockTimer(); toast('تم حفظ تقدمك، ويمكنك استكمال الاختبار لاحقاً'); showHome(); },
-        'السؤال ' + (index + 1) + ' من ' + total, '', done / total,
-        h('div', { class: 'row', style: { gap: '6px', flexWrap: 'nowrap' } }, timer, revealed ? null : eyeBtn, flagButton(q, again))),
+      focusHead('حفظ والخروج', () => {
+        stopMockTimer();
+        toast(trial ? 'تم حفظ تقدمك، ويمكنك استكمال الاختبار من نفس الجهاز' : 'تم حفظ تقدمك، ويمكنك استكمال الاختبار لاحقاً');
+        if (trial) showTrialIntro(); else showHome();
+      },
+        'السؤال ' + (index + 1) + ' من ' + total, trial ? a.title : '', done / total,
+        h('div', { class: 'row', style: { gap: '6px', flexWrap: 'nowrap' } }, timer, revealed ? null : eyeBtn, trial ? null : flagButton(q, again))),
       h('section', { class: 'q-card' + (state ? ' is-' + state : '') },
         h('div', { class: 'q-num' },
           q.source ? h('span', { class: 'badge info', dir: 'auto' }, q.source) : null,
@@ -791,7 +825,7 @@
     stopMockTimer();
     const q = attempt.questions[index];
     try {
-      const res = await call('student.answer', { attempt_id: attempt.id, question_id: q.id, choice });
+      const res = await call(attempt.mode === 'trial' ? 'trial.answer' : 'student.answer', { attempt_id: attempt.id, question_id: q.id, choice });
       if (res.chosen < 0) q.skipped = true; else q.chosen = res.chosen;
       noteDaily(res);
       if (res.correct_index !== undefined) {
@@ -819,10 +853,176 @@
 
   async function finishMock() {
     stopMockTimer();
+    const trial = attempt.mode === 'trial';
     try {
-      const res = await call('student.finish', { attempt_id: attempt.id });
-      showResults(res.attempt, true);
+      const res = await call(trial ? 'trial.finish' : 'student.finish', { attempt_id: attempt.id });
+      if (trial) showTrialResults(res.attempt, true); else showResults(res.attempt, true);
     } catch (e) { /* handled */ }
+  }
+
+  // ---------- Free trial: one sample exam for visitors, then an invitation to subscribe ----------
+
+  const TRIAL_KEY = 'mcq-trial-token';
+  function trialToken() {
+    try { return localStorage.getItem(TRIAL_KEY) || ''; } catch (e) { return ''; }
+  }
+  function saveTrialToken(token) {
+    try { if (token) localStorage.setItem(TRIAL_KEY, token); else localStorage.removeItem(TRIAL_KEY); } catch (e) { /* storage blocked */ }
+  }
+
+  function subscribeLink(text) {
+    return whatsappLink(text || 'مرحباً، أريد الاشتراك في ' + S.platform_name);
+  }
+
+  function subscribeButtons(waText, noLogin) {
+    const wa = subscribeLink(waText);
+    return h('div', { class: 'stack', style: { gap: '10px' } },
+      wa ? h('a', { class: 'btn gold lg block', href: wa, target: '_blank', rel: 'noopener' }, icon('chat', 20), 'اشترك الآن عبر واتساب') : null,
+      noLogin ? null : h('button', { class: 'btn ghost block', type: 'button', onclick: () => showLogin('') }, 'عندي حساب · تسجيل الدخول'));
+  }
+
+  async function showTrialIntro() {
+    stopMockTimer();
+    attempt = null;
+    if (location.hash !== '#trial') history.replaceState(null, '', location.pathname + location.search + '#trial');
+    authPage(h('div', { class: 'boot', style: { minHeight: '50vh' } }, h('div', { class: 'spinner' })));
+    let info;
+    try {
+      info = await api('trial.info', { token: trialToken() });
+    } catch (err) {
+      if (err.code === 'csrf') return location.reload();
+      toast(err.message, 'bad');
+      return showLogin('');
+    }
+    const t = info.trial;
+    const error = h('div', { class: 'alert bad hidden', role: 'alert' });
+    const usedBox = h('div', { class: 'hidden' });
+    const features = [
+      ['check', 'تعرف الإجابة الصحيحة وشرحها بعد كل سؤال'],
+      ['marker', 'ظلّل الكلمات المهمة في السؤال'],
+      ['strike', 'استبعد الاختيارات اللي متأكد إنها غلط'],
+      ['timer', secondsLabel(info.seconds) + ' لكل سؤال، ويمكنك إخفاء المؤقت'],
+      ['chart', 'نتيجتك في كل ملف بنهاية الاختبار'],
+    ];
+    let body;
+    if (t) {
+      body = h('div', { class: 'stack', style: { gap: '12px' } },
+        h('div', { class: 'alert ' + (t.finished ? 'good' : 'info') },
+          t.finished ? 'أنهيت الاختبار المجاني يا ' + t.name + ' بنتيجة ' + t.pct + '%' : 'أهلاً ' + t.name + '، وصلت للسؤال ' + Math.min(t.answered + 1, t.total) + ' من ' + t.total),
+        h('button', { class: 'btn primary lg block', type: 'button', onclick: () => resumeTrial() },
+          t.finished ? 'اعرض نتيجتك' : 'أكمل الاختبار', icon('forward', 18)),
+        t.finished ? subscribeButtons('مرحباً، أنا ' + t.name + '، جرّبت ' + S.trial_title + ' وحصلت على ' + t.pct + '%. أريد الاشتراك في ' + S.platform_name) : null,
+        h('button', {
+          class: 'btn ghost sm', type: 'button', style: { justifySelf: 'center' },
+          onclick: async () => { try { await api('trial.leave'); } catch (e) { /* ignore */ } saveTrialToken(''); showTrialIntro(); },
+        }, 'لست ' + t.name + '؟'));
+    } else if (!info.enabled || !info.size) {
+      body = h('div', { class: 'stack', style: { gap: '12px' } },
+        h('div', { class: 'alert warn' }, 'الاختبار المجاني غير متاح حالياً.'),
+        subscribeButtons());
+    } else {
+      const name = h('input', { class: 'input', id: 'trial-name', name: 'name', autocomplete: 'name', required: true, maxlength: 80 });
+      const phone = h('input', { class: 'input', id: 'trial-phone', name: 'phone', type: 'tel', autocomplete: 'tel', inputmode: 'tel', required: true, dir: 'ltr', placeholder: '05xxxxxxxx', maxlength: 20 });
+      const submit = h('button', { class: 'btn primary block lg', type: 'submit' }, 'ابدأ الاختبار المجاني', icon('forward', 18));
+      body = h('form', {
+        onsubmit: async (e) => {
+          e.preventDefault();
+          error.classList.add('hidden');
+          usedBox.classList.add('hidden');
+          submit.disabled = true;
+          try {
+            const res = await api('trial.start', { name: name.value, phone: phone.value, token: trialToken() });
+            saveTrialToken(res.token);
+            playTrial(res.attempt);
+          } catch (err) {
+            if (err.code === 'csrf') return location.reload();
+            if (err.code === 'trial_used') {
+              usedBox.replaceChildren(h('div', { class: 'alert warn' }, err.message),
+                subscribeButtons('مرحباً، أنا ' + name.value.trim() + '، جرّبت الاختبار المجاني وأريد الاشتراك في ' + S.platform_name, true));
+              usedBox.classList.remove('hidden');
+            } else {
+              error.textContent = err.message;
+              error.classList.remove('hidden');
+            }
+          } finally {
+            submit.disabled = false;
+          }
+        },
+      },
+        error, usedBox,
+        h('label', { class: 'field', for: 'trial-name' }, h('span', {}, 'اسمك'), name),
+        h('label', { class: 'field', for: 'trial-phone' }, h('span', {}, 'رقم الواتساب'), phone),
+        submit,
+        h('p', { class: 'small muted', style: { textAlign: 'center', margin: '10px 0 0' } }, 'التجربة مرة واحدة لكل رقم، ويمكنك الخروج والاستكمال من نفس الجهاز.'));
+    }
+    const logo = fullLogo();
+    authPage(h('div', { class: 'card trial-intro' },
+      logo || logoMark(56),
+      h('div', { class: 'trial-pill' }, icon('sparkle', 16), 'مجاناً · بدون اشتراك'),
+      h('h1', {}, S.trial_title),
+      h('p', { class: 'lead' }, 'جرّب المنصة بنفسك: ' + info.size + ' سؤال من كل الملفات بالتساوي، بنفس طريقة الاختبار التجريبي للمشتركين.'),
+      questionCounter(info.stats),
+      h('ul', { class: 'trial-features' }, features.map(([ic, text]) => h('li', {}, h('span', { class: 'ico' }, icon(ic, 18)), text))),
+      body,
+      t ? null : h('button', { class: 'btn ghost block', type: 'button', style: { marginTop: '10px' }, onclick: () => showLogin('') }, 'عندك حساب؟ سجّل الدخول'),
+      h('div', { class: 'row', style: { justifyContent: 'center', marginTop: '14px' } }, themeButton())));
+    const first = document.getElementById('trial-name');
+    if (first) first.focus();
+  }
+
+  async function resumeTrial() {
+    let res;
+    try { res = await call('trial.state'); } catch (e) { return; }
+    playTrial(res.attempt);
+  }
+
+  function playTrial(a) {
+    attempt = a;
+    if (a.finished) return showTrialResults(a, false);
+    const firstOpen = a.questions.findIndex((q) => q.chosen === undefined && !q.skipped);
+    if (firstOpen === -1) return finishMock();
+    index = firstOpen;
+    renderMock(true);
+  }
+
+  function showTrialResults(a, fresh) {
+    stopMockTimer();
+    attempt = null;
+    const c = counts(a);
+    const skipped = c.total - c.answered;
+    const pct = c.total ? Math.round((c.correct / c.total) * 100) : 0;
+    const message = pct >= 90 ? 'ممتاز! أداء رائع' : pct >= 75 ? 'أحسنت! نتيجة جيدة جداً' : pct >= 50 ? 'جيد، ومع التدريب هتتحسن أكثر' : 'بداية، والتدريب المنتظم هيفرق معاك';
+    const sources = sourceScores(a);
+    const waText = 'مرحباً، أنا ' + a.name + '، جرّبت ' + a.title + ' على ' + S.platform_name + ' وحصلت على ' + pct + '%. أريد الاشتراك في المنصة.';
+    const stats = APP.stats || {};
+    const cta = (big) => h('section', { class: 'card cta-card' + (big ? ' big' : '') },
+      h('span', { class: 'ico' }, icon('sparkle', 26)),
+      h('h2', {}, big ? 'اشترك وكمّل مذاكرتك' : 'جاهز تكمل؟'),
+      h('p', {}, S.trial_message),
+      big && S.show_question_count && stats.questions ? h('div', { class: 'cta-stats' },
+        h('div', {}, h('b', {}, fmtNum(stats.questions)), h('span', {}, 'سؤال')),
+        stats.quizzes ? h('div', {}, h('b', {}, stats.quizzes), h('span', {}, 'ملف')) : null,
+        h('div', {}, h('b', {}, '∞'), h('span', {}, 'اختبارات تجريبية'))) : null,
+      subscribeButtons(waText));
+    focusPage(false,
+      h('section', { class: 'card result-hero' },
+        h('div', { class: 'muted', dir: 'auto' }, a.title + ' · ' + a.name),
+        h('div', { class: 'ring' }, ringSvg(pct / 100, 168, 14, 'goal-track', pct >= 50 ? 'goal-fill-blue' : 'goal-fill-bad'),
+          h('div', { class: 'val' }, h('span', {}, pct + '%', h('small', {}, c.correct + ' من ' + c.total)))),
+        h('h1', {}, message),
+        h('div', { class: 'stat-tiles' },
+          h('div', {}, h('b', { style: { color: 'var(--good)' } }, c.correct), h('span', {}, 'صحيحة')),
+          h('div', {}, h('b', { style: { color: 'var(--bad)' } }, c.wrong), h('span', {}, 'خاطئة')),
+          skipped ? h('div', {}, h('b', { style: { color: 'var(--warn)' } }, skipped), h('span', {}, 'بدون إجابة')) : null,
+          h('div', {}, h('b', {}, c.total), h('span', {}, 'إجمالي')))),
+      cta(true),
+      sources.length > 1 ? h('section', { class: 'card', style: { marginTop: '16px' } },
+        h('h2', {}, 'نتيجتك في كل ملف'),
+        h('p', { class: 'small muted', style: { marginTop: 0 } }, 'المشتركون يتدربون على كل ملف كاملاً، ويراجعون أخطاءهم، ويتابعون تقدمهم.'),
+        UI.topicBars(sources, { onPractice: null })) : null,
+      UI.reviewList(a),
+      h('div', { style: { marginTop: '16px' } }, cta(false)));
+    if (fresh && pct >= 80) confetti();
   }
 
   // Keyboard: 1-9 / A-J choose, Enter confirms.
@@ -941,6 +1141,7 @@
       showHome();
     } catch (err) {
       if (err.code === 'expired' || err.code === 'suspended') showBlocked(err.code, err.message);
+      else if (location.hash === '#trial' && S.trial_enabled) showTrialIntro();
       else showLogin(err.code === 'other_device' ? err.message : '');
     }
   })();

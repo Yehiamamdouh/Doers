@@ -36,6 +36,8 @@ jobs:
           python3 mcq-platform/tests/mock_test.py || { docker logs php72 | tail -30; exit 1; }
           rm -rf mcq-platform/data/platform.sqlite* mcq-platform/data/media
           python3 mcq-platform/tests/features_test.py || { docker logs php72 | tail -30; exit 1; }
+          rm -rf mcq-platform/data/platform.sqlite* mcq-platform/data/media
+          python3 mcq-platform/tests/trial_test.py || { docker logs php72 | tail -30; exit 1; }
           docker rm -f php72
           rm -rf mcq-platform/data/platform.sqlite* mcq-platform/data/media
 

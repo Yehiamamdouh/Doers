@@ -25,6 +25,15 @@ const DEFAULT_SETTINGS = [
     'services_title' => 'خدماتنا الإضافية',
     'services_text' => '',
     'services_whatsapp' => '',
+    // Free trial: a sample exam visitors take without an account, to try the platform.
+    'trial_enabled' => '1',
+    'trial_title' => 'الاختبار المجاني',
+    'trial_size' => '200',
+    'trial_seconds' => '60',
+    'trial_feedback' => '1',
+    'trial_message' => 'أعجبتك التجربة؟ اشترك الآن واحصل على كل أسئلة المنصة مع الشرح، واختبارات تجريبية غير محدودة بأسئلة مختلفة كل مرة، ومتابعة تقدمك ونتيجتك في كل ملف.',
+    // Total number of questions on the login and home pages.
+    'show_question_count' => '1',
 ];
 
 date_default_timezone_set('Africa/Cairo');
@@ -159,6 +168,19 @@ CREATE TABLE IF NOT EXISTS flags (
     question_id INTEGER NOT NULL REFERENCES questions(id) ON DELETE CASCADE,
     created_at INTEGER NOT NULL,
     PRIMARY KEY (student_id, question_id)
+);
+CREATE TABLE IF NOT EXISTS trials (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    phone TEXT NOT NULL UNIQUE,
+    token TEXT NOT NULL,
+    question_ids TEXT NOT NULL,
+    answers TEXT NOT NULL DEFAULT '{}',
+    correct_count INTEGER NOT NULL DEFAULT 0,
+    ip TEXT NOT NULL DEFAULT '',
+    started_at INTEGER NOT NULL,
+    last_seen_at INTEGER NOT NULL,
+    finished_at INTEGER
 );
 CREATE TABLE IF NOT EXISTS activity (
     student_id INTEGER NOT NULL REFERENCES students(id) ON DELETE CASCADE,
@@ -407,7 +429,20 @@ function public_settings(): array
         'services_title' => $s['services_title'],
         'services_text' => $s['services_text'],
         'services_whatsapp' => $s['services_whatsapp'],
+        'trial_enabled' => $s['trial_enabled'] === '1',
+        'trial_title' => $s['trial_title'],
+        'trial_seconds' => (int)$s['trial_seconds'],
+        'trial_message' => $s['trial_message'],
+        'show_question_count' => $s['show_question_count'] === '1',
     ];
+}
+
+// What the question counter shows: questions in the published quizzes students can open.
+function platform_stats(): array
+{
+    $row = db()->query("SELECT COUNT(qs.id) AS questions, COUNT(DISTINCT qs.quiz_id) AS quizzes
+        FROM questions qs JOIN quizzes q ON q.id = qs.quiz_id WHERE q.published = 1 AND q.kind = 'normal'")->fetch();
+    return ['questions' => (int)$row['questions'], 'quizzes' => (int)$row['quizzes']];
 }
 
 function page_shell(string $title, array $scripts): void
@@ -432,7 +467,7 @@ function page_shell(string $title, array $scripts): void
     $icons = is_file(APP_ROOT . '/assets/brand/favicon.png')
         ? '<link rel="icon" type="image/png" href="assets/brand/favicon.png"><link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">'
         : '';
-    $boot = json_encode(['csrf' => $_SESSION['csrf'], 'settings' => public_settings(), 'brand' => $brand], JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_SLASHES);
+    $boot = json_encode(['csrf' => $_SESSION['csrf'], 'settings' => public_settings(), 'brand' => $brand, 'stats' => platform_stats()], JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_SLASHES);
     $name = htmlspecialchars(settings()['platform_name'], ENT_QUOTES);
     $title = htmlspecialchars($title, ENT_QUOTES);
     $tags = '';

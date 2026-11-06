@@ -128,29 +128,24 @@ function load_attempt(int $id, int $studentId): array
     return $a;
 }
 
-// Questions of an attempt in order. The correct answer and explanation are only
-// sent once the student has answered that question (or finished the attempt).
-function attempt_payload(array $a): array
+// Questions in order for the player. The correct answer and explanation are only
+// sent once that question is answered (when $reveal allows it) or the exam is finished.
+function questions_payload(array $questionIds, array $answers, bool $finished, bool $reveal, bool $withSource, array $flagged): array
 {
-    $byId = questions_by_ids($a['question_ids']);
-    $flagged = flagged_ids((int)$a['student_id']);
-    $finished = $a['finished_at'] !== null;
-    $mock = $a['mode'] === 'mock';
-    // In a mock exam the answers stay hidden until the end, unless the teacher chose to show them.
-    $reveal = !$mock || settings()['mock_feedback'] === '1';
+    $byId = questions_by_ids($questionIds);
     $questions = [];
-    foreach ($a['question_ids'] as $qid) {
+    foreach ($questionIds as $qid) {
         if (!isset($byId[$qid])) {
             continue;
         }
         $q = $byId[$qid];
         $item = ['id' => $q['id'], 'text' => $q['text'], 'image' => $q['image'], 'options' => $q['options'], 'flagged' => isset($flagged[$q['id']])];
-        if ($mock || $a['mode'] === 'review') {
+        if ($withSource) {
             $item['source'] = $q['source'];
         }
-        $chosen = $a['answers'][(string)$qid] ?? null;
+        $chosen = $answers[(string)$qid] ?? null;
         if ($chosen !== null && (int)$chosen < 0) {
-            $item['skipped'] = true; // skipped or ran out of time in a mock exam
+            $item['skipped'] = true; // skipped or ran out of time in a timed exam
         } elseif ($chosen !== null) {
             $item['chosen'] = (int)$chosen;
         }
@@ -160,6 +155,17 @@ function attempt_payload(array $a): array
         }
         $questions[] = $item;
     }
+    return $questions;
+}
+
+function attempt_payload(array $a): array
+{
+    $finished = $a['finished_at'] !== null;
+    $mock = $a['mode'] === 'mock';
+    // In a mock exam the answers stay hidden until the end, unless the teacher chose to show them.
+    $reveal = !$mock || settings()['mock_feedback'] === '1';
+    $questions = questions_payload($a['question_ids'], $a['answers'], $finished, $reveal,
+        $mock || $a['mode'] === 'review', flagged_ids((int)$a['student_id']));
     $payload = [
         'id' => (int)$a['id'],
         'quiz_id' => (int)$a['quiz_id'],
@@ -387,7 +393,6 @@ function mock_pool(): array
 //   seen longest ago, so every exam is different until the question bank runs out.
 function build_mock(int $studentId): array
 {
-    $groups = mock_pool();
     $stmt = db()->prepare("SELECT question_ids FROM attempts WHERE student_id = ? AND quiz_id = ? AND mode = 'mock' ORDER BY id");
     $stmt->execute([$studentId, mock_quiz_id()]);
     $lastSeen = [];
@@ -398,6 +403,14 @@ function build_mock(int $studentId): array
             $lastSeen[(int)$qid] = $round;
         }
     }
+    return pick_balanced(mock_pool(), (int)settings()['mock_size'], $lastSeen);
+}
+
+// $size questions spread equally over the quizzes in $groups (quiz id => question ids); a quiz with
+// fewer questions than its share passes the rest to the others. Within a quiz, questions with a lower
+// $lastSeen value come first, ties in random order. The result is shuffled.
+function pick_balanced(array $groups, int $size, array $lastSeen = []): array
+{
     foreach ($groups as $quizId => $ids) {
         $order = [];
         foreach ($ids as $qid) {
@@ -408,7 +421,7 @@ function build_mock(int $studentId): array
     }
 
     $total = array_sum(array_map('count', $groups));
-    $remaining = min(max(1, (int)settings()['mock_size']), $total);
+    $remaining = min(max(1, $size), $total);
     $take = array_fill_keys(array_keys($groups), 0);
     $open = array_keys($groups);
     while ($remaining > 0 && $open) {
@@ -431,6 +444,83 @@ function build_mock(int $studentId): array
     }
     shuffle($picked);
     return $picked;
+}
+
+// ---------- Free trial (visitors without an account) ----------
+
+// Phone numbers as WhatsApp wants them, so 0571216884 and +966571216884 are the same visitor.
+function normalize_phone(string $raw): string
+{
+    $d = preg_replace('/\D+/', '', clean_username($raw));
+    if (strpos($d, '00') === 0) {
+        $d = substr($d, 2);
+    }
+    if (strlen($d) === 11 && strpos($d, '01') === 0) {
+        $d = '20' . substr($d, 1); // Egypt
+    } elseif (strlen($d) === 10 && strpos($d, '05') === 0) {
+        $d = '966' . substr($d, 1); // Saudi Arabia
+    }
+    return $d;
+}
+
+function load_trial(int $id): ?array
+{
+    $stmt = db()->prepare('SELECT * FROM trials WHERE id = ?');
+    $stmt->execute([$id]);
+    $t = $stmt->fetch();
+    if (!$t) {
+        return null;
+    }
+    $t['id'] = (int)$t['id'];
+    $t['question_ids'] = json_decode($t['question_ids'], true) ?: [];
+    $t['answers'] = json_decode($t['answers'], true) ?: [];
+    return $t;
+}
+
+function current_trial(): array
+{
+    $t = load_trial((int)($_SESSION['trial_id'] ?? 0));
+    if (!$t) {
+        unset($_SESSION['trial_id']);
+        fail('ابدأ الاختبار المجاني من جديد.', 401, 'trial_auth');
+    }
+    return $t;
+}
+
+function trial_size(): int
+{
+    return max(1, (int)settings()['trial_size']);
+}
+
+function trial_payload(array $t): array
+{
+    $finished = $t['finished_at'] !== null;
+    $reveal = settings()['trial_feedback'] === '1';
+    return [
+        'id' => $t['id'],
+        'quiz_id' => 0,
+        'title' => settings()['trial_title'],
+        'mode' => 'trial',
+        'name' => $t['name'],
+        'finished' => $finished,
+        'finished_at' => $finished ? (int)$t['finished_at'] : null,
+        'correct_count' => (int)$t['correct_count'],
+        'questions' => questions_payload($t['question_ids'], $t['answers'], $finished, $reveal, true, []),
+        'previous_pct' => null,
+        'seconds' => max(10, (int)settings()['trial_seconds']),
+        'feedback' => $reveal,
+    ];
+}
+
+function trial_summary(array $t): array
+{
+    return [
+        'name' => $t['name'],
+        'answered' => count($t['answers']),
+        'total' => count($t['question_ids']),
+        'finished' => $t['finished_at'] !== null,
+        'pct' => pct((int)$t['correct_count'], count($t['question_ids'])),
+    ];
 }
 
 // ---------- Teacher ----------
@@ -753,6 +843,134 @@ switch ($action) {
         $s['daily_goal'] = $goal;
         json_out(['ok' => true, 'daily' => daily_state($s)]);
     }
+
+    // ----- Free trial (no account) -----
+
+    case 'trial.info': {
+        // The browser keeps the trial's token so a visitor can come back to it after closing the tab.
+        $token = str_in($in, 'token', 64);
+        if (empty($_SESSION['trial_id']) && $token !== '') {
+            $stmt = $pdo->prepare('SELECT id FROM trials WHERE token = ?');
+            $stmt->execute([$token]);
+            if ($id = $stmt->fetchColumn()) {
+                $_SESSION['trial_id'] = (int)$id;
+            }
+        }
+        $t = load_trial((int)($_SESSION['trial_id'] ?? 0));
+        $available = array_sum(array_map('count', mock_pool()));
+        json_out([
+            'ok' => true,
+            'enabled' => settings()['trial_enabled'] === '1',
+            'size' => min(trial_size(), $available),
+            'seconds' => max(10, (int)settings()['trial_seconds']),
+            'stats' => platform_stats(),
+            'trial' => $t ? trial_summary($t) : null,
+        ]);
+    }
+
+    case 'trial.start': {
+        $name = preg_replace('/\s+/u', ' ', str_in($in, 'name', 80));
+        $phone = normalize_phone(str_in($in, 'phone', 40));
+        $token = str_in($in, 'token', 64);
+        if (mb_strlen($name) < 2) {
+            fail('اكتب اسمك.');
+        }
+        if (strlen($phone) < 8 || strlen($phone) > 15) {
+            fail('اكتب رقم واتساب صحيح.');
+        }
+        $stmt = $pdo->prepare('SELECT id, token FROM trials WHERE phone = ?');
+        $stmt->execute([$phone]);
+        if ($row = $stmt->fetch()) {
+            // Same visitor coming back (same browser): continue or show the result.
+            if ((int)($_SESSION['trial_id'] ?? 0) === (int)$row['id'] || ($token !== '' && hash_equals($row['token'], $token))) {
+                $_SESSION['trial_id'] = (int)$row['id'];
+                $pdo->prepare('UPDATE trials SET last_seen_at = ? WHERE id = ?')->execute([time(), $row['id']]);
+                json_out(['ok' => true, 'token' => $row['token'], 'attempt' => trial_payload(load_trial((int)$row['id']))]);
+            }
+            fail('هذا الرقم استخدم الاختبار المجاني من قبل. اشترك الآن للوصول لكل أسئلة المنصة.', 409, 'trial_used');
+        }
+        if (settings()['trial_enabled'] !== '1') {
+            fail('الاختبار المجاني غير متاح حالياً.', 404, 'trial_off');
+        }
+        if (!empty($_SESSION['trial_id']) && load_trial((int)$_SESSION['trial_id'])) {
+            fail('جرّبت الاختبار المجاني من هذا الجهاز من قبل. اشترك الآن للوصول لكل أسئلة المنصة.', 409, 'trial_used');
+        }
+        $ip = (string)($_SERVER['REMOTE_ADDR'] ?? '');
+        $stmt = $pdo->prepare('SELECT COUNT(*) FROM trials WHERE ip = ? AND started_at > ?');
+        $stmt->execute([$ip, time() - 86400]);
+        if ((int)$stmt->fetchColumn() >= 5) {
+            fail('محاولات كثيرة من نفس الشبكة اليوم. حاول غداً أو تواصل معنا.', 429, 'rate');
+        }
+        $ids = pick_balanced(mock_pool(), trial_size());
+        if (!$ids) {
+            fail('لا توجد أسئلة متاحة بعد.');
+        }
+        $token = bin2hex(random_bytes(20));
+        $now = time();
+        $pdo->prepare('INSERT INTO trials (name, phone, token, question_ids, ip, started_at, last_seen_at) VALUES (?, ?, ?, ?, ?, ?, ?)')
+            ->execute([$name, $phone, $token, json_encode(array_values($ids)), $ip, $now, $now]);
+        $_SESSION['trial_id'] = (int)$pdo->lastInsertId();
+        json_out(['ok' => true, 'token' => $token, 'attempt' => trial_payload(current_trial())]);
+    }
+
+    case 'trial.state': {
+        $t = current_trial();
+        $pdo->prepare('UPDATE trials SET last_seen_at = ? WHERE id = ?')->execute([time(), $t['id']]);
+        json_out(['ok' => true, 'attempt' => trial_payload($t)]);
+    }
+
+    case 'trial.answer': {
+        $t = current_trial();
+        $qid = int_in($in, 'question_id');
+        $choice = int_in($in, 'choice');
+        if ($t['finished_at'] !== null) {
+            fail('انتهى الاختبار المجاني.');
+        }
+        if (!in_array($qid, $t['question_ids'], true)) {
+            fail('السؤال غير موجود في هذا الاختبار.');
+        }
+        $question = questions_by_ids([$qid])[$qid] ?? null;
+        if (!$question) {
+            fail('تم حذف هذا السؤال.');
+        }
+        if ($choice < -1 || $choice >= count($question['options'])) {
+            fail('اختيار غير صالح.');
+        }
+        if (!array_key_exists((string)$qid, $t['answers'])) {
+            $t['answers'][(string)$qid] = $choice;
+            $correctCount = (int)$t['correct_count'] + ($choice === $question['correct'] ? 1 : 0);
+            $pdo->prepare('UPDATE trials SET answers = ?, correct_count = ?, last_seen_at = ? WHERE id = ?')
+                ->execute([json_encode($t['answers'], JSON_FORCE_OBJECT), $correctCount, time(), $t['id']]);
+        }
+        $chosen = (int)$t['answers'][(string)$qid];
+        if (settings()['trial_feedback'] !== '1') {
+            json_out(['ok' => true, 'chosen' => $chosen]);
+        }
+        if ($chosen < 0) {
+            json_out(['ok' => true, 'chosen' => $chosen, 'skipped' => true, 'correct_index' => $question['correct'], 'explanation' => $question['explanation']]);
+        }
+        json_out([
+            'ok' => true,
+            'chosen' => $chosen,
+            'correct' => $chosen === $question['correct'],
+            'correct_index' => $question['correct'],
+            'explanation' => $question['explanation'],
+        ]);
+    }
+
+    case 'trial.finish': {
+        $t = current_trial();
+        if ($t['finished_at'] === null) {
+            $t['finished_at'] = time();
+            $pdo->prepare('UPDATE trials SET finished_at = ?, last_seen_at = ? WHERE id = ?')->execute([$t['finished_at'], $t['finished_at'], $t['id']]);
+        }
+        json_out(['ok' => true, 'attempt' => trial_payload($t)]);
+    }
+
+    case 'trial.leave':
+        // "Not you?": forget the trial in this browser (the number still can't start a second one).
+        unset($_SESSION['trial_id']);
+        json_out(['ok' => true]);
 
     // ----- Teacher -----
 
@@ -1110,6 +1328,39 @@ switch ($action) {
         json_out(['ok' => true, 'results' => $rows]);
     }
 
+    case 'admin.trials': {
+        current_admin();
+        // A visitor counts as subscribed when a student account has the same phone number as username.
+        $students = [];
+        foreach ($pdo->query('SELECT username FROM students') as $row) {
+            $students[normalize_phone($row['username'])] = true;
+        }
+        $out = [];
+        foreach ($pdo->query('SELECT * FROM trials ORDER BY started_at DESC, id DESC') as $t) {
+            $total = count(json_decode($t['question_ids'], true) ?: []);
+            $out[] = [
+                'id' => (int)$t['id'],
+                'name' => $t['name'],
+                'phone' => $t['phone'],
+                'started_at' => (int)$t['started_at'],
+                'last_seen_at' => (int)$t['last_seen_at'],
+                'finished_at' => $t['finished_at'] === null ? null : (int)$t['finished_at'],
+                'answered' => count(json_decode($t['answers'], true) ?: []),
+                'correct' => (int)$t['correct_count'],
+                'total' => $total,
+                'pct' => pct((int)$t['correct_count'], $total),
+                'subscribed' => isset($students[$t['phone']]),
+            ];
+        }
+        json_out(['ok' => true, 'trials' => $out]);
+    }
+
+    case 'admin.trial.delete': {
+        current_admin();
+        $pdo->prepare('DELETE FROM trials WHERE id = ?')->execute([int_in($in, 'id')]);
+        json_out(['ok' => true]);
+    }
+
     case 'admin.settings.save': {
         current_admin();
         $values = (array)($in['settings'] ?? []);
@@ -1124,7 +1375,7 @@ switch ($action) {
                 $values[$key] = preg_replace('/\D+/', '', clean_username((string)$values[$key]));
             }
         }
-        foreach (['single_device', 'mock_enabled', 'mock_feedback', 'services_enabled'] as $key) {
+        foreach (['single_device', 'mock_enabled', 'mock_feedback', 'services_enabled', 'trial_enabled', 'trial_feedback', 'show_question_count'] as $key) {
             if (isset($values[$key])) {
                 $values[$key] = $values[$key] ? '1' : '0';
             }
@@ -1135,7 +1386,13 @@ switch ($action) {
         if (isset($values['mock_seconds'])) {
             $values['mock_seconds'] = (string)min(600, max(10, (int)$values['mock_seconds']));
         }
-        foreach (['mock_title' => 200, 'services_title' => 200, 'services_text' => 5000] as $key => $max) {
+        if (isset($values['trial_size'])) {
+            $values['trial_size'] = (string)min(1000, max(5, (int)$values['trial_size']));
+        }
+        if (isset($values['trial_seconds'])) {
+            $values['trial_seconds'] = (string)min(600, max(10, (int)$values['trial_seconds']));
+        }
+        foreach (['mock_title' => 200, 'services_title' => 200, 'services_text' => 5000, 'trial_title' => 200, 'trial_message' => 2000] as $key => $max) {
             if (isset($values[$key])) {
                 $values[$key] = mb_substr(trim((string)$values[$key]), 0, $max);
             }
